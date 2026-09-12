@@ -41,9 +41,21 @@ Concretely:
 | Free pack MCP server | `…/patterns-pack-free/mcp-server/server.mjs` | tool names and shapes | Reused as naming precedent only (cited); no code copied. |
 | Free pack Markdown sheets | `…/patterns-pack-free/markdown/tool-use/*.md` | sheet layout | Layout reused for compiled reference sheets (cited). |
 
-Measured 2026-09-12: all 288 records have `tldr`, flow `nodes/edges`, `references`, `codeExamples`;
-35 also have `whenToUse, bestPractices, commonPitfalls, steps, implementationGuide`. Field coverage
-is therefore uneven and every compiled view must tolerate absent optional fields.
+Measured 2026-09-12 by parsing the raw pages (prototype in the plan): every page carries two
+sources of pattern content.
+
+1. The RSC props (JSON): the pattern object (`id, name, abbr, category, complexity, description,
+   example, features, useCases, references`) plus page-level `tldr{what, when, watchOut}`,
+   `codeExamples{typescript, python, rust}` and `flowScenario{title, description, initialNodes,
+   initialEdges, steps}`; and all 24 category objects (`id, name, description, detailedDescription,
+   whyImportant, implementationGuide{whenToUse, bestPractices, commonPitfalls}, techniques[]`).
+   `whenToUse / bestPractices / commonPitfalls` are **category-level**, not pattern-level.
+2. A streamed HTML block (`<div hidden id="S:3">…`) with per-pattern detail sections in one of two
+   templates: *deep* (35 pages: Core Mechanism, Workflow / Steps, Best Practices, When NOT to Use,
+   Common Pitfalls, Key Features, KPIs / Success Metrics, Token / Resource Usage, Best Use Cases) or
+   *standard* (253 pages: 30-Second Overview, Quick Implementation, Do's & Don'ts, When to Use, Key
+   Metrics, Top Use Cases). The extractor parses this block with `beautifulsoup4` (MIT) into
+   `content.details`, keyed by normalized heading, so both templates fit one shape.
 
 ## 4. Data model
 
@@ -58,10 +70,13 @@ generation.
 id            "<category>/<slug>"              stable key; equals the pack id where one exists
 name, category, kind, complexity
   kind        pattern | technique | benchmark | tool      (SP4+ sections add values; closed enum)
-content       description, tldr{what, when, watchOut}, features[], useCases[], whenToUse[],
-              bestPractices[], commonPitfalls[], steps[], example, code{typescript, python, rust},
-              references[], flow{nodes[], edges[]}
-              — field names identical to the pack's patterns.json; all optional except description, tldr
+content       description, abbr, tldr{what, when, watchOut}, features[], useCases[], example,
+              code{typescript, python, rust}, references[],
+              flow{title, description, nodes[], edges[], steps[]},
+              details{<normalized heading>: [str]}     e.g. core_mechanism, workflow_steps,
+                                                       when_not_to_use, quick_implementation …
+              — field names identical to the pack's patterns.json where the pack has the field;
+                all optional except description and tldr
 selection     problem_signals[], preconditions[], contraindications[],
               facets{scale, latency_cost, token_cost, risk_class, maturity}      closed enums, see 4.2
               relations[{type, target, prefer_when}]
@@ -80,6 +95,13 @@ provenance    source{url, mirrored_at, extraction ∈ rsc-payload | free-pack, c
 | `token_cost` | low, medium, high |
 | `risk_class` | misroute, data-leak, unsafe-action, cost-runaway, quality-drift, none |
 | `maturity` | research, emerging, production |
+
+### 4.2b Category record
+
+`catalog/categories/<id>.json`, model `Category`: `id, name, description, detailedDescription,
+whyImportant, implementationGuide{whenToUse[], bestPractices[], commonPitfalls[]}, technique_ids[]`
+(ids of the patterns listed under `techniques`), `provenance.source`. Compiled GUIDE.md files open
+with the category's `implementationGuide`.
 
 ### 4.3 Index
 
