@@ -67,7 +67,7 @@ One file per pattern: `catalog/patterns/<category>/<slug>.json`. Pydantic v2 mod
 generation.
 
 ```
-id            "<category>/<slug>"              stable key; equals the pack id where one exists
+id            "<slug>"                         stable key; equals the pack id; slugs are unique across all 288 (measured)
 name, category, kind, complexity
   kind        pattern | technique | benchmark | tool      (SP4+ sections add values; closed enum)
 content       description, abbr, tldr{what, when, watchOut}, features[], useCases[], example,
