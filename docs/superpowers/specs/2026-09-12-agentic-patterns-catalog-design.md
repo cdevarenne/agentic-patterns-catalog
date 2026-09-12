@@ -106,7 +106,9 @@ SP1 ships two recipes, authored by hand from the documents named in ADR-0001 §2
 
 - `co-scientist-digital-lab`: supervisor → generation → reflection → tournament ranking →
   proximity → evolution → meta-review, with async task framework and context memory. Source: the
-  Co-Scientist paper and the generic modules of `flosci-copy` (`agents/`, `core/`; `poc/` excluded).
+  "Towards an AI co-scientist" (Gottweis, Weng, Daryin, Tu et al., Google, 2025-02-18; local copy
+  `../agentic-design-mirror/goggle_ai_coscientist.pdf`). This repository is an independent
+  implementation from the public paper; it reuses no prior code.
 - `drone-flight-plan`: knowledge grounding → plan generation → validate against rules → SORA risk
   score → document → HITL sign-off. Source: `drone_flightplan_usecase (1).md` §1 and §3,
   `drone_sora_hazards_bundle.md`.
@@ -257,7 +259,7 @@ before committing to a pattern.
 | SP2 | Persistence + activity ledger (full Postgres design, checkpoint analysis, observability views) | `Store`, `Ledger`, `PostgresStore` minimal impl |
 | SP3 | Policy layer (rego beyond RBAC; Conseca-style per-task policies from trusted context) | `PolicyDecisionPoint`, `OpaPDP`, `policy/` |
 | SP4 | Recipe DSL (bindings, parameters, validation) | `recipe.schema.json`, two recipes |
-| SP5 | Co-Scientist blueprint (generic digital lab from flosci; Celery task framework) | recipe `co-scientist-digital-lab` |
+| SP5 | Co-Scientist blueprint (generic digital lab from the Co-Scientist paper; Celery task framework) | recipe `co-scientist-digital-lab` |
 | SP6 | Drone fleet blueprint (flight plan, SORA, PX4 SITL) | recipe `drone-flight-plan` |
 | SP7 | Composer (use case → agent set) | recipes + `select` |
 | SP8 | BML loop + digital twin (Airflow vs Prefect vs LangGraph decided here) | `Ledger`, `eval.json` shape |

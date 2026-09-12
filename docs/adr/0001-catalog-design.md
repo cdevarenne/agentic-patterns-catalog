@@ -36,7 +36,7 @@ Facts measured or verified on 2026-09-12 (the command or source is named so each
 - FastMCP (`prefecthq/fastmcp`, Apache-2.0, v3.x) ships `GoogleProvider` (OAuth-proxy pattern, because Google has no Dynamic Client Registration); tools read `get_access_token().claims["email"]`; v3 requires credentials passed explicitly from `os.environ`. Source: context7 `/prefecthq/fastmcp`, `docs/integrations/google.mdx`.
 - Embabel consumes Streamable HTTP MCP servers via Spring AI (`spring.ai.mcp.client.streamable-http.connections.<name>.url`) and exposes them to `@Action`s as tool groups. Source: context7 `/embabel/embabel-agent`, README. NOT verified: whether that client drives the OAuth browser flow itself.
 
-Response:
+Response: All good.
 
 ---
 
@@ -110,7 +110,7 @@ Response:
 - Consider also mapping this to different persistence patterns with Postgres which runs locally to either serialize the JSON directly and/or leverage other facilities like vectors, checkpointing, etc. This may be helpful with observability to track provenance, activity.
 - For overall governance, I want to use OPA rego where possible and need to learn more about it.
 - Celery is installed locally and may come in useful for pub/sub ops. 
-- I am building this catalog so I can try example use cases. First use case: analyze biomedical test results using AI, similar to the flosci project I derived from the Google Co-Scientist project. The Co-Scientist project provides a pattern to implement a digital scientific lab for R&D see /opt/devel/DevMoi/agentic-patterns-catalog/goggle_ai_coscientist.pdf. An example implementation is at /opt/devel/DevMoi/agentic-design-mirror/flosci-copy. Only use what is generic in the flosci project and which reflects the Google Co-Scientist and is not related to Molariti at all. /opt/devel/DevMoi/agentic-design-mirror/flosci-copy/poc is the only directory that contains Molariti specific IP which is to be completely ignored as it was only used as an example. The structure, architecture and implementation is what is interesting not the specific use case/application of this digital scientific lab. Another use case that will be applied will be drone fleet management including flight plan and real time operations of the fleet and each individual drone. For details on the drone fleet use case, see: 
+- I am building this catalog so I can try example use cases. First use case: analyze biomedical test results using AI, following the Google AI Co-Scientist paper (`/opt/devel/DevMoi/agentic-design-mirror/goggle_ai_coscientist.pdf`), which describes a pattern for a digital scientific lab for R&D (supervisor, generation, reflection, ranking tournament, proximity, evolution and meta-review agents over an asynchronous task framework with context memory). This catalog work is my own second iteration on that public paper; no prior code is reused. Another use case that will be applied will be drone fleet management including flight plan and real time operations of the fleet and each individual drone. For details on the drone fleet use case, see: 
 /opt/devel/DevMoi/Comprehensive Drone Flight Plan Template.md
 /opt/devel/DevMoi/FlightPlanTemplate.md
 /opt/devel/DevMoi/DroneControlSW.02.md
@@ -271,11 +271,10 @@ Response:
 
 ### 9.1 What the referenced material is (surveyed 2026-09-12)
 
-- `flosci-copy` is a Co-Scientist-shaped system: `src/flosci/agents/{supervisor, reflection,
-  meta_review, proximity, quality_control, …}` + `src/flosci/core/{task_framework, context_memory,
-  elo_ranking}` on FastAPI / SQLAlchemy / Redis. The generic part is the Co-Scientist agent set
-  (supervisor → generation → reflection → tournament ranking → proximity → evolution → meta-review)
-  plus the async task framework and Elo-based context memory. `poc/` is ignored as instructed.
+- The Google AI Co-Scientist paper describes a multi-agent digital lab: supervisor → generation →
+  reflection → tournament ranking → proximity → evolution → meta-review, over an asynchronous task
+  framework with Elo-rated context memory. That agent set and framework are the generic pattern the
+  catalog must be able to express; the biomedical use case is one application of it.
 - The drone documents already map the flight plan to the "flagship pattern" (task → controls →
   risk register → autonomic layer → generated artifact → evidence → HITL sign-off → BML) and
   describe an 8-step agent workflow (Knowledge → Plan → Validate → Score → Document → Sign-off).
@@ -311,7 +310,7 @@ Proposed decomposition. Each row is one ADR + one spec + one repo or one top-lev
 | SP2 | Persistence + activity ledger (Postgres, pgvector, LangGraph checkpointer) | `Store` + `Ledger` interfaces, Postgres impl | SP1 schema (pydantic models) only |
 | SP3 | Policy layer (OPA/rego; later Conseca-style per-task policies) | `PolicyDecisionPoint` interface, rego bundle, `opa test` | SP1 MCP middleware seam only |
 | SP4 | Recipe DSL (use case → ordered pattern set + bindings) | `recipe.schema.json`, two recipes | SP1 pattern ids + relations |
-| SP5 | Co-Scientist blueprint (generic digital lab from flosci, Celery task framework) | reusable agent library + reference instance | SP4 recipe; SP1 `select` |
+| SP5 | Co-Scientist blueprint (generic digital lab from the Co-Scientist paper, Celery task framework) | reusable agent library + reference instance | SP4 recipe; SP1 `select` |
 | SP6 | Drone fleet blueprint (flight plan → validate → SORA score → sign-off; PX4 SITL) | reference instance + OKF bundle | SP4 recipe; SP1 `select` |
 | SP7 | Composer (use case description → agent set) | generator that emits an SP5/SP6-shaped instance | SP4 + one working blueprint |
 | SP8 | BML loop + digital twin (Measure/Learn, Airflow-or-Prefect decision) | telemetry, eval harness, redeploy | SP2 ledger + one blueprint |
@@ -358,7 +357,7 @@ Response: Proceed as described.
 | Option | What it means |
 |---|---|
 | **A. Bounded v1 + roadmap of sub-projects (recommended)** | v1 = catalog + consumers as designed, plus Postgres and OPA as optional backends behind interfaces, plus the two use cases as recipes + golden tasks. SP5–SP9 become numbered sub-projects with their own ADR/spec (table in §9.3). |
-| B. v1 + Co-Scientist blueprint | Also spec the generic digital-lab building blocks extracted from flosci in v1. Doubles the first spec; catalog and blueprint ship together. |
+| B. v1 + Co-Scientist blueprint | Also spec the generic digital-lab building blocks from the Co-Scientist paper in v1. Doubles the first spec; catalog and blueprint ship together. |
 | C. One program spec now | Spec the whole platform (catalog → composer → BML → deploy) in one document, then plan phases. Most upfront design, highest rework risk. |
 
 Response: A
