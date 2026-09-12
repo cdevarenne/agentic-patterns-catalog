@@ -1,0 +1,83 @@
+%% Agentic Patterns Catalog — component architecture (SP1) and sub-project roadmap.
+%% Source of truth for this diagram: docs/superpowers/specs/2026-09-12-agentic-patterns-catalog-design.md
+flowchart TB
+  subgraph inputs["Inputs (local only, not redistributed)"]
+    mirror["agentic-design-mirror<br/>pages/raw/**  (RSC payload)"]
+    pack["patterns-pack-free<br/>data/patterns.json (11 records, licensed)"]
+  end
+
+  subgraph l0["L0 — Extract / seed"]
+    extract["catalog extract<br/>RSC JSON → pattern records"]
+    seed["catalog seed<br/>pack JSON → same schema"]
+  end
+
+  subgraph store["Store (interface)"]
+    files[("files<br/>catalog/patterns/**.json<br/>default, bare install")]
+    pg[("PostgreSQL 18 + pgvector<br/>JSONB records · embeddings<br/>activity ledger · LangGraph checkpoints<br/>optional, extra 'pg'")]
+  end
+
+  subgraph l1["L1 — Enrich"]
+    enrich["catalog enrich<br/>LLM draft → review file"]
+    review["catalog review<br/>reviewed_by, provenance"]
+  end
+
+  subgraph l2["L2 — Compile"]
+    compile["catalog compile"]
+    catmd["CATALOG.md<br/>one line per pattern"]
+    guides["guides/&lt;category&gt;.md"]
+    sheets["reference sheets"]
+    recipes["recipes/*.json<br/>co-scientist · drone-flight-plan"]
+    emb["embeddings (fastembed)"]
+  end
+
+  subgraph l3["L3 — Serve"]
+    select["select()<br/>facets → BM25 ∥ semantic → RRF"]
+    mcp["FastMCP server<br/>list_categories · search_patterns<br/>get_pattern · get_example · select"]
+    cli["CLI  catalog …"]
+    authn["AuthN: none (stdio) |<br/>GoogleProvider OAuth proxy (HTTP)"]
+    pdp["PolicyDecisionPoint (interface)<br/>static allowlist (default) | OPA over HTTP"]
+    opa["opa run --server<br/>policy/*.rego"]
+  end
+
+  subgraph consumers["Consumers"]
+    skill["Claude Code skill<br/>SKILL.md → CATALOG.md → GUIDE → record"]
+    py["Python agent (LangGraph)"]
+    kt["Kotlin agent (Embabel + Spring AI MCP client)"]
+  end
+
+  subgraph verify["Verification"]
+    eval["catalog eval<br/>golden tasks → docs/data/eval.json"]
+    ver["catalog verify<br/>schema · index · relations DAG · budgets · eval"]
+  end
+
+  mirror --> extract --> files
+  pack --> seed --> files
+  files <--> pg
+  files --> enrich --> review --> files
+  files --> compile
+  compile --> catmd & guides & sheets & recipes & emb
+  files --> select
+  emb --> select
+  select --> mcp
+  select --> cli
+  mcp --- authn
+  mcp --- pdp
+  pdp -. optional .-> opa
+  mcp -- activity --> pg
+  mcp --> skill & py & kt
+  catmd --> skill
+  py -. checkpoints .-> pg
+  files --> eval --> ver
+  compile --> ver
+
+  subgraph roadmap["Roadmap (each: own ADR + spec)"]
+    direction LR
+    SP1["SP1 Catalog v1<br/>(this diagram)"] --> SP2["SP2 Persistence + ledger"]
+    SP1 --> SP3["SP3 Policy / OPA"]
+    SP1 --> SP4["SP4 Recipe DSL"]
+    SP4 --> SP5["SP5 Co-Scientist blueprint"]
+    SP4 --> SP6["SP6 Drone fleet blueprint"]
+    SP5 & SP6 --> SP7["SP7 Composer"]
+    SP2 & SP5 & SP6 --> SP8["SP8 BML loop + digital twin"]
+    SP5 & SP6 --> SP9["SP9 Edge / cloud deploy"]
+  end
