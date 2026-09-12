@@ -86,7 +86,15 @@ provenance    source{url, mirrored_at, extraction ∈ rsc-payload | free-pack, c
                                               model, date, reviewed_by | null}}
 ```
 
-### 4.2 Facet vocabulary (closed; changing it is a schema change)
+### 4.2 Facet vocabulary (controlled; one authority, three projections)
+
+The vocabulary lives in one data file, `catalog/vocab/facets.json`
+(`{"scale": ["single-agent", …], …}`). The pydantic `Literal` types are generated from it, the
+Postgres `CHECK` constraints in `PostgresStore` are derived from it, and the rego role/facet data
+is exported from it. Adding a value is a data change plus review, not a code change; the schema
+test fails until `schema/pattern.schema.json` is regenerated, which is the intended friction.
+During build steps 2–4 (vocabulary still being discovered) `catalog verify` reports unknown values
+as warnings; from step 5 (`select` exists) they are errors. Initial values:
 
 | Facet | Values |
 |---|---|
@@ -214,14 +222,16 @@ the client type in the console. Secrets live in `.env` (gitignored); `.env.examp
 
 | Output | Content | Budget / check |
 |---|---|---|
-| `skills/agentic-patterns/generated/CATALOG.md` | one line per record. Pack records: `id — tldr.what — use when: tldr.when`. The other 277: `id — name — first problem_signal` when enriched, `id — name` until then, so no site prose is committed. `compile --local` may use `tldr` for all 288 for local use and the smoke test; that output is gitignored. | token estimate (`len(text) / 4`) asserted under 16k |
+| `skills/agentic-patterns/generated/CATALOG.md` | one line per **category** (24): `category — one-sentence description — n patterns` | token estimate (`len(text) / 4`) asserted under 2k |
+| `skills/agentic-patterns/generated/CATALOG-full.md` | one line per record. Pack records: `id — tldr.what — use when: tldr.when`. The other 277: `id — name — first problem_signal` when enriched, `id — name` until then, so no site prose is committed. `compile --local` may use `tldr` for all 288 for local use and the smoke test; that output is gitignored. | token estimate asserted under 16k |
 | `skills/agentic-patterns/generated/guides/<category>.md` | comparison table of the category's patterns by facets; `alternative_to` rows with `prefer_when` | every pattern of the category appears once |
 | `skills/agentic-patterns/generated/sheets/<id>.md` | full reference sheet, pack layout | only for the 11 pack records in git; all 288 locally |
 | `catalog/embeddings/<model>.npy` + ids | semantic arm index | gitignored; rebuilt by compile |
 
 `skills/agentic-patterns/SKILL.md` (hand-written) states the four-step contract: read CATALOG.md →
-open the category GUIDE or call `select` → apply the full record → check `contraindications`
-before committing to a pattern.
+call `select` when the MCP server is reachable, otherwise open the category GUIDE (or
+CATALOG-full.md offline) → apply the full record → check `contraindications` before committing to
+a pattern.
 
 ## 8. Enrichment (L1)
 
@@ -262,7 +272,7 @@ before committing to a pattern.
 
 - `uv run catalog verify`: every record validates; `index.json` matches files; relation targets
   resolve; `precedes` acyclic; recipe `pattern_id`s resolve; committed schema equals generated;
-  `CATALOG.md` under budget; compiled outputs equal a fresh compile; `eval.json` within declared
+  `CATALOG.md` and `CATALOG-full.md` under budget; facet values in the vocabulary; compiled outputs equal a fresh compile; `eval.json` within declared
   tolerance; every configured store passes the same checks. CI runs it on the 11 committed records;
   locally it runs on all 288.
 - `uv run --extra lint ruff check .` passes before every commit.
