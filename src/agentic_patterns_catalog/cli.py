@@ -6,12 +6,13 @@ import sys
 from collections.abc import Callable
 
 Handler = Callable[[argparse.Namespace], int]
+Configure = Callable[[argparse.ArgumentParser], Handler]
 _COMMANDS: dict[str, tuple[str, Callable[[argparse.ArgumentParser], None], Handler]] = {}
 
 
-def register(name: str, help_text: str) -> Callable[[Callable[[argparse.ArgumentParser], Handler]], None]:
-    """Register `name` as a subcommand. The decorated function adds arguments and returns the handler."""
-    def wrap(configure: Callable[[argparse.ArgumentParser], Handler]) -> None:
+def register(name: str, help_text: str) -> Callable[[Configure], None]:
+    """Register subcommand `name`. The decorated function adds arguments, returns the handler."""
+    def wrap(configure: Configure) -> None:
         holder: dict[str, Handler] = {}
 
         def configure_and_capture(parser: argparse.ArgumentParser) -> None:

@@ -52,6 +52,17 @@ def test_malformed_page_error_names_the_file(tmp_path: Path) -> None:
         extract.extract_mirror(tmp_path / "mirror", tmp_path / "catalog")
 
 
+def test_page_with_incomplete_tldr_error_names_the_file(fixtures: Path, tmp_path: Path) -> None:
+    html = (fixtures / "page.html").read_text(encoding="utf-8")
+    cut = ',\\"watchOut\\":\\"Stale capability data.\\"'
+    assert cut in html
+    bad = tmp_path / "mirror" / "routing" / "no-watchout.html"
+    bad.parent.mkdir(parents=True)
+    bad.write_text(html.replace(cut, ""), encoding="utf-8")
+    with pytest.raises(ValueError, match="no-watchout.html.*watchOut"):
+        extract.extract_mirror(tmp_path / "mirror", tmp_path / "catalog")
+
+
 @pytest.mark.mirror
 def test_real_mirror_extracts_288_patterns_and_24_categories(mirror: Path, tmp_path: Path) -> None:
     report = extract.extract_mirror(mirror, tmp_path / "catalog")

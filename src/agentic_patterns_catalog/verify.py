@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from collections.abc import Callable
+from collections.abc import Callable, Collection
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -13,7 +13,7 @@ from . import compile as comp
 from . import vocab as vocab_mod
 from .cli import register
 from .evaluate import check_thresholds
-from .model import Pattern, content_hash
+from .model import Category, Pattern, Recipe, content_hash
 from .paths import CATALOG_DIR, DATA_DIR, EVAL_THRESHOLDS, GENERATED_DIR, SCHEMA_DIR
 from .schema import schemas_match
 from .store import FileStore, build_index
@@ -37,13 +37,25 @@ class VerifyContext:
 Check = Callable[[VerifyContext], list[str]]
 
 
+def _first_error(e: ValidationError) -> str:
+    err = e.errors()[0]
+    return f"{err['msg']} at {err['loc']}"
+
+
 def check_records(ctx: VerifyContext) -> list[str]:
+    """Every pattern, category and recipe file validates; pattern id, directory and content hash agree."""
     problems = []
+    for sub, model in (("categories", Category), ("recipes", Recipe)):
+        for path in sorted((ctx.root / sub).glob("*.json")):
+            try:
+                model.model_validate_json(path.read_text(encoding="utf-8"))
+            except ValidationError as e:
+                problems.append(f"{path.name}: {_first_error(e)}")
     for path in sorted((ctx.root / "patterns").glob("*/*.json")):
         try:
             p = Pattern.model_validate_json(path.read_text(encoding="utf-8"))
         except ValidationError as e:
-            problems.append(f"{path.name}: {e.errors()[0]['msg']} at {e.errors()[0]['loc']}")
+            problems.append(f"{path.name}: {_first_error(e)}")
             continue
         if p.id != path.stem:
             problems.append(f"{path.name}: id {p.id!r} != file stem")
@@ -55,6 +67,7 @@ def check_records(ctx: VerifyContext) -> list[str]:
 
 
 def check_index(ctx: VerifyContext) -> list[str]:
+    """Committed index.json equals a fresh one: every pattern entry, and the category and recipe lists."""
     path = ctx.root / "index.json"
     if not path.exists():
         return ["index.json missing; run `catalog index`"]
@@ -65,8 +78,11 @@ def check_index(ctx: VerifyContext) -> list[str]:
         problems.append("index.json pattern ids differ from files on disk")
     for id, entry in fresh["patterns"].items():
         c = committed.get("patterns", {}).get(id)
-        if c and c.get("content_sha256") != entry["content_sha256"]:
-            problems.append(f"index.json: stale hash for {id}")
+        if c is not None and c != entry:
+            problems.append(f"index.json: stale entry for {id}")
+    for key in ("categories", "recipes"):
+        if committed.get(key) != fresh[key]:
+            problems.append(f"index.json: {key} list differs from files on disk")
     return problems
 
 
@@ -81,6 +97,7 @@ def _relations(ctx: VerifyContext) -> tuple[dict[str, Pattern], list[str]]:
 
 
 def check_relations(ctx: VerifyContext) -> list[str]:
+    """Every relation target resolves and `precedes` edges form no cycle."""
     by_id, problems = _relations(ctx)
     graph = {p.id: [r.target for r in p.selection.relations if r.type == "precedes" and r.target in by_id]
              for p in by_id.values()}
@@ -104,6 +121,7 @@ def check_relations(ctx: VerifyContext) -> list[str]:
 
 
 def check_recipes(ctx: VerifyContext) -> list[str]:
+    """Every recipe step names an existing pattern."""
     fs = FileStore(ctx.root)
     ids = {p.id for p in fs.all()}
     return [f"recipe {r.id}: step {s.order} names unknown pattern {s.pattern_id!r}"
@@ -111,6 +129,7 @@ def check_recipes(ctx: VerifyContext) -> list[str]:
 
 
 def check_schema(ctx: VerifyContext) -> list[str]:
+    """Committed schema files equal a fresh generation from the models."""
     return [f"schema/{n}.schema.json is stale; run `catalog schema`" for n in schemas_match(ctx.schema_dir)]
 
 
@@ -137,6 +156,7 @@ def check_facets(ctx: VerifyContext) -> list[str]:
 
 
 def check_compiled(ctx: VerifyContext) -> list[str]:
+    """Compiled views are under budget, equal a fresh compile, and nothing else sits in `generated/`."""
     outputs = comp.compile_all(FileStore(ctx.root))
     problems = [f"{n} over budget ({comp.token_estimate(outputs[n])} > {comp.BUDGETS[n]} tokens)"
                 for n in comp.over_budget(outputs)]
@@ -144,10 +164,13 @@ def check_compiled(ctx: VerifyContext) -> list[str]:
         path = ctx.generated_dir / rel
         if not path.exists() or path.read_text(encoding="utf-8") != text:
             problems.append(f"{rel} differs from a fresh compile")
+    problems += [f"{p.relative_to(ctx.generated_dir)} is not produced by compile; remove it"
+                 for p in comp.stale_files(ctx.generated_dir, outputs)]
     return problems
 
 
 def check_eval(ctx: VerifyContext) -> list[str]:
+    """The eval record, when present, meets every threshold in `thresholds_path`."""
     if not ctx.eval_path.exists():
         return []
     report = json.loads(ctx.eval_path.read_text(encoding="utf-8"))
@@ -160,11 +183,20 @@ CHECKS: list[tuple[str, Check]] = [
 ]
 
 
-def run_checks(ctx: VerifyContext) -> dict[str, list[str]]:
-    return {name: check(ctx) for name, check in CHECKS}
+def _guarded(check: Check, ctx: VerifyContext) -> list[str]:
+    try:
+        return check(ctx)
+    except Exception as e:  # noqa: BLE001 — a check that cannot run is a problem to print, not a traceback
+        return [f"check could not run: {type(e).__name__}: {str(e).splitlines()[0]}"]
+
+
+def run_checks(ctx: VerifyContext, skip: Collection[str] = ()) -> dict[str, list[str]]:
+    """Problems per check name, for every check not in `skip`. A check that raises reports one problem."""
+    return {name: _guarded(check, ctx) for name, check in CHECKS if name not in skip}
 
 
 def run_warnings(ctx: VerifyContext) -> dict[str, list[str]]:
+    """Non-failing findings: unknown facet values under `--lenient-vocab`, and a missing eval record."""
     warnings: dict[str, list[str]] = {}
     if ctx.lenient_vocab:
         bad = facet_problems(ctx)
@@ -186,8 +218,7 @@ def _cmd(parser: argparse.ArgumentParser):
     def run(ns: argparse.Namespace) -> int:
         ctx = VerifyContext.default(ns.lenient_vocab)
         ctx.root = ns.root
-        skipped = {n for n in ns.skip.split(",") if n}
-        problems = {name: items for name, items in run_checks(ctx).items() if name not in skipped}
+        problems = run_checks(ctx, skip={n for n in ns.skip.split(",") if n})
         for name, items in problems.items():
             print(f"{'FAIL' if items else 'ok  '} {name}" + (f" ({len(items)})" if items else ""))
             for item in items[:20]:

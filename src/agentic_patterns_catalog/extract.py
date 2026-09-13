@@ -100,7 +100,7 @@ def extract_mirror(mirror_dir: Path, out_dir: Path = CATALOG_DIR, *, force: bool
         url = f"{SITE}/patterns/{page.parent.name}/{page.stem}"
         try:
             pattern, cats = extract_page(page.read_text(encoding="utf-8"), url=url, mirrored_at=mirrored_at)
-        except ValueError as e:
+        except (ValueError, KeyError) as e:
             raise ValueError(f"{page}: {e}") from e
         for c in cats:
             categories.setdefault(c.id, c)

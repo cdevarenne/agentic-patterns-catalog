@@ -26,6 +26,7 @@ def _pattern(raw: dict[str, Any]) -> Pattern:
 
 
 def seed_from_pack(pack: dict[str, Any]) -> list[Pattern]:
+    """One Pattern per entry of the pack's `patterns` list, tagged `free-pack`."""
     return [_pattern(raw) for raw in pack["patterns"]]
 
 

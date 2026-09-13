@@ -86,6 +86,7 @@ def test_budget_check_names_offenders() -> None:
 
 
 def test_write_all_creates_files(fs: store.FileStore, tmp_path: Path) -> None:
-    written = comp.write_all(fs, tmp_path / "gen", local=False)
+    written, removed = comp.write_all(fs, tmp_path / "gen", local=False)
+    assert removed == []
     assert (tmp_path / "gen" / "CATALOG.md").exists()
     assert any(p.name == "routing.md" for p in written)

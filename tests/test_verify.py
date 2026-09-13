@@ -93,6 +93,61 @@ def test_stale_compiled_output_is_reported(tmp_path: Path) -> None:
     assert verify.run_checks(ctx)["compiled"] == ["CATALOG.md differs from a fresh compile"]
 
 
+def test_malformed_category_is_reported_and_no_check_raises(tmp_path: Path) -> None:
+    ctx = _ctx(tmp_path)
+    (ctx.root / "categories" / "x.json").write_text(json.dumps({"id": "x"}))
+    (ctx.root / "recipes" / "r.json").write_text(json.dumps({"id": "r", "name": "R"}))
+    problems = verify.run_checks(ctx)["records"]
+    assert any(p.startswith("x.json: ") for p in problems), problems
+    assert any(p.startswith("r.json: ") for p in problems), problems
+
+
+def test_index_entry_drift_and_list_drift_are_reported(tmp_path: Path) -> None:
+    ctx = _ctx(tmp_path)
+    path = ctx.root / "index.json"
+    idx = json.loads(path.read_text())
+    idx["patterns"]["a"]["reviewed"] = True
+    idx["categories"] = ["ghost"]
+    path.write_text(json.dumps(idx))
+    problems = verify.run_checks(ctx)["index"]
+    assert "index.json: stale entry for a" in problems
+    assert any("categories" in p for p in problems), problems
+
+
+def test_file_not_produced_by_compile_is_reported_and_removed(tmp_path: Path) -> None:
+    ctx = _ctx(tmp_path)
+    extra = ctx.generated_dir / "sheets" / "zzz.md"
+    extra.parent.mkdir(exist_ok=True)
+    extra.write_text("stale\n")
+    (ctx.generated_dir / "local" / "keep.md").parent.mkdir()
+    (ctx.generated_dir / "local" / "keep.md").write_text("local output is never touched\n")
+    assert verify.run_checks(ctx)["compiled"] == ["sheets/zzz.md is not produced by compile; remove it"]
+    _, removed = comp.write_all(store.FileStore(ctx.root), ctx.generated_dir)
+    assert removed == [extra] and not extra.exists() and (ctx.generated_dir / "local" / "keep.md").exists()
+    assert verify.run_checks(ctx)["compiled"] == []
+
+
+def test_cli_skip_does_not_run_the_skipped_check(monkeypatch) -> None:
+    from agentic_patterns_catalog import cli
+
+    ran: list[str] = []
+
+    def spy(ctx: verify.VerifyContext) -> list[str]:
+        ran.append("records")
+        return ["must not be reported"]
+    monkeypatch.setattr(verify, "CHECKS", [("records", spy), *verify.CHECKS[1:]])
+    # index and compiled are skipped as well so the test passes on a checkout without the 277 local records
+    assert cli.main(["verify", "--skip", "records,index,compiled"]) == 0
+    assert ran == []
+
+
+def test_a_check_that_raises_is_reported_not_propagated(tmp_path: Path, monkeypatch) -> None:
+    def boom(ctx: verify.VerifyContext) -> list[str]:
+        raise RuntimeError("disk on fire")
+    monkeypatch.setattr(verify, "CHECKS", [("records", boom)])
+    assert verify.run_checks(_ctx(tmp_path)) == {"records": ["check could not run: RuntimeError: disk on fire"]}
+
+
 def test_repo_verifies_clean() -> None:
     # Committed index.json and generated/ reflect all 288 records. A checkout without the local
     # mirror (CI) holds 11, so `index` and `compiled` are expected to differ there and are skipped.

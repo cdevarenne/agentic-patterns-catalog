@@ -109,17 +109,33 @@ def compile_all(store: Store, *, local: bool = False) -> dict[str, str]:
 
 
 def over_budget(outputs: dict[str, str]) -> list[str]:
+    """Names of the budgeted outputs whose token estimate exceeds `BUDGETS`."""
     return [name for name, limit in BUDGETS.items() if name in outputs and token_estimate(outputs[name]) > limit]
 
 
-def write_all(store: Store, out_dir: Path = GENERATED_DIR, *, local: bool = False) -> list[Path]:
+def stale_files(out_dir: Path, outputs: dict[str, str]) -> list[Path]:
+    """Files under `out_dir` that `outputs` does not produce. `local/` and dotfiles are left alone."""
+    if not out_dir.exists():
+        return []
+    produced = {out_dir / rel for rel in outputs}
+    return sorted(p for p in out_dir.rglob("*")
+                  if p.is_file() and p not in produced and not p.name.startswith(".")
+                  and "local" not in p.relative_to(out_dir).parts[:-1])
+
+
+def write_all(store: Store, out_dir: Path = GENERATED_DIR, *, local: bool = False) -> tuple[list[Path], list[Path]]:
+    """Compile into `out_dir`, delete files a fresh compile does not produce, and return (written, removed)."""
+    outputs = compile_all(store, local=local)
     written = []
-    for rel, text in compile_all(store, local=local).items():
+    for rel, text in outputs.items():
         path = out_dir / rel
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8")
         written.append(path)
-    return written
+    removed = stale_files(out_dir, outputs)
+    for path in removed:
+        path.unlink()
+    return written, removed
 
 
 @register("compile", "write CATALOG.md, CATALOG-full.md, guides and sheets")
@@ -130,15 +146,12 @@ def _cmd(parser: argparse.ArgumentParser):
 
     def run(ns: argparse.Namespace) -> int:
         out_dir = ns.out or (GENERATED_DIR / "local" if ns.local else GENERATED_DIR)
-        store = FileStore(ns.root)
-        outputs = compile_all(store, local=ns.local)
-        for rel, text in outputs.items():
-            path = out_dir / rel
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(text, encoding="utf-8")
+        written, removed = write_all(FileStore(ns.root), out_dir, local=ns.local)
+        outputs = {str(path.relative_to(out_dir)): path.read_text(encoding="utf-8") for path in written}
         bad = over_budget(outputs)
         for name in ("CATALOG.md", "CATALOG-full.md"):
             print(f"{name}: ~{token_estimate(outputs[name])} tokens (budget {BUDGETS[name]})")
-        print(f"wrote {len(outputs)} files to {out_dir}")
+        print(f"wrote {len(written)} files to {out_dir}"
+              + (f"; removed {', '.join(str(p.relative_to(out_dir)) for p in removed)}" if removed else ""))
         return 1 if bad else 0
     return run
