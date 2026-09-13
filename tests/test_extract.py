@@ -44,6 +44,14 @@ def test_extract_mirror_writes_files_and_skips_pack_records(fixtures: Path, tmp_
     assert (out / "categories" / "routing.json").exists()
 
 
+def test_malformed_page_error_names_the_file(tmp_path: Path) -> None:
+    bad = tmp_path / "mirror" / "routing" / "broken.html"
+    bad.parent.mkdir(parents=True)
+    bad.write_text("<html><script>self.__next_f.push([1,\"1:[]\\n\"])</script></html>")
+    with pytest.raises(ValueError, match="broken.html"):
+        extract.extract_mirror(tmp_path / "mirror", tmp_path / "catalog")
+
+
 @pytest.mark.mirror
 def test_real_mirror_extracts_288_patterns_and_24_categories(mirror: Path, tmp_path: Path) -> None:
     report = extract.extract_mirror(mirror, tmp_path / "catalog")

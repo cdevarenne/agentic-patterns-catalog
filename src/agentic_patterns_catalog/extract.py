@@ -97,7 +97,10 @@ def extract_mirror(mirror_dir: Path, out_dir: Path = CATALOG_DIR, *, force: bool
     for page in sorted(mirror_dir.glob("*/*.html")):
         mirrored_at = dt.datetime.fromtimestamp(page.stat().st_mtime, dt.UTC).date().isoformat()
         url = f"{SITE}/patterns/{page.parent.name}/{page.stem}"
-        pattern, cats = extract_page(page.read_text(encoding="utf-8"), url=url, mirrored_at=mirrored_at)
+        try:
+            pattern, cats = extract_page(page.read_text(encoding="utf-8"), url=url, mirrored_at=mirrored_at)
+        except ValueError as e:
+            raise ValueError(f"{page}: {e}") from e
         for c in cats:
             categories.setdefault(c.id, c)
         target = out_dir / "patterns" / pattern.category / f"{pattern.id}.json"
