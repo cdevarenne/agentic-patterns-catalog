@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import json
 import re
+import sys
 from collections.abc import Sequence
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -13,6 +14,7 @@ from typing import Any, Protocol
 import numpy as np
 from rank_bm25 import BM25Okapi
 
+from . import vocab as vocab_mod
 from .cli import register
 from .model import Pattern
 from .paths import CATALOG_DIR
@@ -25,6 +27,7 @@ Arms = Sequence[str]
 
 
 def tokenize(text: str) -> list[str]:
+    """Lower-case alphanumeric runs; the same tokenizer for the corpus and the query."""
     return _TOKEN.findall(text.lower())
 
 
@@ -37,7 +40,11 @@ def facet_arg(raw: str) -> tuple[str, str]:
 
 
 def pattern_text(p: Pattern) -> str:
-    """The text both arms index: name, tldr, problem signals, use cases, and 'when to use' details."""
+    """The text both arms index: name, tldr what/when, problem signals, use cases, and 'when to use' details.
+
+    `tldr.watchOut` is excluded on purpose: it names failure modes, not the problem the pattern solves.
+    Category-level `whenToUse` is excluded because it describes the category, not one pattern.
+    """
     d = p.content.details
     parts = [p.name, p.content.tldr.what, p.content.tldr.when, *p.selection.problem_signals, *p.content.useCases,
              *d.get("when_to_use.use_when", []), *d.get("best_use_cases", []), *d.get("top_use_cases", [])]
@@ -85,9 +92,11 @@ class FastEmbedEmbedder:
 
 
 def default_embedder() -> Embedder | None:
+    """The fastembed embedder, or None (with one line on stderr) when it cannot load for any reason."""
     try:
         return FastEmbedEmbedder()
-    except ImportError:
+    except Exception as e:  # noqa: BLE001 — any load failure (no extra, no model, no network) means BM25 only
+        print(f"semantic arm off: {type(e).__name__}: {e}", file=sys.stderr)
         return None
 
 
@@ -137,6 +146,7 @@ class Selector:
         self.arms = tuple(a for a in arms if a != "semantic" or embedder is not None)
         self.embedder = embedder if "semantic" in self.arms else None
         self.version = version or catalog_version()
+        self.vocab = vocab_mod.load_vocab()
         texts = [pattern_text(p) for p in self.patterns]
         self._bm25 = (BM25Okapi([tokenize(t) or ["_"] for t in texts])
                       if "bm25" in self.arms and self.patterns else None)
@@ -146,8 +156,18 @@ class Selector:
     def from_store(cls, store: Store, embedder: Embedder | None = None, arms: Arms = ("bm25", "semantic")) -> Selector:
         return cls(store.all(), embedder, arms)
 
+    def _validate(self, facets: dict[str, str] | None, k: int) -> None:
+        if k < 1:
+            raise ValueError("k must be >= 1")
+        for name, value in (facets or {}).items():
+            if name not in vocab_mod.FACET_NAMES:
+                raise ValueError(f"unknown facet {name!r}; known: {', '.join(vocab_mod.FACET_NAMES)}")
+            if value not in self.vocab[name]:
+                raise ValueError(f"unknown value {value!r} for facet {name!r}")
+
     def select(self, task: str, facets: dict[str, str] | None = None, k: int = 5,
                subject: str = "stdio-local") -> SelectResult:
+        self._validate(facets, k)
         idx = [i for i, p in enumerate(self.patterns) if _matches(p, facets)]
         path = "rrf" if len(self.arms) == 2 else (self.arms[0] if self.arms else "none")
         auth = {"subject": subject}
@@ -195,7 +215,11 @@ def _cmd(parser: argparse.ArgumentParser):
     def run(ns: argparse.Namespace) -> int:
         facets = dict(ns.facet)
         embedder = None if ns.no_embed else default_embedder()
-        res = Selector.from_store(FileStore(ns.root), embedder).select(ns.task, facets or None, ns.k)
+        try:
+            res = Selector.from_store(FileStore(ns.root), embedder).select(ns.task, facets or None, ns.k)
+        except ValueError as e:
+            print(f"select: {e}", file=sys.stderr)
+            return 2
         if ns.json:
             print(json.dumps(res.to_dict(), indent=2, ensure_ascii=False))
         elif res.empty_message:

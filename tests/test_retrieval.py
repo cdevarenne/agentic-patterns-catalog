@@ -96,3 +96,41 @@ def test_cli_rejects_facet_without_equals() -> None:
 
 def test_facet_arg_accepts_name_equals_value() -> None:
     assert r.facet_arg("scale=fleet") == ("scale", "fleet")
+
+
+def test_default_embedder_is_none_when_the_model_cannot_load(monkeypatch, capsys) -> None:
+    def boom(self, model_name: str = "x") -> None:
+        raise ValueError("no model")
+    monkeypatch.setattr(r.FastEmbedEmbedder, "__init__", boom)
+    assert r.default_embedder() is None
+    assert capsys.readouterr().err.strip() == "semantic arm off: ValueError: no model"
+
+
+def test_select_rejects_unknown_facets_and_bad_k() -> None:
+    sel = r.Selector(PATTERNS, embedder=None)
+    with pytest.raises(ValueError, match="unknown facet 'colour'"):
+        sel.select("x", facets={"colour": "blue"})
+    with pytest.raises(ValueError, match="unknown value 'galaxy' for facet 'scale'"):
+        sel.select("x", facets={"scale": "galaxy"})
+    with pytest.raises(ValueError, match="k must be >= 1"):
+        sel.select("x", k=0)
+
+
+def test_cli_rejects_unknown_facet_with_usage_exit(capsys) -> None:
+    from agentic_patterns_catalog import cli
+    assert cli.main(["select", "route", "--no-embed", "--facet", "colour=blue"]) == 2
+    assert "unknown facet 'colour'" in capsys.readouterr().err
+
+
+def test_cli_json_envelope_on_a_tiny_catalog(tmp_path, capsys) -> None:
+    import json
+
+    from agentic_patterns_catalog import cli
+    from agentic_patterns_catalog.store import FileStore
+    fs = FileStore(tmp_path)
+    fs.put(PATTERNS[0])
+    fs.put(PATTERNS[1])
+    assert cli.main(["select", "route", "--no-embed", "--json", "--root", str(tmp_path)]) == 0
+    out = json.loads(capsys.readouterr().out)
+    assert set(out) == {"hits", "retrieval_path", "catalog_version", "auth", "empty_message"}
+    assert (tmp_path / "patterns" / "routing" / "content-routing.json").exists()
