@@ -1,0 +1,1320 @@
+{
+  "arms": {
+    "bm25": {
+      "cases": [
+        {
+          "expected_ids": [
+            "content-based-routing",
+            "llm-based-routing",
+            "embedding-based-routing"
+          ],
+          "hit": true,
+          "id": "t01",
+          "reciprocal_rank": 0.5,
+          "top": [
+            "handoff-orchestration",
+            "llm-based-routing",
+            "content-based-routing",
+            "context-isolate-patterns",
+            "message-queuing"
+          ]
+        },
+        {
+          "expected_ids": [
+            "load-balancing"
+          ],
+          "hit": false,
+          "id": "t02",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "osworld",
+            "cross-platform-agent-ux",
+            "supervisor-worker-pattern",
+            "energy-efficient-inference",
+            "event-driven-orchestrator-worker"
+          ]
+        },
+        {
+          "expected_ids": [
+            "self-critique"
+          ],
+          "hit": true,
+          "id": "t03",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "self-critique",
+            "constitutional-ai",
+            "chain-of-verification",
+            "reflexion-pattern",
+            "rl-verifiable-rewards"
+          ]
+        },
+        {
+          "expected_ids": [
+            "tool-retrieval"
+          ],
+          "hit": true,
+          "id": "t04",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "tool-retrieval",
+            "authenticated-delegation",
+            "structured-outputs",
+            "hierarchical-memory",
+            "agentic-context-engineering"
+          ]
+        },
+        {
+          "expected_ids": [
+            "function-calling",
+            "structured-outputs"
+          ],
+          "hit": true,
+          "id": "t05",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "function-calling",
+            "context-editing-tool-clearing",
+            "conversational-orchestration",
+            "http-native-micropayments",
+            "memory-block-architecture"
+          ]
+        },
+        {
+          "expected_ids": [
+            "fork-join",
+            "scatter-gather"
+          ],
+          "hit": true,
+          "id": "t06",
+          "reciprocal_rank": 0.3333333333333333,
+          "top": [
+            "async-await",
+            "parallel-chaining",
+            "fork-join",
+            "speculative-tool-execution",
+            "scatter-gather"
+          ]
+        },
+        {
+          "expected_ids": [
+            "cod",
+            "evolutionary-algorithms"
+          ],
+          "hit": false,
+          "id": "t07",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "test-time-scaling",
+            "abductive-reasoning",
+            "llm-as-judge",
+            "world-model-simulation-planning",
+            "skill-library"
+          ]
+        },
+        {
+          "expected_ids": [
+            "sliding-window-management",
+            "context-compress-patterns"
+          ],
+          "hit": false,
+          "id": "t08",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "context-window-management-patterns",
+            "memory-forgetting-policies",
+            "context-editing-tool-clearing",
+            "infini-attention-architecture",
+            "plan-todo-recitation"
+          ]
+        },
+        {
+          "expected_ids": [
+            "constraint-satisfaction",
+            "human-in-the-loop"
+          ],
+          "hit": false,
+          "id": "t09",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "llm-as-judge",
+            "deep-research-agent",
+            "guard-agent-pattern",
+            "owl-reasoning",
+            "risk-tiered-approval-escalation"
+          ]
+        },
+        {
+          "expected_ids": [
+            "dual-llm-capability-security",
+            "spotlighting-data-marking"
+          ],
+          "hit": true,
+          "id": "t10",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "dual-llm-capability-security",
+            "context-editing-tool-clearing",
+            "control-plane",
+            "structured-reflection-tool",
+            "agentic-context-engineering"
+          ]
+        },
+        {
+          "expected_ids": [
+            "abductive-reasoning"
+          ],
+          "hit": true,
+          "id": "t11",
+          "reciprocal_rank": 0.5,
+          "top": [
+            "osworld",
+            "abductive-reasoning",
+            "deep-research-agent",
+            "test-time-scaling",
+            "llm-as-judge"
+          ]
+        },
+        {
+          "expected_ids": [
+            "reflexion-pattern"
+          ],
+          "hit": true,
+          "id": "t13",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "reflexion-pattern",
+            "terminal-bench",
+            "step-back-prompting",
+            "hierarchical-chaining",
+            "agentic-context-engineering"
+          ]
+        },
+        {
+          "expected_ids": [
+            "parallel-synthesis"
+          ],
+          "hit": false,
+          "id": "t14",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "producer-critic",
+            "scatter-gather",
+            "self-critique",
+            "mcp-tool-gateway",
+            "map-reduce"
+          ]
+        },
+        {
+          "expected_ids": [
+            "supervisor-worker-pattern"
+          ],
+          "hit": true,
+          "id": "t15",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "supervisor-worker-pattern",
+            "chain-of-agents",
+            "context-isolate-patterns",
+            "a2a-protocol",
+            "agent-communication-fault-tolerance"
+          ]
+        },
+        {
+          "expected_ids": [
+            "message-queuing"
+          ],
+          "hit": true,
+          "id": "t16",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "message-queuing",
+            "durable-execution",
+            "agent-context-preservation",
+            "event-driven-orchestrator-worker",
+            "memory-forgetting-policies"
+          ]
+        },
+        {
+          "expected_ids": [
+            "episodic-memory-systems"
+          ],
+          "hit": false,
+          "id": "t17",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "structured-reflection-tool",
+            "theagentcompany",
+            "abductive-reasoning",
+            "world-model-simulation-planning",
+            "osworld"
+          ]
+        },
+        {
+          "expected_ids": [
+            "advanced-rag",
+            "agentic-rag-systems"
+          ],
+          "hit": false,
+          "id": "t18",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "structured-reflection-tool",
+            "embedding-based-routing",
+            "context-routing",
+            "authenticated-delegation",
+            "llm-based-routing"
+          ]
+        },
+        {
+          "expected_ids": [
+            "plan-execute-decoupling"
+          ],
+          "hit": true,
+          "id": "t19",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "plan-execute-decoupling",
+            "temporal-knowledge-graph-memory",
+            "ledger-orchestration",
+            "plan-todo-recitation",
+            "stateful-graph-workflows"
+          ]
+        },
+        {
+          "expected_ids": [
+            "weighted-scoring"
+          ],
+          "hit": false,
+          "id": "t20",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "predictive-agent-fault-tolerance",
+            "llm-as-judge",
+            "human-on-the-loop",
+            "parallel-synthesis",
+            "swe-bench-pro"
+          ]
+        },
+        {
+          "expected_ids": [
+            "human-on-the-loop",
+            "monitoring-control-patterns"
+          ],
+          "hit": true,
+          "id": "t21",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "human-on-the-loop",
+            "osworld",
+            "reinforcement-learning-from-ai-feedback",
+            "codebase-structure-retrieval",
+            "dual-llm-capability-security"
+          ]
+        },
+        {
+          "expected_ids": [
+            "constraint-satisfaction"
+          ],
+          "hit": false,
+          "id": "t23",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "contrastive-explanations",
+            "filesystem-as-context",
+            "structured-reflection-tool",
+            "code-as-action",
+            "swe-bench-pro"
+          ]
+        },
+        {
+          "expected_ids": [
+            "geographic-routing"
+          ],
+          "hit": true,
+          "id": "t24",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "geographic-routing",
+            "contextual-guardrailing-pattern",
+            "chain-of-agents",
+            "message-queuing",
+            "scatter-gather"
+          ]
+        },
+        {
+          "expected_ids": [
+            "code-as-action"
+          ],
+          "hit": true,
+          "id": "t25",
+          "reciprocal_rank": 0.5,
+          "top": [
+            "structured-reflection-tool",
+            "code-as-action",
+            "http-native-micropayments",
+            "osworld",
+            "agent-observability-tracing"
+          ]
+        },
+        {
+          "expected_ids": [
+            "memory-forgetting-policies"
+          ],
+          "hit": false,
+          "id": "t26",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "sliding-window-management",
+            "infini-attention-architecture",
+            "context-window-management-patterns",
+            "hierarchical-memory",
+            "handoff-orchestration"
+          ]
+        },
+        {
+          "expected_ids": [
+            "system-prompt-protection"
+          ],
+          "hit": false,
+          "id": "t27",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "cyberseceval3",
+            "authenticated-delegation",
+            "osworld",
+            "naive-rag",
+            "monitoring-control-patterns"
+          ]
+        },
+        {
+          "expected_ids": [
+            "eval-driven-agent-development"
+          ],
+          "hit": true,
+          "id": "t28",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "eval-driven-agent-development",
+            "terminal-bench",
+            "osworld",
+            "progressive-agent-rollout",
+            "got"
+          ]
+        },
+        {
+          "expected_ids": [
+            "agent-observability-tracing"
+          ],
+          "hit": true,
+          "id": "t29",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "agent-observability-tracing",
+            "plan-execute-decoupling",
+            "speculative-tool-execution",
+            "context-editing-tool-clearing",
+            "http-native-micropayments"
+          ]
+        },
+        {
+          "expected_ids": [
+            "durable-execution"
+          ],
+          "hit": true,
+          "id": "t30",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "durable-execution",
+            "context-state-machines",
+            "agentic-context-engineering",
+            "graph-state-machines",
+            "sequential-chaining"
+          ]
+        }
+      ],
+      "hit_at_k": 0.6071428571428571,
+      "mrr": 0.5297619047619048
+    },
+    "rrf": {
+      "cases": [
+        {
+          "expected_ids": [
+            "content-based-routing",
+            "llm-based-routing",
+            "embedding-based-routing"
+          ],
+          "hit": true,
+          "id": "t01",
+          "reciprocal_rank": 0.5,
+          "top": [
+            "handoff-orchestration",
+            "content-based-routing",
+            "context-routing",
+            "context-isolate-patterns",
+            "agent-collaboration-ux"
+          ]
+        },
+        {
+          "expected_ids": [
+            "load-balancing"
+          ],
+          "hit": false,
+          "id": "t02",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "test-time-scaling",
+            "chain-of-agents",
+            "map-reduce",
+            "supervisor-worker-pattern",
+            "energy-efficient-inference"
+          ]
+        },
+        {
+          "expected_ids": [
+            "self-critique"
+          ],
+          "hit": true,
+          "id": "t03",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "self-critique",
+            "producer-critic",
+            "constitutional-ai",
+            "feedback-chaining",
+            "mixture-of-agents"
+          ]
+        },
+        {
+          "expected_ids": [
+            "tool-retrieval"
+          ],
+          "hit": true,
+          "id": "t04",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "tool-retrieval",
+            "agentic-context-engineering",
+            "agent-skills",
+            "hierarchical-memory",
+            "osworld"
+          ]
+        },
+        {
+          "expected_ids": [
+            "function-calling",
+            "structured-outputs"
+          ],
+          "hit": true,
+          "id": "t05",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "function-calling",
+            "context-editing-tool-clearing",
+            "conversational-orchestration",
+            "parallel-chaining",
+            "react"
+          ]
+        },
+        {
+          "expected_ids": [
+            "fork-join",
+            "scatter-gather"
+          ],
+          "hit": true,
+          "id": "t06",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "fork-join",
+            "parallel-chaining",
+            "async-await",
+            "parallel-synthesis",
+            "skeleton-of-thoughts"
+          ]
+        },
+        {
+          "expected_ids": [
+            "cod",
+            "evolutionary-algorithms"
+          ],
+          "hit": false,
+          "id": "t07",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "test-time-scaling",
+            "tot",
+            "self-improving-systems",
+            "buffer-of-thoughts",
+            "reflective-mcts"
+          ]
+        },
+        {
+          "expected_ids": [
+            "sliding-window-management",
+            "context-compress-patterns"
+          ],
+          "hit": false,
+          "id": "t08",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "memory-forgetting-policies",
+            "generative-agents-memory",
+            "context-editing-tool-clearing",
+            "plan-todo-recitation",
+            "agent-context-preservation"
+          ]
+        },
+        {
+          "expected_ids": [
+            "constraint-satisfaction",
+            "human-in-the-loop"
+          ],
+          "hit": true,
+          "id": "t09",
+          "reciprocal_rank": 0.25,
+          "top": [
+            "human-on-the-loop",
+            "risk-tiered-approval-escalation",
+            "hula-framework",
+            "human-in-the-loop",
+            "budget-guarded-autonomy"
+          ]
+        },
+        {
+          "expected_ids": [
+            "dual-llm-capability-security",
+            "spotlighting-data-marking"
+          ],
+          "hit": false,
+          "id": "t10",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "context-editing-tool-clearing",
+            "tool-misuse-prevention",
+            "prompt-optimization",
+            "agent-sandboxing",
+            "speculative-tool-execution"
+          ]
+        },
+        {
+          "expected_ids": [
+            "abductive-reasoning"
+          ],
+          "hit": true,
+          "id": "t11",
+          "reciprocal_rank": 0.5,
+          "top": [
+            "deep-research-agent",
+            "abductive-reasoning",
+            "graph-rag",
+            "test-time-scaling",
+            "agentic-rag-systems"
+          ]
+        },
+        {
+          "expected_ids": [
+            "reflexion-pattern"
+          ],
+          "hit": true,
+          "id": "t13",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "reflexion-pattern",
+            "skill-library",
+            "agentic-context-engineering",
+            "step-back-prompting",
+            "conversational-interface-patterns"
+          ]
+        },
+        {
+          "expected_ids": [
+            "parallel-synthesis"
+          ],
+          "hit": true,
+          "id": "t14",
+          "reciprocal_rank": 0.2,
+          "top": [
+            "producer-critic",
+            "self-critique",
+            "mixture-of-agents",
+            "chain-of-agents",
+            "parallel-synthesis"
+          ]
+        },
+        {
+          "expected_ids": [
+            "supervisor-worker-pattern"
+          ],
+          "hit": true,
+          "id": "t15",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "supervisor-worker-pattern",
+            "chain-of-agents",
+            "context-isolate-patterns",
+            "theagentcompany",
+            "sequential-pipeline-agents"
+          ]
+        },
+        {
+          "expected_ids": [
+            "message-queuing"
+          ],
+          "hit": true,
+          "id": "t16",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "message-queuing",
+            "durable-execution",
+            "monitoring-control-patterns",
+            "chain-of-agents",
+            "event-driven-orchestrator-worker"
+          ]
+        },
+        {
+          "expected_ids": [
+            "episodic-memory-systems"
+          ],
+          "hit": true,
+          "id": "t17",
+          "reciprocal_rank": 0.3333333333333333,
+          "top": [
+            "context-write-patterns",
+            "theagentcompany",
+            "episodic-memory-systems",
+            "reflexion-pattern",
+            "memory-block-architecture"
+          ]
+        },
+        {
+          "expected_ids": [
+            "advanced-rag",
+            "agentic-rag-systems"
+          ],
+          "hit": false,
+          "id": "t18",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "rule-based-routing",
+            "context-routing",
+            "stateful-graph-workflows",
+            "llm-based-routing",
+            "capability-routing"
+          ]
+        },
+        {
+          "expected_ids": [
+            "plan-execute-decoupling"
+          ],
+          "hit": true,
+          "id": "t19",
+          "reciprocal_rank": 0.5,
+          "top": [
+            "stateful-graph-workflows",
+            "plan-execute-decoupling",
+            "structured-reflection-tool",
+            "sequential-chaining",
+            "got"
+          ]
+        },
+        {
+          "expected_ids": [
+            "weighted-scoring"
+          ],
+          "hit": false,
+          "id": "t20",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "predictive-agent-fault-tolerance",
+            "human-on-the-loop",
+            "concurrent-orchestration",
+            "llm-as-judge",
+            "cot"
+          ]
+        },
+        {
+          "expected_ids": [
+            "human-on-the-loop",
+            "monitoring-control-patterns"
+          ],
+          "hit": true,
+          "id": "t21",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "human-on-the-loop",
+            "human-in-the-loop",
+            "osworld",
+            "realtime-voice-agents",
+            "online-learning-adaptation"
+          ]
+        },
+        {
+          "expected_ids": [
+            "constraint-satisfaction"
+          ],
+          "hit": false,
+          "id": "t23",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "structured-reflection-tool",
+            "contrastive-explanations",
+            "swe-bench-pro",
+            "dual-llm-capability-security",
+            "terminal-bench"
+          ]
+        },
+        {
+          "expected_ids": [
+            "geographic-routing"
+          ],
+          "hit": true,
+          "id": "t24",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "geographic-routing",
+            "message-queuing",
+            "capability-routing",
+            "sleep-time-compute",
+            "transparent-data-handling"
+          ]
+        },
+        {
+          "expected_ids": [
+            "code-as-action"
+          ],
+          "hit": true,
+          "id": "t25",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "code-as-action",
+            "agent-observability-tracing",
+            "structured-reflection-tool",
+            "speculative-tool-execution",
+            "control-plane"
+          ]
+        },
+        {
+          "expected_ids": [
+            "memory-forgetting-policies"
+          ],
+          "hit": true,
+          "id": "t26",
+          "reciprocal_rank": 0.3333333333333333,
+          "top": [
+            "sliding-window-management",
+            "hierarchical-memory",
+            "memory-forgetting-policies",
+            "agent-context-preservation",
+            "infini-attention-architecture"
+          ]
+        },
+        {
+          "expected_ids": [
+            "system-prompt-protection"
+          ],
+          "hit": true,
+          "id": "t27",
+          "reciprocal_rank": 0.2,
+          "top": [
+            "authenticated-delegation",
+            "agent-sandboxing",
+            "cyberseceval3",
+            "osworld",
+            "system-prompt-protection"
+          ]
+        },
+        {
+          "expected_ids": [
+            "eval-driven-agent-development"
+          ],
+          "hit": true,
+          "id": "t28",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "eval-driven-agent-development",
+            "progressive-agent-rollout",
+            "terminal-bench",
+            "swe-bench-suite",
+            "osworld"
+          ]
+        },
+        {
+          "expected_ids": [
+            "agent-observability-tracing"
+          ],
+          "hit": true,
+          "id": "t29",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "agent-observability-tracing",
+            "speculative-tool-execution",
+            "context-editing-tool-clearing",
+            "code-as-action",
+            "twelve-factor-agent"
+          ]
+        },
+        {
+          "expected_ids": [
+            "durable-execution"
+          ],
+          "hit": true,
+          "id": "t30",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "durable-execution",
+            "sequential-chaining",
+            "graph-state-machines",
+            "context-state-machines",
+            "agent-observability-tracing"
+          ]
+        }
+      ],
+      "hit_at_k": 0.75,
+      "mrr": 0.5648809523809524
+    },
+    "semantic": {
+      "cases": [
+        {
+          "expected_ids": [
+            "content-based-routing",
+            "llm-based-routing",
+            "embedding-based-routing"
+          ],
+          "hit": false,
+          "id": "t01",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "handoff-orchestration",
+            "progressive-consent-communication",
+            "agent-payment-mandates",
+            "realtime-voice-agents",
+            "context-routing"
+          ]
+        },
+        {
+          "expected_ids": [
+            "load-balancing"
+          ],
+          "hit": false,
+          "id": "t02",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "parallel-chaining",
+            "self-consistency",
+            "chain-of-agents",
+            "semantic-caching",
+            "test-time-scaling"
+          ]
+        },
+        {
+          "expected_ids": [
+            "self-critique"
+          ],
+          "hit": true,
+          "id": "t03",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "self-critique",
+            "mixture-of-agents",
+            "reinforcement-learning-from-ai-feedback",
+            "feedback-chaining",
+            "producer-critic"
+          ]
+        },
+        {
+          "expected_ids": [
+            "tool-retrieval"
+          ],
+          "hit": true,
+          "id": "t04",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "tool-retrieval",
+            "agentic-context-engineering",
+            "chain-of-agents",
+            "code-execution",
+            "filesystem-as-context"
+          ]
+        },
+        {
+          "expected_ids": [
+            "function-calling",
+            "structured-outputs"
+          ],
+          "hit": true,
+          "id": "t05",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "function-calling",
+            "context-editing-tool-clearing",
+            "spotlighting-data-marking",
+            "codebase-structure-retrieval",
+            "structured-outputs"
+          ]
+        },
+        {
+          "expected_ids": [
+            "fork-join",
+            "scatter-gather"
+          ],
+          "hit": true,
+          "id": "t06",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "fork-join",
+            "parallel-chaining",
+            "parallel-synthesis",
+            "skeleton-of-thoughts",
+            "concurrent-orchestration"
+          ]
+        },
+        {
+          "expected_ids": [
+            "cod",
+            "evolutionary-algorithms"
+          ],
+          "hit": false,
+          "id": "t07",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "reflective-mcts",
+            "agentic-context-engineering",
+            "tot",
+            "buffer-of-thoughts",
+            "test-time-scaling"
+          ]
+        },
+        {
+          "expected_ids": [
+            "sliding-window-management",
+            "context-compress-patterns"
+          ],
+          "hit": false,
+          "id": "t08",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "generative-agents-memory",
+            "temporal-knowledge-graph-memory",
+            "agent-context-preservation",
+            "memory-poisoning-prevention",
+            "agentic-context-engineering"
+          ]
+        },
+        {
+          "expected_ids": [
+            "constraint-satisfaction",
+            "human-in-the-loop"
+          ],
+          "hit": true,
+          "id": "t09",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "human-in-the-loop",
+            "aisi-evaluation-framework",
+            "cyberseceval3",
+            "human-on-the-loop",
+            "rule-based-routing"
+          ]
+        },
+        {
+          "expected_ids": [
+            "dual-llm-capability-security",
+            "spotlighting-data-marking"
+          ],
+          "hit": true,
+          "id": "t10",
+          "reciprocal_rank": 0.2,
+          "top": [
+            "tool-misuse-prevention",
+            "context-editing-tool-clearing",
+            "agent-sandboxing",
+            "prompt-optimization",
+            "spotlighting-data-marking"
+          ]
+        },
+        {
+          "expected_ids": [
+            "abductive-reasoning"
+          ],
+          "hit": false,
+          "id": "t11",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "deep-research-agent",
+            "mlr-bench",
+            "chain-of-agents",
+            "agentic-rag-systems",
+            "self-rag"
+          ]
+        },
+        {
+          "expected_ids": [
+            "reflexion-pattern"
+          ],
+          "hit": true,
+          "id": "t13",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "reflexion-pattern",
+            "skill-library",
+            "error-recovery-patterns",
+            "synthetic-user-simulation",
+            "agent-context-preservation"
+          ]
+        },
+        {
+          "expected_ids": [
+            "parallel-synthesis"
+          ],
+          "hit": false,
+          "id": "t14",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "mixture-of-agents",
+            "deep-research-agent",
+            "concurrent-orchestration",
+            "self-critique",
+            "producer-critic"
+          ]
+        },
+        {
+          "expected_ids": [
+            "supervisor-worker-pattern"
+          ],
+          "hit": true,
+          "id": "t15",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "supervisor-worker-pattern",
+            "chain-of-agents",
+            "theagentcompany",
+            "transactive-memory-systems",
+            "conversational-orchestration"
+          ]
+        },
+        {
+          "expected_ids": [
+            "message-queuing"
+          ],
+          "hit": true,
+          "id": "t16",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "message-queuing",
+            "priority-queues",
+            "resource-aware-scheduling",
+            "adaptive-compute-scaling",
+            "monitoring-control-patterns"
+          ]
+        },
+        {
+          "expected_ids": [
+            "episodic-memory-systems"
+          ],
+          "hit": true,
+          "id": "t17",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "episodic-memory-systems",
+            "continual-learning",
+            "context-write-patterns",
+            "deep-research-agent",
+            "onboarding-education-patterns"
+          ]
+        },
+        {
+          "expected_ids": [
+            "advanced-rag",
+            "agentic-rag-systems"
+          ],
+          "hit": false,
+          "id": "t18",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "rule-based-routing",
+            "human-in-the-loop",
+            "machine-learning-model-based-routing",
+            "aisi-evaluation-framework",
+            "dynamic-routing"
+          ]
+        },
+        {
+          "expected_ids": [
+            "plan-execute-decoupling"
+          ],
+          "hit": false,
+          "id": "t19",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "hierarchical-task-network-planning",
+            "dynamic-routing",
+            "got",
+            "agent-observability-tracing",
+            "sequential-chaining"
+          ]
+        },
+        {
+          "expected_ids": [
+            "weighted-scoring"
+          ],
+          "hit": false,
+          "id": "t20",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "rule-based-routing",
+            "cost-aware-model-selection",
+            "aisi-evaluation-framework",
+            "concurrent-orchestration",
+            "parallel-chaining"
+          ]
+        },
+        {
+          "expected_ids": [
+            "human-on-the-loop",
+            "monitoring-control-patterns"
+          ],
+          "hit": true,
+          "id": "t21",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "monitoring-control-patterns",
+            "agent-status-activity-patterns",
+            "human-on-the-loop",
+            "ambient-agent-patterns",
+            "agent-observability-tracing"
+          ]
+        },
+        {
+          "expected_ids": [
+            "constraint-satisfaction"
+          ],
+          "hit": false,
+          "id": "t23",
+          "reciprocal_rank": 0.0,
+          "top": [
+            "rule-based-routing",
+            "conditional-chaining",
+            "budget-guarded-autonomy",
+            "aisi-evaluation-framework",
+            "dynamic-routing"
+          ]
+        },
+        {
+          "expected_ids": [
+            "geographic-routing"
+          ],
+          "hit": true,
+          "id": "t24",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "geographic-routing",
+            "resource-aware-scheduling",
+            "priority-queues",
+            "adaptive-compute-scaling",
+            "message-queuing"
+          ]
+        },
+        {
+          "expected_ids": [
+            "code-as-action"
+          ],
+          "hit": true,
+          "id": "t25",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "code-as-action",
+            "speculative-tool-execution",
+            "code-execution",
+            "chain-of-agents",
+            "agent-observability-tracing"
+          ]
+        },
+        {
+          "expected_ids": [
+            "memory-forgetting-policies"
+          ],
+          "hit": true,
+          "id": "t26",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "memory-forgetting-policies",
+            "hierarchical-memory",
+            "memory-poisoning-prevention",
+            "agent-context-preservation",
+            "sliding-window-management"
+          ]
+        },
+        {
+          "expected_ids": [
+            "system-prompt-protection"
+          ],
+          "hit": true,
+          "id": "t27",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "system-prompt-protection",
+            "agent-sandboxing",
+            "tool-misuse-prevention",
+            "memory-poisoning-prevention",
+            "proactive-clarification"
+          ]
+        },
+        {
+          "expected_ids": [
+            "eval-driven-agent-development"
+          ],
+          "hit": true,
+          "id": "t28",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "eval-driven-agent-development",
+            "progressive-agent-rollout",
+            "budget-guarded-autonomy",
+            "swe-bench-suite",
+            "tau-bench"
+          ]
+        },
+        {
+          "expected_ids": [
+            "agent-observability-tracing"
+          ],
+          "hit": true,
+          "id": "t29",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "agent-observability-tracing",
+            "speculative-tool-execution",
+            "code-as-action",
+            "monitoring-control-patterns",
+            "sequential-pipeline-agents"
+          ]
+        },
+        {
+          "expected_ids": [
+            "durable-execution"
+          ],
+          "hit": true,
+          "id": "t30",
+          "reciprocal_rank": 1.0,
+          "top": [
+            "durable-execution",
+            "sequential-chaining",
+            "task-management-orchestration",
+            "stateful-graph-workflows",
+            "graph-state-machines"
+          ]
+        }
+      ],
+      "hit_at_k": 0.6428571428571429,
+      "mrr": 0.6142857142857142
+    }
+  },
+  "run": {
+    "cases": 28,
+    "catalog_version": "7f1496d",
+    "date": "2026-09-13",
+    "embed_model": "BAAI/bge-small-en-v1.5",
+    "gaps": 2,
+    "k": 5
+  }
+}
