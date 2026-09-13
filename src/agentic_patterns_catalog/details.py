@@ -26,17 +26,11 @@ def _clean(text: str) -> str:
     return re.sub(r"^[•\-–—*]\s*", "", " ".join(text.split())).strip()
 
 
-def _rank(level: int) -> int:
-    """h2 and h3 are both independent top-level sections; only h4 nests under h3."""
-    return 1 if level in (2, 3) else 2
-
-
 def _segment(heading: Tag) -> list[Tag]:
-    """Tags after `heading` up to the next heading of the same or a higher rank."""
-    rank = _rank(int(heading.name[1]))
+    """Tags after `heading` up to the next heading of any level."""
     out: list[Tag] = []
     for node in heading.next_elements:
-        if isinstance(node, Tag) and node.name in _HEADINGS and _rank(int(node.name[1])) <= rank:
+        if isinstance(node, Tag) and node.name in _HEADINGS:
             break
         if isinstance(node, Tag):
             out.append(node)
@@ -81,8 +75,6 @@ def parse_details(html: str) -> dict[str, list[str]]:
         if level == 4 and 3 in parent_key:
             key = f"{parent_key[3]}.{key}"
         items = _items(_segment(heading))
-        if level < 4 and heading.find_next(_HEADINGS) is not None and not items:
-            continue  # a container heading whose content lives under its h4 children
         if items and key not in out:
             out[key] = items
     return out

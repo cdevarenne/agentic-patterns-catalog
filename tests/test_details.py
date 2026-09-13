@@ -27,6 +27,12 @@ def test_page_without_details_block_gives_empty_dict() -> None:
     assert details.parse_details("<html><body><p>x</p></body></html>") == {}
 
 
+def test_container_heading_with_h4_children_is_not_emitted(fixtures: Path) -> None:
+    d = details.parse_details((fixtures / "page.html").read_text(encoding="utf-8"))
+    assert "when_to_use" not in d
+    assert d["when_to_use.use_when"] == ["Many handlers exist"]
+
+
 @pytest.mark.mirror
 def test_mirror_templates_yield_expected_keys(mirror: Path) -> None:
     deep = details.parse_details((mirror / "routing" / "capability-routing.html").read_text(encoding="utf-8"))
