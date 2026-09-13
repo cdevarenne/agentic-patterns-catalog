@@ -1,0 +1,53 @@
+{
+  "description": "External tool integration and function calling patterns",
+  "detailedDescription": "Tool use patterns enable AI systems to extend their capabilities by integrating with external tools, APIs, databases, and services. These patterns allow AI agents to perform actions beyond text generation, such as making calculations, accessing real-time data, executing code, manipulating files, or interacting with external systems, dramatically expanding the scope of tasks they can accomplish autonomously.",
+  "id": "tool-use",
+  "implementationGuide": {
+    "bestPractices": [
+      "Design robust error handling for tool failures and network issues",
+      "Implement proper authentication and security measures for tool access",
+      "Use tool abstraction layers to simplify integration and maintenance",
+      "Validate tool inputs and sanitize outputs to prevent security issues",
+      "Implement rate limiting and resource management for tool usage",
+      "Provide clear documentation and examples for each available tool",
+      "Monitor tool usage and performance for optimization opportunities"
+    ],
+    "commonPitfalls": [
+      "Insufficient error handling leading to system failures when tools are unavailable",
+      "Security vulnerabilities from improper input validation or excessive permissions",
+      "Over-reliance on tools for tasks that could be handled with AI capabilities alone",
+      "Poor tool selection leading to inefficient or incorrect task execution",
+      "Not considering the latency and cost implications of external tool usage",
+      "Inadequate monitoring and logging of tool interactions for debugging"
+    ],
+    "whenToUse": [
+      "Tasks requiring real-time or current information not available in training data",
+      "Applications needing precise calculations or data analysis beyond text generation",
+      "Systems that must interact with external APIs or databases",
+      "Workflows requiring file manipulation or system operations",
+      "Scenarios where verification or execution of generated code is needed",
+      "Applications requiring integration with existing business systems"
+    ]
+  },
+  "name": "Tool Use",
+  "provenance": {
+    "content_sha256": "987c0ada5f4690a56e2685a36930b62e95a95fef5df66c6680f39b6137cc0b5f",
+    "extraction": "rsc-payload",
+    "mirrored_at": "2026-09-12",
+    "url": "https://agentic-design.ai/patterns/tool-use"
+  },
+  "technique_ids": [
+    "function-calling",
+    "code-execution",
+    "model-context-protocol",
+    "control-plane",
+    "computer-use",
+    "agent-skills",
+    "tool-retrieval",
+    "structured-outputs",
+    "code-as-action",
+    "structured-reflection-tool",
+    "mcp-tool-gateway"
+  ],
+  "whyImportant": "Tool use patterns are fundamental for creating practical AI agents that can interact with real-world systems and perform concrete actions. They bridge the gap between AI reasoning capabilities and practical utility, enabling agents to access current information, perform precise calculations, and execute tasks that require interaction with external systems. This capability transforms AI from a text generation tool into a versatile automation platform."
+}

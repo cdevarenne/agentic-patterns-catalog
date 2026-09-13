@@ -1,0 +1,58 @@
+{
+  "description": "Context management and state persistence patterns",
+  "detailedDescription": "Memory management patterns enable AI systems to maintain, organize, and retrieve contextual information across interactions and sessions. These patterns implement strategies for storing relevant information, managing context windows, prioritizing important details, and ensuring continuity in long-running conversations or processes while optimizing for performance and relevance.",
+  "id": "memory-management",
+  "implementationGuide": {
+    "bestPractices": [
+      "Implement hierarchical memory structures with different retention policies",
+      "Use relevance scoring to prioritize important information for retention",
+      "Design efficient retrieval mechanisms for quick context access",
+      "Implement memory consolidation to prevent storage from growing indefinitely",
+      "Use compression and summarization techniques for long-term storage",
+      "Ensure memory consistency and integrity across concurrent operations",
+      "Design privacy-aware memory management with appropriate data protection"
+    ],
+    "commonPitfalls": [
+      "Storing too much irrelevant information leading to noise and performance issues",
+      "Poor retrieval strategies making it difficult to access relevant context when needed",
+      "Not implementing proper memory lifecycle management leading to unbounded growth",
+      "Insufficient privacy protection for sensitive information in memory",
+      "Over-reliance on memory leading to inflexibility when context changes",
+      "Not handling memory corruption or inconsistency gracefully"
+    ],
+    "whenToUse": [
+      "Applications requiring continuity across multiple interactions or sessions",
+      "Systems that need to learn and adapt from previous experiences",
+      "Long-running processes where context preservation is critical",
+      "Personalized applications requiring user-specific information retention",
+      "Collaborative environments where shared context is important",
+      "Applications with complex state that must be maintained across operations"
+    ]
+  },
+  "name": "Memory Management",
+  "provenance": {
+    "content_sha256": "3ae4673ccd2d3392c12fe29692f7d14b99f095cb86676db39b22b21fc274cc27",
+    "extraction": "rsc-payload",
+    "mirrored_at": "2026-09-12",
+    "url": "https://agentic-design.ai/patterns/memory-management"
+  },
+  "technique_ids": [
+    "parametric-memory",
+    "episodic-memory-systems",
+    "semantic-memory-networks",
+    "transactive-memory-systems",
+    "memory-reading-writing-operations",
+    "hierarchical-memory",
+    "contextual-structured-memory",
+    "contextual-unstructured-memory",
+    "memory-consolidation",
+    "working-memory-patterns",
+    "distributed-memory-architectures",
+    "attention-mechanisms",
+    "latent-memory-networks",
+    "generative-agents-memory",
+    "temporal-knowledge-graph-memory",
+    "memory-forgetting-policies"
+  ],
+  "whyImportant": "Memory management is crucial for creating AI systems that can maintain meaningful, continuous relationships with users and handle complex, long-running tasks. It enables personalization, learning, and context-aware decision making that significantly improves user experience and system effectiveness. These patterns are essential for applications requiring state persistence, learning capabilities, or extended interaction sessions."
+}

@@ -1,0 +1,50 @@
+{
+  "description": "Advanced planning strategies for complex multi-step tasks and goal achievement",
+  "detailedDescription": "Sophisticated approaches to breaking down complex objectives into manageable steps, handling dependencies, and executing plans while adapting to changing conditions.",
+  "id": "planning-execution",
+  "implementationGuide": {
+    "bestPractices": [
+      "Design modular plans that can be adapted without complete reconstruction",
+      "Implement continuous monitoring and feedback loops for plan adjustment",
+      "Build in contingency planning for likely failure modes and uncertainties",
+      "Use hierarchical planning to manage complexity at different abstraction levels",
+      "Implement proper resource tracking and constraint management",
+      "Design clear success metrics and progress indicators for plan validation"
+    ],
+    "commonPitfalls": [
+      "Over-planning without execution flexibility or adaptation mechanisms",
+      "Ignoring resource constraints and dependencies in plan construction",
+      "Poor handling of plan failures and inadequate replanning capabilities",
+      "Creating plans that are too rigid to adapt to changing circumstances",
+      "Insufficient monitoring and feedback mechanisms for plan progress",
+      "Failing to account for uncertainty and risk in planning processes"
+    ],
+    "whenToUse": [
+      "Complex objectives requiring systematic decomposition into subtasks",
+      "Multi-step processes with dependencies and resource constraints",
+      "Dynamic environments requiring adaptive planning and re-planning",
+      "Collaborative scenarios involving multiple agents or stakeholders",
+      "Time-sensitive situations requiring efficient resource utilization",
+      "Projects with uncertain outcomes requiring contingency planning"
+    ]
+  },
+  "name": "Planning",
+  "provenance": {
+    "content_sha256": "28723c29e123a40f2f1191005bcc29a9bf3b2fb2f607555ea5b9782c697e4ec8",
+    "extraction": "rsc-payload",
+    "mirrored_at": "2026-09-12",
+    "url": "https://agentic-design.ai/patterns/planning-execution"
+  },
+  "technique_ids": [
+    "meta-reasoning",
+    "hierarchical-task-network-planning",
+    "task-management-orchestration",
+    "goal-decomposition",
+    "constraint-satisfaction",
+    "scenario-planning",
+    "plan-execute-decoupling",
+    "plan-todo-recitation",
+    "world-model-simulation-planning"
+  ],
+  "whyImportant": "Planning and execution patterns are essential for handling complex, multi-faceted challenges that require systematic decomposition and coordinated execution. They enable AI systems to break down overwhelming objectives into manageable components while maintaining awareness of dependencies, constraints, and resource limitations."
+}

@@ -1,0 +1,55 @@
+{
+  "description": "Information retrieval and augmented generation patterns",
+  "detailedDescription": "Knowledge retrieval patterns, particularly Retrieval-Augmented Generation (RAG), enhance AI systems by combining pre-trained knowledge with dynamically retrieved information from external sources. This comprehensive collection includes cutting-edge RAG variants from the latest research: Graph RAG for relationship-aware retrieval, Self-RAG for quality control, Corrective RAG for error correction, Adaptive RAG for dynamic optimization, and Multimodal RAG for cross-modal integration. These patterns enable AI systems to access current information, domain-specific knowledge bases, and contextually relevant data with unprecedented sophistication and reliability.",
+  "id": "knowledge-retrieval",
+  "implementationGuide": {
+    "bestPractices": [
+      "Design effective indexing and search strategies for fast and relevant retrieval",
+      "Implement proper chunking and preprocessing of knowledge sources",
+      "Use hybrid search approaches combining semantic similarity and keyword matching",
+      "Design retrieval systems with appropriate filtering and ranking mechanisms",
+      "Implement source attribution and citation capabilities for transparency",
+      "Use retrieval quality metrics to optimize search and ranking performance",
+      "Design systems that can handle both structured and unstructured knowledge sources"
+    ],
+    "commonPitfalls": [
+      "Poor retrieval quality leading to irrelevant or low-quality information being used in responses",
+      "Insufficient processing of retrieved information causing context misunderstanding",
+      "Over-reliance on retrieval without proper integration with generative capabilities",
+      "Not implementing proper source verification and quality control for retrieved information",
+      "Ignoring retrieval latency impact on overall system performance",
+      "Inadequate handling of cases where relevant information cannot be retrieved"
+    ],
+    "whenToUse": [
+      "Applications requiring access to current, dynamic, or frequently changing information",
+      "Domain-specific applications with specialized knowledge bases",
+      "Systems where factual accuracy and source attribution are critical",
+      "Applications dealing with large document collections or databases",
+      "Scenarios where training data alone is insufficient for comprehensive responses",
+      "Applications requiring transparency about information sources and evidence"
+    ]
+  },
+  "name": "Knowledge Retrieval (RAG)",
+  "provenance": {
+    "content_sha256": "2db4bbf685190cb484b6879d4602cb2272b135c94eccd9a25f749372752ee974",
+    "extraction": "rsc-payload",
+    "mirrored_at": "2026-09-12",
+    "url": "https://agentic-design.ai/patterns/knowledge-retrieval"
+  },
+  "technique_ids": [
+    "naive-rag",
+    "advanced-rag",
+    "modular-rag",
+    "self-rag",
+    "corrective-rag",
+    "graph-rag",
+    "multimodal-rag",
+    "agentic-rag-systems",
+    "latent-knowledge-retrieval",
+    "query-transformation-retrieval",
+    "hierarchical-index-retrieval",
+    "deep-research-agent",
+    "codebase-structure-retrieval"
+  ],
+  "whyImportant": "Knowledge retrieval patterns represent the cutting edge of AI-human knowledge integration, enabling systems that not only access information beyond training data but do so with unprecedented intelligence and quality control. Advanced RAG variants like Graph RAG unlock relationship-aware reasoning, Self-RAG provides automatic quality assurance, and Multimodal RAG enables comprehensive understanding across data types. These patterns transform AI from simple knowledge lookup systems into sophisticated research assistants capable of fact-checking, cross-referencing, and adaptive learning."
+}

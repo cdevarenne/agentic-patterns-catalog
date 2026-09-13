@@ -1,0 +1,40 @@
+{
+  "description": "Cost, latency, energy, compute, and memory optimization patterns",
+  "detailedDescription": "Resource-aware optimization patterns adapt model choice, computation depth, memory use, and execution strategy to operational constraints. They help systems meet quality targets while controlling latency, infrastructure cost, energy use, and capacity under changing load.",
+  "id": "resource-aware-optimization",
+  "implementationGuide": {
+    "bestPractices": [
+      "Define measurable quality and resource budgets before optimizing",
+      "Route simple requests to the least expensive path that meets requirements",
+      "Measure end-to-end impact under representative load"
+    ],
+    "commonPitfalls": [
+      "Optimizing token count while ignoring total latency and tool cost",
+      "Using static routing for highly variable workloads",
+      "Trading away reliability or safety without explicit acceptance criteria"
+    ],
+    "whenToUse": [
+      "Workloads vary significantly in complexity or business value",
+      "Latency, cost, memory, or energy has a defined budget",
+      "The system can choose among models, tools, or computation strategies"
+    ]
+  },
+  "name": "Resource-Aware Optimization",
+  "provenance": {
+    "content_sha256": "76a4a66b3596ca94d14f2f03377d41cdf1636f055f44c9bc2dcc3e9ba7ca4f44",
+    "extraction": "rsc-payload",
+    "mirrored_at": "2026-09-12",
+    "url": "https://agentic-design.ai/patterns/resource-aware-optimization"
+  },
+  "technique_ids": [
+    "adaptive-compute-scaling",
+    "cost-aware-model-selection",
+    "energy-efficient-inference",
+    "memory-optimization",
+    "latency-optimization",
+    "sleep-time-compute",
+    "semantic-caching",
+    "budget-guarded-autonomy"
+  ],
+  "whyImportant": "A system that is accurate but too slow, costly, or resource-intensive is not production-ready. Resource constraints need to be explicit inputs to system design."
+}

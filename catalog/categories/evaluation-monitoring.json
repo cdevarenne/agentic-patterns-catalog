@@ -1,0 +1,67 @@
+{
+  "description": "Performance assessment and system monitoring patterns",
+  "detailedDescription": "Evaluation and monitoring patterns implement comprehensive systems for assessing AI performance, tracking system behavior, and maintaining quality standards over time. These patterns enable continuous performance measurement, early detection of issues, and data-driven optimization of AI systems through systematic collection and analysis of metrics, user feedback, and system behavior data.",
+  "id": "evaluation-monitoring",
+  "implementationGuide": {
+    "bestPractices": [
+      "Define clear, measurable metrics that align with business objectives and user needs",
+      "Implement both automated monitoring and human evaluation for comprehensive assessment",
+      "Use statistical methods to detect significant changes in performance metrics",
+      "Create dashboards and alerting systems for real-time monitoring and issue detection",
+      "Implement proper data collection and storage systems for long-term trend analysis",
+      "Design evaluation systems that can adapt to changing requirements and contexts",
+      "Establish baseline performance metrics and regularly reassess benchmarks"
+    ],
+    "commonPitfalls": [
+      "Monitoring too many metrics leading to information overload and alert fatigue",
+      "Focusing on easily measurable metrics while ignoring important qualitative factors",
+      "Insufficient baseline data making it difficult to detect meaningful changes",
+      "Poor integration between monitoring systems and improvement processes",
+      "Not considering the cost and overhead of comprehensive monitoring systems",
+      "Failing to adapt monitoring strategies as systems and requirements evolve"
+    ],
+    "whenToUse": [
+      "Production AI systems where performance and reliability are critical",
+      "Applications where user experience and satisfaction directly impact business outcomes",
+      "Systems operating in dynamic environments where performance may change over time",
+      "Applications requiring regulatory compliance and audit trails",
+      "AI systems that need continuous improvement and optimization",
+      "High-volume applications where small performance improvements have significant impact"
+    ]
+  },
+  "name": "Evaluation and Monitoring",
+  "provenance": {
+    "content_sha256": "27d39e6800eef306edc901226fe85f9b23bd169d57b6a6007e8421f3b907b2f6",
+    "extraction": "rsc-payload",
+    "mirrored_at": "2026-09-12",
+    "url": "https://agentic-design.ai/patterns/evaluation-monitoring"
+  },
+  "technique_ids": [
+    "mlcommons-ai-safety",
+    "agentbench",
+    "theagentcompany",
+    "mlr-bench",
+    "twelve-factor-agent",
+    "helm-agent-eval",
+    "hula-framework",
+    "cyberseceval3",
+    "metr-re-bench",
+    "swe-bench-suite",
+    "osworld",
+    "terminal-bench",
+    "swe-bench-pro",
+    "gaia-benchmark",
+    "mmau-benchmark",
+    "webarena-suite",
+    "eu-ai-act-framework",
+    "aisi-evaluation-framework",
+    "maps-benchmark",
+    "constitutional-ai-evaluation",
+    "agent-observability-tracing",
+    "tau-bench",
+    "eval-driven-agent-development",
+    "progressive-agent-rollout",
+    "synthetic-user-simulation"
+  ],
+  "whyImportant": "Evaluation and monitoring patterns are essential for maintaining and improving AI system performance in production environments. They enable early detection of issues before they impact users, provide data-driven insights for optimization, and ensure that AI systems continue to meet quality and performance standards over time. These patterns are crucial for building reliable, trustworthy AI systems that can adapt and improve continuously."
+}

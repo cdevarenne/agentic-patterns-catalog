@@ -1,3 +1,6 @@
 """Imports every module that registers a `catalog` subcommand."""
-from . import schema  # noqa: F401
+from . import (
+    extract,  # noqa: F401
+    schema,  # noqa: F401
+)
 

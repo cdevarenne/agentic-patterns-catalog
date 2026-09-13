@@ -1,0 +1,62 @@
+{
+  "description": "Dynamic learning and behavioral adaptation patterns",
+  "detailedDescription": "Learning and adaptation patterns enable AI systems to modify their behavior, improve their performance, and acquire new capabilities based on experience, feedback, and changing conditions. These patterns implement mechanisms for continuous improvement, behavioral adjustment, and knowledge acquisition that allow systems to become more effective over time and adapt to new domains or requirements.",
+  "id": "learning-adaptation",
+  "implementationGuide": {
+    "bestPractices": [
+      "Implement safe learning mechanisms that prevent degradation of core capabilities",
+      "Use validation and testing frameworks to verify learning improvements",
+      "Design learning systems with appropriate feedback loops and correction mechanisms",
+      "Implement learning rate controls to balance adaptation speed with stability",
+      "Use diverse learning signals to avoid overfitting to specific feedback types",
+      "Maintain baseline performance metrics to track learning effectiveness",
+      "Design learning systems with interpretability for debugging and validation"
+    ],
+    "commonPitfalls": [
+      "Learning from biased or poor-quality feedback leading to performance degradation",
+      "Over-adaptation to recent examples causing catastrophic forgetting of previous knowledge",
+      "Insufficient validation leading to learning of incorrect or harmful behaviors",
+      "Learning mechanisms that are too slow or too fast for the application context",
+      "Not maintaining diversity in learning examples leading to narrow specialization",
+      "Lack of safeguards allowing learned behaviors to override important safety constraints"
+    ],
+    "whenToUse": [
+      "Systems operating in dynamic or evolving environments",
+      "Applications requiring personalization and individual adaptation",
+      "Long-running systems where continuous improvement is valuable",
+      "Domains where feedback and learning opportunities are regularly available",
+      "Applications that need to handle novel situations or expanding requirements",
+      "Systems where user satisfaction correlates with behavioral adaptation"
+    ]
+  },
+  "name": "Learning and Adaptation",
+  "provenance": {
+    "content_sha256": "33072461dafd3939e0ff726cd3537b0f3312998e07f934b22d10fb34d6ae1226",
+    "extraction": "rsc-payload",
+    "mirrored_at": "2026-09-12",
+    "url": "https://agentic-design.ai/patterns/learning-adaptation"
+  },
+  "technique_ids": [
+    "reinforcement-learning-from-human-feedback",
+    "direct-preference-optimization",
+    "in-context-learning",
+    "meta-learning",
+    "continual-learning",
+    "self-improving-systems",
+    "constitutional-ai",
+    "reinforcement-learning-from-ai-feedback",
+    "test-time-scaling",
+    "odds-ratio-preference-optimization",
+    "simple-preference-optimization",
+    "supervised-learning-adaptation",
+    "unsupervised-learning-adaptation",
+    "online-learning-adaptation",
+    "memory-based-learning",
+    "prompt-optimization",
+    "rl-verifiable-rewards",
+    "process-reward-models",
+    "skill-library",
+    "agentic-context-engineering"
+  ],
+  "whyImportant": "Learning and adaptation patterns are essential for creating AI systems that remain relevant and effective in dynamic environments. They enable continuous improvement without manual intervention, allow systems to personalize experiences for individual users, and provide mechanisms for handling novel situations. These patterns are crucial for long-term system viability and user satisfaction."
+}

@@ -1,0 +1,39 @@
+{
+  "description": "Payments, commerce, discovery, identity, and web contracts for the agentic internet",
+  "detailedDescription": "A protocol stack stood up across 2025-2026 to let agents transact and interoperate beyond a single vendor. It spans agent payments and commerce (AP2 payment mandates, the Agentic Commerce Protocol, x402 HTTP micropayments), discovery and registries (agent cards, the MCP Registry, decentralized naming), the supply-side web contract that exposes site content to agents (llms.txt, NLWeb), cryptographic agent-to-website authentication (Web Bot Auth), and inter-agent trust and reputation (ERC-8004). These are the economic and interaction protocols layered on top of the coordination protocols (MCP, A2A) the catalog already covers.",
+  "id": "agent-economy",
+  "implementationGuide": {
+    "bestPractices": [
+      "Bind authority to signed, scoped, expiring mandates rather than shared credentials",
+      "Verify counterparty identity and reputation before transacting, with an escrow or fallback",
+      "Treat several of these standards as emerging or draft and design for change"
+    ],
+    "commonPitfalls": [
+      "Handing an agent a blank check or raw card details instead of a scoped token",
+      "Trusting an unknown agent purely on its self-description",
+      "Assuming any single 2025-2026 protocol is final and universally adopted"
+    ],
+    "whenToUse": [
+      "Agents need to spend money, transact, or access paid resources on a user behalf",
+      "Agents and tools must find and authenticate each other without bespoke wiring",
+      "A site or service needs to expose content or APIs to agents and control that access"
+    ]
+  },
+  "name": "Agent Economy & Interop Protocols",
+  "provenance": {
+    "content_sha256": "8ff2c2c03a68a5a9c079e0f77722b31615a0577580d03fef9d4955abc3494291",
+    "extraction": "rsc-payload",
+    "mirrored_at": "2026-09-12",
+    "url": "https://agentic-design.ai/patterns/agent-economy"
+  },
+  "technique_ids": [
+    "agent-payment-mandates",
+    "agentic-commerce-protocol",
+    "http-native-micropayments",
+    "agent-registry-discovery",
+    "agent-readable-web",
+    "web-bot-auth",
+    "inter-agent-trust-reputation"
+  ],
+  "whyImportant": "Agents cannot participate in the wider economy without shared rails for authorizing spend, proving identity, discovering counterparties, and pricing trust. These emerging standards are the difference between an agent that can only read and one that can act, pay, and be paid across organizational boundaries."
+}

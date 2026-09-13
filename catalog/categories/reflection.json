@@ -1,0 +1,46 @@
+{
+  "description": "Self-evaluation and iterative improvement patterns",
+  "detailedDescription": "Reflection patterns enable AI systems to examine their own outputs, reasoning processes, and decision-making to identify errors, inconsistencies, or areas for improvement. These patterns implement self-awareness and self-correction capabilities, allowing systems to iteratively refine their responses, validate their reasoning, and adapt their approach based on self-assessment.",
+  "id": "reflection",
+  "implementationGuide": {
+    "bestPractices": [
+      "Define clear criteria and metrics for self-evaluation",
+      "Implement multiple reflection cycles for complex tasks",
+      "Balance reflection depth with computational efficiency",
+      "Use diverse evaluation perspectives to avoid blind spots",
+      "Maintain logs of reflection processes for analysis and improvement",
+      "Design stopping criteria to prevent infinite reflection loops",
+      "Integrate human feedback to calibrate reflection effectiveness"
+    ],
+    "commonPitfalls": [
+      "Over-reflecting leading to analysis paralysis and high computational costs",
+      "Using biased or insufficient criteria for self-evaluation",
+      "Reflection becoming too narrow and missing important aspects",
+      "Not acting on reflection insights to actually improve outputs",
+      "Creating reflection loops that reinforce rather than correct errors",
+      "Ignoring the computational overhead of extensive reflection processes"
+    ],
+    "whenToUse": [
+      "Applications requiring high accuracy and quality assurance",
+      "Systems that need to provide explanations for their decisions",
+      "Complex reasoning tasks where errors can compound",
+      "Learning systems that need to adapt and improve over time",
+      "High-stakes applications where self-validation is critical",
+      "Systems requiring transparency and auditability"
+    ]
+  },
+  "name": "Reflection",
+  "provenance": {
+    "content_sha256": "99c35dd9838013ce616758707f6137a5f7f9cffa152c388f70d9b3bf7eb6a49b",
+    "extraction": "rsc-payload",
+    "mirrored_at": "2026-09-12",
+    "url": "https://agentic-design.ai/patterns/reflection"
+  },
+  "technique_ids": [
+    "self-critique",
+    "producer-critic",
+    "llm-as-judge",
+    "reflexion-pattern"
+  ],
+  "whyImportant": "Reflection patterns are crucial for building trustworthy and reliable AI systems that can self-monitor and improve their performance. They enable systems to catch errors before they reach users, provide transparency into decision-making processes, and continuously enhance output quality. This self-awareness capability is essential for applications requiring high accuracy, explainability, or adaptation to changing requirements."
+}

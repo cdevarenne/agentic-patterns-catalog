@@ -1,0 +1,48 @@
+{
+  "description": "Stateful, event-driven, and enterprise workflow coordination patterns",
+  "detailedDescription": "Workflow orchestration patterns coordinate multi-step agent processes across workers, services, and human checkpoints. They cover persistent graph execution, event-driven collaboration, enterprise controls, conversational workflows, and distributed coordination where progress, failures, and ownership must remain visible.",
+  "id": "workflow-orchestration",
+  "implementationGuide": {
+    "bestPractices": [
+      "Model each step with explicit inputs, outputs, ownership, and retry policy",
+      "Use idempotency keys and durable checkpoints around side effects",
+      "Expose workflow state, errors, and intervention controls to operators"
+    ],
+    "commonPitfalls": [
+      "Hiding business state inside conversation history",
+      "Retrying non-idempotent actions without safeguards",
+      "Building a central orchestrator that becomes a throughput and availability bottleneck"
+    ],
+    "whenToUse": [
+      "A task spans multiple tools, services, agents, or human approvals",
+      "Work must survive restarts or be resumed from checkpoints",
+      "Operators need an audit trail of state transitions and decisions"
+    ]
+  },
+  "name": "Workflow Orchestration",
+  "provenance": {
+    "content_sha256": "669c14e6acb568e1b93fb01d5fa95547b79f678b725fe0acad5858895d895c2c",
+    "extraction": "rsc-payload",
+    "mirrored_at": "2026-09-12",
+    "url": "https://agentic-design.ai/patterns/workflow-orchestration"
+  },
+  "technique_ids": [
+    "event-driven-orchestrator-worker",
+    "event-driven-hierarchical",
+    "event-driven-blackboard",
+    "event-driven-market-based",
+    "enterprise-orchestration",
+    "stateful-graph-workflows",
+    "conversational-orchestration",
+    "role-based-teamwork",
+    "graph-state-machines",
+    "actor-model-coordination",
+    "edge-ai-optimization",
+    "federated-orchestration",
+    "resource-aware-scheduling",
+    "progressive-enhancement",
+    "durable-execution",
+    "reversible-action-compensation"
+  ],
+  "whyImportant": "Agent systems become unreliable when coordination exists only inside a prompt. Explicit orchestration makes state transitions, retries, responsibilities, and failure recovery inspectable and testable."
+}

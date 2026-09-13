@@ -1,0 +1,36 @@
+{
+  "description": "Patterns for selecting, routing, sizing, and combining context",
+  "detailedDescription": "Context orchestration patterns decide which information should reach each model or agent, in what form, and at what time. They cover source fusion, task-aware routing, and adaptive context sizing across systems that combine memory, retrieval, tools, and multiple specialists.",
+  "id": "context-orchestration",
+  "implementationGuide": {
+    "bestPractices": [
+      "Rank context by task relevance, authority, freshness, and sensitivity",
+      "Keep provenance and access policy attached through transformations",
+      "Evaluate retrieval and answer quality together"
+    ],
+    "commonPitfalls": [
+      "Concatenating every available source without prioritization",
+      "Dropping provenance during summarization or handoff",
+      "Sharing sensitive context with agents that do not need it"
+    ],
+    "whenToUse": [
+      "Several context sources compete for a limited model window",
+      "Different agents or tasks need different evidence",
+      "Context quality, privacy, or freshness varies by source"
+    ]
+  },
+  "name": "Context Orchestration",
+  "provenance": {
+    "content_sha256": "b144acc435276516e6845d96537052312055c3a25d02d98e19bdbf7fcb55b1d6",
+    "extraction": "rsc-payload",
+    "mirrored_at": "2026-09-12",
+    "url": "https://agentic-design.ai/patterns/context-orchestration"
+  },
+  "technique_ids": [
+    "multi-source-context-fusion",
+    "context-routing",
+    "dynamic-context-assembly",
+    "adaptive-context-depth"
+  ],
+  "whyImportant": "More context is not always better. Deliberate orchestration reduces distraction, leakage, cost, and conflicting evidence while preserving the information needed for a task."
+}
