@@ -1,0 +1,2048 @@
+{
+  "categories": [
+    "agent-economy",
+    "context-management",
+    "context-orchestration",
+    "evaluation-monitoring",
+    "exploration-discovery",
+    "fault-tolerance-infrastructure",
+    "interpretability",
+    "knowledge-representation",
+    "knowledge-retrieval",
+    "learning-adaptation",
+    "memory-management",
+    "multi-agent",
+    "parallelization",
+    "planning-execution",
+    "prioritization",
+    "prompt-chaining",
+    "reasoning-techniques",
+    "reflection",
+    "resource-aware-optimization",
+    "routing",
+    "security-privacy",
+    "tool-use",
+    "ui-ux-patterns",
+    "workflow-orchestration"
+  ],
+  "generated_from": "16ea1e4",
+  "patterns": {
+    "a2a-protocol": {
+      "category": "multi-agent",
+      "content_sha256": "4369021e899ec987e3a81d96101f41bc1dd517a9ee82dadaa8f8decdd59f801a",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "abductive-reasoning": {
+      "category": "reasoning-techniques",
+      "content_sha256": "34858ef5e45d2bc2a4a556468c0f7c62f5bdd0585615e9da07a602fc1703d7fe",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "accessibility-agent-design": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "ef096620e0a93079d2587428bee36e2a79d5866134044b7754dc6dcee3767f30",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "actor-model-coordination": {
+      "category": "workflow-orchestration",
+      "content_sha256": "ee90c86cf965582a97f3fd459022da49faec5da59950c85aec2d93da9bf65502",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "adaptive-compute-scaling": {
+      "category": "resource-aware-optimization",
+      "content_sha256": "7453237a36beaf369aab070299aa9d92fb61288d7a38c0c83fa68b317894a303",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "adaptive-context-depth": {
+      "category": "context-orchestration",
+      "content_sha256": "6ed29793ee07e736ca56bb8ef6d7a846e2a106aa871224094c1df29ecf795a43",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "adaptive-interface-patterns": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "8f39ace2dc4f5af3b47d466bdbb83a906301014fe4e0ba992e8a4ca38d997cba",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "advanced-privacy-technologies-ux": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "0fe79de6ab981cc7d35a5be1b6b70d2f808d2bc302e52c1ee67b558cc0a83af3",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "advanced-rag": {
+      "category": "knowledge-retrieval",
+      "content_sha256": "ba5e105bea1edc4ac7a6f0a0271ff3fd3605ad00560b291185e71f1097de3d10",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "ag-ui-protocol": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "31a848806b998e326a38ebf263dd3577c6bde112a717355175cf5eaf76637ad0",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "agent-collaboration-ux": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "c9ff67c347187be1fd7fced2fb6db8ae1b1c8b216f01270a1332989547dc36f1",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "agent-communication-fault-tolerance": {
+      "category": "fault-tolerance-infrastructure",
+      "content_sha256": "e5174df018fb4a974ed8ca621835b14dfa81087482d26507fac40529bc0db2b6",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "agent-communication-protocols": {
+      "category": "multi-agent",
+      "content_sha256": "be6e95a96ddc6a46ae9569cfae79bf68458ada15d814854837040e56ac2c4811",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "agent-context-preservation": {
+      "category": "fault-tolerance-infrastructure",
+      "content_sha256": "19f5962393a29a25c927969bb48b0f065a45bc6029e26ba4056219698f0d9d0d",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "agent-observability-tracing": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "e0d28ccd6b972dd2908aa5036227faac6f25d4efaf7b25e9159d6ac336c28b95",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "agent-payment-mandates": {
+      "category": "agent-economy",
+      "content_sha256": "19105b1bb17800ae8e6333d1c88c1c41ea4fe0270a74dc65bb72909ffc72992e",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "agent-readable-web": {
+      "category": "agent-economy",
+      "content_sha256": "67a431bb2c897960827c61fd6ac193160dac46a8d31ca2240f00d0615511d0a7",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "agent-registry-discovery": {
+      "category": "agent-economy",
+      "content_sha256": "40a3a6996fb660fe8c33abcdc59a9c32dbe6c412d8bdc79e8490da7f8e391910",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "agent-sandboxing": {
+      "category": "security-privacy",
+      "content_sha256": "e52d2546bee333944e816b431ece514aeb6071f24330e6213d3fea1184240a75",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "agent-skills": {
+      "category": "tool-use",
+      "content_sha256": "8ea17ebf320b17666e6d11acb5f953edf08dfff00cef247c4c05fd4d3b4a6bd2",
+      "extraction": "free-pack",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "agent-status-activity-patterns": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "95c7492b6a3505046701350f2fe440ef102df3523376c881076e41cff0c486ea",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "agentbench": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "ad8adb8cb9055873e0d197d7a22735122c3000210baa7768175a13b70b9462d7",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "agentic-commerce-protocol": {
+      "category": "agent-economy",
+      "content_sha256": "678775283a0342d9fe09ade418596bef6f00407f6c147ef5a29363b08b9b48ad",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "agentic-context-engineering": {
+      "category": "learning-adaptation",
+      "content_sha256": "b4aa1c6add3bf17293c5d053a40ddc226e9d868512365d8d7ab7c435c84e7504",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "agentic-rag-systems": {
+      "category": "knowledge-retrieval",
+      "content_sha256": "e79f01b31b57e39d835c15678c9f0864c78c3549a3a9fce893bc9d361348a923",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "agrail-adaptive-pattern": {
+      "category": "security-privacy",
+      "content_sha256": "6a9b2f36ee99ad5c19a8ded8df604ceaf9257e096bc2d8b881283bd46092e5a7",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "aisi-evaluation-framework": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "826e5b24a557b27b1ae6910c3d2ee56a5a9c2783a36bf4b1f3d84b76de63c6a5",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "ambient-agent-patterns": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "e33df281e5190fd655023e3a51a5d615fd0dbab9d58808329e1c168e61ecc5cc",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "analogical-reasoning": {
+      "category": "reasoning-techniques",
+      "content_sha256": "729047a79db8c51f7a2c6164c2d21913d5456c24ce3a37fae41de5967aae83b4",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "async-await": {
+      "category": "parallelization",
+      "content_sha256": "5c86bfe6c776664b5b4d9fa801316800a0f20daec34d0b139e0a85efabc89c10",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "attention-flow-analysis": {
+      "category": "interpretability",
+      "content_sha256": "c845a362e55299654ca1e9eab75711b9ce604b0567a473d39308113c35ef7986",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "attention-mechanisms": {
+      "category": "memory-management",
+      "content_sha256": "ce259d47f93a39c78011d441c2050ad7cece01f48cc474b7b9a0a2a6e1211a61",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "authenticated-delegation": {
+      "category": "security-privacy",
+      "content_sha256": "58db838250ea8f6109a8aebb20dd0ad5b1f570c7f26de871eed2a14132eb1d09",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "blast-radius-containment": {
+      "category": "security-privacy",
+      "content_sha256": "f9569b8f9097543f9e7478347d6ff1c322fa076668a054b35107dd6d876823f3",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "budget-guarded-autonomy": {
+      "category": "resource-aware-optimization",
+      "content_sha256": "921c54fdd670d2447f56ecce69e99c672af91c26ad8c78b5f5d110ecb190f080",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "buffer-of-thoughts": {
+      "category": "reasoning-techniques",
+      "content_sha256": "d73ededccea1ddc9ba5048a9bede9d8531f6fc662fe84ddba537f54a2bf333ff",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "capability-routing": {
+      "category": "routing",
+      "content_sha256": "c51d150c746b8848a5ba671b93de770ed924ca81959c95a6358e833e0c6422df",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "causal-reasoning": {
+      "category": "reasoning-techniques",
+      "content_sha256": "7cc77554defd17c9de6b2548d6682ecc8b9182065085e4544567f1cabef28f2f",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "causal-reasoning-transparency": {
+      "category": "interpretability",
+      "content_sha256": "588deec1893d1bde98ac1254ad42590ae088133b730095ada781bf9d2c142194",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "chain-of-agents": {
+      "category": "multi-agent",
+      "content_sha256": "25fdb4f728ba3f86861ec224c0743d0168d4bd741e1c6d9eff9fe05cdf057550",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "chain-of-verification": {
+      "category": "reasoning-techniques",
+      "content_sha256": "e4043561e185b777b3e517bbc7f2105669c3f1bfc8403ba64e2a608123adf9b4",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "chat-interface-patterns": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "52073ad13ec1065cde34d53e81e361771c446d2cb3d6122096d114b2d3750504",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "cod": {
+      "category": "multi-agent",
+      "content_sha256": "6c852198289af4af2a8c89d0312e8af2e631fa7a69802daa68396208dcfda2af",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "code-as-action": {
+      "category": "tool-use",
+      "content_sha256": "0a93b3e266c709f2027d40d931a88abd44cb0385f9b1ced0afc8cb057375cf0c",
+      "extraction": "free-pack",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "code-execution": {
+      "category": "tool-use",
+      "content_sha256": "0580df3c44bfc57a884410af0071a1934e26dbc3e9bbd50df9dd715790e9d644",
+      "extraction": "free-pack",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "codebase-structure-retrieval": {
+      "category": "knowledge-retrieval",
+      "content_sha256": "9ac8fefab9df1bc80cd21db5be18611f16cf283beada8729972149150d27a2dd",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "compliance-automation-patterns": {
+      "category": "security-privacy",
+      "content_sha256": "e85ce1c19fb10b2dea6bd0cebeb67b139a5156bfd35b02f1a408198ccef3e61b",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "computer-use": {
+      "category": "tool-use",
+      "content_sha256": "b965973dcb7c224adaea2019a89f0080209c3fc76d27013b055ad33bed4e1283",
+      "extraction": "free-pack",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "concurrent-orchestration": {
+      "category": "multi-agent",
+      "content_sha256": "c11320f4719978d02e348ba6c30964ad6adf119883dc1e93524394c986a41b00",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "conditional-chaining": {
+      "category": "prompt-chaining",
+      "content_sha256": "8dd8d74a70c5bf81ac5f181384b6ef3deb855f01957c6b856f0303fbff097b04",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "confidence-visualization-patterns": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "789e1f06c856ed5902f5a7239cbab5082d1da36da175daffbad8c405bfd8c7b1",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "confidential-computing-patterns": {
+      "category": "security-privacy",
+      "content_sha256": "5d749d9f9813159a6ff7b16b82c611cb5815b77b88ad4b54620e1dfd000816a1",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "consensus-algorithms": {
+      "category": "multi-agent",
+      "content_sha256": "94843f039693e76d697842d0aeec977558a3bb29db77dcebceca21fa21c2e08a",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "constitutional-ai": {
+      "category": "learning-adaptation",
+      "content_sha256": "9ff415434e39a3f98d8b878f8de3bc7c45d483d660e8dd5367c756365e30bfec",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "constitutional-ai-evaluation": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "c0c00fa882808354336988301e22b6b49de284c6b57127e100c3ba797207dee3",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "constitutional-classifiers": {
+      "category": "security-privacy",
+      "content_sha256": "f2ca1fd4324f02f506a5c60ba93ae8c79f4b33ed626f1ed4c0cfb6d95f048f80",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "constraint-satisfaction": {
+      "category": "planning-execution",
+      "content_sha256": "0be512c9adcaf7ae91ece1d6de11eea9d7e508ea04dafa37cb066b2b473daf87",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "content-based-routing": {
+      "category": "routing",
+      "content_sha256": "093ddd00cc9fe964e41aa91235c2f25d203f9ec2485561218a91f57feae7c9dd",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "context-compress-patterns": {
+      "category": "context-management",
+      "content_sha256": "807db2af7a65199e23895782985f5891f57ee63f3e917f5f26a0112ac7d3866b",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "context-editing-tool-clearing": {
+      "category": "context-management",
+      "content_sha256": "7f440aba690e3489ff747f7d4d2855566f11ae8abb5d8cf232561b936aea3df6",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "context-engineering-frameworks": {
+      "category": "context-management",
+      "content_sha256": "fb602c6cb39def70d1ba39c0ed5da8bec5b548674a3078667c2dced441825d99",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "context-failure-prevention": {
+      "category": "context-management",
+      "content_sha256": "a50310fecd1dc7eed78eae602c5530cbf4ae73c2da993799c509d665fa0cf52b",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "context-isolate-patterns": {
+      "category": "context-management",
+      "content_sha256": "1868dd13041295d769cfae38460a4e232b6e7cddffd732e062f63e3ae95f5faa",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "context-lifecycle-management": {
+      "category": "context-management",
+      "content_sha256": "e5cfee7a174b6a7014bf7f3790f42f4301d45cc9140c7fabcd01a362e01b7e59",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "context-processing-pipelines": {
+      "category": "context-management",
+      "content_sha256": "11926325e465798b30ddf4f2879b3fe6d6b6e69098cdea1dfca17e5f11168189",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "context-routing": {
+      "category": "context-orchestration",
+      "content_sha256": "d8da9a75fea2d19ce245149e4ea112f18cfd309a46aa065f0ce178f717c548d9",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "context-select-patterns": {
+      "category": "context-management",
+      "content_sha256": "c690b13a0cbcf3bb003a496ebbf08af02c67e5bd0485008ee35bdc16bfe3f314",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "context-state-machines": {
+      "category": "context-management",
+      "content_sha256": "2c1dfea9b97d57de3c2f4c3e0ea9010ef3e7a7491f91152c12b9567e9b269b04",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "context-streaming-protocols": {
+      "category": "context-management",
+      "content_sha256": "46b19fa88ee7298d4eb3de5a1c2d2b623d71d9fd475192603f004b2d5b348f6b",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "context-window-management-patterns": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "28982c99bd387cfeb72372752c23fb9c91d35de5353972cadb059a70d199c0bf",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "context-write-patterns": {
+      "category": "context-management",
+      "content_sha256": "90b68026fdeda32d335e9057c07d3cd298066941b2919318189f79a225f93d9e",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "contextual-guardrailing-pattern": {
+      "category": "security-privacy",
+      "content_sha256": "77fc385d748162d05357857a7790d7681d52f01026a0025627cfc5b3e661853a",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "contextual-structured-memory": {
+      "category": "memory-management",
+      "content_sha256": "93d047a246e9fbaeeebfdf5501c9e89f3bf5cd8d44361190eeabd5a558e908d9",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "contextual-unstructured-memory": {
+      "category": "memory-management",
+      "content_sha256": "afc33640b4cbf135aab64f1bf2234be85001be9f9738138f0ce4063175e7080c",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "continual-learning": {
+      "category": "learning-adaptation",
+      "content_sha256": "b782cfebe63c6e6cbf2d480bf4ab0ea16fd109cf1d657f2b89bd37cd0c6e5e0d",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "contrastive-explanations": {
+      "category": "interpretability",
+      "content_sha256": "68c01bc901442b8945625f302219305726d367935dfa9939ee0ca0d4e959ac7f",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "control-plane": {
+      "category": "tool-use",
+      "content_sha256": "709b4816a3c7d82fab9159886c3a1d0606e767297238660eb880df1e80b6b542",
+      "extraction": "free-pack",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "conversational-interface-patterns": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "d1fcb8865dfced4176a309657a145a5c00fc738b0fda811c08e0118b9ce7f10d",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "conversational-orchestration": {
+      "category": "workflow-orchestration",
+      "content_sha256": "4b7455f8e3c5d87b2d06d8e378b516c336bf89f23f94731cfb9b01396f3b8ee9",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "corrective-rag": {
+      "category": "knowledge-retrieval",
+      "content_sha256": "227156a2bb8235bc4cce0a71e8c3d694c7cda3ae491f9f96a9f2ba53f15b0b5a",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "cost-aware-model-selection": {
+      "category": "resource-aware-optimization",
+      "content_sha256": "b80791bde46e8cb29872a323b036688a4185985e27dd762613e336911493b63f",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "cot": {
+      "category": "reasoning-techniques",
+      "content_sha256": "3780922e406f8394895214b9311701c0ec914b3ea1bde4388fd3d3b5daee3dc3",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "cross-platform-agent-ux": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "bcfa9f1b2a0409aa74436008251aede6f9f21b377c3336c30579689854f82a20",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "curiosity-driven-search": {
+      "category": "exploration-discovery",
+      "content_sha256": "d8ad52312067d3fc9f447273f1e4c73631b1f39231f01bf5cd57e5f3a81fbfba",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "cyberseceval3": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "6a8f6e081c57ab2ad73f3418e5e12e0af254be55fd8962b73eee0154718e36fa",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "data-anonymization-patterns": {
+      "category": "security-privacy",
+      "content_sha256": "f09bbdc10a07f0aea3d38256abe2a9b8f9eac9501d0414cfcfd194bf81b9fe52",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "deep-research-agent": {
+      "category": "knowledge-retrieval",
+      "content_sha256": "047c608f3d23d475de8a2e4a1ee2f9baa176ab984854e20bb6647d48bcbaff61",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "differential-privacy-patterns": {
+      "category": "security-privacy",
+      "content_sha256": "885810eefb278c32d098bc42aa5f729921a3a6b44cfb407c31be174d257d5acb",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "direct-preference-optimization": {
+      "category": "learning-adaptation",
+      "content_sha256": "a98b2d3d3aff0266702a942643a11bf23cdf60b3a13f247f67357c8c13d41c13",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "distributed-memory-architectures": {
+      "category": "memory-management",
+      "content_sha256": "fbbab9b9068a7c20a22f02f81ba38a53aeb385c9faf64311b19f5cdf9862f250",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "dual-llm-capability-security": {
+      "category": "security-privacy",
+      "content_sha256": "9ab1f89397a800d891c51e73d0d3d8ba77163b2765dd3e649ac27d811392c9f8",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "durable-execution": {
+      "category": "workflow-orchestration",
+      "content_sha256": "ec363a54e47a9e27f4f6e9f642568786a34a23c6e605b0dafc11bcb539893714",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "dynamic-context-assembly": {
+      "category": "context-orchestration",
+      "content_sha256": "8176a1d94dd68e4ac876635ca5c7bef75317e3f32e4f7c562d38c19471f6b594",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "dynamic-ranking": {
+      "category": "prioritization",
+      "content_sha256": "0976562cb93b258add0f4a1559b9b6e5d4b61c61b698502bcd356e2b143b6b7c",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "dynamic-routing": {
+      "category": "routing",
+      "content_sha256": "eb135703913005f7617e866241edf8c64ab7ed75036fc311b2f0246572faace7",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "edge-ai-optimization": {
+      "category": "workflow-orchestration",
+      "content_sha256": "8b3e25d18ecbb01eaae4bd8049821f20f063c1501fa9e4c6799e3472083e6334",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "embedding-based-routing": {
+      "category": "routing",
+      "content_sha256": "a0457b1cb08fd3024576710204b9f8b0b16d3c09751a0e1ad829f2dd27566c2a",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "energy-efficient-inference": {
+      "category": "resource-aware-optimization",
+      "content_sha256": "30ea6b84aabb9e52ab5078b5199a1f02e8acb5914a8687f9c6f2b3b70ac7d44b",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "enterprise-orchestration": {
+      "category": "workflow-orchestration",
+      "content_sha256": "94a0bdd64a647526f4220e5a304d712450e1a7146a0ba0cdadd2c451d11f233a",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "episodic-memory-systems": {
+      "category": "memory-management",
+      "content_sha256": "f9591e9ee7d8781c3b115fd576f77046b73a3297a576a664024604cdb450f700",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "error-recovery-patterns": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "3709d30d6a88a4ba876eb10794cf7395d46b27c1086f78223e66a26701bf7c3a",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "eu-ai-act-framework": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "e45392c9db5ccc4b7738b46080fd41af4e5a60d830bc8cbd741e8baa0a7c17af",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "eval-driven-agent-development": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "31e670d6b88fd8780bc259431dac44b60023ee709335d192c69bac8e7a679503",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "event-driven-blackboard": {
+      "category": "workflow-orchestration",
+      "content_sha256": "e9971b2fd2ce614e21438cef6f55efd5469e437ee42aa0cc397bacf9ead6f3e1",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "event-driven-hierarchical": {
+      "category": "workflow-orchestration",
+      "content_sha256": "a7e43896adee34248b847dc0a43ae2d1e9d6ae06a243624c1c8285e48a9c5486",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "event-driven-market-based": {
+      "category": "workflow-orchestration",
+      "content_sha256": "b43f4b5291514c77b4553d109672dab21ebbabdbce3af4ae03aa5a08271789c4",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "event-driven-orchestrator-worker": {
+      "category": "workflow-orchestration",
+      "content_sha256": "e093215a70eb5c17fee0e7ee52e8ec35c5546b27db9b1301b433b6c14150e3eb",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "evolutionary-algorithms": {
+      "category": "exploration-discovery",
+      "content_sha256": "90bf7e1ed1d7099a64400029c4127985083b8b9780122e9824b1a00381a6e35d",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "federated-orchestration": {
+      "category": "workflow-orchestration",
+      "content_sha256": "5351a69ce94e726b603fa160b6c5ff98f85063408a63aaf682edd9cec0d7c5ed",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "feedback-chaining": {
+      "category": "prompt-chaining",
+      "content_sha256": "b0004ef3db4cd88b7784589f9d0f985de885b5dfbf97cffb4f08dfb8cae707fa",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "filesystem-as-context": {
+      "category": "context-management",
+      "content_sha256": "7ac829ab92ea693447cfee10960acd9284a318014bed78496f075ccb25c1b5f0",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "fork-join": {
+      "category": "parallelization",
+      "content_sha256": "72435d84279583273639f626e5265fbf990af4175c48c3a523d11f07d72b9747",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "fot": {
+      "category": "reasoning-techniques",
+      "content_sha256": "2e84c64388a8a324dd83e13e7e40492ea55f2234a91fb27c2c9f7944dab3094a",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "function-calling": {
+      "category": "tool-use",
+      "content_sha256": "c354e95ff3e1ce265592949712ba25dfd573edfe09f1f8c43315a54d861c9398",
+      "extraction": "free-pack",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "gaia-benchmark": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "b1480e50a10cdd6228dc2eec50815e089043ac01a285cff2e83b8316fe1f5103",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "generative-agents-memory": {
+      "category": "memory-management",
+      "content_sha256": "01c1fec901e97469058ac2f0b2341529f81c1a99ea7ded03ccc6669510086a5c",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "generative-ui": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "e7f5ae2aaf8476228512d357addc45c7f270cf0df97879962e4970d51f1f31b5",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "geographic-routing": {
+      "category": "routing",
+      "content_sha256": "9b5fed10753c726673ecaf946ec3843a61a6a91b586d417f7909175c07cdd155",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "goal-decomposition": {
+      "category": "planning-execution",
+      "content_sha256": "c2ad9c37c2f2fcebcba3c7733a608abacf089f8ff5afc54af87b34a37ce61ae9",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "got": {
+      "category": "reasoning-techniques",
+      "content_sha256": "0c3e4871880e5b0ad7d793fd39bd6d528e3492ee3e74aa5f9d6c90b4e4453c83",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "granular-privacy-controls": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "0ee6db93ec1e7d9a724ccc3156923391aedef5af3d9166d8811acba3fbcf0768",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "graph-rag": {
+      "category": "knowledge-retrieval",
+      "content_sha256": "254fe43a344d36c896abb3c3631b3a71f4f760d836fbf85f7db3f8161b410e2f",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "graph-state-machines": {
+      "category": "workflow-orchestration",
+      "content_sha256": "d3bfaed26ad191c1ee1046a352cd7fd1ac0b096db32d628452e592e9a9507fd6",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "guard-agent-pattern": {
+      "category": "security-privacy",
+      "content_sha256": "dacb5fb1da68dee2e8355f6e96dda2189cf4936bfa5ecc2d7d7f73c3801b9b6b",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "handoff-orchestration": {
+      "category": "multi-agent",
+      "content_sha256": "216fa5895192c2a8cf5e4a82de443ec10d4aaa6082cfb2463fce95d753cda134",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "helm-agent-eval": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "e000400f736bbacfbfbc83b21d11438618b9c0ae7aa1644bd0398c9a7af3074e",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "hierarchical-chaining": {
+      "category": "prompt-chaining",
+      "content_sha256": "c9abd41c46fdb8aa80b97b371f79564036836541abefc10a2974983726833450",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "hierarchical-context-architecture": {
+      "category": "context-management",
+      "content_sha256": "2c25d5ee5a3024db7fc52d9b4b9f0cbaa83edbcf097af035221835500c394e01",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "hierarchical-coordination": {
+      "category": "multi-agent",
+      "content_sha256": "0a292274911e67edd016c0c6dffd955d0b595d3dfb6255c00e37df32cdd39ce2",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "hierarchical-index-retrieval": {
+      "category": "knowledge-retrieval",
+      "content_sha256": "7fcb2b06e24483ecb8cf837ce45903256bcc6cc9a0b8649a24440c28cd817117",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "hierarchical-memory": {
+      "category": "memory-management",
+      "content_sha256": "64855862e893c8677031960617ccb45b3235536a36a417ffe534bc50cce08e50",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "hierarchical-task-network-planning": {
+      "category": "planning-execution",
+      "content_sha256": "fb65cac13189833f90d00805713e5ebf041761642f4fab1f096561fa8456e5b9",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "http-native-micropayments": {
+      "category": "agent-economy",
+      "content_sha256": "095e0d81723701e479aeb693a32ced57493885b0c5f875a4473d3791a680b51a",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "hula-framework": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "f9916688fe699bf068570472f2cf1fa5d759cce5a53ad6fffeb480d8f2d23762",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "human-in-the-loop": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "4420449c57f4ee1290eeed5e79e96514635096e57d850690950af79f4a2dfba3",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "human-on-the-loop": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "7634c935326ba18693766346c9796364f4b2e782b4ab076460c9ca711592b54d",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "hybrid-secret-cache-management": {
+      "category": "security-privacy",
+      "content_sha256": "a34bd3e7cf7b5f40dbdad3247c219e099503c61669e934b535bcbb1887576bfa",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "identity-access-management": {
+      "category": "security-privacy",
+      "content_sha256": "ad0f94a6eafea0cf0673f6c34260bb5ab8f66242b854e44b7b162d19d5661efc",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "in-context-learning": {
+      "category": "learning-adaptation",
+      "content_sha256": "51f7cb9f92ed20cd60f40d5f37128c7f21fa7c28db1fdfaa5214f273e13c3bae",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "infini-attention-architecture": {
+      "category": "context-management",
+      "content_sha256": "96f0e71007dddd0a711f60d6b749289eb62b8f0870affbbf371f13356b7f74a6",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "inter-agent-trust-reputation": {
+      "category": "agent-economy",
+      "content_sha256": "b5e692d9206bac449e9b215f080df04a4c21a4c0dfaa2f35367ea09c032fce01",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "intrinsic-alignment-pattern": {
+      "category": "security-privacy",
+      "content_sha256": "aacba41a2910c597e0791f015823bce3d0b4ce030de25794d150f866148d5605",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "iterative-refinement": {
+      "category": "prompt-chaining",
+      "content_sha256": "3df0520e97a6fe5aa19faa8f8b20bf44c1a5d37c3b334474cb775a9f53aa157e",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "knowledge-graph-construction": {
+      "category": "knowledge-representation",
+      "content_sha256": "b0e8317db1bdd22c0f039d71288f68d397dd10f52aaf42d1f624bdb47aacc28f",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "kv-cache-optimization": {
+      "category": "context-management",
+      "content_sha256": "30c89be463d031625187b46051673686e84af5176f4df3d1adad322741f5e5ed",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "latency-optimization": {
+      "category": "resource-aware-optimization",
+      "content_sha256": "1492a5c0f5901593c21154e3236700d7fa70fb08a6369878bf017815e2f841be",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "latent-knowledge-retrieval": {
+      "category": "knowledge-retrieval",
+      "content_sha256": "d49d9b32aeff192f323a073e9ac55e0cf20c5865c7ed3284737de495b05e42a2",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "latent-memory-networks": {
+      "category": "memory-management",
+      "content_sha256": "2a0e6207b13729f3197b22632c71db1c95dc1c88cdba7f70980a74b514ae2d15",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "latent-space-visualization": {
+      "category": "interpretability",
+      "content_sha256": "8ddae6178119d63f5d3ceb6f77ff2950a0b3e336b3399ae6fd23a5ce9adb5427",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "layered-defense-pattern": {
+      "category": "security-privacy",
+      "content_sha256": "5e61335d95a640f7a40330a8a46b5ad3470cda788d88b087ffbd132e545e3393",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "least-to-most": {
+      "category": "reasoning-techniques",
+      "content_sha256": "06639c53dabbbb9fde3654b67260b1aef0f7f3bd99cc1af3eee579813961b34f",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "ledger-orchestration": {
+      "category": "multi-agent",
+      "content_sha256": "23ebec8cba54a443c52a59d4267196f5ffab9ffde36d7938cff227982b9bf801",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "llm-as-judge": {
+      "category": "reflection",
+      "content_sha256": "9abdc8496562a646b7def2cca02eebf03251931152c8b5a07a055ff1cd3e2b50",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "llm-based-routing": {
+      "category": "routing",
+      "content_sha256": "d4cd01000a2eb96f738b0abbc23171146af0374238939a85130aebf4f687bb2b",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "llm-checkpoint-recovery": {
+      "category": "fault-tolerance-infrastructure",
+      "content_sha256": "5c29d92b2ad3062c6298580241d582e55f7977f128534a69a57d6e78a1677e9d",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "load-balancing": {
+      "category": "routing",
+      "content_sha256": "3bdefc5f4f4698083e64542916795fa7f516592d84dd353becdee9f3ab8a19a8",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "local-distant-agent-data-protection": {
+      "category": "security-privacy",
+      "content_sha256": "f16a85cb440f318a2eedaad1c7a67448438478e6a9447c28d3139046528116cb",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "lrt": {
+      "category": "reasoning-techniques",
+      "content_sha256": "1d9ed6117aced23ef3f62934dc021257e4f1c9a04f37ddc54b231c4e63e3d250",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "machine-learning-model-based-routing": {
+      "category": "routing",
+      "content_sha256": "27953c8b106c81cfeb0659b7955d4cf25aa7471d59c5702898701517b694f4f2",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "maestro-multi-agent-security": {
+      "category": "security-privacy",
+      "content_sha256": "d341a002badbccb492e5fc0b952e2d52b9caa9815c857c2d9e29dcb2f7c963e5",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "map-reduce": {
+      "category": "parallelization",
+      "content_sha256": "6542fa8a017d5f38658c8a0d85e041820c61b3e74f1b6cdf664ef0e8642bc3a2",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "maps-benchmark": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "fe6f04bfa51ac1f7e86b39f14a6d9190c25c4d057565b7bf79be0e16a50be4bd",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "mcp-tool-gateway": {
+      "category": "tool-use",
+      "content_sha256": "eaa5f0ca3272217593f7febd8d98f3ee5f3e8b0838e77ea13083310e31670941",
+      "extraction": "free-pack",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "memory-based-learning": {
+      "category": "learning-adaptation",
+      "content_sha256": "86f69283f4b0c6f16cea1a99c68b7621f764f1f9ddccd4a20008a20efbc0f333",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "memory-block-architecture": {
+      "category": "context-management",
+      "content_sha256": "a8f6bdf8064ae34178369993709b6f3f225686bb460bf55ce0c025a8f1f32cd4",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "memory-consolidation": {
+      "category": "memory-management",
+      "content_sha256": "837d3516a55c511b726ab90fc7e8dc0edcd7b598705f6ed3fcd60224a2e39c9e",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "memory-forgetting-policies": {
+      "category": "memory-management",
+      "content_sha256": "9b33bd4d0fc0e4264b7f3c5b80be5fea7f41e3297222d985ea8f3681acd2c8d7",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "memory-optimization": {
+      "category": "resource-aware-optimization",
+      "content_sha256": "e24e02c59c08a04104ee3b272c3b25c8345744f2d62a21fc0ca8c37d56424077",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "memory-poisoning-prevention": {
+      "category": "security-privacy",
+      "content_sha256": "24e1432e8fac66caa6af89d49f0230da3d3bb84933f55945654f76b6e20882bb",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "memory-reading-writing-operations": {
+      "category": "memory-management",
+      "content_sha256": "1a5073eae3ef126e4199c18f5869a180e1c23a8ab934735dd382e2e671743655",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "message-queuing": {
+      "category": "multi-agent",
+      "content_sha256": "dfef01b1cd8d1c4d6a296ef856b0868393eedcc4e8d82e713b1d36f136e751d7",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "meta-learning": {
+      "category": "learning-adaptation",
+      "content_sha256": "458aaaf5e38f29e0682facb52eadce1f7f96cd49fab78b1f083b6f9bb9fb63a0",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "meta-reasoning": {
+      "category": "planning-execution",
+      "content_sha256": "f6ef54a20d47be2fadc5ce28793b0b3235c859e90597cf29c56d4f8bb52c4123",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "metacognitive-monitoring": {
+      "category": "reasoning-techniques",
+      "content_sha256": "2ae8532f1acb928b2553c110bec211977b9f7e7c17ceb56495fc480185fd0ef8",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "metr-re-bench": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "04587a4eee7fa7c05604b855a9b1719fd11166e3b9adc9e5572459c3b3f40150",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "mixed-initiative-interface-patterns": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "a03688db9292442c8445697454ad085f7fadf1d38e5f4a780c765da92403eb5d",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "mixture-of-agents": {
+      "category": "multi-agent",
+      "content_sha256": "6485067b9ffb34d7e32036c6c78f1997c7f2430c37286e733254e14861d61d12",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "mlcommons-ai-safety": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "4ddb96fcab7c7a5f9b00d93e12879f348156e06d95edd73c19c29ebad7f3beac",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "mlr-bench": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "e8d0d2141f1612831ccf5aa3ee3b931dc9c0a19f9f8bc47062e7e02491f2b6b6",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "mmau-benchmark": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "79557cbd952a6d86c5c5f976a6a6a2f2477a1cd011812cc452b60a224ca22b8f",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "model-context-protocol": {
+      "category": "tool-use",
+      "content_sha256": "cbfaa7878e15adf910d59ef5ce0c04f4486031266873194e0418b76981f87749",
+      "extraction": "free-pack",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "modular-rag": {
+      "category": "knowledge-retrieval",
+      "content_sha256": "1228ce4ec885e818007a7b080f235d17cd0dd6858a1da7866f5cd9a40720d40a",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "monitoring-control-patterns": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "319ce0875074cf81f500e4c6c805174710b9ab2f670364c101a6f60f0de8936a",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "multi-armed-bandits": {
+      "category": "exploration-discovery",
+      "content_sha256": "fc15d8b247a00aaa12c3a017b366f4d351b26d20fdb1ae36e35c994b363521dc",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "multi-criteria-decision": {
+      "category": "prioritization",
+      "content_sha256": "2c8bee45d62b56b3e6885081e56fe0be9e7914b41cc5fc84b0dd7eea1d2ceed4",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "multi-source-context-fusion": {
+      "category": "context-orchestration",
+      "content_sha256": "4c6d982b945e2d81933cfd38db3f7226889064cc67ef86cd1ac2175de64adfb2",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "multimodal-context-integration": {
+      "category": "context-management",
+      "content_sha256": "fd0716d5a3505a8dcab549079dbf98f68ae63024554fa2f858235a213c864bd0",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "multimodal-interaction-patterns": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "23b801e1f0689bdf6f94362766e727dd4625bc87d590d27416952d032943c540",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "multimodal-rag": {
+      "category": "knowledge-retrieval",
+      "content_sha256": "b1f2fa0cf47adb06f1f59469d856cc247276bc3634e6dfc2d3390f3f64ff63a1",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "naive-rag": {
+      "category": "knowledge-retrieval",
+      "content_sha256": "edbc14fcafbb3f0fd7df01068bd4e39e22d34114274e69324daca6ac76ae8b75",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "odds-ratio-preference-optimization": {
+      "category": "learning-adaptation",
+      "content_sha256": "1fe60c5326f21ad502df99f98f01798228ef030be506b54dd9482aea74ebde27",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "onboarding-education-patterns": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "b49644c15c9b275f81e3a031bb267f8c2b67e6de2f49473824f4cefe524d2e67",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "online-learning-adaptation": {
+      "category": "learning-adaptation",
+      "content_sha256": "bda4544292f0000abfaadd4cfb958c6032e923d9919a0f9a396a97fde4fc2ffe",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "osworld": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "b96dd80677dae553da1b4e352cf37d721d22497e9dd55524012cc7f3945a09e2",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "owl-reasoning": {
+      "category": "knowledge-representation",
+      "content_sha256": "9ee4f21932d03ed0c69c65481dabb37a65bf60c42e0a4ea7ba09f6ed4f4fb576",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "parallel-chaining": {
+      "category": "prompt-chaining",
+      "content_sha256": "5da30a5d93841f52fc66b71cf7f02b70e9b3f249df25bf7d3ebb01725b08f2a9",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "parallel-synthesis": {
+      "category": "prompt-chaining",
+      "content_sha256": "97c66402656b85f6c81454e17a43713f09e6c365d8c5ee253f419cc598360a38",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "parametric-memory": {
+      "category": "memory-management",
+      "content_sha256": "da43b03ee85d6a7a907a3e8ff3d756df19c428282dc25f9be57ccd010b2f1fe7",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "peer-collaboration": {
+      "category": "multi-agent",
+      "content_sha256": "8f9478e4d4249c3b014fb7f0132b62b72d55476af64eb3c499cb71d99c52e3d0",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "plan-execute-decoupling": {
+      "category": "planning-execution",
+      "content_sha256": "69a65d2e61e0b6e9ed604d2f60ca67806b8acd2013e04cc088e70383972899fa",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "plan-todo-recitation": {
+      "category": "planning-execution",
+      "content_sha256": "ca7c00c60c37651e4984d02fcd627544496ce291b8269700c349dd98ced53b17",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "predictive-agent-fault-tolerance": {
+      "category": "fault-tolerance-infrastructure",
+      "content_sha256": "daa723fbbdc262dbf4adfbc7fdfc4163195107345c80a33914d6a4f0e3db9c09",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "priority-queues": {
+      "category": "prioritization",
+      "content_sha256": "91edd20b850568857f1eb8670475da5b32f378c9aeb514f4d8754e4cd6c85368",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "privacy-by-design-principles": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "d0321c707d3fd82514caf37e930eb74551353d41b16bba9d386a5fab0a2935bc",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "privacy-security-ux": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "1310c7a71a067e4a0dd4f969f3575fe87db402ccd2dfd4ecbd1e38b46bbdeb07",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "privilege-compromise-mitigation": {
+      "category": "security-privacy",
+      "content_sha256": "899ff7bdcd3cdf464e805ecd68cd9541bf6e041a02b1c3b98cd2aeee42d0c7fc",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "proactive-clarification": {
+      "category": "reasoning-techniques",
+      "content_sha256": "d571b39fdb9fcefc4cdc84dea73af623f2469d1464f14798075df7828abf5269",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "process-reward-models": {
+      "category": "learning-adaptation",
+      "content_sha256": "8595a7661ea0c6c4e4166e98218a432c1750a911a6dafbeb82f7c416ef033beb",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "producer-critic": {
+      "category": "reflection",
+      "content_sha256": "de9f12aa14e3a88b27585693d8b1a031149dd8d217f93e94bfd0ec044451d112",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "progressive-agent-rollout": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "6b05c8c1c479992dd798b5a62aee12be48771cb60828f48ce12c5838f18376e6",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "progressive-consent-communication": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "4c6dab7e919b292ff662bc7be6dd0b04b76d1025f0171ef15167878af918a9c8",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "progressive-disclosure-patterns": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "0dea6bf2f15c221fab36a79ab3e8f4c3cba3c873134b3ba4f32c4ae1d80cab64",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "progressive-enhancement": {
+      "category": "workflow-orchestration",
+      "content_sha256": "3d4135f859b0fc6d3be7a59d2a61e561f1712f41787d30372fac4d6680b1b781",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "prompt-optimization": {
+      "category": "learning-adaptation",
+      "content_sha256": "eec8500567ce577ad15e4807652e5d5052c2b3ea24101ba263d28a41dc03f254",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "query-transformation-retrieval": {
+      "category": "knowledge-retrieval",
+      "content_sha256": "f59e5dbd7310a5c24bbe4f6395b2c69dfc0e67b36bc5bfbf5ab6bab7e67db5de",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "rdf-knowledge-modeling": {
+      "category": "knowledge-representation",
+      "content_sha256": "013f94857fad8df41d9a698b6daff7eda6ab39cdd5df519c468891a842f97b78",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "react": {
+      "category": "reasoning-techniques",
+      "content_sha256": "3931a7b950c1d152c7e05b2692bd078386341a989b5c9673b78ceba3cca8b48f",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "realtime-voice-agents": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "983a6c07e4dcd42d3ef242d744d09619f003faaeb7c9d28a6e3042280fe3a040",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "reflective-mcts": {
+      "category": "reasoning-techniques",
+      "content_sha256": "98ccc7230d3932eb7a158f2765db679592e7dd631203486996594b4e427e78e4",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "reflexion-pattern": {
+      "category": "reflection",
+      "content_sha256": "078238484ac9bf4e3e9b434cdc8fb8fe60339b77f3d7525159dbfae427fc757e",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "regulatory-compliance-ux": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "5bacbe4cb0e3efa87d3dbd973b68554d48a980a9fe03d0f568b1253035053c14",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "reinforcement-learning": {
+      "category": "exploration-discovery",
+      "content_sha256": "b17a014f2bf048431f31a4f75af07ea28271acb46a3a04bf7cb84c6645b1dfb9",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "reinforcement-learning-from-ai-feedback": {
+      "category": "learning-adaptation",
+      "content_sha256": "768873421529c48bb1f475349912061a230b7ad29a2644a1171789c2ecfe92a6",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "reinforcement-learning-from-human-feedback": {
+      "category": "learning-adaptation",
+      "content_sha256": "7c988fdb834d19a03c761c2f9c0610c9cfbe78449cb1c7a2d86d0562f9be51a1",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "resource-aware-scheduling": {
+      "category": "workflow-orchestration",
+      "content_sha256": "a4b92ce252c7d1f18659af80a13f70e83e238d946e31840734b9745b28ee1aa4",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "reversible-action-compensation": {
+      "category": "workflow-orchestration",
+      "content_sha256": "2fef3b89901a141caa26c0125ac134219489d66b2ab99032f813c133d55878ab",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "risk-tiered-approval-escalation": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "cd6ac22e4f4a231bd76b67dbbdc7dbdc63517a6a966154f2c0bef86bdeb4d3d9",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "rl-verifiable-rewards": {
+      "category": "learning-adaptation",
+      "content_sha256": "c519d5378d1889648e70f458d72b8a8bb30a66730d0e43094b2904f985b40aff",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "role-based-teamwork": {
+      "category": "workflow-orchestration",
+      "content_sha256": "2b734b7de62fda16c70cc9e392359a98f142799f252d3117d4e722d5c0d52a65",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "rule-based-routing": {
+      "category": "routing",
+      "content_sha256": "f456bc067a14c53e33dab34c4468d0555be396149091fd75966784803889c8c8",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "scatter-gather": {
+      "category": "parallelization",
+      "content_sha256": "91367567f25d368aae9bf8ae2f6de12e13c19b6e8802c64cd570868359744706",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "scenario-planning": {
+      "category": "planning-execution",
+      "content_sha256": "8cdc3b9ba053fbbc1089f8003ddf24eff746b582ca001a2eccd4514637218085",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "secure-multi-party-computation": {
+      "category": "security-privacy",
+      "content_sha256": "74ad5e62bfe80c1e6e7fc88fbc14fe5869b385cd077c4aa2b75f4e9b246c2d8e",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "self-consistency": {
+      "category": "reasoning-techniques",
+      "content_sha256": "9ad8e466a2efa9578514cf28b6ce71eca64930293b7cc182dd0b4a752ae6cec6",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "self-critique": {
+      "category": "reflection",
+      "content_sha256": "766af9aeb2fe3b0467fe7351dee23e513bd688880ac25258d048a05d274ac701",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "self-healing-operations-loop": {
+      "category": "fault-tolerance-infrastructure",
+      "content_sha256": "f34739687ad8f1a6a226884603a0ef59b53b7a2dbf47a456e305cfc399c47a9d",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "self-improving-systems": {
+      "category": "learning-adaptation",
+      "content_sha256": "27e2568f265f172c7666204eeb45d2140b2a26f7b13702ddaf2a3222a6b47644",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "self-rag": {
+      "category": "knowledge-retrieval",
+      "content_sha256": "545d02b7cc4f2436ec793e6b252f533c628cff56350673062feeebc657c07040",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "semantic-caching": {
+      "category": "resource-aware-optimization",
+      "content_sha256": "fef8ef2aa17f7d0e61e8d74ac03316abb8846206f8b0aacacca47096320ac501",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "semantic-context-compression": {
+      "category": "context-management",
+      "content_sha256": "103fe63934a68893e6d8e04fbf847940e30fef5eb2282873235b3da81a7026e3",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "semantic-memory-networks": {
+      "category": "memory-management",
+      "content_sha256": "0b3da829f40c4dbd5c8514f69699c0a7b07dac955400313b512de8d7faefc747",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "semantic-validation": {
+      "category": "knowledge-representation",
+      "content_sha256": "440e8d01ea36811e3a6c1b66b66974d1b7abdef1a1bafba2a53a474ec6cd6095",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "sequential-chaining": {
+      "category": "prompt-chaining",
+      "content_sha256": "2ee57f66b752d69ee43fe38ffa187135542228ff33f86761931a3fb9dd2e2ecd",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "sequential-pipeline-agents": {
+      "category": "multi-agent",
+      "content_sha256": "21a288119b0ce0b4f836743eeca549e0bc40fc871dd8c666ef4e085568b6aded",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "shacl-validation": {
+      "category": "knowledge-representation",
+      "content_sha256": "b7989b74f2d7214b64ffa0d3069a7a198c18fad8f469771709c29637cd4108a7",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "shared-scratchpad-collaboration": {
+      "category": "multi-agent",
+      "content_sha256": "faf4322140e7fc34465e04e3d1139fd004add0ad769a2f8e1b38b5d698c21293",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "simple-preference-optimization": {
+      "category": "learning-adaptation",
+      "content_sha256": "455b991c4689eb26fcaa10ced6e9645419664f2734bcb29e20ebe6ae3e31e2ef",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "skeleton-of-thoughts": {
+      "category": "reasoning-techniques",
+      "content_sha256": "044e52bc51de4aac294c0ef5627e4e4d93e0bc9e8b94f49f39de36013e1c0723",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "skill-library": {
+      "category": "learning-adaptation",
+      "content_sha256": "69c0ed21f1549b8ee50fdc09d7b17799b55b9583f41add2d2a913fa8ba3a9b1c",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "sleep-time-compute": {
+      "category": "resource-aware-optimization",
+      "content_sha256": "be0694ca93e76535f4460de8ba11251e26d951cb19b3b9a2f828be9111693ff6",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "sliding-window-management": {
+      "category": "context-management",
+      "content_sha256": "73de868641e910f1da600971788f135f458836e328f4961f9826699f9af4bea8",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "speculative-tool-execution": {
+      "category": "parallelization",
+      "content_sha256": "e761e9328771c9f5e68c846746d580305907f640c9506b0e11bd0125e8b4287a",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "spotlighting-data-marking": {
+      "category": "security-privacy",
+      "content_sha256": "648f33fa970cdc78bc8d7faf90a3ca3ca2e71072cdde5cc2341e896cd70c0e27",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "stateful-graph-workflows": {
+      "category": "workflow-orchestration",
+      "content_sha256": "c5554c37fae1acc407cbf2a43b9acfc7653e3b11d338c39e3ed3e1f27e8768a5",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "step-back-prompting": {
+      "category": "reasoning-techniques",
+      "content_sha256": "3aecc50273df7a990fe4655970540de2ef55851568320fa4fa7a9280900fb7d5",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "structured-outputs": {
+      "category": "tool-use",
+      "content_sha256": "4031ff6337ea8c3342ef25c25b5adf2f83b25a6d7e14c118b02ba76a51adea07",
+      "extraction": "free-pack",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "structured-reflection-tool": {
+      "category": "tool-use",
+      "content_sha256": "c3095cb6bc360d298f3f1488c24671c139bf8e6362327a51f262d978396d8c8c",
+      "extraction": "free-pack",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "supervised-learning-adaptation": {
+      "category": "learning-adaptation",
+      "content_sha256": "68309c056802b553f58f264cdac7ac3649dfa4e16dfe13ec43ccabd2433a09d8",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "supervisor-worker-pattern": {
+      "category": "multi-agent",
+      "content_sha256": "d075de21010ef6ea7f917fac1bf22004a6325dc69266d4c6eb27506560c15450",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "swe-bench-pro": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "97c4ea50359160575b656a83925b6430059d1133acf02e18fddeb4c1406b5d46",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "swe-bench-suite": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "0bcaee9acbe5559e2a8c0a14db89ec48a72c055aee2374f75db5677103d77f34",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "synthetic-user-simulation": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "b7664d41d8d84bd5edd9b90cae7768aaca16dc1360a36fabf8d59b592c511679",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "system-prompt-protection": {
+      "category": "security-privacy",
+      "content_sha256": "c598f593a1ba4508d81b89d74ab075a53c4b8b528b4504e7d54ac8e3a4c4f314",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "task-management-orchestration": {
+      "category": "planning-execution",
+      "content_sha256": "9a2ecab0c9522f2f1de870482e3bac8b19979cbb844d61cb0fd55998a580b1c0",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "tau-bench": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "6eafb2970d297947772f5ddc357980c84d569b0c61b83acfa42dd7f34c592c69",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "temporal-knowledge-graph-memory": {
+      "category": "memory-management",
+      "content_sha256": "946794edb50353154b26c3b5324bb872b796c92bafa0a6c60c4e7f63090a1912",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "terminal-bench": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "2fc10980899c2aa0d939c8d4f25ab7e801d2e279d549555cbd7c8deae6436f63",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "test-time-compute": {
+      "category": "reasoning-techniques",
+      "content_sha256": "f82230b6da308ed081c05dede23f5ee1c7eee2477e178c33414e18aaabfde715",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "test-time-scaling": {
+      "category": "learning-adaptation",
+      "content_sha256": "7101e060d5d1ae58d9eca56bccf165419d9e1604c9e16ccdc82cb0fc1b547839",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "theagentcompany": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "d846976fde784356bfa5a8ed1e63d1bc34baa61c299865cf1da60a9d6f18bd44",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "threat-detection-response": {
+      "category": "security-privacy",
+      "content_sha256": "df8c2515aff37c8a194e58c24794cc3c9900744c9272daa6e3df6641de368e50",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "tool-misuse-prevention": {
+      "category": "security-privacy",
+      "content_sha256": "8f07a8548c971d3b4b2cb9b3ebcfe7325d9f57ab2a96e00db557ad7aceef5e01",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "tool-retrieval": {
+      "category": "tool-use",
+      "content_sha256": "81e704929bc089804e0ef04f8310616d7bee19a6e453c5cdd43edfc90b16551c",
+      "extraction": "free-pack",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "tot": {
+      "category": "reasoning-techniques",
+      "content_sha256": "45ad16aa0de1c2f731a67abd08454229d837d647270ca80b832d006367e4d350",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "transactive-memory-systems": {
+      "category": "memory-management",
+      "content_sha256": "3c6f169880d6d7278725b8b54e2768929277ecc3d967281f081067cffaba150e",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "transparent-data-handling": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "972ea3113a145b0b98f6f07bbd242c9dd74ff35b664b9eff1e16913b9af74400",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "trust-transparency-patterns": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "442d6d3844dca8ed0e43935d48acb227aeede96ad7b8df56873743257c770c84",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "twelve-factor-agent": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "fc2ffea2ef3f22b8e189766974d1a57d8153ae6e42f3a580931547b4a65330c7",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "uncertainty-quantification": {
+      "category": "interpretability",
+      "content_sha256": "dc229e3748ccafbedf0fca1587b220517fea0427aae4e03acb4e31dbb2355064",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "unsupervised-learning-adaptation": {
+      "category": "learning-adaptation",
+      "content_sha256": "ee3093a5e69fc1c6c45dbc0917c36b7f88d756b408837a567bd9ef8ffaf53d8e",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "user-empowerment-privacy-dashboard": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "3402c7ebca3c97f2e2531d3ba3aff832215f8dc4d1e61d9c83d5d3985f60fb10",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "visual-reasoning-patterns": {
+      "category": "ui-ux-patterns",
+      "content_sha256": "19938989815bb7b57f60a40522c6359d88a7502c1ec62896a626afbbd49634ae",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "web-bot-auth": {
+      "category": "agent-economy",
+      "content_sha256": "761ce42497e47138fbdb17aa8217151d99947d4a5d6f758a6d7ad74d9b940f8e",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "webarena-suite": {
+      "category": "evaluation-monitoring",
+      "content_sha256": "126189c7fa628b7536afc627f865c827f19c2fa773811e82fe1eccf8d7afd307",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "weighted-scoring": {
+      "category": "prioritization",
+      "content_sha256": "a15d24157e1e28f8077d4d92d796b56e8ebb03effece5a23cbbc5f7a8d01a244",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "working-memory-patterns": {
+      "category": "memory-management",
+      "content_sha256": "8f30ba4333b23e3d8febe3aca02e844e1403a10572c9eba0490ba4f9514ee81f",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "world-model-simulation-planning": {
+      "category": "planning-execution",
+      "content_sha256": "c6cb17a8abfdc36665782d1d9db5c2a4f3fcbd074be113ba91e4d6d7fcd2ee42",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    },
+    "zero-trust-agent-architecture": {
+      "category": "security-privacy",
+      "content_sha256": "70bc5b65d38246b71895017bc4388df74134d62e3d7862baf5cebe22c9d354c2",
+      "extraction": "rsc-payload",
+      "kind": "pattern",
+      "reviewed": false
+    }
+  },
+  "recipes": []
+}
