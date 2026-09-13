@@ -2,5 +2,6 @@
 from . import (
     extract,  # noqa: F401
     schema,  # noqa: F401
+    seed,  # noqa: F401
 )
 
