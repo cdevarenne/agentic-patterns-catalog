@@ -28,6 +28,14 @@ def tokenize(text: str) -> list[str]:
     return _TOKEN.findall(text.lower())
 
 
+def facet_arg(raw: str) -> tuple[str, str]:
+    """argparse `type=` for `--facet NAME=VALUE`. Rejects a value with no `=`."""
+    name, sep, value = raw.partition("=")
+    if not sep:
+        raise argparse.ArgumentTypeError(f"expected NAME=VALUE, got {raw!r}")
+    return name, value
+
+
 def pattern_text(p: Pattern) -> str:
     """The text both arms index: name, tldr, problem signals, use cases, and 'when to use' details."""
     d = p.content.details
@@ -130,8 +138,9 @@ class Selector:
         self.embedder = embedder if "semantic" in self.arms else None
         self.version = version or catalog_version()
         texts = [pattern_text(p) for p in self.patterns]
-        self._bm25 = BM25Okapi([tokenize(t) or ["_"] for t in texts]) if "bm25" in self.arms else None
-        self._vectors = self.embedder.embed(texts) if self.embedder else None
+        self._bm25 = (BM25Okapi([tokenize(t) or ["_"] for t in texts])
+                      if "bm25" in self.arms and self.patterns else None)
+        self._vectors = self.embedder.embed(texts) if self.embedder and self.patterns else None
 
     @classmethod
     def from_store(cls, store: Store, embedder: Embedder | None = None, arms: Arms = ("bm25", "semantic")) -> Selector:
@@ -177,14 +186,14 @@ class Selector:
 @register("select", "pick the patterns that fit a task")
 def _cmd(parser: argparse.ArgumentParser):
     parser.add_argument("task")
-    parser.add_argument("--facet", action="append", default=[], metavar="NAME=VALUE")
+    parser.add_argument("--facet", type=facet_arg, action="append", default=[], metavar="NAME=VALUE")
     parser.add_argument("-k", type=int, default=5)
     parser.add_argument("--no-embed", action="store_true", help="BM25 only")
     parser.add_argument("--json", action="store_true")
     parser.add_argument("--root", type=Path, default=CATALOG_DIR)
 
     def run(ns: argparse.Namespace) -> int:
-        facets = dict(f.split("=", 1) for f in ns.facet)
+        facets = dict(ns.facet)
         embedder = None if ns.no_embed else default_embedder()
         res = Selector.from_store(FileStore(ns.root), embedder).select(ns.task, facets or None, ns.k)
         if ns.json:

@@ -82,3 +82,17 @@ def test_result_to_dict_has_every_envelope_field() -> None:
     d = r.Selector(PATTERNS, embedder=None).select("requests", k=1).to_dict()
     assert set(d) == {"hits", "retrieval_path", "catalog_version", "auth", "empty_message"}
     assert d["auth"] == {"subject": "stdio-local"}
+
+
+def test_empty_catalog_gives_the_empty_message() -> None:
+    res = r.Selector([], embedder=r.HashEmbedder()).select("anything", k=3)
+    assert res.hits == [] and res.empty_message == r.EMPTY_MESSAGE
+
+
+def test_cli_rejects_facet_without_equals() -> None:
+    from agentic_patterns_catalog import cli
+    assert cli.main(["select", "route", "--facet", "scale"]) == 2
+
+
+def test_facet_arg_accepts_name_equals_value() -> None:
+    assert r.facet_arg("scale=fleet") == ("scale", "fleet")
