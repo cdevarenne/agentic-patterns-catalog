@@ -15,3 +15,5 @@ __pycache__/
 # Kotlin / Gradle
 agents/kotlin/build/
 agents/kotlin/.gradle/
+# Subagent-driven-development scratch (ledgers, briefs, review packages)
+.superpowers/
