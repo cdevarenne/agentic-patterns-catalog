@@ -136,9 +136,11 @@ SP1 ships two recipes, authored by hand from the documents named in ADR-0001 §2
 
 - `co-scientist-digital-lab`: supervisor → generation → reflection → tournament ranking →
   proximity → evolution → meta-review, with async task framework and context memory. Source: the
-  "Towards an AI co-scientist" (Gottweis, Weng, Daryin, Tu et al., Google, 2025-02-18; local copy
-  `../agentic-design-mirror/goggle_ai_coscientist.pdf`). This repository is an independent
-  implementation from the public paper; it reuses no prior code.
+  "Towards an AI co-scientist" (Gottweis, Weng, Daryin, Tu et al., Google, 2025-02-18;
+  arXiv:2502.18864, https://arxiv.org/abs/2502.18864; Google Research blog
+  https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/;
+  DeepMind blog https://deepmind.google/blog/co-scientist-a-multi-agent-ai-partner-to-accelerate-research/).
+  This repository is an independent implementation from the public paper; it reuses no prior code.
 - `drone-flight-plan`: knowledge grounding → plan generation → validate against rules → SORA risk
   score → document → HITL sign-off. Source: `drone_flightplan_usecase (1).md` §1 and §3,
   `drone_sora_hazards_bundle.md`.

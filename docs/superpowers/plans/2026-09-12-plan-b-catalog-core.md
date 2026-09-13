@@ -253,8 +253,8 @@ if __name__ == "__main__":
 
 `.env.example`:
 ```
-# Plan E: enrichment drafts. Not needed for extract/compile/select/verify.
-ANTHROPIC_API_KEY=
+# Nothing is needed for extract/compile/select/verify. Plan C adds the OAuth variables;
+# Plan E decides the enrichment provider (Claude Code by default, no key).
 ```
 
 `README.md` (initial; Task 13 completes it):
