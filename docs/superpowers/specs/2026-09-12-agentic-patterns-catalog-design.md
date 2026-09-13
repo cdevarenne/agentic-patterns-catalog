@@ -50,12 +50,14 @@ sources of pattern content.
    initialEdges, steps}`; and all 24 category objects (`id, name, description, detailedDescription,
    whyImportant, implementationGuide{whenToUse, bestPractices, commonPitfalls}, techniques[]`).
    `whenToUse / bestPractices / commonPitfalls` are **category-level**, not pattern-level.
-2. A streamed HTML block (`<div hidden id="S:3">…`) with per-pattern detail sections in one of two
-   templates: *deep* (35 pages: Core Mechanism, Workflow / Steps, Best Practices, When NOT to Use,
-   Common Pitfalls, Key Features, KPIs / Success Metrics, Token / Resource Usage, Best Use Cases) or
-   *standard* (253 pages: 30-Second Overview, Quick Implementation, Do's & Don'ts, When to Use, Key
-   Metrics, Top Use Cases). The extractor parses this block with `beautifulsoup4` (MIT) into
-   `content.details`, keyed by normalized heading, so both templates fit one shape.
+2. A streamed HTML block (`<div hidden id="S:3">…`) with per-pattern detail sections in one of three
+   templates (counts measured by the extractor on 2026-09-12): *deep* (35 pages: Core Mechanism,
+   Workflow / Steps, Best Practices, When NOT to Use, Common Pitfalls, Key Features, KPIs / Success
+   Metrics, Token / Resource Usage, Best Use Cases), *standard* (161 pages: 30-Second Overview, Quick
+   Implementation, Do's & Don'ts, When to Use, Key Metrics, Top Use Cases), or *prose-only* (92 pages:
+   a title and one paragraph, no sections — `content.details` is empty for these). The extractor
+   parses the block with `beautifulsoup4` (MIT) into `content.details`, keyed by normalized heading,
+   so every template fits one shape.
 
 ## 4. Data model
 
