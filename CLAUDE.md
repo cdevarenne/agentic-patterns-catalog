@@ -21,6 +21,7 @@ useful, secure, repeatable, composable, deterministic-where-it-matters.
 - Write docs, docstrings, comments and commit messages in ASD-STE100 Simplified Technical English.
 - Before every commit: `uv run --extra lint ruff check .` and `uv run pytest`.
 - Commits: one author, no assistant attribution. Every commit ships tests or says why it cannot.
+- Committed `index.json` and `generated/` reflect all 288 records. Run `catalog index && catalog compile && catalog verify` locally before committing; CI runs `verify --skip index,compiled`.
 
 ## Toolchain
 Python 3.14 + uv. `uv sync --extra dev`; `uv run pytest`; `uv run catalog …`.

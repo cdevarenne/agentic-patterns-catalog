@@ -1,0 +1,83 @@
+{
+  "cases": [
+    {
+      "answered_ids": [
+        "content-based-routing",
+        "llm-based-routing",
+        "capability-routing",
+        "embedding-based-routing"
+      ],
+      "expected_ids": [
+        "content-based-routing",
+        "llm-based-routing",
+        "embedding-based-routing"
+      ],
+      "id": "t01",
+      "note": "shares content-based-routing, llm-based-routing, embedding-based-routing with expected_ids",
+      "sensible": true
+    },
+    {
+      "answered_ids": [
+        "tool-retrieval",
+        "agent-skills",
+        "mcp-tool-gateway"
+      ],
+      "expected_ids": [
+        "tool-retrieval"
+      ],
+      "id": "t04",
+      "note": "shares tool-retrieval with expected_ids",
+      "sensible": true
+    },
+    {
+      "answered_ids": [
+        "fork-join",
+        "parallel-chaining",
+        "supervisor-worker-pattern",
+        "scatter-gather"
+      ],
+      "expected_ids": [
+        "fork-join",
+        "scatter-gather"
+      ],
+      "id": "t06",
+      "note": "shares fork-join, scatter-gather with expected_ids",
+      "sensible": true
+    },
+    {
+      "answered_ids": [
+        "abductive-reasoning",
+        "cod",
+        "evolutionary-algorithms"
+      ],
+      "expected_ids": [
+        "cod",
+        "evolutionary-algorithms"
+      ],
+      "id": "t07",
+      "note": "shares cod, evolutionary-algorithms with expected_ids",
+      "sensible": true
+    },
+    {
+      "answered_ids": [
+        "human-in-the-loop",
+        "guard-agent-pattern",
+        "semantic-validation",
+        "constraint-satisfaction"
+      ],
+      "expected_ids": [
+        "constraint-satisfaction",
+        "human-in-the-loop"
+      ],
+      "id": "t09",
+      "note": "shares human-in-the-loop, constraint-satisfaction with expected_ids",
+      "sensible": true
+    }
+  ],
+  "run": {
+    "catalog_version": "7f1496d",
+    "date": "2026-09-12",
+    "index": "CATALOG-full.md (local, tldr for all records)",
+    "model": "claude-sonnet-5"
+  }
+}

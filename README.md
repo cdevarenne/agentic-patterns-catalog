@@ -24,3 +24,21 @@ uv run catalog --help
 ```
 
 Without uv: `python3.14 -m venv .venv && . .venv/bin/activate && pip install -e ".[dev]"`.
+
+## Commands
+
+| Command | What it does |
+|---|---|
+| `catalog extract --mirror DIR` | build the 288 records from a local mirror (277 stay untracked) |
+| `catalog seed` | write the 11 free-pack records |
+| `catalog index` | write `catalog/index.json` |
+| `catalog compile [--local]` | write `CATALOG.md`, `CATALOG-full.md`, guides, sheets |
+| `catalog select "task" [--facet k=v] [-k N]` | pick patterns for a task; `--json` for the full envelope |
+| `catalog eval` | golden set → `docs/data/eval.json` |
+| `catalog verify` | every check; exit 1 on any problem |
+
+## Provenance
+
+Every record carries `provenance.source` (url, mirror date, extraction method, content hash) and, once
+enriched, `provenance.enrichment` per selection field (method, model, date, reviewer). Every `select`
+answer returns the record's provenance, the retrieval path per hit, and the catalog version.

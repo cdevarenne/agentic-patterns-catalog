@@ -1,0 +1,12 @@
+name: verify
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync --extra dev --extra lint
+      - run: uv run --extra lint ruff check .
+      - run: uv run pytest -q
+      - run: uv run catalog verify --skip index,compiled
