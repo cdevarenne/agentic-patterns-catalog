@@ -1,0 +1,515 @@
+{
+  "$defs": {
+    "Content": {
+      "additionalProperties": false,
+      "description": "Source content. Field names follow the free pack's patterns.json where it has the field.",
+      "properties": {
+        "abbr": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Abbr"
+        },
+        "code": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {},
+          "title": "Code",
+          "type": "object"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "details": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "default": {},
+          "title": "Details",
+          "type": "object"
+        },
+        "example": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Example"
+        },
+        "features": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Features",
+          "type": "array"
+        },
+        "flow": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Flow"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "references": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "References",
+          "type": "array"
+        },
+        "tldr": {
+          "$ref": "#/$defs/Tldr"
+        },
+        "useCases": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Usecases",
+          "type": "array"
+        }
+      },
+      "required": [
+        "description",
+        "tldr"
+      ],
+      "title": "Content",
+      "type": "object"
+    },
+    "Enrichment": {
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "title": "Date",
+          "type": "string"
+        },
+        "method": {
+          "enum": [
+            "llm-draft",
+            "human",
+            "derived"
+          ],
+          "title": "Method",
+          "type": "string"
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model"
+        },
+        "reviewed_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewed By"
+        }
+      },
+      "required": [
+        "method",
+        "date"
+      ],
+      "title": "Enrichment",
+      "type": "object"
+    },
+    "Facets": {
+      "additionalProperties": false,
+      "description": "Values must come from catalog/vocab/facets.json; `verify` checks that.",
+      "properties": {
+        "latency_cost": {
+          "anyOf": [
+            {
+              "enum": [
+                "none",
+                "adds-1-llm-call",
+                "adds-n-llm-calls",
+                "async-only"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "maturity": {
+          "anyOf": [
+            {
+              "enum": [
+                "research",
+                "emerging",
+                "production"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "risk_class": {
+          "anyOf": [
+            {
+              "enum": [
+                "misroute",
+                "data-leak",
+                "unsafe-action",
+                "cost-runaway",
+                "quality-drift",
+                "none"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "scale": {
+          "anyOf": [
+            {
+              "enum": [
+                "single-agent",
+                "multi-agent",
+                "fleet"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "token_cost": {
+          "anyOf": [
+            {
+              "enum": [
+                "low",
+                "medium",
+                "high"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "Facets",
+      "type": "object"
+    },
+    "Flow": {
+      "additionalProperties": false,
+      "description": "The pattern's mechanism diagram. Nodes, edges and steps pass through unchanged.",
+      "properties": {
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "edges": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Edges",
+          "type": "array"
+        },
+        "nodes": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Nodes",
+          "type": "array"
+        },
+        "steps": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Steps",
+          "type": "array"
+        },
+        "title": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Title"
+        }
+      },
+      "title": "Flow",
+      "type": "object"
+    },
+    "Provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "enrichment": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Enrichment"
+          },
+          "default": {},
+          "title": "Enrichment",
+          "type": "object"
+        },
+        "source": {
+          "$ref": "#/$defs/Source"
+        }
+      },
+      "required": [
+        "source"
+      ],
+      "title": "Provenance",
+      "type": "object"
+    },
+    "Relation": {
+      "additionalProperties": false,
+      "properties": {
+        "prefer_when": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Prefer When"
+        },
+        "target": {
+          "title": "Target",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "alternative_to",
+            "composes_with",
+            "requires",
+            "precedes"
+          ],
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "target"
+      ],
+      "title": "Relation",
+      "type": "object"
+    },
+    "Selection": {
+      "additionalProperties": false,
+      "properties": {
+        "contraindications": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Contraindications",
+          "type": "array"
+        },
+        "facets": {
+          "$ref": "#/$defs/Facets"
+        },
+        "preconditions": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Preconditions",
+          "type": "array"
+        },
+        "problem_signals": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Problem Signals",
+          "type": "array"
+        },
+        "relations": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Relation"
+          },
+          "title": "Relations",
+          "type": "array"
+        }
+      },
+      "title": "Selection",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "extraction": {
+          "enum": [
+            "rsc-payload",
+            "free-pack"
+          ],
+          "title": "Extraction",
+          "type": "string"
+        },
+        "mirrored_at": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mirrored At"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "extraction",
+        "content_sha256"
+      ],
+      "title": "Source",
+      "type": "object"
+    },
+    "Tldr": {
+      "additionalProperties": false,
+      "properties": {
+        "watchOut": {
+          "title": "Watchout",
+          "type": "string"
+        },
+        "what": {
+          "title": "What",
+          "type": "string"
+        },
+        "when": {
+          "title": "When",
+          "type": "string"
+        }
+      },
+      "required": [
+        "what",
+        "when",
+        "watchOut"
+      ],
+      "title": "Tldr",
+      "type": "object"
+    }
+  },
+  "$id": "https://github.com/cdevarenne/agentic-patterns-catalog/schema/pattern.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "category": {
+      "title": "Category",
+      "type": "string"
+    },
+    "complexity": {
+      "title": "Complexity",
+      "type": "string"
+    },
+    "content": {
+      "$ref": "#/$defs/Content"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "kind": {
+      "default": "pattern",
+      "enum": [
+        "pattern",
+        "technique",
+        "benchmark",
+        "tool"
+      ],
+      "title": "Kind",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "provenance": {
+      "$ref": "#/$defs/Provenance"
+    },
+    "selection": {
+      "$ref": "#/$defs/Selection"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "category",
+    "complexity",
+    "content",
+    "provenance"
+  ],
+  "title": "Pattern",
+  "type": "object"
+}

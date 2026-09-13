@@ -1,0 +1,132 @@
+{
+  "$defs": {
+    "Enrichment": {
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "title": "Date",
+          "type": "string"
+        },
+        "method": {
+          "enum": [
+            "llm-draft",
+            "human",
+            "derived"
+          ],
+          "title": "Method",
+          "type": "string"
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model"
+        },
+        "reviewed_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewed By"
+        }
+      },
+      "required": [
+        "method",
+        "date"
+      ],
+      "title": "Enrichment",
+      "type": "object"
+    },
+    "RecipeStep": {
+      "additionalProperties": false,
+      "properties": {
+        "binding_notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Binding Notes"
+        },
+        "order": {
+          "title": "Order",
+          "type": "integer"
+        },
+        "pattern_id": {
+          "title": "Pattern Id",
+          "type": "string"
+        },
+        "role": {
+          "title": "Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "order",
+        "pattern_id",
+        "role"
+      ],
+      "title": "RecipeStep",
+      "type": "object"
+    }
+  },
+  "$id": "https://github.com/cdevarenne/agentic-patterns-catalog/schema/recipe.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "provenance": {
+      "$ref": "#/$defs/Enrichment"
+    },
+    "source_documents": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Source Documents",
+      "type": "array"
+    },
+    "steps": {
+      "items": {
+        "$ref": "#/$defs/RecipeStep"
+      },
+      "title": "Steps",
+      "type": "array"
+    },
+    "use_case": {
+      "title": "Use Case",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "use_case",
+    "steps",
+    "provenance"
+  ],
+  "title": "Recipe",
+  "type": "object"
+}

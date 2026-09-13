@@ -1,0 +1,146 @@
+{
+  "$defs": {
+    "ImplementationGuide": {
+      "additionalProperties": false,
+      "properties": {
+        "bestPractices": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Bestpractices",
+          "type": "array"
+        },
+        "commonPitfalls": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Commonpitfalls",
+          "type": "array"
+        },
+        "whenToUse": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Whentouse",
+          "type": "array"
+        }
+      },
+      "title": "ImplementationGuide",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "content_sha256": {
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "extraction": {
+          "enum": [
+            "rsc-payload",
+            "free-pack"
+          ],
+          "title": "Extraction",
+          "type": "string"
+        },
+        "mirrored_at": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mirrored At"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "extraction",
+        "content_sha256"
+      ],
+      "title": "Source",
+      "type": "object"
+    }
+  },
+  "$id": "https://github.com/cdevarenne/agentic-patterns-catalog/schema/category.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "detailedDescription": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Detaileddescription"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "implementationGuide": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ImplementationGuide"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "provenance": {
+      "$ref": "#/$defs/Source"
+    },
+    "technique_ids": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Technique Ids",
+      "type": "array"
+    },
+    "whyImportant": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Whyimportant"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "description",
+    "provenance"
+  ],
+  "title": "Category",
+  "type": "object"
+}
