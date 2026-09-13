@@ -18,3 +18,4 @@ agents/kotlin/.gradle/
 # Subagent-driven-development scratch (ledgers, briefs, review packages)
 .superpowers/
 var/
+.DS_Store
