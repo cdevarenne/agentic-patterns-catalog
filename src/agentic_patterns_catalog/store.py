@@ -67,8 +67,11 @@ def content_version(patterns: Iterable[Pattern]) -> str:
 
 def git_ref(root: Path = ROOT) -> str:
     """Short git sha of the last commit touching catalog/, or 'uncommitted' outside git. For humans only."""
+    # index.json records this value and lives under catalog/; excluding it keeps the index stable
+    # across a commit that only touches the index.
+    pathspec = ["catalog", ":(exclude)catalog/index.json"]
     try:
-        sha = subprocess.run(["git", "-C", str(root), "log", "-1", "--format=%h", "--", "catalog"],
+        sha = subprocess.run(["git", "-C", str(root), "log", "-1", "--format=%h", "--", *pathspec],
                              capture_output=True, text=True, check=True).stdout.strip()
         return sha or "uncommitted"
     except (subprocess.CalledProcessError, FileNotFoundError):

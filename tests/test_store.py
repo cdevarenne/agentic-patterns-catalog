@@ -62,3 +62,22 @@ def test_index_carries_content_version_and_git_ref(fs: store.FileStore) -> None:
     idx = store.build_index(fs)
     assert idx["generated_from"] == store.content_version(fs.all())
     assert isinstance(idx["git_ref"], str) and 4 <= len(idx["git_ref"]) <= 20
+
+
+def test_git_ref_ignores_commits_that_only_touch_the_index(tmp_path: Path) -> None:
+    import subprocess
+
+    def git(*args: str) -> str:
+        env = {"GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@t", "GIT_COMMITTER_NAME": "t",
+               "GIT_COMMITTER_EMAIL": "t@t", "PATH": __import__("os").environ["PATH"]}
+        return subprocess.run(["git", "-C", str(tmp_path), *args], capture_output=True, text=True,
+                              check=True, env=env).stdout.strip()
+    git("init", "-q")
+    (tmp_path / "catalog" / "patterns").mkdir(parents=True)
+    (tmp_path / "catalog" / "patterns" / "a.json").write_text("{}")
+    git("add", "."); git("commit", "-q", "-m", "record")
+    first = git("log", "-1", "--format=%h")
+    (tmp_path / "catalog" / "index.json").write_text("{}")
+    git("add", "."); git("commit", "-q", "-m", "index only")
+    assert store.git_ref(tmp_path) == first
+    assert store.git_ref(tmp_path / "nowhere") == "uncommitted"
