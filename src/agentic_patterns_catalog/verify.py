@@ -1,0 +1,186 @@
+"""One command that checks the whole catalog. Exit 1 on any problem; warnings do not fail."""
+from __future__ import annotations
+
+import argparse
+import json
+from collections.abc import Callable
+from dataclasses import dataclass
+from pathlib import Path
+
+from pydantic import ValidationError
+
+from . import compile as comp
+from . import vocab as vocab_mod
+from .cli import register
+from .evaluate import check_thresholds
+from .model import Pattern, content_hash
+from .paths import CATALOG_DIR, DATA_DIR, EVAL_THRESHOLDS, GENERATED_DIR, SCHEMA_DIR
+from .schema import schemas_match
+from .store import FileStore, build_index
+
+
+@dataclass
+class VerifyContext:
+    root: Path
+    strict_vocab: bool
+    generated_dir: Path
+    schema_dir: Path
+    eval_path: Path
+    thresholds_path: Path
+
+    @classmethod
+    def default(cls, strict_vocab: bool = False) -> VerifyContext:
+        return cls(CATALOG_DIR, strict_vocab, GENERATED_DIR, SCHEMA_DIR, DATA_DIR / "eval.json", EVAL_THRESHOLDS)
+
+
+Check = Callable[[VerifyContext], list[str]]
+
+
+def check_records(ctx: VerifyContext) -> list[str]:
+    problems = []
+    for path in sorted((ctx.root / "patterns").glob("*/*.json")):
+        try:
+            p = Pattern.model_validate_json(path.read_text(encoding="utf-8"))
+        except ValidationError as e:
+            problems.append(f"{path.name}: {e.errors()[0]['msg']} at {e.errors()[0]['loc']}")
+            continue
+        if p.id != path.stem:
+            problems.append(f"{path.name}: id {p.id!r} != file stem")
+        if p.category != path.parent.name:
+            problems.append(f"{path.name}: category {p.category!r} != directory {path.parent.name!r}")
+        if p.provenance.source.content_sha256 != content_hash(p.content):
+            problems.append(f"{p.id}: content_sha256 does not match content")
+    return problems
+
+
+def check_index(ctx: VerifyContext) -> list[str]:
+    path = ctx.root / "index.json"
+    if not path.exists():
+        return ["index.json missing; run `catalog index`"]
+    committed = json.loads(path.read_text(encoding="utf-8"))
+    fresh = build_index(FileStore(ctx.root))
+    problems = []
+    if set(committed.get("patterns", {})) != set(fresh["patterns"]):
+        problems.append("index.json pattern ids differ from files on disk")
+    for id, entry in fresh["patterns"].items():
+        c = committed.get("patterns", {}).get(id)
+        if c and c.get("content_sha256") != entry["content_sha256"]:
+            problems.append(f"index.json: stale hash for {id}")
+    return problems
+
+
+def _relations(ctx: VerifyContext) -> tuple[dict[str, Pattern], list[str]]:
+    by_id = {p.id: p for p in FileStore(ctx.root).all()}
+    problems = []
+    for p in by_id.values():
+        for r in p.selection.relations:
+            if r.target not in by_id:
+                problems.append(f"{p.id}: relation target {r.target!r} does not resolve")
+    return by_id, problems
+
+
+def check_relations(ctx: VerifyContext) -> list[str]:
+    by_id, problems = _relations(ctx)
+    graph = {p.id: [r.target for r in p.selection.relations if r.type == "precedes" and r.target in by_id]
+             for p in by_id.values()}
+    state: dict[str, int] = {}
+
+    def visit(node: str, trail: list[str]) -> None:
+        if state.get(node) == 1:
+            problems.append("precedes cycle: " + " → ".join([*trail[trail.index(node):], node]))
+            return
+        if state.get(node) == 2:
+            return
+        state[node] = 1
+        for nxt in graph.get(node, []):
+            visit(nxt, [*trail, node])
+        state[node] = 2
+
+    for node in sorted(graph):
+        if state.get(node) != 2:
+            visit(node, [])
+    return problems
+
+
+def check_recipes(ctx: VerifyContext) -> list[str]:
+    fs = FileStore(ctx.root)
+    ids = {p.id for p in fs.all()}
+    return [f"recipe {r.id}: step {s.order} names unknown pattern {s.pattern_id!r}"
+            for r in fs.recipes() for s in r.steps if s.pattern_id not in ids]
+
+
+def check_schema(ctx: VerifyContext) -> list[str]:
+    return [f"schema/{n}.schema.json is stale; run `catalog schema`" for n in schemas_match(ctx.schema_dir)]
+
+
+def facet_problems(ctx: VerifyContext) -> list[str]:
+    vocab = vocab_mod.load_vocab(ctx.root / "vocab" / "facets.json")
+    out = []
+    for p in FileStore(ctx.root).all():
+        out += [f"{p.id}: {bad}" for bad in vocab_mod.unknown_facet_values(p.selection.facets.model_dump(), vocab)]
+    return out
+
+
+def check_facets(ctx: VerifyContext) -> list[str]:
+    return facet_problems(ctx) if ctx.strict_vocab else []
+
+
+def check_compiled(ctx: VerifyContext) -> list[str]:
+    outputs = comp.compile_all(FileStore(ctx.root))
+    problems = [f"{n} over budget ({comp.token_estimate(outputs[n])} > {comp.BUDGETS[n]} tokens)"
+                for n in comp.over_budget(outputs)]
+    for rel, text in outputs.items():
+        path = ctx.generated_dir / rel
+        if not path.exists() or path.read_text(encoding="utf-8") != text:
+            problems.append(f"{rel} differs from a fresh compile")
+    return problems
+
+
+def check_eval(ctx: VerifyContext) -> list[str]:
+    if not ctx.eval_path.exists():
+        return []
+    report = json.loads(ctx.eval_path.read_text(encoding="utf-8"))
+    return check_thresholds(report, json.loads(ctx.thresholds_path.read_text(encoding="utf-8")))
+
+
+CHECKS: list[tuple[str, Check]] = [
+    ("records", check_records), ("index", check_index), ("relations", check_relations), ("recipes", check_recipes),
+    ("schema", check_schema), ("facets", check_facets), ("compiled", check_compiled), ("eval", check_eval),
+]
+
+
+def run_checks(ctx: VerifyContext) -> dict[str, list[str]]:
+    return {name: check(ctx) for name, check in CHECKS}
+
+
+def run_warnings(ctx: VerifyContext) -> dict[str, list[str]]:
+    warnings: dict[str, list[str]] = {}
+    if not ctx.strict_vocab:
+        bad = facet_problems(ctx)
+        if bad:
+            warnings["facets"] = bad
+    if not ctx.eval_path.exists():
+        warnings["eval"] = [f"{ctx.eval_path} absent; run `catalog eval`"]
+    return warnings
+
+
+@register("verify", "check records, index, relations, schema, facets, compiled views and eval")
+def _cmd(parser: argparse.ArgumentParser):
+    parser.add_argument("--strict-vocab", action="store_true", help="unknown facet values fail instead of warn")
+    parser.add_argument("--root", type=Path, default=CATALOG_DIR)
+    parser.add_argument("--skip", default="", metavar="NAME[,NAME]",
+                        help="checks to skip, e.g. index,compiled on a checkout without the 277 local records")
+
+    def run(ns: argparse.Namespace) -> int:
+        ctx = VerifyContext.default(ns.strict_vocab)
+        ctx.root = ns.root
+        skipped = {n for n in ns.skip.split(",") if n}
+        problems = {name: items for name, items in run_checks(ctx).items() if name not in skipped}
+        for name, items in problems.items():
+            print(f"{'FAIL' if items else 'ok  '} {name}" + (f" ({len(items)})" if items else ""))
+            for item in items[:20]:
+                print(f"       {item}")
+        for name, items in run_warnings(ctx).items():
+            print(f"warn {name}: {items[0]}" + (f" (+{len(items) - 1} more)" if len(items) > 1 else ""))
+        return 1 if any(problems.values()) else 0
+    return run
