@@ -1,35 +1,5 @@
 # Evaluation and Monitoring — guide
 
-Performance assessment and system monitoring patterns
-
-## When to use
-
-- Production AI systems where performance and reliability are critical
-- Applications where user experience and satisfaction directly impact business outcomes
-- Systems operating in dynamic environments where performance may change over time
-- Applications requiring regulatory compliance and audit trails
-- AI systems that need continuous improvement and optimization
-- High-volume applications where small performance improvements have significant impact
-
-## Best practices
-
-- Define clear, measurable metrics that align with business objectives and user needs
-- Implement both automated monitoring and human evaluation for comprehensive assessment
-- Use statistical methods to detect significant changes in performance metrics
-- Create dashboards and alerting systems for real-time monitoring and issue detection
-- Implement proper data collection and storage systems for long-term trend analysis
-- Design evaluation systems that can adapt to changing requirements and contexts
-- Establish baseline performance metrics and regularly reassess benchmarks
-
-## Common pitfalls
-
-- Monitoring too many metrics leading to information overload and alert fatigue
-- Focusing on easily measurable metrics while ignoring important qualitative factors
-- Insufficient baseline data making it difficult to detect meaningful changes
-- Poor integration between monitoring systems and improvement processes
-- Not considering the cost and overhead of comprehensive monitoring systems
-- Failing to adapt monitoring strategies as systems and requirements evolve
-
 ## Patterns
 
 | id | name | complexity | scale | latency_cost | token_cost | risk_class | maturity |

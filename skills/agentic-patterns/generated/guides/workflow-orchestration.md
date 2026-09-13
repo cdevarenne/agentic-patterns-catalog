@@ -1,25 +1,5 @@
 # Workflow Orchestration — guide
 
-Stateful, event-driven, and enterprise workflow coordination patterns
-
-## When to use
-
-- A task spans multiple tools, services, agents, or human approvals
-- Work must survive restarts or be resumed from checkpoints
-- Operators need an audit trail of state transitions and decisions
-
-## Best practices
-
-- Model each step with explicit inputs, outputs, ownership, and retry policy
-- Use idempotency keys and durable checkpoints around side effects
-- Expose workflow state, errors, and intervention controls to operators
-
-## Common pitfalls
-
-- Hiding business state inside conversation history
-- Retrying non-idempotent actions without safeguards
-- Building a central orchestrator that becomes a throughput and availability bottleneck
-
 ## Patterns
 
 | id | name | complexity | scale | latency_cost | token_cost | risk_class | maturity |

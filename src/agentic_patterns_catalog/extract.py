@@ -56,8 +56,9 @@ def _category(raw: dict[str, Any], mirrored_at: str | None) -> Category:
             commonPitfalls=guide.get("commonPitfalls") or []) if guide else None,
         technique_ids=[t if isinstance(t, str) else t["id"]
                        for t in raw.get("techniques") or [] if isinstance(t, str) or "id" in t],
-        provenance=Source(url=f"{SITE}/patterns/{raw['id']}", mirrored_at=mirrored_at,
-                          extraction="rsc-payload", content_sha256=hashlib.sha256(payload).hexdigest()),
+        provenance=Provenance(source=Source(
+            url=f"{SITE}/patterns/{raw['id']}", mirrored_at=mirrored_at, extraction="rsc-payload",
+            content_sha256=hashlib.sha256(payload).hexdigest())),
     )
 
 

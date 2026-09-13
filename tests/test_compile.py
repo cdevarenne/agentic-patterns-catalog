@@ -36,14 +36,20 @@ def fs(tmp_path: Path) -> store.FileStore:
     cat = Category(id="routing", name="Routing", description="Dispatch.",
                    implementationGuide=ImplementationGuide(whenToUse=["many handlers"]),
                    technique_ids=["pack-one", "plain-two", "rich-three"],
-                   provenance=Source(url="u", extraction="rsc-payload", content_sha256="0" * 64))
+                   provenance=Provenance(source=Source(url="u", extraction="rsc-payload", content_sha256="0" * 64)))
     (tmp_path / "categories" / "routing.json").write_text(cat.model_dump_json())
     return s
 
 
 def test_catalog_md_is_one_line_per_category(fs: store.FileStore) -> None:
     out = comp.compile_all(fs)
+    assert out["CATALOG.md"].strip().splitlines()[-1] == "- **routing** — Routing — 3 patterns"
+
+
+def test_local_catalog_md_and_guide_carry_the_category_prose(fs: store.FileStore) -> None:
+    out = comp.compile_all(fs, local=True)
     assert out["CATALOG.md"].strip().splitlines()[-1] == "- **routing** — Dispatch. — 3 patterns"
+    assert "Dispatch." in out["guides/routing.md"] and "many handlers" in out["guides/routing.md"]
 
 
 def test_full_index_quotes_tldr_only_for_pack_records(fs: store.FileStore) -> None:
@@ -59,9 +65,9 @@ def test_local_mode_uses_tldr_for_everyone(fs: store.FileStore) -> None:
     assert "- plain-two — plain-two what — use when: plain-two when" in lines
 
 
-def test_guide_has_table_and_alternatives(fs: store.FileStore) -> None:
+def test_guide_has_table_and_alternatives_and_no_category_prose(fs: store.FileStore) -> None:
     guide = comp.compile_all(fs)["guides/routing.md"]
-    assert "many handlers" in guide
+    assert "many handlers" not in guide and "Dispatch." not in guide
     assert "| rich-three | Rich-Three | low |" in guide
     assert "rich-three → plain-two: rules are known" in guide
 

@@ -1,35 +1,5 @@
 # Learning and Adaptation — guide
 
-Dynamic learning and behavioral adaptation patterns
-
-## When to use
-
-- Systems operating in dynamic or evolving environments
-- Applications requiring personalization and individual adaptation
-- Long-running systems where continuous improvement is valuable
-- Domains where feedback and learning opportunities are regularly available
-- Applications that need to handle novel situations or expanding requirements
-- Systems where user satisfaction correlates with behavioral adaptation
-
-## Best practices
-
-- Implement safe learning mechanisms that prevent degradation of core capabilities
-- Use validation and testing frameworks to verify learning improvements
-- Design learning systems with appropriate feedback loops and correction mechanisms
-- Implement learning rate controls to balance adaptation speed with stability
-- Use diverse learning signals to avoid overfitting to specific feedback types
-- Maintain baseline performance metrics to track learning effectiveness
-- Design learning systems with interpretability for debugging and validation
-
-## Common pitfalls
-
-- Learning from biased or poor-quality feedback leading to performance degradation
-- Over-adaptation to recent examples causing catastrophic forgetting of previous knowledge
-- Insufficient validation leading to learning of incorrect or harmful behaviors
-- Learning mechanisms that are too slow or too fast for the application context
-- Not maintaining diversity in learning examples leading to narrow specialization
-- Lack of safeguards allowing learned behaviors to override important safety constraints
-
 ## Patterns
 
 | id | name | complexity | scale | latency_cost | token_cost | risk_class | maturity |

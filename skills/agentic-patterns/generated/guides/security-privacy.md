@@ -1,35 +1,5 @@
 # Security & Privacy Patterns — guide
 
-Comprehensive security, privacy, and ethical AI patterns for enterprise deployment
-
-## When to use
-
-- Enterprise AI systems handling sensitive or regulated data
-- Applications requiring compliance with privacy regulations like GDPR or HIPAA
-- Systems operating in adversarial environments with security threats
-- Multi-tenant AI platforms with diverse security requirements
-- Cross-organizational AI collaboration requiring data protection
-- Public-facing AI systems requiring robust security and privacy protection
-
-## Best practices
-
-- Implement defense-in-depth strategies with multiple security layers
-- Use privacy-by-design principles in AI system architecture
-- Deploy continuous monitoring and threat detection systems
-- Implement automated compliance validation and reporting
-- Use zero-trust security models for AI system access control
-- Regular security audits and penetration testing of AI systems
-- Maintain incident response plans specifically for AI security threats
-
-## Common pitfalls
-
-- Over-relying on perimeter security without implementing internal protections
-- Insufficient privacy protection leading to regulatory violations and user mistrust
-- Poor threat detection allowing security breaches to go unnoticed
-- Inadequate access controls enabling unauthorized AI system usage
-- Not keeping security measures updated for evolving AI-specific threats
-- Ignoring the privacy implications of AI training data and model outputs
-
 ## Patterns
 
 | id | name | complexity | scale | latency_cost | token_cost | risk_class | maturity |

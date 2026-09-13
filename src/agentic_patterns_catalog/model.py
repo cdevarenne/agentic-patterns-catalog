@@ -121,7 +121,7 @@ class Category(Strict):
     whyImportant: str | None = None
     implementationGuide: ImplementationGuide | None = None
     technique_ids: list[str] = []
-    provenance: Source
+    provenance: Provenance
 
 
 class RecipeStep(Strict):

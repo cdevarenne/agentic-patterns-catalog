@@ -30,13 +30,15 @@ def _full_line(p: Pattern, local: bool) -> str:
     return f"- {p.id} — {p.name}"
 
 
-def _catalog_md(categories: list[Category], patterns: list[Pattern]) -> str:
+def _catalog_md(categories: list[Category], patterns: list[Pattern], local: bool) -> str:
+    """One line per category. The description is site prose, so only `local` output quotes it."""
     counts: dict[str, int] = {}
     for p in patterns:
         counts[p.category] = counts.get(p.category, 0) + 1
     lines = ["# Agentic patterns — categories", "",
              "One line per category. Open `guides/<id>.md` or call `select` for patterns.", ""]
-    lines += [f"- **{c.id}** — {c.description} — {counts.get(c.id, 0)} patterns" for c in categories]
+    lines += [f"- **{c.id}** — {c.description if local else c.name} — {counts.get(c.id, 0)} patterns"
+              for c in categories]
     return "\n".join(lines) + "\n"
 
 
@@ -46,9 +48,12 @@ def _full_md(patterns: list[Pattern], local: bool) -> str:
     return "\n".join(lines) + "\n"
 
 
-def _guide(cat: Category, patterns: list[Pattern]) -> str:
-    lines = [f"# {cat.name} — guide", "", cat.description, ""]
-    g = cat.implementationGuide
+def _guide(cat: Category, patterns: list[Pattern], local: bool) -> str:
+    """Facet table and alternatives. The description and implementationGuide are site prose: `local` only."""
+    lines = [f"# {cat.name} — guide", ""]
+    if local:
+        lines += [cat.description, ""]
+    g = cat.implementationGuide if local else None
     if g:
         for title, items in (("When to use", g.whenToUse), ("Best practices", g.bestPractices),
                              ("Common pitfalls", g.commonPitfalls)):
@@ -91,12 +96,12 @@ def _sheet(p: Pattern) -> str:
 
 
 def compile_all(store: Store, *, local: bool = False) -> dict[str, str]:
-    """Relative output path → text. `local` may quote tldr for every record; keep that output out of git."""
+    """Relative output path → text. `local` adds site prose (tldr for every record, category text); keep it out of git."""
     patterns = store.all()
     categories = store.categories()
-    out = {"CATALOG.md": _catalog_md(categories, patterns), "CATALOG-full.md": _full_md(patterns, local)}
+    out = {"CATALOG.md": _catalog_md(categories, patterns, local), "CATALOG-full.md": _full_md(patterns, local)}
     for cat in categories:
-        out[f"guides/{cat.id}.md"] = _guide(cat, [p for p in patterns if p.category == cat.id])
+        out[f"guides/{cat.id}.md"] = _guide(cat, [p for p in patterns if p.category == cat.id], local)
     for p in patterns:
         if local or _is_pack(p):
             out[f"sheets/{p.id}.md"] = _sheet(p)

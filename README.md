@@ -13,7 +13,9 @@ The pattern names, taxonomy and the 11 `tool-use` records under `catalog/pattern
 from the agentic-design.ai free patterns pack, © KORTEXYA SAS, whose README says: "Free to use in
 your own projects, and free to pass on to a colleague. The catalog itself stays © KORTEXYA SAS; do
 not republish it as your own." The other 277 records are built locally from a personal mirror and
-are not distributed with this repository (`catalog extract` rebuilds them).
+are not distributed with this repository (`catalog extract` rebuilds them). The 24 category
+records under `catalog/categories/` are site prose as well: they are rebuilt locally in the same
+way and are not distributed.
 
 ## Quick start
 

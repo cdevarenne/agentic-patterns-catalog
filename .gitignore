@@ -2,6 +2,7 @@
 # Only the 11 free-pack records under catalog/patterns/tool-use/ are committed.
 catalog/patterns/*
 !catalog/patterns/tool-use/
+catalog/categories/
 catalog/embeddings/
 skills/agentic-patterns/generated/local/
 # Secrets

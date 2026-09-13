@@ -1,5 +1,53 @@
 {
   "$defs": {
+    "Enrichment": {
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "title": "Date",
+          "type": "string"
+        },
+        "method": {
+          "enum": [
+            "llm-draft",
+            "human",
+            "derived"
+          ],
+          "title": "Method",
+          "type": "string"
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model"
+        },
+        "reviewed_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewed By"
+        }
+      },
+      "required": [
+        "method",
+        "date"
+      ],
+      "title": "Enrichment",
+      "type": "object"
+    },
     "ImplementationGuide": {
       "additionalProperties": false,
       "properties": {
@@ -29,6 +77,27 @@
         }
       },
       "title": "ImplementationGuide",
+      "type": "object"
+    },
+    "Provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "enrichment": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Enrichment"
+          },
+          "default": {},
+          "title": "Enrichment",
+          "type": "object"
+        },
+        "source": {
+          "$ref": "#/$defs/Source"
+        }
+      },
+      "required": [
+        "source"
+      ],
+      "title": "Provenance",
       "type": "object"
     },
     "Source": {
@@ -112,7 +181,7 @@
       "type": "string"
     },
     "provenance": {
-      "$ref": "#/$defs/Source"
+      "$ref": "#/$defs/Provenance"
     },
     "technique_ids": {
       "default": [],

@@ -1,42 +1,5 @@
 # UI/UX & Human-AI Interaction — guide
 
-Comprehensive user interface, experience, and human-AI collaboration patterns for agentic AI systems
-
-## When to use
-
-- Deploying autonomous AI agents that require human oversight and collaboration
-- Building conversational AI systems that move beyond simple chat interfaces
-- Creating multi-agent systems requiring coordination and handoff management
-- Developing AI applications for high-stakes environments requiring trust and transparency
-- Implementing personalized AI experiences that adapt to user context and behavior
-- Building enterprise AI systems requiring monitoring, control, and governance interfaces
-
-## Best practices
-
-- Design for outcome-oriented interactions rather than control-centric interfaces
-- Implement progressive disclosure of agent capabilities and reasoning processes
-- Build trust through transparent decision-making and clear source attribution
-- Enable appropriate human intervention and override capabilities
-- Design adaptive interfaces that learn and adjust to user preferences and context
-- Implement comprehensive error handling with graceful degradation strategies
-- Use multimodal interaction patterns that automatically select optimal communication methods
-- Ensure accessibility and universal design principles in all agent interface patterns
-- Design for cross-platform consistency while optimizing for device-specific capabilities
-- Implement privacy-by-design principles with granular user control over data usage
-
-## Common pitfalls
-
-- Applying traditional UI paradigms to agentic systems without considering agent autonomy
-- Creating interfaces that are too complex for users to understand agent capabilities
-- Insufficient transparency leading to user mistrust and poor adoption
-- Poor error handling that breaks user trust when agents make mistakes
-- Over-automation without providing appropriate human control and intervention mechanisms
-- Ignoring accessibility requirements specific to agent interaction patterns
-- Inconsistent experiences across different platforms and devices
-- Inadequate privacy controls and transparency about data usage
-- Poor onboarding that fails to set appropriate expectations for agent capabilities
-- Designing agent interfaces without considering the cognitive load of human-agent collaboration
-
 ## Patterns
 
 | id | name | complexity | scale | latency_cost | token_cost | risk_class | maturity |

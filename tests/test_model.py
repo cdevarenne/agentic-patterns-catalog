@@ -2,6 +2,7 @@ import pytest
 from pydantic import ValidationError
 
 from agentic_patterns_catalog.model import (
+    Category,
     Content,
     Enrichment,
     Pattern,
@@ -60,3 +61,11 @@ def test_dumps_is_canonical_json_with_trailing_newline() -> None:
     assert text.endswith("}\n")
     assert '"category": "routing"' in text
     assert text.index('"category"') < text.index('"complexity"')  # keys sorted
+
+
+def test_category_provenance_has_the_pattern_shape() -> None:
+    src = Source(url="u", extraction="rsc-payload", content_sha256="0" * 64)
+    cat = Category(id="routing", name="Routing", description="d", provenance=Provenance(source=src))
+    assert cat.provenance.enrichment == {}
+    with pytest.raises(ValidationError):
+        Category(id="routing", name="Routing", description="d", provenance=src)  # type: ignore[arg-type]
