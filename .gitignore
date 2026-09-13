@@ -3,6 +3,7 @@
 catalog/patterns/*
 !catalog/patterns/tool-use/
 catalog/embeddings/
+skills/agentic-patterns/generated/local/
 # Secrets
 .env
 client_secret*.json

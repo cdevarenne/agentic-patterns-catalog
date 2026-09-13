@@ -1,0 +1,290 @@
+# Agentic patterns — all records
+
+- a2a-protocol — A2A Protocol (Agent2Agent)
+- abductive-reasoning — Abductive Reasoning
+- accessibility-agent-design — Accessibility in Agent Design
+- actor-model-coordination — Actor Model Coordination
+- adaptive-compute-scaling — Adaptive Compute Scaling
+- adaptive-context-depth — Adaptive Context Depth
+- adaptive-interface-patterns — Adaptive Interface Patterns
+- advanced-privacy-technologies-ux — Advanced Privacy Technologies UX
+- advanced-rag — Advanced RAG
+- ag-ui-protocol — AG-UI Protocol (Agent-User Interaction)
+- agent-collaboration-ux — Agent Collaboration UX
+- agent-communication-fault-tolerance — Agent Communication Fault Tolerance
+- agent-communication-protocols — Agent Communication Protocols
+- agent-context-preservation — Agent Context Preservation and Recovery
+- agent-observability-tracing — Agent Observability & Tracing
+- agent-payment-mandates — Agent Payment Mandates (AP2)
+- agent-readable-web — Agent-Readable Web (llms.txt / NLWeb)
+- agent-registry-discovery — Agent Registry & Discovery
+- agent-sandboxing — Agent Sandboxing
+- agent-skills — Packages agent capabilities as self-contained folders with metadata, instructions, and scripts. Agents load only active skill content into context while keeping a lightweight index of all available skills. — use when: Agents need access to many tools but limited context window, or when skills must be portable across different agent platforms and vendors.
+- agent-status-activity-patterns — Agent Status & Activity UI Patterns
+- agentbench — AgentBench
+- agentic-commerce-protocol — Agentic Commerce Protocol (ACP)
+- agentic-context-engineering — Agentic Context Engineering (Evolving Playbook)
+- agentic-rag-systems — Agentic RAG
+- agrail-adaptive-pattern — AGrail Adaptive Pattern
+- aisi-evaluation-framework — AISI Evaluation Framework
+- ambient-agent-patterns — Ambient Agent Patterns
+- analogical-reasoning — Analogical Reasoning
+- async-await — Async-Await
+- attention-flow-analysis — Attention Flow Analysis
+- attention-mechanisms — Attention Mechanisms
+- authenticated-delegation — Authenticated Delegation & Agent Identity
+- blast-radius-containment — Blast-Radius Containment & Autonomy Bounds
+- budget-guarded-autonomy — Budget-Guarded Autonomy
+- buffer-of-thoughts — Buffer of Thoughts
+- capability-routing — Capability Routing
+- causal-reasoning — Causal Reasoning
+- causal-reasoning-transparency — Causal Reasoning Transparency
+- chain-of-agents — Chain of Agents
+- chain-of-verification — Chain of Verification (CoVe)
+- chat-interface-patterns — Chat Interface Patterns
+- cod — Chain of Debates
+- code-as-action — Agent writes executable code that calls multiple tools with loops, conditionals, and variables in a single turn, keeping intermediate results in runtime. — use when: Multi-tool workflows with iteration, branching, or state that would otherwise require many sequential model round-trips and context window passes.
+- code-execution — Generates code from prompts, runs it in isolated sandboxes, captures output and errors for the agent to process. — use when: Tasks requiring calculations, data transformation, file processing, or verification where LLM reasoning alone is insufficient.
+- codebase-structure-retrieval — Structure-Aware Codebase Retrieval (Repo Map)
+- compliance-automation-patterns — Compliance Automation Patterns
+- computer-use — Agent reads screenshots, grounds intent to pixel coordinates, executes mouse and keyboard actions, loops until task completion. — use when: Systems with no API, complex multi-step UI workflows, or when you need to automate legacy or third-party applications.
+- concurrent-orchestration — Concurrent Orchestration
+- conditional-chaining — Conditional Chaining
+- confidence-visualization-patterns — Confidence Visualization UI Patterns
+- confidential-computing-patterns — Confidential Computing Patterns
+- consensus-algorithms — Consensus Algorithms
+- constitutional-ai — Constitutional AI
+- constitutional-ai-evaluation — Constitutional AI Evaluation Framework
+- constitutional-classifiers — Constitutional Classifiers
+- constraint-satisfaction — Constraint Satisfaction Planning
+- content-based-routing — Content-Based Routing
+- context-compress-patterns — Context Compress Patterns
+- context-editing-tool-clearing — Context Editing & Tool-Result Clearing
+- context-engineering-frameworks — Context Engineering Frameworks
+- context-failure-prevention — Context Failure Prevention
+- context-isolate-patterns — Context Isolate Patterns
+- context-lifecycle-management — Context Lifecycle Management
+- context-processing-pipelines — Context Processing Pipelines
+- context-routing — Intelligent Context Routing
+- context-select-patterns — Context Select Patterns
+- context-state-machines — Context State Machines
+- context-streaming-protocols — Context Streaming Protocols
+- context-window-management-patterns — Context Window Management UI
+- context-write-patterns — Context Write Patterns
+- contextual-guardrailing-pattern — Contextual Guardrailing Pattern
+- contextual-structured-memory — Contextual Structured Memory
+- contextual-unstructured-memory — Contextual Unstructured Memory
+- continual-learning — Continual Learning
+- contrastive-explanations — Contrastive Explanations
+- control-plane — Routes all agent tool calls through a single interface to a backend control plane that handles auth, rate limits, and tool selection without changing the agent prompt. — use when: You have many tools evolving frequently and need consistent policy enforcement, audit trails, and stable agent prompts across tool catalog changes.
+- conversational-interface-patterns — Conversational Interface Patterns
+- conversational-orchestration — Conversational Orchestration
+- corrective-rag — Corrective RAG (CRAG)
+- cost-aware-model-selection — Cost-Aware Model Selection
+- cot — Chain-of-Thought
+- cross-platform-agent-ux — Cross-Platform Agent UX
+- curiosity-driven-search — Curiosity-Driven Exploration
+- cyberseceval3 — CybersecEval 3
+- data-anonymization-patterns — Data Anonymization Patterns
+- deep-research-agent — Deep Research Agent
+- differential-privacy-patterns — Differential Privacy Patterns
+- direct-preference-optimization — Direct Preference Optimization
+- distributed-memory-architectures — Distributed Memory Architectures
+- dual-llm-capability-security — Dual LLM & Capability Security (CaMeL)
+- durable-execution — Durable Execution & Checkpointing
+- dynamic-context-assembly — Dynamic Context Assembly
+- dynamic-ranking — Dynamic Content Ranking
+- dynamic-routing — Dynamic Routing
+- edge-ai-optimization — Edge AI Optimization
+- embedding-based-routing — Embedding-based Routing
+- energy-efficient-inference — Energy-Efficient Inference
+- enterprise-orchestration — Enterprise Orchestration
+- episodic-memory-systems — Episodic Memory Systems
+- error-recovery-patterns — Error Handling and Recovery Patterns
+- eu-ai-act-framework — EU AI Act Compliance Framework
+- eval-driven-agent-development — Eval-Driven Development (Agent CI)
+- event-driven-blackboard — Event-Driven Blackboard
+- event-driven-hierarchical — Event-Driven Hierarchical Agents
+- event-driven-market-based — Event-Driven Market-Based
+- event-driven-orchestrator-worker — Event-Driven Orchestrator-Worker
+- evolutionary-algorithms — Evolutionary Discovery Algorithms
+- federated-orchestration — Federated Orchestration
+- feedback-chaining — Feedback Chaining
+- filesystem-as-context — Filesystem as Context (Context Offloading)
+- fork-join — Fork-Join
+- fot — Forest-of-Thoughts
+- function-calling — AI invokes external functions via structured schemas, passing validated parameters and receiving typed responses. — use when: Tasks requiring real-time data, calculations, or state changes that the model cannot perform internally.
+- gaia-benchmark — GAIA: General AI Assistants Benchmark
+- generative-agents-memory — Generative Agents Memory
+- generative-ui — Generative UI (Agent-Rendered Interfaces)
+- geographic-routing — Geographic Routing
+- goal-decomposition — Intelligent Goal Decomposition
+- got — Graph-of-Thought
+- granular-privacy-controls — Granular Privacy Controls
+- graph-rag — Graph RAG
+- graph-state-machines — Graph State Machines
+- guard-agent-pattern — GuardAgent Pattern
+- handoff-orchestration — Handoff Orchestration
+- helm-agent-eval — HELM Agent Evaluation Framework
+- hierarchical-chaining — Hierarchical Chaining
+- hierarchical-context-architecture — Hierarchical Context Architecture
+- hierarchical-coordination — Hierarchical Coordination
+- hierarchical-index-retrieval — Hierarchical Index Retrieval (RAPTOR)
+- hierarchical-memory — Hierarchical Memory
+- hierarchical-task-network-planning — Hierarchical Task Network (HTN) Planning
+- http-native-micropayments — HTTP-Native Micropayments (x402)
+- hula-framework — Human-in-the-Loop Agent (HULA)
+- human-in-the-loop — Human-in-the-Loop
+- human-on-the-loop — Human On the Loop
+- hybrid-secret-cache-management — Hybrid Secret & Cache Management Pattern
+- identity-access-management — Identity & Access Management
+- in-context-learning — In-Context Learning
+- infini-attention-architecture — Infini-Attention Architecture
+- inter-agent-trust-reputation — Inter-Agent Trust & Reputation
+- intrinsic-alignment-pattern — Intrinsic Alignment Pattern
+- iterative-refinement — Iterative Refinement
+- knowledge-graph-construction — Knowledge Graph Construction
+- kv-cache-optimization — KV Cache Optimization
+- latency-optimization — Latency Optimization
+- latent-knowledge-retrieval — Latent Knowledge Retrieval
+- latent-memory-networks — Latent Memory Networks
+- latent-space-visualization — Latent Space Visualization
+- layered-defense-pattern — Layered Defense Pattern
+- least-to-most — Least-to-Most Prompting
+- ledger-orchestration — Ledger Orchestration (Magentic-One)
+- llm-as-judge — LLM as Judge
+- llm-based-routing — LLM-based Routing
+- llm-checkpoint-recovery — LLM Checkpoint Recovery (Mnemosyne)
+- load-balancing — Load Balancing
+- local-distant-agent-data-protection — Local-Distant Agent Data Protection Pattern
+- lrt — Latent Recurrent Thinking
+- machine-learning-model-based-routing — Machine Learning Model-Based Routing
+- maestro-multi-agent-security — MAESTRO Multi-Agent Security Pattern
+- map-reduce — Map-Reduce
+- maps-benchmark — MAPS: Multilingual Agent Performance & Security
+- mcp-tool-gateway — Single reverse proxy sits in front of many MCP servers, federating their tools into one curated surface with centralized auth, per-tool authorization, rate limiting, and audit logging. — use when: Multiple independent MCP servers need unified access control, tool curation, and audit trails without modifying each agent or backend.
+- memory-based-learning — Memory-Based Learning
+- memory-block-architecture — Memory Block Architecture
+- memory-consolidation — Memory Consolidation
+- memory-forgetting-policies — Memory Decay & Forgetting Policies
+- memory-optimization — Memory Optimization
+- memory-poisoning-prevention — Memory Poisoning Prevention Pattern
+- memory-reading-writing-operations — Memory Reading/Writing Operations
+- message-queuing — Message Queuing
+- meta-learning — Meta-Learning Systems
+- meta-reasoning — Meta-Reasoning
+- metacognitive-monitoring — Metacognitive Monitoring
+- metr-re-bench — METR RE-Bench
+- mixed-initiative-interface-patterns — Mixed-Initiative Interface Patterns
+- mixture-of-agents — Mixture of Agents
+- mlcommons-ai-safety — MLCommons AI Safety Benchmark v1.0
+- mlr-bench — MLR-Bench
+- mmau-benchmark — MMAU: Massive Multitask Agent Understanding
+- model-context-protocol — Standardized protocol that lets AI models discover, describe, and use tools through structured context and capability exchange. — use when: Systems needing multiple models to share tools, maintain session state, or hand off work across different AI services.
+- modular-rag — Modular RAG
+- monitoring-control-patterns — Monitoring and Control Patterns
+- multi-armed-bandits — Multi-Armed Bandit Optimization
+- multi-criteria-decision — Multi-Criteria Decision Analysis
+- multi-source-context-fusion — Multi-Source Context Fusion
+- multimodal-context-integration — Multimodal Context Integration
+- multimodal-interaction-patterns — Multimodal Interaction Patterns
+- multimodal-rag — Multimodal RAG
+- naive-rag — Naive RAG
+- odds-ratio-preference-optimization — Odds Ratio Preference Optimization
+- onboarding-education-patterns — Onboarding and Education Patterns
+- online-learning-adaptation — Online Learning for Agents
+- osworld — OSWorld
+- owl-reasoning — OWL Ontological Reasoning
+- parallel-chaining — Parallel Chaining
+- parallel-synthesis — Parallel Synthesis
+- parametric-memory — Parametric Memory
+- peer-collaboration — Peer Collaboration
+- plan-execute-decoupling — Plan-Execute Decoupling (ReWOO/LLMCompiler)
+- plan-todo-recitation — Plan & TODO Recitation
+- predictive-agent-fault-tolerance — Predictive Agent Fault Tolerance
+- priority-queues — Dynamic Priority Queue Systems
+- privacy-by-design-principles — Privacy-by-Design Principles
+- privacy-security-ux — Privacy and Security UX
+- privilege-compromise-mitigation — Privilege Compromise Mitigation Pattern
+- proactive-clarification — Proactive Clarification & Active Disambiguation
+- process-reward-models — Process Reward Models & Verifier-Guided Search
+- producer-critic — Producer-Critic Pattern
+- progressive-agent-rollout — Progressive Rollout & Shadow Mode
+- progressive-consent-communication — Progressive Consent & Communication
+- progressive-disclosure-patterns — Progressive Disclosure UI Patterns
+- progressive-enhancement — Progressive Enhancement
+- prompt-optimization — Automatic Prompt Optimization
+- query-transformation-retrieval — Query Transformation Retrieval
+- rdf-knowledge-modeling — RDF Knowledge Modeling
+- react — ReAct
+- realtime-voice-agents — Realtime Voice Agents
+- reflective-mcts — Reflective Monte Carlo Tree Search
+- reflexion-pattern — Reflexion
+- regulatory-compliance-ux — Regulatory Compliance UX
+- reinforcement-learning — Reinforcement Learning Exploration
+- reinforcement-learning-from-ai-feedback — Reinforcement Learning from AI Feedback
+- reinforcement-learning-from-human-feedback — Reinforcement Learning from Human Feedback
+- resource-aware-scheduling — Resource-Aware Scheduling
+- reversible-action-compensation — Reversible Actions & Compensation (Agent Saga)
+- risk-tiered-approval-escalation — Approval Queues & Escalation Chains
+- rl-verifiable-rewards — RL from Verifiable Rewards (RLVR)
+- role-based-teamwork — Role-Based Teamwork
+- rule-based-routing — Rule-based Routing
+- scatter-gather — Scatter-Gather
+- scenario-planning — Scenario-Based Planning
+- secure-multi-party-computation — Secure Multi-Party Computation
+- self-consistency — Self-Consistency
+- self-critique — Self-Critique
+- self-healing-operations-loop — Agentic SRE (Self-Healing Operations)
+- self-improving-systems — Self-Improving Systems
+- self-rag — Self-RAG
+- semantic-caching — Semantic Caching
+- semantic-context-compression — Semantic Context Compression
+- semantic-memory-networks — Semantic Memory Networks
+- semantic-validation — Semantic Data Validation
+- sequential-chaining — Sequential Chaining
+- sequential-pipeline-agents — Sequential Pipeline Agents
+- shacl-validation — SHACL Constraint Validation
+- shared-scratchpad-collaboration — Shared Scratchpad Collaboration
+- simple-preference-optimization — Simple Preference Optimization
+- skeleton-of-thoughts — Skeleton of Thoughts
+- skill-library — Skill Library (Voyager)
+- sleep-time-compute — Sleep-Time Compute
+- sliding-window-management — Sliding Window Management
+- speculative-tool-execution — Speculative & Parallel Tool Execution
+- spotlighting-data-marking — Spotlighting & Data Marking
+- stateful-graph-workflows — Stateful Graph Workflows
+- step-back-prompting — Step-Back Prompting
+- structured-outputs — Compiles a schema into a finite-state machine and masks invalid tokens at each decode step, guaranteeing output conforms to the schema. — use when: Extracting structured data, calling tools, or generating JSON where parse errors or invalid values would break downstream code.
+- structured-reflection-tool — Declares a no-op tool in the schema that the model calls mid-trajectory to pause, re-read policy, and plan before the next action. — use when: Long tool-call chains where the model must verify constraints or policy compliance before committing to an irreversible action.
+- supervised-learning-adaptation — Supervised Learning for Agents
+- supervisor-worker-pattern — Supervisor-Worker Pattern
+- swe-bench-pro — SWE-bench Pro
+- swe-bench-suite — SWE-bench Suite
+- synthetic-user-simulation — Synthetic User Simulation
+- system-prompt-protection — System Prompt Protection Pattern
+- task-management-orchestration — Task Management & Orchestration
+- tau-bench — tau-bench (Tool-Agent-User)
+- temporal-knowledge-graph-memory — Temporal Knowledge Graph Memory
+- terminal-bench — Terminal-Bench
+- test-time-compute — Test-Time Compute Scaling
+- test-time-scaling — Test-Time Scaling
+- theagentcompany — TheAgentCompany Benchmark
+- threat-detection-response — Threat Detection & Response
+- tool-misuse-prevention — Tool Misuse Prevention Pattern
+- tool-retrieval — Indexes tool definitions by embedding, retrieves only semantically relevant schemas per query, then reranks before the model selects. — use when: Agents access hundreds or thousands of tools and loading all schemas wastes tokens and degrades selection accuracy.
+- tot — Tree-of-Thought
+- transactive-memory-systems — Transactive Memory Systems
+- transparent-data-handling — Transparent Data Handling
+- trust-transparency-patterns — Trust and Transparency Patterns
+- twelve-factor-agent — 12-Factor Agent Methodology
+- uncertainty-quantification — Uncertainty Quantification
+- unsupervised-learning-adaptation — Unsupervised Learning for Agents
+- user-empowerment-privacy-dashboard — User Empowerment Privacy Dashboard
+- visual-reasoning-patterns — Visual Reasoning Patterns
+- web-bot-auth — Web Bot Auth (Signed Agents)
+- webarena-suite — WebArena Evaluation Suite
+- weighted-scoring — Multi-Criteria Weighted Scoring
+- working-memory-patterns — Working Memory Patterns
+- world-model-simulation-planning — World-Model Simulation Planning
+- zero-trust-agent-architecture — Zero-Trust Agent Architecture
