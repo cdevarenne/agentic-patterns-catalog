@@ -42,7 +42,8 @@ Concretely:
 | Free pack Markdown sheets | `…/patterns-pack-free/markdown/tool-use/*.md` | sheet layout | Layout reused for compiled reference sheets (cited). |
 
 Measured 2026-09-12 by parsing the raw pages (prototype in the plan): every page carries two
-sources of pattern content.
+sources of pattern content. Both are site prose; only the 11 pack records are committed, and
+category records (§4.2b) are gitignored like the other 277 patterns.
 
 1. The RSC props (JSON): the pattern object (`id, name, abbr, category, complexity, description,
    example, features, useCases, references`) plus page-level `tldr{what, when, watchOut}`,
@@ -69,7 +70,8 @@ One file per pattern: `catalog/patterns/<category>/<slug>.json`. Pydantic v2 mod
 generation.
 
 ```
-id            "<slug>"                         stable key; equals the pack id; slugs are unique across all 288 (measured)
+id            "<slug>"                         stable key; equals the pack id; unique across all 288 (measured);
+                                               `^[a-z0-9]+(-[a-z0-9]+)*$` (also `category` and `Category.id`) — the id is a path segment
 name, category, kind, complexity
   kind        pattern | technique | benchmark | tool      (SP4+ sections add values; closed enum)
 content       description, abbr, tldr{what, when, watchOut}, features[], useCases[], example,
@@ -95,8 +97,9 @@ The vocabulary lives in one data file, `catalog/vocab/facets.json`
 Postgres `CHECK` constraints in `PostgresStore` are derived from it, and the rego role/facet data
 is exported from it. Adding a value is a data change plus review, not a code change; the schema
 test fails until `schema/pattern.schema.json` is regenerated, which is the intended friction.
-During build steps 2–4 (vocabulary still being discovered) `catalog verify` reports unknown values
-as warnings; from step 5 (`select` exists) they are errors. Initial values:
+Unknown values are errors: the `Facets` model validates every value against the vocabulary file
+when a record is loaded or written, and `catalog verify` fails on them. `verify --lenient-vocab`
+downgrades them to warnings for a vocabulary-discovery session only. Initial values:
 
 | Facet | Values |
 |---|---|
@@ -110,8 +113,12 @@ as warnings; from step 5 (`select` exists) they are errors. Initial values:
 
 `catalog/categories/<id>.json`, model `Category`: `id, name, description, detailedDescription,
 whyImportant, implementationGuide{whenToUse[], bestPractices[], commonPitfalls[]}, technique_ids[]`
-(ids of the patterns listed under `techniques`), `provenance.source`. Compiled GUIDE.md files open
-with the category's `implementationGuide`.
+(ids of the patterns listed under `techniques`), `provenance{source}` (same shape as `Pattern`).
+Category `description`, `detailedDescription`, `whyImportant` and `implementationGuide` are site
+prose: the free pack licenses only the `tool-use` category line. Category records are therefore
+**gitignored like the 277 pattern records** and rebuilt by `catalog extract`. Committed compiled
+views quote a category's `id` and `name` only (the taxonomy); `compile --local` adds the
+description and the `implementationGuide` sections to the local guides.
 
 ### 4.3 Index
 
@@ -176,6 +183,8 @@ class Ledger(Protocol):
 
 `select(task: str, facets: dict | None, k: int = 5) -> SelectResult`
 
+0. Validate: `k >= 1`; every facet name is in `FACET_NAMES` and every value is in the vocabulary,
+   else `ValueError` (the CLI maps it to a usage error). An unknown facet is never an empty result.
 1. Facet pre-filter (exact match on declared facets; absent facet = no filter).
 2. BM25 over `name + tldr.* + problem_signals + useCases + whenToUse` (`rank_bm25`, MIT).
 3. Semantic arm over the same text with `fastembed` (Apache-2.0, local ONNX); skipped when the
@@ -185,7 +194,17 @@ class Ledger(Protocol):
    (bm25 | semantic | rrf)`, the record's `provenance`, `reviewed`, and 1-hop `relations`.
 
 Envelope fields (always present; `null` when not applicable, never absent):
-`hits[], retrieval_path, catalog_version (git sha of catalog/), auth{subject}, empty_message | null`.
+`hits[], retrieval_path, catalog_version, auth{subject}, empty_message | null`.
+
+`catalog_version` is content-derived: the first 12 hex digits of SHA-256 over the sorted lines
+`<id>:<content_sha256>` of every record in the store. It is the same in the index, the `select`
+envelope and the eval record, works in CI and outside git, and changes when — and only when — a
+record's content changes. The git sha of the last commit touching `catalog/` is recorded beside it
+as `git_ref` where a run block exists, for humans.
+
+The semantic arm is optional at runtime as well as at install time: when the embedder cannot load
+(no extra, no cached model and no network), `select` runs BM25 only, says so once on stderr, and the
+envelope's `retrieval_path` reads `bm25`. It never fails because a model file is absent.
 
 ## 6. MCP server
 
@@ -226,9 +245,9 @@ the client type in the console. Secrets live in `.env` (gitignored); `.env.examp
 
 | Output | Content | Budget / check |
 |---|---|---|
-| `skills/agentic-patterns/generated/CATALOG.md` | one line per **category** (24): `category — one-sentence description — n patterns` | token estimate (`len(text) / 4`) asserted under 2k |
+| `skills/agentic-patterns/generated/CATALOG.md` | one line per **category** (24): `- **<id>** — <name> — <n> patterns` (the description is site prose and appears only under `--local`) | token estimate (`len(text) / 4`) asserted under 2k |
 | `skills/agentic-patterns/generated/CATALOG-full.md` | one line per record. Pack records: `id — tldr.what — use when: tldr.when`. The other 277: `id — name — first problem_signal` when enriched, `id — name` until then, so no site prose is committed. `compile --local` may use `tldr` for all 288 for local use and the smoke test; that output is gitignored. | token estimate asserted under 16k |
-| `skills/agentic-patterns/generated/guides/<category>.md` | comparison table of the category's patterns by facets; `alternative_to` rows with `prefer_when` | every pattern of the category appears once |
+| `skills/agentic-patterns/generated/guides/<category>.md` | comparison table of the category's patterns by facets; `alternative_to` rows with `prefer_when`; the category's `implementationGuide` sections only under `--local` | every pattern of the category appears once; `compile` removes files it did not produce |
 | `skills/agentic-patterns/generated/sheets/<id>.md` | full reference sheet, pack layout | only for the 11 pack records in git; all 288 locally |
 | `catalog/embeddings/<model>.npy` + ids | semantic arm index | gitignored; rebuilt by compile |
 
@@ -274,8 +293,11 @@ a pattern.
 
 ## 11. Verification and repository rules
 
-- `uv run catalog verify`: every record validates; `index.json` matches files; relation targets
-  resolve; `precedes` acyclic; recipe `pattern_id`s resolve; committed schema equals generated;
+- `uv run catalog verify`: every record validates (patterns, categories, recipes; a malformed file
+  is reported, never a traceback); `index.json` entries equal a fresh index (all fields, and the
+  category and recipe lists); relation targets resolve; `precedes` acyclic; recipe `pattern_id`s
+  resolve; committed schema equals generated; no file under `generated/` that a fresh compile does
+  not produce;
   `CATALOG.md` and `CATALOG-full.md` under budget; facet values in the vocabulary; compiled outputs equal a fresh compile; `eval.json` within declared
   tolerance; every configured store passes the same checks. CI runs it on the 11 committed records;
   locally it runs on all 288.
