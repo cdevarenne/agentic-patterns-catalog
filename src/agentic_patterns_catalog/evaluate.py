@@ -10,12 +10,13 @@ from typing import Any
 from .cli import register
 from .paths import CATALOG_DIR, DATA_DIR, EVAL_TASKS, EVAL_THRESHOLDS
 from .retrieval import Embedder, Selector, default_embedder
-from .store import FileStore, Store, catalog_version
+from .store import FileStore, Store, content_version, git_ref
 
 ARMS = {"bm25": ("bm25",), "semantic": ("semantic",), "rrf": ("bm25", "semantic")}
 
 
 def load_tasks(path: Path = EVAL_TASKS) -> list[dict[str, Any]]:
+    """Read the golden set: one JSON task per non-blank line."""
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
@@ -26,20 +27,25 @@ def _score_arm(store: Store, tasks: list[dict[str, Any]], embedder: Embedder | N
     selector = Selector.from_store(store, embedder, arms)
     cases = []
     for t in tasks:
-        top = [h.id for h in selector.select(t["task"], t.get("facets"), k).hits]
+        hits = selector.select(t["task"], t.get("facets"), k).hits
+        top = [h.id for h in hits]
         ranks = [top.index(e) + 1 for e in t["expected_ids"] if e in top]
         rr = 1.0 / min(ranks) if ranks else 0.0
         cases.append({"id": t["id"], "expected_ids": t["expected_ids"], "top": top, "hit": bool(ranks),
-                      "reciprocal_rank": rr})
+                      "reciprocal_rank": rr,
+                      "scores": [{"id": h.id, "score_bm25": h.score_bm25, "score_semantic": h.score_semantic}
+                                 for h in hits]})
     n = len(cases) or 1
     return {"hit_at_k": sum(c["hit"] for c in cases) / n, "mrr": sum(c["reciprocal_rank"] for c in cases) / n,
             "cases": cases}
 
 
 def run_eval(store: Store, tasks: list[dict[str, Any]], embedder: Embedder | None, k: int = 5) -> dict[str, Any]:
+    """Score every arm on the non-gap tasks and return the report (`run` block plus per-arm results)."""
     scored = [t for t in tasks if not t.get("gap")]
     return {
-        "run": {"catalog_version": catalog_version(), "embed_model": embedder.name if embedder else None,
+        "run": {"catalog_version": content_version(store.all()), "git_ref": git_ref(),
+                "embed_model": embedder.name if embedder else None,
                 "date": dt.datetime.now(dt.UTC).date().isoformat(), "k": k, "cases": len(scored),
                 "gaps": len(tasks) - len(scored)},
         "arms": {name: _score_arm(store, scored, embedder, arms, k) for name, arms in ARMS.items()},
@@ -58,6 +64,7 @@ def check_thresholds(report: dict[str, Any], thresholds: dict[str, float]) -> li
 
 
 def write_eval(report: dict[str, Any], path: Path = DATA_DIR / "eval.json") -> Path:
+    """Write the report as sorted, indented JSON and return the path."""
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(report, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
     return path

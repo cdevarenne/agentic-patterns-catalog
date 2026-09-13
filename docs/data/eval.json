@@ -11,6 +11,33 @@
           "hit": true,
           "id": "t01",
           "reciprocal_rank": 0.5,
+          "scores": [
+            {
+              "id": "handoff-orchestration",
+              "score_bm25": 25.688634193322248,
+              "score_semantic": null
+            },
+            {
+              "id": "llm-based-routing",
+              "score_bm25": 19.698189096829044,
+              "score_semantic": null
+            },
+            {
+              "id": "content-based-routing",
+              "score_bm25": 16.55488995060622,
+              "score_semantic": null
+            },
+            {
+              "id": "context-isolate-patterns",
+              "score_bm25": 14.571195529064706,
+              "score_semantic": null
+            },
+            {
+              "id": "message-queuing",
+              "score_bm25": 14.502174523832268,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "handoff-orchestration",
             "llm-based-routing",
@@ -26,6 +53,33 @@
           "hit": false,
           "id": "t02",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "osworld",
+              "score_bm25": 10.80357495388451,
+              "score_semantic": null
+            },
+            {
+              "id": "cross-platform-agent-ux",
+              "score_bm25": 9.576946093367008,
+              "score_semantic": null
+            },
+            {
+              "id": "supervisor-worker-pattern",
+              "score_bm25": 9.347554078561918,
+              "score_semantic": null
+            },
+            {
+              "id": "energy-efficient-inference",
+              "score_bm25": 8.312405534395136,
+              "score_semantic": null
+            },
+            {
+              "id": "event-driven-orchestrator-worker",
+              "score_bm25": 6.490909736052522,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "osworld",
             "cross-platform-agent-ux",
@@ -41,6 +95,33 @@
           "hit": true,
           "id": "t03",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "self-critique",
+              "score_bm25": 19.359566836344968,
+              "score_semantic": null
+            },
+            {
+              "id": "constitutional-ai",
+              "score_bm25": 16.18097744824964,
+              "score_semantic": null
+            },
+            {
+              "id": "chain-of-verification",
+              "score_bm25": 14.082660074449722,
+              "score_semantic": null
+            },
+            {
+              "id": "reflexion-pattern",
+              "score_bm25": 13.452417218751435,
+              "score_semantic": null
+            },
+            {
+              "id": "rl-verifiable-rewards",
+              "score_bm25": 11.746918515333144,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "self-critique",
             "constitutional-ai",
@@ -56,6 +137,33 @@
           "hit": true,
           "id": "t04",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "tool-retrieval",
+              "score_bm25": 16.9975836033905,
+              "score_semantic": null
+            },
+            {
+              "id": "authenticated-delegation",
+              "score_bm25": 15.049769184880304,
+              "score_semantic": null
+            },
+            {
+              "id": "structured-outputs",
+              "score_bm25": 13.875934410041497,
+              "score_semantic": null
+            },
+            {
+              "id": "hierarchical-memory",
+              "score_bm25": 13.310017138324532,
+              "score_semantic": null
+            },
+            {
+              "id": "agentic-context-engineering",
+              "score_bm25": 13.239099694144098,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "tool-retrieval",
             "authenticated-delegation",
@@ -72,6 +180,33 @@
           "hit": true,
           "id": "t05",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "function-calling",
+              "score_bm25": 16.471554809369753,
+              "score_semantic": null
+            },
+            {
+              "id": "context-editing-tool-clearing",
+              "score_bm25": 14.036570717829871,
+              "score_semantic": null
+            },
+            {
+              "id": "conversational-orchestration",
+              "score_bm25": 11.36603696771103,
+              "score_semantic": null
+            },
+            {
+              "id": "http-native-micropayments",
+              "score_bm25": 11.35000367887042,
+              "score_semantic": null
+            },
+            {
+              "id": "memory-block-architecture",
+              "score_bm25": 10.336727863495344,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "function-calling",
             "context-editing-tool-clearing",
@@ -88,6 +223,33 @@
           "hit": true,
           "id": "t06",
           "reciprocal_rank": 0.3333333333333333,
+          "scores": [
+            {
+              "id": "async-await",
+              "score_bm25": 17.857568046298578,
+              "score_semantic": null
+            },
+            {
+              "id": "parallel-chaining",
+              "score_bm25": 15.67051187003686,
+              "score_semantic": null
+            },
+            {
+              "id": "fork-join",
+              "score_bm25": 14.415120028558494,
+              "score_semantic": null
+            },
+            {
+              "id": "speculative-tool-execution",
+              "score_bm25": 13.94418812664954,
+              "score_semantic": null
+            },
+            {
+              "id": "scatter-gather",
+              "score_bm25": 12.985285320318104,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "async-await",
             "parallel-chaining",
@@ -104,6 +266,33 @@
           "hit": false,
           "id": "t07",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "test-time-scaling",
+              "score_bm25": 16.822766380108813,
+              "score_semantic": null
+            },
+            {
+              "id": "abductive-reasoning",
+              "score_bm25": 15.416814418958062,
+              "score_semantic": null
+            },
+            {
+              "id": "llm-as-judge",
+              "score_bm25": 13.782281265213689,
+              "score_semantic": null
+            },
+            {
+              "id": "world-model-simulation-planning",
+              "score_bm25": 12.194051714218036,
+              "score_semantic": null
+            },
+            {
+              "id": "skill-library",
+              "score_bm25": 11.441154983038206,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "test-time-scaling",
             "abductive-reasoning",
@@ -120,6 +309,33 @@
           "hit": false,
           "id": "t08",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "context-window-management-patterns",
+              "score_bm25": 19.645150111515104,
+              "score_semantic": null
+            },
+            {
+              "id": "memory-forgetting-policies",
+              "score_bm25": 17.481599099208193,
+              "score_semantic": null
+            },
+            {
+              "id": "context-editing-tool-clearing",
+              "score_bm25": 16.420043700058702,
+              "score_semantic": null
+            },
+            {
+              "id": "infini-attention-architecture",
+              "score_bm25": 13.062638517047564,
+              "score_semantic": null
+            },
+            {
+              "id": "plan-todo-recitation",
+              "score_bm25": 12.941409651299157,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "context-window-management-patterns",
             "memory-forgetting-policies",
@@ -136,6 +352,33 @@
           "hit": false,
           "id": "t09",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "llm-as-judge",
+              "score_bm25": 12.583197416233022,
+              "score_semantic": null
+            },
+            {
+              "id": "deep-research-agent",
+              "score_bm25": 11.688264366685416,
+              "score_semantic": null
+            },
+            {
+              "id": "guard-agent-pattern",
+              "score_bm25": 10.491533079518815,
+              "score_semantic": null
+            },
+            {
+              "id": "owl-reasoning",
+              "score_bm25": 10.293853432713732,
+              "score_semantic": null
+            },
+            {
+              "id": "risk-tiered-approval-escalation",
+              "score_bm25": 10.278294144059997,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "llm-as-judge",
             "deep-research-agent",
@@ -152,6 +395,33 @@
           "hit": true,
           "id": "t10",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "dual-llm-capability-security",
+              "score_bm25": 14.88349392694068,
+              "score_semantic": null
+            },
+            {
+              "id": "context-editing-tool-clearing",
+              "score_bm25": 12.637501062267173,
+              "score_semantic": null
+            },
+            {
+              "id": "control-plane",
+              "score_bm25": 11.982978115618183,
+              "score_semantic": null
+            },
+            {
+              "id": "structured-reflection-tool",
+              "score_bm25": 10.561242696585806,
+              "score_semantic": null
+            },
+            {
+              "id": "agentic-context-engineering",
+              "score_bm25": 10.038175796412194,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "dual-llm-capability-security",
             "context-editing-tool-clearing",
@@ -167,6 +437,33 @@
           "hit": true,
           "id": "t11",
           "reciprocal_rank": 0.5,
+          "scores": [
+            {
+              "id": "osworld",
+              "score_bm25": 14.881955748096583,
+              "score_semantic": null
+            },
+            {
+              "id": "abductive-reasoning",
+              "score_bm25": 14.872210990857624,
+              "score_semantic": null
+            },
+            {
+              "id": "deep-research-agent",
+              "score_bm25": 13.204682904544036,
+              "score_semantic": null
+            },
+            {
+              "id": "test-time-scaling",
+              "score_bm25": 12.761273520440902,
+              "score_semantic": null
+            },
+            {
+              "id": "llm-as-judge",
+              "score_bm25": 12.734790640190225,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "osworld",
             "abductive-reasoning",
@@ -182,6 +479,33 @@
           "hit": true,
           "id": "t13",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "reflexion-pattern",
+              "score_bm25": 26.409643851650593,
+              "score_semantic": null
+            },
+            {
+              "id": "terminal-bench",
+              "score_bm25": 15.512082767124742,
+              "score_semantic": null
+            },
+            {
+              "id": "step-back-prompting",
+              "score_bm25": 14.976434917835444,
+              "score_semantic": null
+            },
+            {
+              "id": "hierarchical-chaining",
+              "score_bm25": 13.765857076617245,
+              "score_semantic": null
+            },
+            {
+              "id": "agentic-context-engineering",
+              "score_bm25": 13.646378794963885,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "reflexion-pattern",
             "terminal-bench",
@@ -197,6 +521,33 @@
           "hit": false,
           "id": "t14",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "producer-critic",
+              "score_bm25": 18.406175437477327,
+              "score_semantic": null
+            },
+            {
+              "id": "scatter-gather",
+              "score_bm25": 16.3876540036783,
+              "score_semantic": null
+            },
+            {
+              "id": "self-critique",
+              "score_bm25": 15.182085309060941,
+              "score_semantic": null
+            },
+            {
+              "id": "mcp-tool-gateway",
+              "score_bm25": 14.964803238395238,
+              "score_semantic": null
+            },
+            {
+              "id": "map-reduce",
+              "score_bm25": 14.771513812226774,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "producer-critic",
             "scatter-gather",
@@ -212,6 +563,33 @@
           "hit": true,
           "id": "t15",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "supervisor-worker-pattern",
+              "score_bm25": 26.120301491122735,
+              "score_semantic": null
+            },
+            {
+              "id": "chain-of-agents",
+              "score_bm25": 19.132635307702415,
+              "score_semantic": null
+            },
+            {
+              "id": "context-isolate-patterns",
+              "score_bm25": 17.164124281249652,
+              "score_semantic": null
+            },
+            {
+              "id": "a2a-protocol",
+              "score_bm25": 16.41197103980462,
+              "score_semantic": null
+            },
+            {
+              "id": "agent-communication-fault-tolerance",
+              "score_bm25": 16.031308397170864,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "supervisor-worker-pattern",
             "chain-of-agents",
@@ -227,6 +605,33 @@
           "hit": true,
           "id": "t16",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "message-queuing",
+              "score_bm25": 11.803259914306462,
+              "score_semantic": null
+            },
+            {
+              "id": "durable-execution",
+              "score_bm25": 11.70601122070373,
+              "score_semantic": null
+            },
+            {
+              "id": "agent-context-preservation",
+              "score_bm25": 11.648828428383018,
+              "score_semantic": null
+            },
+            {
+              "id": "event-driven-orchestrator-worker",
+              "score_bm25": 11.385991617911788,
+              "score_semantic": null
+            },
+            {
+              "id": "memory-forgetting-policies",
+              "score_bm25": 11.364832996777263,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "message-queuing",
             "durable-execution",
@@ -242,6 +647,33 @@
           "hit": false,
           "id": "t17",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "structured-reflection-tool",
+              "score_bm25": 15.815929484288773,
+              "score_semantic": null
+            },
+            {
+              "id": "theagentcompany",
+              "score_bm25": 13.576156225408283,
+              "score_semantic": null
+            },
+            {
+              "id": "abductive-reasoning",
+              "score_bm25": 13.068545574839938,
+              "score_semantic": null
+            },
+            {
+              "id": "world-model-simulation-planning",
+              "score_bm25": 13.035858892051571,
+              "score_semantic": null
+            },
+            {
+              "id": "osworld",
+              "score_bm25": 12.235378940925662,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "structured-reflection-tool",
             "theagentcompany",
@@ -258,6 +690,33 @@
           "hit": false,
           "id": "t18",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "structured-reflection-tool",
+              "score_bm25": 19.096252445381694,
+              "score_semantic": null
+            },
+            {
+              "id": "embedding-based-routing",
+              "score_bm25": 14.851326645953602,
+              "score_semantic": null
+            },
+            {
+              "id": "context-routing",
+              "score_bm25": 14.464050405450678,
+              "score_semantic": null
+            },
+            {
+              "id": "authenticated-delegation",
+              "score_bm25": 14.061671770486209,
+              "score_semantic": null
+            },
+            {
+              "id": "llm-based-routing",
+              "score_bm25": 13.912296998976442,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "structured-reflection-tool",
             "embedding-based-routing",
@@ -273,6 +732,33 @@
           "hit": true,
           "id": "t19",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "plan-execute-decoupling",
+              "score_bm25": 30.28724257235374,
+              "score_semantic": null
+            },
+            {
+              "id": "temporal-knowledge-graph-memory",
+              "score_bm25": 13.894674549761145,
+              "score_semantic": null
+            },
+            {
+              "id": "ledger-orchestration",
+              "score_bm25": 13.851205233336069,
+              "score_semantic": null
+            },
+            {
+              "id": "plan-todo-recitation",
+              "score_bm25": 13.14602388811136,
+              "score_semantic": null
+            },
+            {
+              "id": "stateful-graph-workflows",
+              "score_bm25": 12.962454823869221,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "plan-execute-decoupling",
             "temporal-knowledge-graph-memory",
@@ -288,6 +774,33 @@
           "hit": false,
           "id": "t20",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "predictive-agent-fault-tolerance",
+              "score_bm25": 15.937957691928672,
+              "score_semantic": null
+            },
+            {
+              "id": "llm-as-judge",
+              "score_bm25": 14.477296415229674,
+              "score_semantic": null
+            },
+            {
+              "id": "human-on-the-loop",
+              "score_bm25": 14.379283070943707,
+              "score_semantic": null
+            },
+            {
+              "id": "parallel-synthesis",
+              "score_bm25": 13.661702448543926,
+              "score_semantic": null
+            },
+            {
+              "id": "swe-bench-pro",
+              "score_bm25": 12.858870510230174,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "predictive-agent-fault-tolerance",
             "llm-as-judge",
@@ -304,6 +817,33 @@
           "hit": true,
           "id": "t21",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "human-on-the-loop",
+              "score_bm25": 15.285151233643216,
+              "score_semantic": null
+            },
+            {
+              "id": "osworld",
+              "score_bm25": 14.545704541998662,
+              "score_semantic": null
+            },
+            {
+              "id": "reinforcement-learning-from-ai-feedback",
+              "score_bm25": 13.514054967350685,
+              "score_semantic": null
+            },
+            {
+              "id": "codebase-structure-retrieval",
+              "score_bm25": 13.385308869194352,
+              "score_semantic": null
+            },
+            {
+              "id": "dual-llm-capability-security",
+              "score_bm25": 13.25178605322002,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "human-on-the-loop",
             "osworld",
@@ -319,6 +859,33 @@
           "hit": false,
           "id": "t23",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "contrastive-explanations",
+              "score_bm25": 17.50150227474596,
+              "score_semantic": null
+            },
+            {
+              "id": "filesystem-as-context",
+              "score_bm25": 14.81245351824438,
+              "score_semantic": null
+            },
+            {
+              "id": "structured-reflection-tool",
+              "score_bm25": 12.542859217010344,
+              "score_semantic": null
+            },
+            {
+              "id": "code-as-action",
+              "score_bm25": 11.269471039890346,
+              "score_semantic": null
+            },
+            {
+              "id": "swe-bench-pro",
+              "score_bm25": 11.00308267013044,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "contrastive-explanations",
             "filesystem-as-context",
@@ -334,6 +901,33 @@
           "hit": true,
           "id": "t24",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "geographic-routing",
+              "score_bm25": 20.443432800705658,
+              "score_semantic": null
+            },
+            {
+              "id": "contextual-guardrailing-pattern",
+              "score_bm25": 14.048220431471158,
+              "score_semantic": null
+            },
+            {
+              "id": "chain-of-agents",
+              "score_bm25": 13.808273023521386,
+              "score_semantic": null
+            },
+            {
+              "id": "message-queuing",
+              "score_bm25": 13.071929779294036,
+              "score_semantic": null
+            },
+            {
+              "id": "scatter-gather",
+              "score_bm25": 12.465134538951164,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "geographic-routing",
             "contextual-guardrailing-pattern",
@@ -349,6 +943,33 @@
           "hit": true,
           "id": "t25",
           "reciprocal_rank": 0.5,
+          "scores": [
+            {
+              "id": "structured-reflection-tool",
+              "score_bm25": 29.890299072390725,
+              "score_semantic": null
+            },
+            {
+              "id": "code-as-action",
+              "score_bm25": 26.212526780050254,
+              "score_semantic": null
+            },
+            {
+              "id": "http-native-micropayments",
+              "score_bm25": 23.919123894897822,
+              "score_semantic": null
+            },
+            {
+              "id": "osworld",
+              "score_bm25": 22.249697491810483,
+              "score_semantic": null
+            },
+            {
+              "id": "agent-observability-tracing",
+              "score_bm25": 21.639798394347974,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "structured-reflection-tool",
             "code-as-action",
@@ -364,6 +985,33 @@
           "hit": false,
           "id": "t26",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "sliding-window-management",
+              "score_bm25": 21.295321397712044,
+              "score_semantic": null
+            },
+            {
+              "id": "infini-attention-architecture",
+              "score_bm25": 14.897589974618699,
+              "score_semantic": null
+            },
+            {
+              "id": "context-window-management-patterns",
+              "score_bm25": 14.300935416851402,
+              "score_semantic": null
+            },
+            {
+              "id": "hierarchical-memory",
+              "score_bm25": 13.265209023518594,
+              "score_semantic": null
+            },
+            {
+              "id": "handoff-orchestration",
+              "score_bm25": 9.912744739568893,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "sliding-window-management",
             "infini-attention-architecture",
@@ -379,6 +1027,33 @@
           "hit": false,
           "id": "t27",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "cyberseceval3",
+              "score_bm25": 14.874952462232567,
+              "score_semantic": null
+            },
+            {
+              "id": "authenticated-delegation",
+              "score_bm25": 14.60191156434316,
+              "score_semantic": null
+            },
+            {
+              "id": "osworld",
+              "score_bm25": 13.13523815420808,
+              "score_semantic": null
+            },
+            {
+              "id": "naive-rag",
+              "score_bm25": 13.050491104755698,
+              "score_semantic": null
+            },
+            {
+              "id": "monitoring-control-patterns",
+              "score_bm25": 12.839040019590193,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "cyberseceval3",
             "authenticated-delegation",
@@ -394,6 +1069,33 @@
           "hit": true,
           "id": "t28",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "eval-driven-agent-development",
+              "score_bm25": 37.571209507454185,
+              "score_semantic": null
+            },
+            {
+              "id": "terminal-bench",
+              "score_bm25": 20.104711114889458,
+              "score_semantic": null
+            },
+            {
+              "id": "osworld",
+              "score_bm25": 18.75940938128926,
+              "score_semantic": null
+            },
+            {
+              "id": "progressive-agent-rollout",
+              "score_bm25": 13.884727292734429,
+              "score_semantic": null
+            },
+            {
+              "id": "got",
+              "score_bm25": 13.789619768722918,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "eval-driven-agent-development",
             "terminal-bench",
@@ -409,6 +1111,33 @@
           "hit": true,
           "id": "t29",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "agent-observability-tracing",
+              "score_bm25": 62.18161323978605,
+              "score_semantic": null
+            },
+            {
+              "id": "plan-execute-decoupling",
+              "score_bm25": 26.378500971990096,
+              "score_semantic": null
+            },
+            {
+              "id": "speculative-tool-execution",
+              "score_bm25": 26.137683174351054,
+              "score_semantic": null
+            },
+            {
+              "id": "context-editing-tool-clearing",
+              "score_bm25": 25.620328257351478,
+              "score_semantic": null
+            },
+            {
+              "id": "http-native-micropayments",
+              "score_bm25": 23.61782229481046,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "agent-observability-tracing",
             "plan-execute-decoupling",
@@ -424,6 +1153,33 @@
           "hit": true,
           "id": "t30",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "durable-execution",
+              "score_bm25": 37.233456774588916,
+              "score_semantic": null
+            },
+            {
+              "id": "context-state-machines",
+              "score_bm25": 15.668976596578522,
+              "score_semantic": null
+            },
+            {
+              "id": "agentic-context-engineering",
+              "score_bm25": 15.597131145639384,
+              "score_semantic": null
+            },
+            {
+              "id": "graph-state-machines",
+              "score_bm25": 15.180779439217858,
+              "score_semantic": null
+            },
+            {
+              "id": "sequential-chaining",
+              "score_bm25": 14.93318710496157,
+              "score_semantic": null
+            }
+          ],
           "top": [
             "durable-execution",
             "context-state-machines",
@@ -447,6 +1203,33 @@
           "hit": true,
           "id": "t01",
           "reciprocal_rank": 0.5,
+          "scores": [
+            {
+              "id": "handoff-orchestration",
+              "score_bm25": 25.688634193322248,
+              "score_semantic": 0.6378729343414307
+            },
+            {
+              "id": "content-based-routing",
+              "score_bm25": 16.55488995060622,
+              "score_semantic": 0.5611977577209473
+            },
+            {
+              "id": "context-routing",
+              "score_bm25": 14.477789977411815,
+              "score_semantic": 0.5620473623275757
+            },
+            {
+              "id": "context-isolate-patterns",
+              "score_bm25": 14.571195529064706,
+              "score_semantic": 0.5549863576889038
+            },
+            {
+              "id": "agent-collaboration-ux",
+              "score_bm25": 13.26279105542105,
+              "score_semantic": 0.5618759989738464
+            }
+          ],
           "top": [
             "handoff-orchestration",
             "content-based-routing",
@@ -462,6 +1245,33 @@
           "hit": false,
           "id": "t02",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "test-time-scaling",
+              "score_bm25": 4.380065504582171,
+              "score_semantic": 0.6914600133895874
+            },
+            {
+              "id": "chain-of-agents",
+              "score_bm25": 3.416587035565664,
+              "score_semantic": 0.7053711414337158
+            },
+            {
+              "id": "map-reduce",
+              "score_bm25": 6.07592166739721,
+              "score_semantic": 0.6617599129676819
+            },
+            {
+              "id": "supervisor-worker-pattern",
+              "score_bm25": 9.347554078561918,
+              "score_semantic": 0.6555399894714355
+            },
+            {
+              "id": "energy-efficient-inference",
+              "score_bm25": 8.312405534395136,
+              "score_semantic": 0.6527968645095825
+            }
+          ],
           "top": [
             "test-time-scaling",
             "chain-of-agents",
@@ -477,6 +1287,33 @@
           "hit": true,
           "id": "t03",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "self-critique",
+              "score_bm25": 19.359566836344968,
+              "score_semantic": 0.678630530834198
+            },
+            {
+              "id": "producer-critic",
+              "score_bm25": 10.943370924247805,
+              "score_semantic": 0.638712465763092
+            },
+            {
+              "id": "constitutional-ai",
+              "score_bm25": 16.18097744824964,
+              "score_semantic": 0.6122365593910217
+            },
+            {
+              "id": "feedback-chaining",
+              "score_bm25": 9.142826253958342,
+              "score_semantic": 0.6394010782241821
+            },
+            {
+              "id": "mixture-of-agents",
+              "score_bm25": 7.958885986453181,
+              "score_semantic": 0.6569689512252808
+            }
+          ],
           "top": [
             "self-critique",
             "producer-critic",
@@ -492,6 +1329,33 @@
           "hit": true,
           "id": "t04",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "tool-retrieval",
+              "score_bm25": 16.9975836033905,
+              "score_semantic": 0.6361528038978577
+            },
+            {
+              "id": "agentic-context-engineering",
+              "score_bm25": 13.239099694144098,
+              "score_semantic": 0.6270852088928223
+            },
+            {
+              "id": "agent-skills",
+              "score_bm25": 8.384246922102621,
+              "score_semantic": 0.6138065457344055
+            },
+            {
+              "id": "hierarchical-memory",
+              "score_bm25": 13.310017138324532,
+              "score_semantic": 0.5864845514297485
+            },
+            {
+              "id": "osworld",
+              "score_bm25": 13.08538150204496,
+              "score_semantic": 0.5867039561271667
+            }
+          ],
           "top": [
             "tool-retrieval",
             "agentic-context-engineering",
@@ -508,6 +1372,33 @@
           "hit": true,
           "id": "t05",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "function-calling",
+              "score_bm25": 16.471554809369753,
+              "score_semantic": 0.7382640242576599
+            },
+            {
+              "id": "context-editing-tool-clearing",
+              "score_bm25": 14.036570717829871,
+              "score_semantic": 0.6500829458236694
+            },
+            {
+              "id": "conversational-orchestration",
+              "score_bm25": 11.36603696771103,
+              "score_semantic": 0.5958123803138733
+            },
+            {
+              "id": "parallel-chaining",
+              "score_bm25": 8.385278569498805,
+              "score_semantic": 0.6003761291503906
+            },
+            {
+              "id": "react",
+              "score_bm25": 6.915989661696771,
+              "score_semantic": 0.6055347919464111
+            }
+          ],
           "top": [
             "function-calling",
             "context-editing-tool-clearing",
@@ -524,6 +1415,33 @@
           "hit": true,
           "id": "t06",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "fork-join",
+              "score_bm25": 14.415120028558494,
+              "score_semantic": 0.7225393652915955
+            },
+            {
+              "id": "parallel-chaining",
+              "score_bm25": 15.67051187003686,
+              "score_semantic": 0.7224651575088501
+            },
+            {
+              "id": "async-await",
+              "score_bm25": 17.857568046298578,
+              "score_semantic": 0.6682157516479492
+            },
+            {
+              "id": "parallel-synthesis",
+              "score_bm25": 9.020956587320587,
+              "score_semantic": 0.711452305316925
+            },
+            {
+              "id": "skeleton-of-thoughts",
+              "score_bm25": 9.2188120248269,
+              "score_semantic": 0.6988158822059631
+            }
+          ],
           "top": [
             "fork-join",
             "parallel-chaining",
@@ -540,6 +1458,33 @@
           "hit": false,
           "id": "t07",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "test-time-scaling",
+              "score_bm25": 16.822766380108813,
+              "score_semantic": 0.658860445022583
+            },
+            {
+              "id": "tot",
+              "score_bm25": 9.408472486657129,
+              "score_semantic": 0.6596671342849731
+            },
+            {
+              "id": "self-improving-systems",
+              "score_bm25": 10.353662254128285,
+              "score_semantic": 0.6450884342193604
+            },
+            {
+              "id": "buffer-of-thoughts",
+              "score_bm25": 8.208809726914374,
+              "score_semantic": 0.6592408418655396
+            },
+            {
+              "id": "reflective-mcts",
+              "score_bm25": 7.904457368782088,
+              "score_semantic": 0.6978604197502136
+            }
+          ],
           "top": [
             "test-time-scaling",
             "tot",
@@ -556,6 +1501,33 @@
           "hit": false,
           "id": "t08",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "memory-forgetting-policies",
+              "score_bm25": 17.481599099208193,
+              "score_semantic": 0.7188486456871033
+            },
+            {
+              "id": "generative-agents-memory",
+              "score_bm25": 11.835661430234829,
+              "score_semantic": 0.733762800693512
+            },
+            {
+              "id": "context-editing-tool-clearing",
+              "score_bm25": 16.420043700058702,
+              "score_semantic": 0.7050053477287292
+            },
+            {
+              "id": "plan-todo-recitation",
+              "score_bm25": 12.941409651299157,
+              "score_semantic": 0.7149381041526794
+            },
+            {
+              "id": "agent-context-preservation",
+              "score_bm25": 10.264834841266902,
+              "score_semantic": 0.7294516563415527
+            }
+          ],
           "top": [
             "memory-forgetting-policies",
             "generative-agents-memory",
@@ -572,6 +1544,33 @@
           "hit": true,
           "id": "t09",
           "reciprocal_rank": 0.25,
+          "scores": [
+            {
+              "id": "human-on-the-loop",
+              "score_bm25": 9.913856911290953,
+              "score_semantic": 0.6310038566589355
+            },
+            {
+              "id": "risk-tiered-approval-escalation",
+              "score_bm25": 10.278294144059997,
+              "score_semantic": 0.6122089624404907
+            },
+            {
+              "id": "hula-framework",
+              "score_bm25": 10.170950146601095,
+              "score_semantic": 0.6115064024925232
+            },
+            {
+              "id": "human-in-the-loop",
+              "score_bm25": 8.156203207008359,
+              "score_semantic": 0.6729888916015625
+            },
+            {
+              "id": "budget-guarded-autonomy",
+              "score_bm25": 10.078154198212548,
+              "score_semantic": 0.5920356512069702
+            }
+          ],
           "top": [
             "human-on-the-loop",
             "risk-tiered-approval-escalation",
@@ -588,6 +1587,33 @@
           "hit": false,
           "id": "t10",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "context-editing-tool-clearing",
+              "score_bm25": 12.637501062267173,
+              "score_semantic": 0.7501290440559387
+            },
+            {
+              "id": "tool-misuse-prevention",
+              "score_bm25": 9.402270221053302,
+              "score_semantic": 0.7567249536514282
+            },
+            {
+              "id": "prompt-optimization",
+              "score_bm25": 8.318884081165834,
+              "score_semantic": 0.6992571353912354
+            },
+            {
+              "id": "agent-sandboxing",
+              "score_bm25": 7.405924373490629,
+              "score_semantic": 0.7260534763336182
+            },
+            {
+              "id": "speculative-tool-execution",
+              "score_bm25": 8.188487923909799,
+              "score_semantic": 0.6897569894790649
+            }
+          ],
           "top": [
             "context-editing-tool-clearing",
             "tool-misuse-prevention",
@@ -603,6 +1629,33 @@
           "hit": true,
           "id": "t11",
           "reciprocal_rank": 0.5,
+          "scores": [
+            {
+              "id": "deep-research-agent",
+              "score_bm25": 13.204682904544036,
+              "score_semantic": 0.6964131593704224
+            },
+            {
+              "id": "abductive-reasoning",
+              "score_bm25": 14.872210990857624,
+              "score_semantic": 0.6207013726234436
+            },
+            {
+              "id": "graph-rag",
+              "score_bm25": 9.827293570041046,
+              "score_semantic": 0.5964962244033813
+            },
+            {
+              "id": "test-time-scaling",
+              "score_bm25": 12.761273520440902,
+              "score_semantic": 0.5801398754119873
+            },
+            {
+              "id": "agentic-rag-systems",
+              "score_bm25": 7.5869656021116825,
+              "score_semantic": 0.6227990388870239
+            }
+          ],
           "top": [
             "deep-research-agent",
             "abductive-reasoning",
@@ -618,6 +1671,33 @@
           "hit": true,
           "id": "t13",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "reflexion-pattern",
+              "score_bm25": 26.409643851650593,
+              "score_semantic": 0.6430224180221558
+            },
+            {
+              "id": "skill-library",
+              "score_bm25": 13.218546592753112,
+              "score_semantic": 0.5815656185150146
+            },
+            {
+              "id": "agentic-context-engineering",
+              "score_bm25": 13.646378794963885,
+              "score_semantic": 0.5435032248497009
+            },
+            {
+              "id": "step-back-prompting",
+              "score_bm25": 14.976434917835444,
+              "score_semantic": 0.5319927930831909
+            },
+            {
+              "id": "conversational-interface-patterns",
+              "score_bm25": 10.922639500231037,
+              "score_semantic": 0.5437710881233215
+            }
+          ],
           "top": [
             "reflexion-pattern",
             "skill-library",
@@ -633,6 +1713,33 @@
           "hit": true,
           "id": "t14",
           "reciprocal_rank": 0.2,
+          "scores": [
+            {
+              "id": "producer-critic",
+              "score_bm25": 18.406175437477327,
+              "score_semantic": 0.6313092112541199
+            },
+            {
+              "id": "self-critique",
+              "score_bm25": 15.182085309060941,
+              "score_semantic": 0.631782054901123
+            },
+            {
+              "id": "mixture-of-agents",
+              "score_bm25": 12.801883408941976,
+              "score_semantic": 0.6414986848831177
+            },
+            {
+              "id": "chain-of-agents",
+              "score_bm25": 12.612598425370685,
+              "score_semantic": 0.6293200850486755
+            },
+            {
+              "id": "parallel-synthesis",
+              "score_bm25": 11.510883727843924,
+              "score_semantic": 0.6271133422851562
+            }
+          ],
           "top": [
             "producer-critic",
             "self-critique",
@@ -648,6 +1755,33 @@
           "hit": true,
           "id": "t15",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "supervisor-worker-pattern",
+              "score_bm25": 26.120301491122735,
+              "score_semantic": 0.7259002327919006
+            },
+            {
+              "id": "chain-of-agents",
+              "score_bm25": 19.132635307702415,
+              "score_semantic": 0.6896892189979553
+            },
+            {
+              "id": "context-isolate-patterns",
+              "score_bm25": 17.164124281249652,
+              "score_semantic": 0.6461707353591919
+            },
+            {
+              "id": "theagentcompany",
+              "score_bm25": 13.270372830048814,
+              "score_semantic": 0.6693484783172607
+            },
+            {
+              "id": "sequential-pipeline-agents",
+              "score_bm25": 14.576763733376707,
+              "score_semantic": 0.6334298253059387
+            }
+          ],
           "top": [
             "supervisor-worker-pattern",
             "chain-of-agents",
@@ -663,6 +1797,33 @@
           "hit": true,
           "id": "t16",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "message-queuing",
+              "score_bm25": 11.803259914306462,
+              "score_semantic": 0.7020580768585205
+            },
+            {
+              "id": "durable-execution",
+              "score_bm25": 11.70601122070373,
+              "score_semantic": 0.6048970818519592
+            },
+            {
+              "id": "monitoring-control-patterns",
+              "score_bm25": 8.946812584811882,
+              "score_semantic": 0.6174858212471008
+            },
+            {
+              "id": "chain-of-agents",
+              "score_bm25": 11.088935887044103,
+              "score_semantic": 0.5965700149536133
+            },
+            {
+              "id": "event-driven-orchestrator-worker",
+              "score_bm25": 11.385991617911788,
+              "score_semantic": 0.5807448625564575
+            }
+          ],
           "top": [
             "message-queuing",
             "durable-execution",
@@ -678,6 +1839,33 @@
           "hit": true,
           "id": "t17",
           "reciprocal_rank": 0.3333333333333333,
+          "scores": [
+            {
+              "id": "context-write-patterns",
+              "score_bm25": 11.296502739630878,
+              "score_semantic": 0.6147964000701904
+            },
+            {
+              "id": "theagentcompany",
+              "score_bm25": 13.576156225408283,
+              "score_semantic": 0.5808520317077637
+            },
+            {
+              "id": "episodic-memory-systems",
+              "score_bm25": 9.754709321283741,
+              "score_semantic": 0.6245465874671936
+            },
+            {
+              "id": "reflexion-pattern",
+              "score_bm25": 10.245183522869251,
+              "score_semantic": 0.5922812223434448
+            },
+            {
+              "id": "memory-block-architecture",
+              "score_bm25": 10.088048835474064,
+              "score_semantic": 0.5919588804244995
+            }
+          ],
           "top": [
             "context-write-patterns",
             "theagentcompany",
@@ -694,6 +1882,33 @@
           "hit": false,
           "id": "t18",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "rule-based-routing",
+              "score_bm25": 11.77147456652779,
+              "score_semantic": 0.5912159085273743
+            },
+            {
+              "id": "context-routing",
+              "score_bm25": 14.464050405450678,
+              "score_semantic": 0.5196952223777771
+            },
+            {
+              "id": "stateful-graph-workflows",
+              "score_bm25": 11.806320530350309,
+              "score_semantic": 0.5314663648605347
+            },
+            {
+              "id": "llm-based-routing",
+              "score_bm25": 13.912296998976442,
+              "score_semantic": 0.5191174745559692
+            },
+            {
+              "id": "capability-routing",
+              "score_bm25": 10.581696844903274,
+              "score_semantic": 0.5303687453269958
+            }
+          ],
           "top": [
             "rule-based-routing",
             "context-routing",
@@ -709,6 +1924,33 @@
           "hit": true,
           "id": "t19",
           "reciprocal_rank": 0.5,
+          "scores": [
+            {
+              "id": "stateful-graph-workflows",
+              "score_bm25": 12.962454823869221,
+              "score_semantic": 0.6378335952758789
+            },
+            {
+              "id": "plan-execute-decoupling",
+              "score_bm25": 30.28724257235374,
+              "score_semantic": 0.6335099935531616
+            },
+            {
+              "id": "structured-reflection-tool",
+              "score_bm25": 12.271102734153693,
+              "score_semantic": 0.6357451677322388
+            },
+            {
+              "id": "sequential-chaining",
+              "score_bm25": 10.052941058175414,
+              "score_semantic": 0.6430678367614746
+            },
+            {
+              "id": "got",
+              "score_bm25": 9.330330054926312,
+              "score_semantic": 0.6514829397201538
+            }
+          ],
           "top": [
             "stateful-graph-workflows",
             "plan-execute-decoupling",
@@ -724,6 +1966,33 @@
           "hit": false,
           "id": "t20",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "predictive-agent-fault-tolerance",
+              "score_bm25": 15.937957691928672,
+              "score_semantic": 0.6051104664802551
+            },
+            {
+              "id": "human-on-the-loop",
+              "score_bm25": 14.379283070943707,
+              "score_semantic": 0.5909784436225891
+            },
+            {
+              "id": "concurrent-orchestration",
+              "score_bm25": 8.04423995504615,
+              "score_semantic": 0.6254147291183472
+            },
+            {
+              "id": "llm-as-judge",
+              "score_bm25": 14.477296415229674,
+              "score_semantic": 0.5763373374938965
+            },
+            {
+              "id": "cot",
+              "score_bm25": 10.607087456726115,
+              "score_semantic": 0.5946327447891235
+            }
+          ],
           "top": [
             "predictive-agent-fault-tolerance",
             "human-on-the-loop",
@@ -740,6 +2009,33 @@
           "hit": true,
           "id": "t21",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "human-on-the-loop",
+              "score_bm25": 15.285151233643216,
+              "score_semantic": 0.6234729886054993
+            },
+            {
+              "id": "human-in-the-loop",
+              "score_bm25": 11.68906137013137,
+              "score_semantic": 0.5744876861572266
+            },
+            {
+              "id": "osworld",
+              "score_bm25": 14.545704541998662,
+              "score_semantic": 0.548629879951477
+            },
+            {
+              "id": "realtime-voice-agents",
+              "score_bm25": 9.967512203043587,
+              "score_semantic": 0.5717047452926636
+            },
+            {
+              "id": "online-learning-adaptation",
+              "score_bm25": 12.33837111329354,
+              "score_semantic": 0.5497450232505798
+            }
+          ],
           "top": [
             "human-on-the-loop",
             "human-in-the-loop",
@@ -755,6 +2051,33 @@
           "hit": false,
           "id": "t23",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "structured-reflection-tool",
+              "score_bm25": 12.542859217010344,
+              "score_semantic": 0.5494884848594666
+            },
+            {
+              "id": "contrastive-explanations",
+              "score_bm25": 17.50150227474596,
+              "score_semantic": 0.5355669856071472
+            },
+            {
+              "id": "swe-bench-pro",
+              "score_bm25": 11.00308267013044,
+              "score_semantic": 0.5357155799865723
+            },
+            {
+              "id": "dual-llm-capability-security",
+              "score_bm25": 10.255875293790465,
+              "score_semantic": 0.5430671572685242
+            },
+            {
+              "id": "terminal-bench",
+              "score_bm25": 9.239304923524774,
+              "score_semantic": 0.5297024250030518
+            }
+          ],
           "top": [
             "structured-reflection-tool",
             "contrastive-explanations",
@@ -770,6 +2093,33 @@
           "hit": true,
           "id": "t24",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "geographic-routing",
+              "score_bm25": 20.443432800705658,
+              "score_semantic": 0.6705149412155151
+            },
+            {
+              "id": "message-queuing",
+              "score_bm25": 13.071929779294036,
+              "score_semantic": 0.5909233689308167
+            },
+            {
+              "id": "capability-routing",
+              "score_bm25": 10.923181684931611,
+              "score_semantic": 0.5564348697662354
+            },
+            {
+              "id": "sleep-time-compute",
+              "score_bm25": 9.008698830737712,
+              "score_semantic": 0.5599473714828491
+            },
+            {
+              "id": "transparent-data-handling",
+              "score_bm25": 11.951029229988231,
+              "score_semantic": 0.5326821804046631
+            }
+          ],
           "top": [
             "geographic-routing",
             "message-queuing",
@@ -785,6 +2135,33 @@
           "hit": true,
           "id": "t25",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "code-as-action",
+              "score_bm25": 26.212526780050254,
+              "score_semantic": 0.6846303939819336
+            },
+            {
+              "id": "agent-observability-tracing",
+              "score_bm25": 21.639798394347974,
+              "score_semantic": 0.6482676267623901
+            },
+            {
+              "id": "structured-reflection-tool",
+              "score_bm25": 29.890299072390725,
+              "score_semantic": 0.6172693967819214
+            },
+            {
+              "id": "speculative-tool-execution",
+              "score_bm25": 16.27094750819662,
+              "score_semantic": 0.6667637825012207
+            },
+            {
+              "id": "control-plane",
+              "score_bm25": 18.119826851720624,
+              "score_semantic": 0.6327202320098877
+            }
+          ],
           "top": [
             "code-as-action",
             "agent-observability-tracing",
@@ -800,6 +2177,33 @@
           "hit": true,
           "id": "t26",
           "reciprocal_rank": 0.3333333333333333,
+          "scores": [
+            {
+              "id": "sliding-window-management",
+              "score_bm25": 21.295321397712044,
+              "score_semantic": 0.6316637992858887
+            },
+            {
+              "id": "hierarchical-memory",
+              "score_bm25": 13.265209023518594,
+              "score_semantic": 0.6727626323699951
+            },
+            {
+              "id": "memory-forgetting-policies",
+              "score_bm25": 8.974505207583505,
+              "score_semantic": 0.7002733945846558
+            },
+            {
+              "id": "agent-context-preservation",
+              "score_bm25": 9.02687958064626,
+              "score_semantic": 0.6650551557540894
+            },
+            {
+              "id": "infini-attention-architecture",
+              "score_bm25": 14.897589974618699,
+              "score_semantic": 0.5952152013778687
+            }
+          ],
           "top": [
             "sliding-window-management",
             "hierarchical-memory",
@@ -815,6 +2219,33 @@
           "hit": true,
           "id": "t27",
           "reciprocal_rank": 0.2,
+          "scores": [
+            {
+              "id": "authenticated-delegation",
+              "score_bm25": 14.60191156434316,
+              "score_semantic": 0.6506426334381104
+            },
+            {
+              "id": "agent-sandboxing",
+              "score_bm25": 11.934911133946692,
+              "score_semantic": 0.6823488473892212
+            },
+            {
+              "id": "cyberseceval3",
+              "score_bm25": 14.874952462232567,
+              "score_semantic": 0.6305787563323975
+            },
+            {
+              "id": "osworld",
+              "score_bm25": 13.13523815420808,
+              "score_semantic": 0.6333657503128052
+            },
+            {
+              "id": "system-prompt-protection",
+              "score_bm25": 10.973882847346658,
+              "score_semantic": 0.7460232973098755
+            }
+          ],
           "top": [
             "authenticated-delegation",
             "agent-sandboxing",
@@ -830,6 +2261,33 @@
           "hit": true,
           "id": "t28",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "eval-driven-agent-development",
+              "score_bm25": 37.571209507454185,
+              "score_semantic": 0.7576987743377686
+            },
+            {
+              "id": "progressive-agent-rollout",
+              "score_bm25": 13.884727292734429,
+              "score_semantic": 0.6772814393043518
+            },
+            {
+              "id": "terminal-bench",
+              "score_bm25": 20.104711114889458,
+              "score_semantic": 0.636819064617157
+            },
+            {
+              "id": "swe-bench-suite",
+              "score_bm25": 11.838926961133906,
+              "score_semantic": 0.6565648317337036
+            },
+            {
+              "id": "osworld",
+              "score_bm25": 18.75940938128926,
+              "score_semantic": 0.6284927725791931
+            }
+          ],
           "top": [
             "eval-driven-agent-development",
             "progressive-agent-rollout",
@@ -845,6 +2303,33 @@
           "hit": true,
           "id": "t29",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "agent-observability-tracing",
+              "score_bm25": 62.18161323978605,
+              "score_semantic": 0.7457717657089233
+            },
+            {
+              "id": "speculative-tool-execution",
+              "score_bm25": 26.137683174351054,
+              "score_semantic": 0.6615756750106812
+            },
+            {
+              "id": "context-editing-tool-clearing",
+              "score_bm25": 25.620328257351478,
+              "score_semantic": 0.6225248575210571
+            },
+            {
+              "id": "code-as-action",
+              "score_bm25": 16.50879631344128,
+              "score_semantic": 0.6392832398414612
+            },
+            {
+              "id": "twelve-factor-agent",
+              "score_bm25": 15.189950595719768,
+              "score_semantic": 0.6140151619911194
+            }
+          ],
           "top": [
             "agent-observability-tracing",
             "speculative-tool-execution",
@@ -860,6 +2345,33 @@
           "hit": true,
           "id": "t30",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "durable-execution",
+              "score_bm25": 37.233456774588916,
+              "score_semantic": 0.7942864298820496
+            },
+            {
+              "id": "sequential-chaining",
+              "score_bm25": 14.93318710496157,
+              "score_semantic": 0.7299603223800659
+            },
+            {
+              "id": "graph-state-machines",
+              "score_bm25": 15.180779439217858,
+              "score_semantic": 0.6889362931251526
+            },
+            {
+              "id": "context-state-machines",
+              "score_bm25": 15.668976596578522,
+              "score_semantic": 0.6316231489181519
+            },
+            {
+              "id": "agent-observability-tracing",
+              "score_bm25": 13.40582706312199,
+              "score_semantic": 0.6538555026054382
+            }
+          ],
           "top": [
             "durable-execution",
             "sequential-chaining",
@@ -883,6 +2395,33 @@
           "hit": false,
           "id": "t01",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "handoff-orchestration",
+              "score_bm25": null,
+              "score_semantic": 0.6378729343414307
+            },
+            {
+              "id": "progressive-consent-communication",
+              "score_bm25": null,
+              "score_semantic": 0.6021395325660706
+            },
+            {
+              "id": "agent-payment-mandates",
+              "score_bm25": null,
+              "score_semantic": 0.5777612328529358
+            },
+            {
+              "id": "realtime-voice-agents",
+              "score_bm25": null,
+              "score_semantic": 0.5649940967559814
+            },
+            {
+              "id": "context-routing",
+              "score_bm25": null,
+              "score_semantic": 0.5620473623275757
+            }
+          ],
           "top": [
             "handoff-orchestration",
             "progressive-consent-communication",
@@ -898,6 +2437,33 @@
           "hit": false,
           "id": "t02",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "parallel-chaining",
+              "score_bm25": null,
+              "score_semantic": 0.7167576551437378
+            },
+            {
+              "id": "self-consistency",
+              "score_bm25": null,
+              "score_semantic": 0.716138482093811
+            },
+            {
+              "id": "chain-of-agents",
+              "score_bm25": null,
+              "score_semantic": 0.7053711414337158
+            },
+            {
+              "id": "semantic-caching",
+              "score_bm25": null,
+              "score_semantic": 0.6964133977890015
+            },
+            {
+              "id": "test-time-scaling",
+              "score_bm25": null,
+              "score_semantic": 0.6914600133895874
+            }
+          ],
           "top": [
             "parallel-chaining",
             "self-consistency",
@@ -913,6 +2479,33 @@
           "hit": true,
           "id": "t03",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "self-critique",
+              "score_bm25": null,
+              "score_semantic": 0.678630530834198
+            },
+            {
+              "id": "mixture-of-agents",
+              "score_bm25": null,
+              "score_semantic": 0.6569689512252808
+            },
+            {
+              "id": "reinforcement-learning-from-ai-feedback",
+              "score_bm25": null,
+              "score_semantic": 0.6496061682701111
+            },
+            {
+              "id": "feedback-chaining",
+              "score_bm25": null,
+              "score_semantic": 0.6394010782241821
+            },
+            {
+              "id": "producer-critic",
+              "score_bm25": null,
+              "score_semantic": 0.638712465763092
+            }
+          ],
           "top": [
             "self-critique",
             "mixture-of-agents",
@@ -928,6 +2521,33 @@
           "hit": true,
           "id": "t04",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "tool-retrieval",
+              "score_bm25": null,
+              "score_semantic": 0.6361528038978577
+            },
+            {
+              "id": "agentic-context-engineering",
+              "score_bm25": null,
+              "score_semantic": 0.6270852088928223
+            },
+            {
+              "id": "chain-of-agents",
+              "score_bm25": null,
+              "score_semantic": 0.6195083260536194
+            },
+            {
+              "id": "code-execution",
+              "score_bm25": null,
+              "score_semantic": 0.616336464881897
+            },
+            {
+              "id": "filesystem-as-context",
+              "score_bm25": null,
+              "score_semantic": 0.6160038709640503
+            }
+          ],
           "top": [
             "tool-retrieval",
             "agentic-context-engineering",
@@ -944,6 +2564,33 @@
           "hit": true,
           "id": "t05",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "function-calling",
+              "score_bm25": null,
+              "score_semantic": 0.7382640242576599
+            },
+            {
+              "id": "context-editing-tool-clearing",
+              "score_bm25": null,
+              "score_semantic": 0.6500829458236694
+            },
+            {
+              "id": "spotlighting-data-marking",
+              "score_bm25": null,
+              "score_semantic": 0.6397316455841064
+            },
+            {
+              "id": "codebase-structure-retrieval",
+              "score_bm25": null,
+              "score_semantic": 0.6309911608695984
+            },
+            {
+              "id": "structured-outputs",
+              "score_bm25": null,
+              "score_semantic": 0.6286073923110962
+            }
+          ],
           "top": [
             "function-calling",
             "context-editing-tool-clearing",
@@ -960,6 +2607,33 @@
           "hit": true,
           "id": "t06",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "fork-join",
+              "score_bm25": null,
+              "score_semantic": 0.7225393652915955
+            },
+            {
+              "id": "parallel-chaining",
+              "score_bm25": null,
+              "score_semantic": 0.7224651575088501
+            },
+            {
+              "id": "parallel-synthesis",
+              "score_bm25": null,
+              "score_semantic": 0.711452305316925
+            },
+            {
+              "id": "skeleton-of-thoughts",
+              "score_bm25": null,
+              "score_semantic": 0.6988158822059631
+            },
+            {
+              "id": "concurrent-orchestration",
+              "score_bm25": null,
+              "score_semantic": 0.6819195747375488
+            }
+          ],
           "top": [
             "fork-join",
             "parallel-chaining",
@@ -976,6 +2650,33 @@
           "hit": false,
           "id": "t07",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "reflective-mcts",
+              "score_bm25": null,
+              "score_semantic": 0.6978604197502136
+            },
+            {
+              "id": "agentic-context-engineering",
+              "score_bm25": null,
+              "score_semantic": 0.6651946306228638
+            },
+            {
+              "id": "tot",
+              "score_bm25": null,
+              "score_semantic": 0.6596671342849731
+            },
+            {
+              "id": "buffer-of-thoughts",
+              "score_bm25": null,
+              "score_semantic": 0.6592408418655396
+            },
+            {
+              "id": "test-time-scaling",
+              "score_bm25": null,
+              "score_semantic": 0.658860445022583
+            }
+          ],
           "top": [
             "reflective-mcts",
             "agentic-context-engineering",
@@ -992,6 +2693,33 @@
           "hit": false,
           "id": "t08",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "generative-agents-memory",
+              "score_bm25": null,
+              "score_semantic": 0.733762800693512
+            },
+            {
+              "id": "temporal-knowledge-graph-memory",
+              "score_bm25": null,
+              "score_semantic": 0.7296106815338135
+            },
+            {
+              "id": "agent-context-preservation",
+              "score_bm25": null,
+              "score_semantic": 0.7294516563415527
+            },
+            {
+              "id": "memory-poisoning-prevention",
+              "score_bm25": null,
+              "score_semantic": 0.720292329788208
+            },
+            {
+              "id": "agentic-context-engineering",
+              "score_bm25": null,
+              "score_semantic": 0.7190405130386353
+            }
+          ],
           "top": [
             "generative-agents-memory",
             "temporal-knowledge-graph-memory",
@@ -1008,6 +2736,33 @@
           "hit": true,
           "id": "t09",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "human-in-the-loop",
+              "score_bm25": null,
+              "score_semantic": 0.6729888916015625
+            },
+            {
+              "id": "aisi-evaluation-framework",
+              "score_bm25": null,
+              "score_semantic": 0.6533900499343872
+            },
+            {
+              "id": "cyberseceval3",
+              "score_bm25": null,
+              "score_semantic": 0.6347517967224121
+            },
+            {
+              "id": "human-on-the-loop",
+              "score_bm25": null,
+              "score_semantic": 0.6310038566589355
+            },
+            {
+              "id": "rule-based-routing",
+              "score_bm25": null,
+              "score_semantic": 0.6293028593063354
+            }
+          ],
           "top": [
             "human-in-the-loop",
             "aisi-evaluation-framework",
@@ -1024,6 +2779,33 @@
           "hit": true,
           "id": "t10",
           "reciprocal_rank": 0.2,
+          "scores": [
+            {
+              "id": "tool-misuse-prevention",
+              "score_bm25": null,
+              "score_semantic": 0.7567249536514282
+            },
+            {
+              "id": "context-editing-tool-clearing",
+              "score_bm25": null,
+              "score_semantic": 0.7501290440559387
+            },
+            {
+              "id": "agent-sandboxing",
+              "score_bm25": null,
+              "score_semantic": 0.7260534763336182
+            },
+            {
+              "id": "prompt-optimization",
+              "score_bm25": null,
+              "score_semantic": 0.6992571353912354
+            },
+            {
+              "id": "spotlighting-data-marking",
+              "score_bm25": null,
+              "score_semantic": 0.6924711465835571
+            }
+          ],
           "top": [
             "tool-misuse-prevention",
             "context-editing-tool-clearing",
@@ -1039,6 +2821,33 @@
           "hit": false,
           "id": "t11",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "deep-research-agent",
+              "score_bm25": null,
+              "score_semantic": 0.6964131593704224
+            },
+            {
+              "id": "mlr-bench",
+              "score_bm25": null,
+              "score_semantic": 0.6443584561347961
+            },
+            {
+              "id": "chain-of-agents",
+              "score_bm25": null,
+              "score_semantic": 0.643507719039917
+            },
+            {
+              "id": "agentic-rag-systems",
+              "score_bm25": null,
+              "score_semantic": 0.6227990388870239
+            },
+            {
+              "id": "self-rag",
+              "score_bm25": null,
+              "score_semantic": 0.620905876159668
+            }
+          ],
           "top": [
             "deep-research-agent",
             "mlr-bench",
@@ -1054,6 +2863,33 @@
           "hit": true,
           "id": "t13",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "reflexion-pattern",
+              "score_bm25": null,
+              "score_semantic": 0.6430224180221558
+            },
+            {
+              "id": "skill-library",
+              "score_bm25": null,
+              "score_semantic": 0.5815656185150146
+            },
+            {
+              "id": "error-recovery-patterns",
+              "score_bm25": null,
+              "score_semantic": 0.5760195851325989
+            },
+            {
+              "id": "synthetic-user-simulation",
+              "score_bm25": null,
+              "score_semantic": 0.5577707886695862
+            },
+            {
+              "id": "agent-context-preservation",
+              "score_bm25": null,
+              "score_semantic": 0.5558696389198303
+            }
+          ],
           "top": [
             "reflexion-pattern",
             "skill-library",
@@ -1069,6 +2905,33 @@
           "hit": false,
           "id": "t14",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "mixture-of-agents",
+              "score_bm25": null,
+              "score_semantic": 0.6414986848831177
+            },
+            {
+              "id": "deep-research-agent",
+              "score_bm25": null,
+              "score_semantic": 0.6359976530075073
+            },
+            {
+              "id": "concurrent-orchestration",
+              "score_bm25": null,
+              "score_semantic": 0.6350563764572144
+            },
+            {
+              "id": "self-critique",
+              "score_bm25": null,
+              "score_semantic": 0.631782054901123
+            },
+            {
+              "id": "producer-critic",
+              "score_bm25": null,
+              "score_semantic": 0.6313092112541199
+            }
+          ],
           "top": [
             "mixture-of-agents",
             "deep-research-agent",
@@ -1084,6 +2947,33 @@
           "hit": true,
           "id": "t15",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "supervisor-worker-pattern",
+              "score_bm25": null,
+              "score_semantic": 0.7259002327919006
+            },
+            {
+              "id": "chain-of-agents",
+              "score_bm25": null,
+              "score_semantic": 0.6896892189979553
+            },
+            {
+              "id": "theagentcompany",
+              "score_bm25": null,
+              "score_semantic": 0.6693484783172607
+            },
+            {
+              "id": "transactive-memory-systems",
+              "score_bm25": null,
+              "score_semantic": 0.6678959131240845
+            },
+            {
+              "id": "conversational-orchestration",
+              "score_bm25": null,
+              "score_semantic": 0.6630869507789612
+            }
+          ],
           "top": [
             "supervisor-worker-pattern",
             "chain-of-agents",
@@ -1099,6 +2989,33 @@
           "hit": true,
           "id": "t16",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "message-queuing",
+              "score_bm25": null,
+              "score_semantic": 0.7020580768585205
+            },
+            {
+              "id": "priority-queues",
+              "score_bm25": null,
+              "score_semantic": 0.6387561559677124
+            },
+            {
+              "id": "resource-aware-scheduling",
+              "score_bm25": null,
+              "score_semantic": 0.6366268992424011
+            },
+            {
+              "id": "adaptive-compute-scaling",
+              "score_bm25": null,
+              "score_semantic": 0.6225767731666565
+            },
+            {
+              "id": "monitoring-control-patterns",
+              "score_bm25": null,
+              "score_semantic": 0.6174858212471008
+            }
+          ],
           "top": [
             "message-queuing",
             "priority-queues",
@@ -1114,6 +3031,33 @@
           "hit": true,
           "id": "t17",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "episodic-memory-systems",
+              "score_bm25": null,
+              "score_semantic": 0.6245465874671936
+            },
+            {
+              "id": "continual-learning",
+              "score_bm25": null,
+              "score_semantic": 0.6160993576049805
+            },
+            {
+              "id": "context-write-patterns",
+              "score_bm25": null,
+              "score_semantic": 0.6147964000701904
+            },
+            {
+              "id": "deep-research-agent",
+              "score_bm25": null,
+              "score_semantic": 0.6010123491287231
+            },
+            {
+              "id": "onboarding-education-patterns",
+              "score_bm25": null,
+              "score_semantic": 0.5934690237045288
+            }
+          ],
           "top": [
             "episodic-memory-systems",
             "continual-learning",
@@ -1130,6 +3074,33 @@
           "hit": false,
           "id": "t18",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "rule-based-routing",
+              "score_bm25": null,
+              "score_semantic": 0.5912159085273743
+            },
+            {
+              "id": "human-in-the-loop",
+              "score_bm25": null,
+              "score_semantic": 0.5617979764938354
+            },
+            {
+              "id": "machine-learning-model-based-routing",
+              "score_bm25": null,
+              "score_semantic": 0.5497324466705322
+            },
+            {
+              "id": "aisi-evaluation-framework",
+              "score_bm25": null,
+              "score_semantic": 0.5497155785560608
+            },
+            {
+              "id": "dynamic-routing",
+              "score_bm25": null,
+              "score_semantic": 0.5461753010749817
+            }
+          ],
           "top": [
             "rule-based-routing",
             "human-in-the-loop",
@@ -1145,6 +3116,33 @@
           "hit": false,
           "id": "t19",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "hierarchical-task-network-planning",
+              "score_bm25": null,
+              "score_semantic": 0.6564614772796631
+            },
+            {
+              "id": "dynamic-routing",
+              "score_bm25": null,
+              "score_semantic": 0.6529214382171631
+            },
+            {
+              "id": "got",
+              "score_bm25": null,
+              "score_semantic": 0.6514829397201538
+            },
+            {
+              "id": "agent-observability-tracing",
+              "score_bm25": null,
+              "score_semantic": 0.6505855321884155
+            },
+            {
+              "id": "sequential-chaining",
+              "score_bm25": null,
+              "score_semantic": 0.6430678367614746
+            }
+          ],
           "top": [
             "hierarchical-task-network-planning",
             "dynamic-routing",
@@ -1160,6 +3158,33 @@
           "hit": false,
           "id": "t20",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "rule-based-routing",
+              "score_bm25": null,
+              "score_semantic": 0.6422986388206482
+            },
+            {
+              "id": "cost-aware-model-selection",
+              "score_bm25": null,
+              "score_semantic": 0.6312156319618225
+            },
+            {
+              "id": "aisi-evaluation-framework",
+              "score_bm25": null,
+              "score_semantic": 0.6277511119842529
+            },
+            {
+              "id": "concurrent-orchestration",
+              "score_bm25": null,
+              "score_semantic": 0.6254147291183472
+            },
+            {
+              "id": "parallel-chaining",
+              "score_bm25": null,
+              "score_semantic": 0.6248352527618408
+            }
+          ],
           "top": [
             "rule-based-routing",
             "cost-aware-model-selection",
@@ -1176,6 +3201,33 @@
           "hit": true,
           "id": "t21",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "monitoring-control-patterns",
+              "score_bm25": null,
+              "score_semantic": 0.654328465461731
+            },
+            {
+              "id": "agent-status-activity-patterns",
+              "score_bm25": null,
+              "score_semantic": 0.641828179359436
+            },
+            {
+              "id": "human-on-the-loop",
+              "score_bm25": null,
+              "score_semantic": 0.6234729886054993
+            },
+            {
+              "id": "ambient-agent-patterns",
+              "score_bm25": null,
+              "score_semantic": 0.6138150095939636
+            },
+            {
+              "id": "agent-observability-tracing",
+              "score_bm25": null,
+              "score_semantic": 0.5910069942474365
+            }
+          ],
           "top": [
             "monitoring-control-patterns",
             "agent-status-activity-patterns",
@@ -1191,6 +3243,33 @@
           "hit": false,
           "id": "t23",
           "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "rule-based-routing",
+              "score_bm25": null,
+              "score_semantic": 0.5972753763198853
+            },
+            {
+              "id": "conditional-chaining",
+              "score_bm25": null,
+              "score_semantic": 0.5649635195732117
+            },
+            {
+              "id": "budget-guarded-autonomy",
+              "score_bm25": null,
+              "score_semantic": 0.5576105713844299
+            },
+            {
+              "id": "aisi-evaluation-framework",
+              "score_bm25": null,
+              "score_semantic": 0.5560780763626099
+            },
+            {
+              "id": "dynamic-routing",
+              "score_bm25": null,
+              "score_semantic": 0.5540369153022766
+            }
+          ],
           "top": [
             "rule-based-routing",
             "conditional-chaining",
@@ -1206,6 +3285,33 @@
           "hit": true,
           "id": "t24",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "geographic-routing",
+              "score_bm25": null,
+              "score_semantic": 0.6705149412155151
+            },
+            {
+              "id": "resource-aware-scheduling",
+              "score_bm25": null,
+              "score_semantic": 0.627517580986023
+            },
+            {
+              "id": "priority-queues",
+              "score_bm25": null,
+              "score_semantic": 0.6026098132133484
+            },
+            {
+              "id": "adaptive-compute-scaling",
+              "score_bm25": null,
+              "score_semantic": 0.5909430980682373
+            },
+            {
+              "id": "message-queuing",
+              "score_bm25": null,
+              "score_semantic": 0.5909233689308167
+            }
+          ],
           "top": [
             "geographic-routing",
             "resource-aware-scheduling",
@@ -1221,6 +3327,33 @@
           "hit": true,
           "id": "t25",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "code-as-action",
+              "score_bm25": null,
+              "score_semantic": 0.6846303939819336
+            },
+            {
+              "id": "speculative-tool-execution",
+              "score_bm25": null,
+              "score_semantic": 0.6667637825012207
+            },
+            {
+              "id": "code-execution",
+              "score_bm25": null,
+              "score_semantic": 0.6537078619003296
+            },
+            {
+              "id": "chain-of-agents",
+              "score_bm25": null,
+              "score_semantic": 0.6518918871879578
+            },
+            {
+              "id": "agent-observability-tracing",
+              "score_bm25": null,
+              "score_semantic": 0.6482676267623901
+            }
+          ],
           "top": [
             "code-as-action",
             "speculative-tool-execution",
@@ -1236,6 +3369,33 @@
           "hit": true,
           "id": "t26",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "memory-forgetting-policies",
+              "score_bm25": null,
+              "score_semantic": 0.7002733945846558
+            },
+            {
+              "id": "hierarchical-memory",
+              "score_bm25": null,
+              "score_semantic": 0.6727626323699951
+            },
+            {
+              "id": "memory-poisoning-prevention",
+              "score_bm25": null,
+              "score_semantic": 0.6717773675918579
+            },
+            {
+              "id": "agent-context-preservation",
+              "score_bm25": null,
+              "score_semantic": 0.6650551557540894
+            },
+            {
+              "id": "sliding-window-management",
+              "score_bm25": null,
+              "score_semantic": 0.6316637992858887
+            }
+          ],
           "top": [
             "memory-forgetting-policies",
             "hierarchical-memory",
@@ -1251,6 +3411,33 @@
           "hit": true,
           "id": "t27",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "system-prompt-protection",
+              "score_bm25": null,
+              "score_semantic": 0.7460232973098755
+            },
+            {
+              "id": "agent-sandboxing",
+              "score_bm25": null,
+              "score_semantic": 0.6823488473892212
+            },
+            {
+              "id": "tool-misuse-prevention",
+              "score_bm25": null,
+              "score_semantic": 0.6819111108779907
+            },
+            {
+              "id": "memory-poisoning-prevention",
+              "score_bm25": null,
+              "score_semantic": 0.6624072790145874
+            },
+            {
+              "id": "proactive-clarification",
+              "score_bm25": null,
+              "score_semantic": 0.6525461673736572
+            }
+          ],
           "top": [
             "system-prompt-protection",
             "agent-sandboxing",
@@ -1266,6 +3453,33 @@
           "hit": true,
           "id": "t28",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "eval-driven-agent-development",
+              "score_bm25": null,
+              "score_semantic": 0.7576987743377686
+            },
+            {
+              "id": "progressive-agent-rollout",
+              "score_bm25": null,
+              "score_semantic": 0.6772814393043518
+            },
+            {
+              "id": "budget-guarded-autonomy",
+              "score_bm25": null,
+              "score_semantic": 0.6572626233100891
+            },
+            {
+              "id": "swe-bench-suite",
+              "score_bm25": null,
+              "score_semantic": 0.6565648317337036
+            },
+            {
+              "id": "tau-bench",
+              "score_bm25": null,
+              "score_semantic": 0.653361976146698
+            }
+          ],
           "top": [
             "eval-driven-agent-development",
             "progressive-agent-rollout",
@@ -1281,6 +3495,33 @@
           "hit": true,
           "id": "t29",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "agent-observability-tracing",
+              "score_bm25": null,
+              "score_semantic": 0.7457717657089233
+            },
+            {
+              "id": "speculative-tool-execution",
+              "score_bm25": null,
+              "score_semantic": 0.6615756750106812
+            },
+            {
+              "id": "code-as-action",
+              "score_bm25": null,
+              "score_semantic": 0.6392832398414612
+            },
+            {
+              "id": "monitoring-control-patterns",
+              "score_bm25": null,
+              "score_semantic": 0.6349656581878662
+            },
+            {
+              "id": "sequential-pipeline-agents",
+              "score_bm25": null,
+              "score_semantic": 0.6281118392944336
+            }
+          ],
           "top": [
             "agent-observability-tracing",
             "speculative-tool-execution",
@@ -1296,6 +3537,33 @@
           "hit": true,
           "id": "t30",
           "reciprocal_rank": 1.0,
+          "scores": [
+            {
+              "id": "durable-execution",
+              "score_bm25": null,
+              "score_semantic": 0.7942864298820496
+            },
+            {
+              "id": "sequential-chaining",
+              "score_bm25": null,
+              "score_semantic": 0.7299603223800659
+            },
+            {
+              "id": "task-management-orchestration",
+              "score_bm25": null,
+              "score_semantic": 0.7103937864303589
+            },
+            {
+              "id": "stateful-graph-workflows",
+              "score_bm25": null,
+              "score_semantic": 0.706285834312439
+            },
+            {
+              "id": "graph-state-machines",
+              "score_bm25": null,
+              "score_semantic": 0.6889362931251526
+            }
+          ],
           "top": [
             "durable-execution",
             "sequential-chaining",
@@ -1311,10 +3579,11 @@
   },
   "run": {
     "cases": 28,
-    "catalog_version": "7f1496d",
+    "catalog_version": "0491b2237eb7",
     "date": "2026-09-13",
     "embed_model": "BAAI/bge-small-en-v1.5",
     "gaps": 2,
+    "git_ref": "c7b84b2",
     "k": 5
   }
 }

@@ -2,9 +2,11 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import subprocess
+from collections.abc import Iterable
 from pathlib import Path
 from typing import Any, Protocol
 
@@ -57,8 +59,14 @@ class FileStore:
                 for p in sorted((self.root / "recipes").glob("*.json"))]
 
 
-def catalog_version(root: Path = ROOT) -> str:
-    """Short git sha of the last commit touching catalog/, or 'uncommitted' outside git."""
+def content_version(patterns: Iterable[Pattern]) -> str:
+    """First 12 hex digits of SHA-256 over the sorted `<id>:<content_sha256>` lines. Same content, same version."""
+    lines = sorted(f"{p.id}:{p.provenance.source.content_sha256}" for p in patterns)
+    return hashlib.sha256("\n".join(lines).encode("utf-8")).hexdigest()[:12]
+
+
+def git_ref(root: Path = ROOT) -> str:
+    """Short git sha of the last commit touching catalog/, or 'uncommitted' outside git. For humans only."""
     try:
         sha = subprocess.run(["git", "-C", str(root), "log", "-1", "--format=%h", "--", "catalog"],
                              capture_output=True, text=True, check=True).stdout.strip()
@@ -68,15 +76,18 @@ def catalog_version(root: Path = ROOT) -> str:
 
 
 def build_index(store: Store) -> dict[str, Any]:
+    """The index dict: content version, one entry per pattern, and the category and recipe id lists."""
+    patterns = store.all()
     return {
-        "generated_from": catalog_version(),
+        "generated_from": content_version(patterns),
+        "git_ref": git_ref(),
         "patterns": {
             p.id: {
                 "category": p.category, "kind": p.kind,
                 "content_sha256": p.provenance.source.content_sha256,
                 "extraction": p.provenance.source.extraction, "reviewed": p.reviewed,
             }
-            for p in store.all()
+            for p in patterns
         },
         "categories": [c.id for c in store.categories()],
         "recipes": [r.id for r in store.recipes()],
@@ -84,6 +95,7 @@ def build_index(store: Store) -> dict[str, Any]:
 
 
 def write_index(store: Store, path: Path = INDEX_PATH) -> dict[str, Any]:
+    """Write the index as sorted, indented JSON to `path` and return it."""
     idx = build_index(store)
     path.write_text(json.dumps(idx, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
     return idx

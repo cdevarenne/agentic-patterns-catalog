@@ -75,8 +75,9 @@
     }
   ],
   "run": {
-    "catalog_version": "7f1496d",
+    "catalog_version": "0491b2237eb7",
     "date": "2026-09-12",
+    "git_ref": "7f1496d",
     "index": "CATALOG-full.md (local, tldr for all records)",
     "model": "claude-sonnet-5"
   }

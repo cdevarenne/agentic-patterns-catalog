@@ -47,6 +47,18 @@ def test_index_lists_every_pattern_with_hash_and_review_state(fs: store.FileStor
     assert json.loads((tmp_path / "index.json").read_text())["patterns"]["c-pat"]["category"] == "memory-management"
 
 
-def test_catalog_version_is_a_short_string() -> None:
-    v = store.catalog_version()
-    assert isinstance(v, str) and 4 <= len(v) <= 20
+def test_content_version_is_derived_from_record_content(fs: store.FileStore) -> None:
+    v = store.content_version(fs.all())
+    assert len(v) == 12 and int(v, 16) >= 0
+    assert v == store.content_version(reversed(fs.all()))  # order-independent
+    changed = _p("a-pat")
+    changed.content.description = "different"
+    changed.provenance.source.content_sha256 = content_hash(changed.content)
+    fs.put(changed)
+    assert store.content_version(fs.all()) != v
+
+
+def test_index_carries_content_version_and_git_ref(fs: store.FileStore) -> None:
+    idx = store.build_index(fs)
+    assert idx["generated_from"] == store.content_version(fs.all())
+    assert isinstance(idx["git_ref"], str) and 4 <= len(idx["git_ref"]) <= 20

@@ -25,7 +25,8 @@
     "ui-ux-patterns",
     "workflow-orchestration"
   ],
-  "generated_from": "16ea1e4",
+  "generated_from": "0491b2237eb7",
+  "git_ref": "c7b84b2",
   "patterns": {
     "a2a-protocol": {
       "category": "multi-agent",

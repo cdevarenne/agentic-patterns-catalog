@@ -40,6 +40,10 @@ def test_run_eval_scores_each_arm_and_skips_gaps() -> None:
     assert rep["arms"]["rrf"]["hit_at_k"] == 1.0 and rep["arms"]["rrf"]["mrr"] == 1.0
     assert rep["run"]["cases"] == 2 and rep["run"]["gaps"] == 1
     assert rep["run"]["embed_model"] == "hash-bow-256"
+    assert rep["run"]["catalog_version"] == store.content_version(STORE.all()) and "git_ref" in rep["run"]
+    case = rep["arms"]["rrf"]["cases"][0]
+    assert [s["id"] for s in case["scores"]] == case["top"]
+    assert set(case["scores"][0]) == {"id", "score_bm25", "score_semantic"}
 
 
 def test_semantic_arm_is_null_without_an_embedder() -> None:

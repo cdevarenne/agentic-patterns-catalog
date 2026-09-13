@@ -18,7 +18,7 @@ from . import vocab as vocab_mod
 from .cli import register
 from .model import Pattern
 from .paths import CATALOG_DIR
-from .store import FileStore, Store, catalog_version
+from .store import FileStore, Store, content_version
 
 EMPTY_MESSAGE = "No pattern matches in the catalog."
 K_RRF = 60
@@ -145,7 +145,7 @@ class Selector:
         self.patterns = sorted(patterns, key=lambda p: p.id)
         self.arms = tuple(a for a in arms if a != "semantic" or embedder is not None)
         self.embedder = embedder if "semantic" in self.arms else None
-        self.version = version or catalog_version()
+        self.version = version or content_version(self.patterns)
         self.vocab = vocab_mod.load_vocab()
         texts = [pattern_text(p) for p in self.patterns]
         self._bm25 = (BM25Okapi([tokenize(t) or ["_"] for t in texts])
