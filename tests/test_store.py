@@ -30,6 +30,13 @@ def test_get_unknown_id_raises_key_error(fs: store.FileStore) -> None:
     with pytest.raises(KeyError):
         fs.get("nope")
     assert fs.get("a-pat").category == "routing"
+    assert fs.get("c-pat").category == "memory-management"
+
+
+def test_get_does_not_glob_or_leave_the_patterns_tree(fs: store.FileStore) -> None:
+    for id in ("*", "*-pat", "../routing/a-pat", "routing/a-pat"):
+        with pytest.raises(KeyError):
+            fs.get(id)
 
 
 def test_index_lists_every_pattern_with_hash_and_review_state(fs: store.FileStore, tmp_path: Path) -> None:

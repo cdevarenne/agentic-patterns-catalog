@@ -21,16 +21,17 @@ from .store import FileStore, build_index
 
 @dataclass
 class VerifyContext:
+    """Where one verification run reads from. `lenient_vocab` turns unknown facet values into warnings."""
     root: Path
-    strict_vocab: bool
+    lenient_vocab: bool
     generated_dir: Path
     schema_dir: Path
     eval_path: Path
     thresholds_path: Path
 
     @classmethod
-    def default(cls, strict_vocab: bool = False) -> VerifyContext:
-        return cls(CATALOG_DIR, strict_vocab, GENERATED_DIR, SCHEMA_DIR, DATA_DIR / "eval.json", EVAL_THRESHOLDS)
+    def default(cls, lenient_vocab: bool = False) -> VerifyContext:
+        return cls(CATALOG_DIR, lenient_vocab, GENERATED_DIR, SCHEMA_DIR, DATA_DIR / "eval.json", EVAL_THRESHOLDS)
 
 
 Check = Callable[[VerifyContext], list[str]]
@@ -114,15 +115,25 @@ def check_schema(ctx: VerifyContext) -> list[str]:
 
 
 def facet_problems(ctx: VerifyContext) -> list[str]:
+    """`<id>: <facet>=<value>` for values absent from the vocabulary file under `ctx.root`.
+
+    Reads the raw JSON: the model already rejects unknown values, so this covers files written
+    raw and a vocabulary edited after the records were. Malformed files belong to `check_records`.
+    """
     vocab = vocab_mod.load_vocab(ctx.root / "vocab" / "facets.json")
     out = []
-    for p in FileStore(ctx.root).all():
-        out += [f"{p.id}: {bad}" for bad in vocab_mod.unknown_facet_values(p.selection.facets.model_dump(), vocab)]
+    for path in sorted((ctx.root / "patterns").glob("*/*.json")):
+        try:
+            facets = json.loads(path.read_text(encoding="utf-8"))["selection"]["facets"]
+        except (ValueError, KeyError, TypeError):
+            continue
+        out += [f"{path.stem}: {bad}" for bad in vocab_mod.unknown_facet_values(facets, vocab)]
     return out
 
 
 def check_facets(ctx: VerifyContext) -> list[str]:
-    return facet_problems(ctx) if ctx.strict_vocab else []
+    """Unknown facet values are problems, except under `--lenient-vocab` (then `run_warnings` lists them)."""
+    return [] if ctx.lenient_vocab else facet_problems(ctx)
 
 
 def check_compiled(ctx: VerifyContext) -> list[str]:
@@ -155,7 +166,7 @@ def run_checks(ctx: VerifyContext) -> dict[str, list[str]]:
 
 def run_warnings(ctx: VerifyContext) -> dict[str, list[str]]:
     warnings: dict[str, list[str]] = {}
-    if not ctx.strict_vocab:
+    if ctx.lenient_vocab:
         bad = facet_problems(ctx)
         if bad:
             warnings["facets"] = bad
@@ -166,13 +177,14 @@ def run_warnings(ctx: VerifyContext) -> dict[str, list[str]]:
 
 @register("verify", "check records, index, relations, schema, facets, compiled views and eval")
 def _cmd(parser: argparse.ArgumentParser):
-    parser.add_argument("--strict-vocab", action="store_true", help="unknown facet values fail instead of warn")
+    parser.add_argument("--lenient-vocab", action="store_true",
+                        help="unknown facet values warn instead of fail (vocabulary-discovery sessions only)")
     parser.add_argument("--root", type=Path, default=CATALOG_DIR)
     parser.add_argument("--skip", default="", metavar="NAME[,NAME]",
                         help="checks to skip, e.g. index,compiled on a checkout without the 277 local records")
 
     def run(ns: argparse.Namespace) -> int:
-        ctx = VerifyContext.default(ns.strict_vocab)
+        ctx = VerifyContext.default(ns.lenient_vocab)
         ctx.root = ns.root
         skipped = {n for n in ns.skip.split(",") if n}
         problems = {name: items for name, items in run_checks(ctx).items() if name not in skipped}

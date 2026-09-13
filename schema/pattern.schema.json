@@ -147,7 +147,7 @@
     },
     "Facets": {
       "additionalProperties": false,
-      "description": "Values must come from catalog/vocab/facets.json; `verify` checks that.",
+      "description": "Values must come from catalog/vocab/facets.json; construction fails on any other value.",
       "properties": {
         "latency_cost": {
           "anyOf": [
@@ -333,6 +333,7 @@
           "title": "Prefer When"
         },
         "target": {
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
           "title": "Target",
           "type": "string"
         },
@@ -466,6 +467,7 @@
   "additionalProperties": false,
   "properties": {
     "category": {
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
       "title": "Category",
       "type": "string"
     },
@@ -477,6 +479,7 @@
       "$ref": "#/$defs/Content"
     },
     "id": {
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
       "title": "Id",
       "type": "string"
     },

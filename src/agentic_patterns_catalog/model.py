@@ -5,7 +5,9 @@ import hashlib
 import json
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
+
+from . import vocab as vocab_mod
 
 Kind = Literal["pattern", "technique", "benchmark", "tool"]
 RelationType = Literal["alternative_to", "composes_with", "requires", "precedes"]
@@ -13,6 +15,8 @@ Extraction = Literal["rsc-payload", "free-pack"]
 EnrichmentMethod = Literal["llm-draft", "human", "derived"]
 
 SELECTION_FIELDS = ("problem_signals", "preconditions", "contraindications", "facets", "relations")
+# Ids and category ids are file and directory names: one lower-case path segment, no dots or slashes.
+ID_PATTERN = r"^[a-z0-9]+(-[a-z0-9]+)*$"
 
 
 class Strict(BaseModel):
@@ -49,17 +53,24 @@ class Content(Strict):
 
 
 class Facets(Strict):
-    """Values must come from catalog/vocab/facets.json; `verify` checks that."""
+    """Values must come from catalog/vocab/facets.json; construction fails on any other value."""
     scale: str | None = None
     latency_cost: str | None = None
     token_cost: str | None = None
     risk_class: str | None = None
     maturity: str | None = None
 
+    @model_validator(mode="after")
+    def _values_in_vocabulary(self) -> Facets:
+        bad = vocab_mod.unknown_facet_values(self.model_dump(), vocab_mod.load_vocab())
+        if bad:
+            raise ValueError(f"unknown facet values: {', '.join(bad)}")
+        return self
+
 
 class Relation(Strict):
     type: RelationType
-    target: str
+    target: str = Field(pattern=ID_PATTERN)
     prefer_when: str | None = None
 
 
@@ -91,9 +102,9 @@ class Provenance(Strict):
 
 
 class Pattern(Strict):
-    id: str
+    id: str = Field(pattern=ID_PATTERN)
     name: str
-    category: str
+    category: str = Field(pattern=ID_PATTERN)
     kind: Kind = "pattern"
     complexity: str
     content: Content
@@ -114,7 +125,7 @@ class ImplementationGuide(Strict):
 
 
 class Category(Strict):
-    id: str
+    id: str = Field(pattern=ID_PATTERN)
     name: str
     description: str
     detailedDescription: str | None = None
@@ -126,7 +137,7 @@ class Category(Strict):
 
 class RecipeStep(Strict):
     order: int
-    pattern_id: str
+    pattern_id: str = Field(pattern=ID_PATTERN)
     role: str
     binding_notes: str | None = None
 

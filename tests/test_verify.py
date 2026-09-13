@@ -5,7 +5,6 @@ from agentic_patterns_catalog import compile as comp
 from agentic_patterns_catalog import schema, store, verify
 from agentic_patterns_catalog.model import (
     Content,
-    Facets,
     Pattern,
     Provenance,
     Relation,
@@ -37,7 +36,7 @@ def _ctx(tmp_path: Path, **over) -> verify.VerifyContext:
     comp.write_all(fs, gen)
     sch = tmp_path / "schema"
     schema.write_schemas(sch)
-    base = {"root": root, "strict_vocab": False, "generated_dir": gen, "schema_dir": sch,
+    base = {"root": root, "lenient_vocab": False, "generated_dir": gen, "schema_dir": sch,
             "eval_path": tmp_path / "eval.json", "thresholds_path": EVAL_THRESHOLDS}
     base.update(over)
     return verify.VerifyContext(**base)
@@ -68,14 +67,24 @@ def test_precedes_cycle_and_unknown_target_are_reported(tmp_path: Path) -> None:
     assert any("cycle" in p for p in problems) and any("zzz" in p for p in problems)
 
 
-def test_unknown_facet_is_warning_unless_strict(tmp_path: Path) -> None:
+def _write_raw_bad_facet(ctx: verify.VerifyContext) -> None:
+    # The model rejects unknown values, so a file with one can only come from a raw write
+    # (or from a vocabulary edited after the record was written).
+    path = ctx.root / "patterns" / "routing" / "a.json"
+    data = json.loads(path.read_text())
+    data["selection"]["facets"]["scale"] = "galaxy"
+    path.write_text(json.dumps(data))
+
+
+def test_unknown_facet_is_a_problem_unless_lenient(tmp_path: Path) -> None:
     ctx = _ctx(tmp_path)
-    store.FileStore(ctx.root).put(_p("a", facets=Facets(scale="galaxy")))
-    assert verify.run_checks(ctx)["facets"] == []
-    assert verify.run_warnings(ctx)["facets"] == ["a: scale=galaxy"]
-    strict = _ctx(tmp_path, strict_vocab=True)
-    store.FileStore(strict.root).put(_p("a", facets=Facets(scale="galaxy")))
-    assert verify.run_checks(strict)["facets"] == ["a: scale=galaxy"]
+    _write_raw_bad_facet(ctx)
+    assert verify.check_facets(ctx) == ["a: scale=galaxy"]
+    assert "facets" not in verify.run_warnings(ctx)
+    lenient = _ctx(tmp_path, lenient_vocab=True)
+    _write_raw_bad_facet(lenient)
+    assert verify.check_facets(lenient) == []
+    assert verify.run_warnings(lenient)["facets"] == ["a: scale=galaxy"]
 
 
 def test_stale_compiled_output_is_reported(tmp_path: Path) -> None:

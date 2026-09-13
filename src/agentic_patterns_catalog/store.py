@@ -3,12 +3,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import subprocess
 from pathlib import Path
 from typing import Any, Protocol
 
 from .cli import register
-from .model import Category, Pattern, Recipe, dumps
+from .model import ID_PATTERN, Category, Pattern, Recipe, dumps
 from .paths import CATALOG_DIR, INDEX_PATH, ROOT
 
 
@@ -33,10 +34,14 @@ class FileStore:
         return [Pattern.model_validate_json(p.read_text(encoding="utf-8")) for p in self._pattern_paths()]
 
     def get(self, id: str) -> Pattern:
-        matches = list((self.root / "patterns").glob(f"*/{id}.json"))
-        if not matches:
+        """The record with this id, or KeyError. `id` is used as a file name, never as a glob."""
+        if not re.fullmatch(ID_PATTERN, id):
             raise KeyError(id)
-        return Pattern.model_validate_json(matches[0].read_text(encoding="utf-8"))
+        for category_dir in sorted((self.root / "patterns").iterdir()):
+            path = category_dir / f"{id}.json"
+            if path.is_file():
+                return Pattern.model_validate_json(path.read_text(encoding="utf-8"))
+        raise KeyError(id)
 
     def put(self, pattern: Pattern) -> None:
         path = self.root / "patterns" / pattern.category / f"{pattern.id}.json"

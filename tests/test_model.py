@@ -5,6 +5,7 @@ from agentic_patterns_catalog.model import (
     Category,
     Content,
     Enrichment,
+    Facets,
     Pattern,
     Provenance,
     Source,
@@ -69,3 +70,19 @@ def test_category_provenance_has_the_pattern_shape() -> None:
     assert cat.provenance.enrichment == {}
     with pytest.raises(ValidationError):
         Category(id="routing", name="Routing", description="d", provenance=src)  # type: ignore[arg-type]
+
+
+def test_facet_values_must_come_from_the_vocabulary() -> None:
+    assert Facets().scale is None
+    assert Facets(scale="fleet").scale == "fleet"
+    with pytest.raises(ValidationError, match="scale=galaxy"):
+        Facets(scale="galaxy")
+
+
+def test_ids_are_single_path_segments() -> None:
+    for bad in ("../x", "a/b", "Upper", "trailing-", "", "with space"):
+        with pytest.raises(ValidationError):
+            make_pattern(id=bad)
+    with pytest.raises(ValidationError):
+        make_pattern(category="../etc")
+    assert make_pattern(id="a1-b2").id == "a1-b2"

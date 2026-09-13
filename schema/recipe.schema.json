@@ -68,6 +68,7 @@
           "type": "integer"
         },
         "pattern_id": {
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
           "title": "Pattern Id",
           "type": "string"
         },

@@ -1,6 +1,7 @@
 """Controlled facet vocabulary. One data file; the schema, Postgres and rego derive from it."""
 from __future__ import annotations
 
+import functools
 import json
 from pathlib import Path
 
@@ -9,8 +10,12 @@ from .paths import VOCAB_PATH
 FACET_NAMES = ("scale", "latency_cost", "token_cost", "risk_class", "maturity")
 
 
+@functools.lru_cache
 def load_vocab(path: Path = VOCAB_PATH) -> dict[str, list[str]]:
-    """Read facets.json. Every facet must be present with unique, non-empty values."""
+    """Read facets.json once per path. Every facet must be present with unique, non-empty values.
+
+    The result is cached and shared: do not mutate it.
+    """
     vocab: dict[str, list[str]] = json.loads(path.read_text(encoding="utf-8"))
     missing = sorted(set(FACET_NAMES) - set(vocab))
     if missing:
