@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentic-patterns-catalog"
+version = "0.1.0"
+description = "A provenance-carrying catalog of agentic design patterns, selectable by agents."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.14"
+dependencies = [
+    "pydantic>=2.12",
+    "rank-bm25>=0.2.2",
+    "beautifulsoup4>=4.13",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+lint = ["ruff>=0.16"]
+# Semantic arm of `select`. Optional so a bare install stays free of ONNX runtimes.
+embed = ["fastembed>=0.7"]
+
+[project.scripts]
+catalog = "agentic_patterns_catalog.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
