@@ -1,0 +1,7 @@
+{
+  "latency_cost": ["none", "adds-1-llm-call", "adds-n-llm-calls", "async-only"],
+  "maturity": ["research", "emerging", "production"],
+  "risk_class": ["misroute", "data-leak", "unsafe-action", "cost-runaway", "quality-drift", "none"],
+  "scale": ["single-agent", "multi-agent", "fleet"],
+  "token_cost": ["low", "medium", "high"]
+}
