@@ -71,6 +71,10 @@ def parse_details(html: str) -> dict[str, list[str]]:
         key = normalize_heading(heading.get_text(" ", strip=True))
         if key == _STOP:
             break
+        # A new heading closes every heading at its level or deeper. Without this, an h4 in a
+        # later section keeps the h3 of an earlier section as its parent.
+        for open_level in [lvl for lvl in parent_key if lvl >= level]:
+            del parent_key[open_level]
         parent_key[level] = key
         if level == 4 and 3 in parent_key:
             key = f"{parent_key[3]}.{key}"

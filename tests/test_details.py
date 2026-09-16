@@ -40,3 +40,10 @@ def test_mirror_templates_yield_expected_keys(mirror: Path) -> None:
     standard = details.parse_details(
         (mirror / "evaluation-monitoring" / "cyberseceval3.html").read_text(encoding="utf-8"))
     assert {"overview_30s", "quick_implementation", "dos_and_donts", "when_to_use.use_when"} <= set(standard)
+
+
+def test_h4_without_an_h3_in_its_own_section_is_not_keyed_on_a_stale_parent() -> None:
+    html = ("<div hidden><h2>Alpha</h2><h3>Workflows</h3><h4>Inner</h4><p>inner item</p>"
+            "<h2>Beta</h2><h4>Options</h4><p>option item</p>"
+            "<h2>References and Further Reading</h2><p>r</p></div>")
+    assert list(details.parse_details(html)) == ["workflows.inner", "options"]
