@@ -15,6 +15,7 @@ from agentic_patterns_catalog.model import (
     Tldr,
     content_hash,
 )
+from agentic_patterns_catalog.store import content_version
 
 
 def _p(id: str, what: str, when: str = "", **sel) -> Pattern:
@@ -151,7 +152,8 @@ def test_embedding_cache_round_trip_matches_a_fresh_embed(tmp_path) -> None:
     loaded = r.load_embedding_cache(PATTERNS, embedder.name, tmp_path)
     assert loaded is not None and np.array_equal(loaded, fresh)
     assert json.loads(path.with_suffix(".json").read_text(encoding="utf-8")) == {
-        "model": embedder.name, "ids": sorted(p.id for p in PATTERNS), "dim": fresh.shape[1]}
+        "model": embedder.name, "ids": sorted(p.id for p in PATTERNS), "dim": fresh.shape[1],
+        "content_version": content_version(PATTERNS)}
 
 
 def test_embedding_cache_is_a_miss_when_the_ids_changed(tmp_path) -> None:
@@ -180,3 +182,10 @@ def test_selector_still_works_with_the_embedding_cache_off() -> None:
     sel = r.Selector(PATTERNS, embedder=r.HashEmbedder(), embedding_cache=False)
     res = sel.select("route requests by content to a handler", k=3)
     assert res.retrieval_path == "rrf" and res.hits[0].id == "content-routing"
+
+
+def test_embedding_cache_is_a_miss_when_a_record_content_changed(tmp_path) -> None:
+    r.build_embedding_cache(PATTERNS, r.HashEmbedder(), tmp_path)
+    edited = [*PATTERNS[:2], _p("reflection", "Model rewrites its own draft after a critique.")]
+    assert content_version(edited) != content_version(PATTERNS)
+    assert r.load_embedding_cache(edited, r.HashEmbedder.name, tmp_path) is None

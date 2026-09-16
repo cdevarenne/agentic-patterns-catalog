@@ -113,31 +113,36 @@ def build_embedding_cache(patterns: Sequence[Pattern], embedder: Embedder,
                           dir: Path = EMBEDDINGS_DIR) -> Path:
     """Embed every pattern in id order. Write the matrix and the sidecar. Return the matrix path.
 
-    The sidecar records the model and the ids, so `load_embedding_cache` can reject a stale cache.
+    The sidecar records the model, the ids and the content version, so `load_embedding_cache` can
+    reject a cache that the records have outgrown.
     """
     ordered = _sorted_by_id(patterns)
     matrix = embedder.embed([pattern_text(p) for p in ordered]).astype("float32")
     path = embedding_cache_path(embedder.name, dir)
     path.parent.mkdir(parents=True, exist_ok=True)
     np.save(path, matrix)
-    meta = {"model": embedder.name, "ids": [p.id for p in ordered], "dim": int(matrix.shape[1])}
+    meta = {"model": embedder.name, "ids": [p.id for p in ordered], "dim": int(matrix.shape[1]),
+            "content_version": content_version(ordered)}
     path.with_suffix(".json").write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
     return path
 
 
 def load_embedding_cache(patterns: Sequence[Pattern], embedder_name: str,
                          dir: Path = EMBEDDINGS_DIR) -> np.ndarray | None:
-    """The cached matrix when it was built by `embedder_name` from these ids; else None.
+    """The cached matrix when it was built by `embedder_name` from exactly these records; else None.
 
+    The content version rejects a cache whose ids still agree but whose record text has changed.
     A cache that is absent, unreadable or stale is a miss, never an error: the caller embeds again.
     """
     path = embedding_cache_path(embedder_name, dir)
     sidecar = path.with_suffix(".json")
     if not (path.exists() and sidecar.exists()):
         return None
+    ordered = _sorted_by_id(patterns)
     try:
         meta = json.loads(sidecar.read_text(encoding="utf-8"))
-        if meta.get("model") != embedder_name or meta.get("ids") != [p.id for p in _sorted_by_id(patterns)]:
+        if (meta.get("model") != embedder_name or meta.get("ids") != [p.id for p in ordered]
+                or meta.get("content_version") != content_version(ordered)):
             return None
         return np.load(path)
     except (OSError, ValueError):
