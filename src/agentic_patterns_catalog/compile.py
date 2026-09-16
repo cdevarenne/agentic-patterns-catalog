@@ -2,11 +2,14 @@
 from __future__ import annotations
 
 import argparse
+import importlib.util
+import json
 from pathlib import Path
 
 from .cli import register
 from .model import Category, Pattern
 from .paths import CATALOG_DIR, GENERATED_DIR
+from .retrieval import build_embedding_cache, default_embedder
 from .store import FileStore, Store
 
 BUDGETS = {"CATALOG.md": 2000, "CATALOG-full.md": 16000}
@@ -138,20 +141,35 @@ def write_all(store: Store, out_dir: Path = GENERATED_DIR, *, local: bool = Fals
     return written, removed
 
 
+def embed_extra_available() -> bool:
+    """True when the `embed` extra is installed. It sets the default for `compile --embeddings`."""
+    return importlib.util.find_spec("fastembed") is not None
+
+
 @register("compile", "write CATALOG.md, CATALOG-full.md, guides and sheets")
 def _cmd(parser: argparse.ArgumentParser):
     parser.add_argument("--root", type=Path, default=CATALOG_DIR)
     parser.add_argument("--out", type=Path, default=None, help="default: skills/agentic-patterns/generated (or …/local with --local)")
     parser.add_argument("--local", action="store_true", help="quote tldr for every record; output is gitignored")
+    parser.add_argument("--embeddings", action=argparse.BooleanOptionalAction, default=None,
+                        help="rebuild <root>/embeddings (default: on when the embed extra is installed)")
 
     def run(ns: argparse.Namespace) -> int:
         out_dir = ns.out or (GENERATED_DIR / "local" if ns.local else GENERATED_DIR)
-        written, removed = write_all(FileStore(ns.root), out_dir, local=ns.local)
+        store = FileStore(ns.root)
+        written, removed = write_all(store, out_dir, local=ns.local)
         outputs = {str(path.relative_to(out_dir)): path.read_text(encoding="utf-8") for path in written}
         bad = over_budget(outputs)
         for name in ("CATALOG.md", "CATALOG-full.md"):
             print(f"{name}: ~{token_estimate(outputs[name])} tokens (budget {BUDGETS[name]})")
         print(f"wrote {len(written)} files to {out_dir}"
               + (f"; removed {', '.join(str(p.relative_to(out_dir)) for p in removed)}" if removed else ""))
+        want = embed_extra_available() if ns.embeddings is None else ns.embeddings
+        embedder = default_embedder() if want else None
+        if embedder is not None:
+            # The cache is a build artifact beside the records it indexes. It is gitignored.
+            path = build_embedding_cache(store.all(), embedder, ns.root / "embeddings")
+            meta = json.loads(path.with_suffix(".json").read_text(encoding="utf-8"))
+            print(f"embeddings: {path} ({len(meta['ids'])}, {meta['dim']})")
         return 1 if bad else 0
     return run

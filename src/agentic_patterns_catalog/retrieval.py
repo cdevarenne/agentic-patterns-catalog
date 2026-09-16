@@ -17,7 +17,7 @@ from rank_bm25 import BM25Okapi
 from . import vocab as vocab_mod
 from .cli import register
 from .model import Pattern
-from .paths import CATALOG_DIR
+from .paths import CATALOG_DIR, EMBEDDINGS_DIR
 from .store import FileStore, Store, content_version
 
 EMPTY_MESSAGE = "No pattern matches in the catalog."
@@ -100,6 +100,50 @@ def default_embedder() -> Embedder | None:
         return None
 
 
+def embedding_cache_path(model_name: str, dir: Path = EMBEDDINGS_DIR) -> Path:
+    """The matrix file for `model_name`. A `/` in the name becomes `_`, so the name stays one file name."""
+    return dir / f"{model_name.replace('/', '_')}.npy"
+
+
+def _sorted_by_id(patterns: Sequence[Pattern]) -> list[Pattern]:
+    return sorted(patterns, key=lambda p: p.id)
+
+
+def build_embedding_cache(patterns: Sequence[Pattern], embedder: Embedder,
+                          dir: Path = EMBEDDINGS_DIR) -> Path:
+    """Embed every pattern in id order. Write the matrix and the sidecar. Return the matrix path.
+
+    The sidecar records the model and the ids, so `load_embedding_cache` can reject a stale cache.
+    """
+    ordered = _sorted_by_id(patterns)
+    matrix = embedder.embed([pattern_text(p) for p in ordered]).astype("float32")
+    path = embedding_cache_path(embedder.name, dir)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    np.save(path, matrix)
+    meta = {"model": embedder.name, "ids": [p.id for p in ordered], "dim": int(matrix.shape[1])}
+    path.with_suffix(".json").write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
+    return path
+
+
+def load_embedding_cache(patterns: Sequence[Pattern], embedder_name: str,
+                         dir: Path = EMBEDDINGS_DIR) -> np.ndarray | None:
+    """The cached matrix when it was built by `embedder_name` from these ids; else None.
+
+    A cache that is absent, unreadable or stale is a miss, never an error: the caller embeds again.
+    """
+    path = embedding_cache_path(embedder_name, dir)
+    sidecar = path.with_suffix(".json")
+    if not (path.exists() and sidecar.exists()):
+        return None
+    try:
+        meta = json.loads(sidecar.read_text(encoding="utf-8"))
+        if meta.get("model") != embedder_name or meta.get("ids") != [p.id for p in _sorted_by_id(patterns)]:
+            return None
+        return np.load(path)
+    except (OSError, ValueError):
+        return None
+
+
 def rrf(rankings: list[list[str]], k: int = K_RRF) -> list[tuple[str, float]]:
     """Reciprocal Rank Fusion. Ties break by id so the order is reproducible."""
     scores: dict[str, float] = {}
@@ -141,7 +185,8 @@ def _matches(p: Pattern, facets: dict[str, str] | None) -> bool:
 
 class Selector:
     def __init__(self, patterns: list[Pattern], embedder: Embedder | None = None,
-                 arms: Arms = ("bm25", "semantic"), version: str | None = None) -> None:
+                 arms: Arms = ("bm25", "semantic"), version: str | None = None,
+                 embedding_cache: bool = True) -> None:
         self.patterns = sorted(patterns, key=lambda p: p.id)
         self.arms = tuple(a for a in arms if a != "semantic" or embedder is not None)
         self.embedder = embedder if "semantic" in self.arms else None
@@ -150,7 +195,11 @@ class Selector:
         texts = [pattern_text(p) for p in self.patterns]
         self._bm25 = (BM25Okapi([tokenize(t) or ["_"] for t in texts])
                       if "bm25" in self.arms and self.patterns else None)
-        self._vectors = self.embedder.embed(texts) if self.embedder and self.patterns else None
+        self._vectors = None
+        if self.embedder is not None and self.patterns:
+            cached = load_embedding_cache(self.patterns, self.embedder.name) if embedding_cache else None
+            # `compile --embeddings` writes the cache; a selector never does.
+            self._vectors = cached if cached is not None else self.embedder.embed(texts)
 
     @classmethod
     def from_store(cls, store: Store, embedder: Embedder | None = None, arms: Arms = ("bm25", "semantic")) -> Selector:

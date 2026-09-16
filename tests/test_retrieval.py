@@ -1,3 +1,6 @@
+import json
+
+import numpy as np
 import pytest
 
 from agentic_patterns_catalog import retrieval as r
@@ -134,3 +137,46 @@ def test_cli_json_envelope_on_a_tiny_catalog(tmp_path, capsys) -> None:
     out = json.loads(capsys.readouterr().out)
     assert set(out) == {"hits", "retrieval_path", "catalog_version", "auth", "empty_message"}
     assert (tmp_path / "patterns" / "routing" / "content-routing.json").exists()
+
+
+def test_embedding_cache_path_flattens_the_model_name(tmp_path) -> None:
+    assert r.embedding_cache_path("BAAI/bge-small-en-v1.5", tmp_path) == tmp_path / "BAAI_bge-small-en-v1.5.npy"
+
+
+def test_embedding_cache_round_trip_matches_a_fresh_embed(tmp_path) -> None:
+    embedder = r.HashEmbedder()
+    path = r.build_embedding_cache(PATTERNS, embedder, tmp_path)
+    assert path == r.embedding_cache_path(embedder.name, tmp_path)
+    fresh = embedder.embed([r.pattern_text(p) for p in sorted(PATTERNS, key=lambda p: p.id)])
+    loaded = r.load_embedding_cache(PATTERNS, embedder.name, tmp_path)
+    assert loaded is not None and np.array_equal(loaded, fresh)
+    assert json.loads(path.with_suffix(".json").read_text(encoding="utf-8")) == {
+        "model": embedder.name, "ids": sorted(p.id for p in PATTERNS), "dim": fresh.shape[1]}
+
+
+def test_embedding_cache_is_a_miss_when_the_ids_changed(tmp_path) -> None:
+    r.build_embedding_cache(PATTERNS, r.HashEmbedder(), tmp_path)
+    assert r.load_embedding_cache(PATTERNS[:2], r.HashEmbedder.name, tmp_path) is None
+
+
+def test_embedding_cache_is_a_miss_for_another_model(tmp_path) -> None:
+    r.build_embedding_cache(PATTERNS, r.HashEmbedder(), tmp_path)
+    assert r.load_embedding_cache(PATTERNS, "some-other-model", tmp_path) is None
+
+
+def test_absent_embedding_cache_is_a_miss_not_an_error(tmp_path) -> None:
+    assert r.load_embedding_cache(PATTERNS, r.HashEmbedder.name, tmp_path) is None
+
+
+def test_selector_uses_the_cache_when_it_hits(monkeypatch) -> None:
+    fresh = r.HashEmbedder().embed([r.pattern_text(p) for p in sorted(PATTERNS, key=lambda p: p.id)])
+    monkeypatch.setattr(r, "load_embedding_cache", lambda patterns, name, *a, **kw: fresh)
+    sel = r.Selector(PATTERNS, embedder=r.HashEmbedder())
+    assert sel._vectors is fresh
+    assert sel.select("route requests by content to a handler", k=1).hits[0].id == "content-routing"
+
+
+def test_selector_still_works_with_the_embedding_cache_off() -> None:
+    sel = r.Selector(PATTERNS, embedder=r.HashEmbedder(), embedding_cache=False)
+    res = sel.select("route requests by content to a handler", k=3)
+    assert res.retrieval_path == "rrf" and res.hits[0].id == "content-routing"

@@ -90,3 +90,20 @@ def test_write_all_creates_files(fs: store.FileStore, tmp_path: Path) -> None:
     assert removed == []
     assert (tmp_path / "gen" / "CATALOG.md").exists()
     assert any(p.name == "routing.md" for p in written)
+
+
+def test_compile_embeddings_writes_the_cache_under_the_catalog_root(
+        fs: store.FileStore, tmp_path: Path, monkeypatch, capsys) -> None:
+    from agentic_patterns_catalog import cli, retrieval
+    monkeypatch.setattr(comp, "default_embedder", lambda: retrieval.HashEmbedder())
+    assert cli.main(["compile", "--root", str(tmp_path), "--out", str(tmp_path / "out"), "--embeddings"]) == 0
+    cache = tmp_path / "embeddings" / "hash-bow-256.npy"
+    assert cache.exists() and cache.with_suffix(".json").exists()
+    assert f"embeddings: {cache} (3, 256)" in capsys.readouterr().out
+
+
+def test_compile_no_embeddings_writes_no_cache(fs: store.FileStore, tmp_path: Path, monkeypatch) -> None:
+    from agentic_patterns_catalog import cli, retrieval
+    monkeypatch.setattr(comp, "default_embedder", lambda: retrieval.HashEmbedder())
+    assert cli.main(["compile", "--root", str(tmp_path), "--out", str(tmp_path / "out"), "--no-embeddings"]) == 0
+    assert not (tmp_path / "embeddings").exists()
