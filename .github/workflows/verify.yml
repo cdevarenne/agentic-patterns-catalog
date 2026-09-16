@@ -1,5 +1,9 @@
+# This workflow has never run. It starts only by hand, from the Actions tab.
+# The owner does not pay for CI runs yet. Put the `push` and `pull_request` triggers
+# back (`on: [push, pull_request]`) when the owner agrees to the cost.
 name: verify
-on: [push, pull_request]
+on:
+  workflow_dispatch:
 jobs:
   verify:
     runs-on: ubuntu-latest
