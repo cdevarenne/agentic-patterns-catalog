@@ -44,10 +44,14 @@ matches how the mirror is already treated — an input, rebuilt on demand, never
 
 ## Consequences
 
-- `content_hash` and `content_sha256` describe the cache, not the tracked record. `content_version`
-  (spec §5) is derived from those hashes, so a checkout without a cache cannot compute it; the
-  tracked records need their own version, or `content_version` moves to the cache and the envelope
-  reports `null` when no cache is present. Settle this when implementing.
+- `content_version` (spec §5) is unaffected. It reads `provenance.source.content_sha256`, a stored
+  field that stays in the tracked record, so a checkout with no cache still computes the same version
+  and the `select` envelope still stamps it. Only `verify`'s check that the stored hash still matches
+  the live content needs the cache, and it degrades to a warning without one. (An earlier draft of
+  this ADR claimed the version could not be computed without a cache. That was wrong.)
+- `catalog extract` currently overwrites the whole record file. After this change the tracked file
+  carries enrichment, so extract must read the existing `selection` and write it back unchanged. This
+  is the one dangerous edit in the change: getting it wrong silently destroys Plan E's output.
 - The 11 free-pack records lose their committed `content` blocks; the same prose stays tracked in
   `data/pack/patterns.json`, which is where the licence note already lives. No licensed text is lost.
 - `.gitignore` inverts: `catalog/patterns/` becomes tracked, the content cache directory ignored.
