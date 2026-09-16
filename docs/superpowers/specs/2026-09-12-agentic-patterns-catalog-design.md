@@ -141,18 +141,26 @@ id, name, use_case (one paragraph), steps[{order, pattern_id, role, binding_note
 source_documents[], provenance{method, date, reviewed_by}
 ```
 
-SP1 ships two recipes, authored by hand from the documents named in ADR-0001 §2 response:
+SP1 ships one recipe, authored by hand from the documents named in ADR-0001 §2 response:
 
-- `co-scientist-digital-lab`: supervisor → generation → reflection → tournament ranking →
-  proximity → evolution → meta-review, with async task framework and context memory. Source: the
-  "Towards an AI co-scientist" (Gottweis, Weng, Daryin, Tu et al., Google, 2025-02-18;
-  arXiv:2502.18864, https://arxiv.org/abs/2502.18864; Google Research blog
-  https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/;
-  DeepMind blog https://deepmind.google/blog/co-scientist-a-multi-agent-ai-partner-to-accelerate-research/).
-  This repository is an independent implementation from the public paper; it reuses no prior code.
 - `drone-flight-plan`: knowledge grounding → plan generation → validate against rules → SORA risk
-  score → document → HITL sign-off. Source: `drone_flightplan_usecase (1).md` §1 and §3,
+  score → document → human sign-off. Source: `drone_flightplan_usecase (1).md` §1 and §3,
   `drone_sora_hazards_bundle.md`.
+
+**Removed 2026-09-15 — the Co-Scientist digital-lab recipe.** The original plan carried a second
+recipe that generated, debated, ranked and evolved research hypotheses. Kirgis, Kapoor, Schwartz et
+al., "Can AI agents conduct open-ended AI research? Early evidence from two case studies"
+(arXiv:2607.27191, 2026-08-07) ran shadow evaluations in which well-resourced frontier agents were
+given the central research question of an unpublished paper, six days and thousands of dollars of
+compute. Both outputs were unambiguously rejected by the papers' own authors, with five recurring
+failure modes: poor judgment about the bar for publishable research, uncreative response to
+shortcomings, ineffective backtracking from dead ends, poor resource awareness, and instruction
+drift. A reference instance whose value depends on the capability that evidence says is absent would
+demonstrate the catalog on a task it cannot pass. The drone flight plan is the opposite shape — a
+bounded, rule-grounded, verifiable task with a human sign-off gate — so it stays. The agent patterns
+the removed recipe exercised (supervisor orchestration, reflection, meta-review, asynchronous task
+queues, context memory) remain in the catalog and remain covered by the golden set; only the
+end-to-end research-lab use case is withdrawn. Revisit when comparable evidence changes.
 
 Every `pattern_id` must resolve; `verify` checks it. A recipe whose step names a pattern the catalog
 lacks is a documented coverage gap, not an invented pattern.
@@ -269,9 +277,11 @@ a pattern.
 
 ## 9. Evaluation
 
-- `eval/tasks.jsonl`: ~30 cases `{task, expected_ids[], expected_path, notes}`. At least five come
-  from each recipe's use case (biomedical analysis, drone flight planning) so the recipes are also
-  eval fixtures.
+- `eval/tasks.jsonl`: 30 cases `{task, expected_ids[], expected_path, notes}`. At least five come
+  from the drone flight-planning use case. Seven more describe multi-agent analysis work
+  (hypothesis generation, reflection, meta-review, supervisor orchestration, asynchronous queues,
+  context memory); they were written for the withdrawn Co-Scientist recipe (§4.5) and are kept
+  because each one still tests a real retrieval path.
 - `catalog eval` runs three arms (BM25, semantic, RRF), writes `docs/data/eval.json` with a `run`
   block (`catalog_version`, embed model, date) and per-case verdicts. Prose never restates verdicts.
 - Smoke test before enrichment exists: compile `CATALOG.md` from `tldr` only, run five tasks through
@@ -317,11 +327,10 @@ a pattern.
 | SP2 | Persistence + activity ledger (full Postgres design, checkpoint analysis, observability views) | `Store`, `Ledger`, `PostgresStore` minimal impl |
 | SP3 | Policy layer (rego beyond RBAC; Conseca-style per-task policies from trusted context) | `PolicyDecisionPoint`, `OpaPDP`, `policy/` |
 | SP4 | Recipe DSL (bindings, parameters, validation) | `recipe.schema.json`, two recipes |
-| SP5 | Co-Scientist blueprint (generic digital lab from the Co-Scientist paper; Celery task framework) | recipe `co-scientist-digital-lab` |
-| SP6 | Drone fleet blueprint (flight plan, SORA, PX4 SITL) | recipe `drone-flight-plan` |
-| SP7 | Composer (use case → agent set) | recipes + `select` |
-| SP8 | BML loop + digital twin (Airflow vs Prefect vs LangGraph decided here) | `Ledger`, `eval.json` shape |
-| SP9 | Edge / cloud deploy | none in SP1 |
+| SP5 | Drone fleet blueprint (flight plan, SORA, PX4 SITL) | recipe `drone-flight-plan` |
+| SP6 | Composer (use case → agent set) | recipes + `select` |
+| SP7 | BML loop + digital twin (Airflow vs Prefect vs LangGraph decided here) | `Ledger`, `eval.json` shape |
+| SP8 | Edge / cloud deploy | none in SP1 |
 
 Also out: multi-tenant, hosted deployment, the four mirrored site sections as catalog content
 (`kind` enum is ready), a Kotlin server, LLM reranking, Celery, Airflow.
@@ -346,7 +355,7 @@ is tested and would gain nothing from `requests`/`protego`. Documented runs:
    parity test; denied/allowed cases with a fake token verifier; one manual login documented.
 7. `PostgresStore`/`PostgresLedger` + `sync-pg`; `verify` against both stores.
 8. Skill; Python agent; Kotlin agent. Check: same hits + provenance on the golden tasks.
-9. Two recipes; recipe checks in `verify`; recipe-derived eval cases.
+9. One recipe (`drone-flight-plan`); recipe checks in `verify`; recipe-derived eval cases.
 10. Enrichment across priority categories; CI.
 
 Parallel tracks once step 2 lands: SP2's fuller design and SP3's rego learning can proceed against

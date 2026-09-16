@@ -1,6 +1,9 @@
 # ADR-0001 — Agentic Patterns Catalog: initial design
 
-Status: Accepted 2026-09-12. Reviewed section by section; every `Response:` line below is the
+Status: Accepted 2026-09-12. **Partly superseded by
+[ADR-0002](0002-withdraw-co-scientist-use-case.md) (2026-09-15), which withdraws the Co-Scientist
+use case named in the §2 response, §9.1, §9.3 (SP5) and §9.4 option B.** The text below is left as
+written; it records the decision as it was taken. Reviewed section by section; every `Response:` line below is the
 reviewer's recorded decision. The consolidated, decision-applied specification is
 `docs/superpowers/specs/2026-09-12-agentic-patterns-catalog-design.md`. Later sub-projects (SP2–SP9,
 see §9.3) each get their own ADR in this directory.

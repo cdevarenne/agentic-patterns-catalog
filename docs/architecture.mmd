@@ -26,7 +26,7 @@ flowchart TB
     catmd["CATALOG.md<br/>one line per pattern"]
     guides["guides/&lt;category&gt;.md"]
     sheets["reference sheets"]
-    recipes["recipes/*.json<br/>co-scientist · drone-flight-plan"]
+    recipes["recipes/*.json<br/>drone-flight-plan"]
     emb["embeddings (fastembed)"]
   end
 
@@ -75,9 +75,8 @@ flowchart TB
     SP1["SP1 Catalog v1<br/>(this diagram)"] --> SP2["SP2 Persistence + ledger"]
     SP1 --> SP3["SP3 Policy / OPA"]
     SP1 --> SP4["SP4 Recipe DSL"]
-    SP4 --> SP5["SP5 Co-Scientist blueprint"]
-    SP4 --> SP6["SP6 Drone fleet blueprint"]
-    SP5 & SP6 --> SP7["SP7 Composer"]
-    SP2 & SP5 & SP6 --> SP8["SP8 BML loop + digital twin"]
-    SP5 & SP6 --> SP9["SP9 Edge / cloud deploy"]
+    SP4 --> SP5["SP5 Drone fleet blueprint"]
+    SP5 --> SP6["SP6 Composer"]
+    SP2 & SP5 --> SP7["SP7 BML loop + digital twin"]
+    SP5 --> SP8["SP8 Edge / cloud deploy"]
   end
