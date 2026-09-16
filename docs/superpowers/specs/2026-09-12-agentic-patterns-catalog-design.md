@@ -120,6 +120,15 @@ prose: the free pack licenses only the `tool-use` category line. Category record
 views quote a category's `id` and `name` only (the taxonomy); `compile --local` adds the
 description and the `implementationGuide` sections to the local guides.
 
+### 4.2c Tracked record vs content cache (ADR-0003, not yet implemented)
+
+[ADR-0003](../../adr/0003-enrichment-is-the-tracked-record.md) decides that the tracked record is
+identity + `selection` + `provenance` for all 288 patterns, and that site `content` becomes a
+gitignored cache rebuilt by `catalog extract` (and by `catalog seed` from `data/pack/patterns.json`
+for the 11 free-pack records). `Pattern.content` becomes optional and `FileStore` merges the cache at
+load. Until issue #4 implements it, §3 and §7 describe the current layout: whole records gitignored
+except the 11 pack records.
+
 ### 4.3 Index
 
 `catalog/index.json`: for every record `id, kind, category, content_sha256, enrichment.reviewed`
