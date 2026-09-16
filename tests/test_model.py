@@ -8,6 +8,8 @@ from agentic_patterns_catalog.model import (
     Facets,
     Pattern,
     Provenance,
+    Recipe,
+    RecipeStep,
     Source,
     Tldr,
     content_hash,
@@ -86,3 +88,15 @@ def test_ids_are_single_path_segments() -> None:
     with pytest.raises(ValidationError):
         make_pattern(category="../etc")
     assert make_pattern(id="a1-b2").id == "a1-b2"
+
+
+def _recipe(id: str) -> Recipe:
+    return Recipe(id=id, name="Route then answer", use_case="support triage",
+                  steps=[RecipeStep(order=1, pattern_id="content-routing", role="router")],
+                  provenance=Enrichment(method="human", date="2026-09-12"))
+
+
+def test_recipe_id_must_be_a_slug() -> None:
+    assert _recipe("route-then-answer").id == "route-then-answer"
+    with pytest.raises(ValidationError):
+        _recipe("Not A Slug")

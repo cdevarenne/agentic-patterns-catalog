@@ -143,7 +143,7 @@ class RecipeStep(Strict):
 
 
 class Recipe(Strict):
-    id: str
+    id: str = Field(pattern=ID_PATTERN)
     name: str
     use_case: str
     steps: list[RecipeStep]
