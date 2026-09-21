@@ -11,8 +11,8 @@ from pathlib import Path
 from typing import Any, Protocol
 
 from .cli import register
-from .model import ID_PATTERN, Category, Pattern, Recipe, dumps
-from .paths import CATALOG_DIR, INDEX_PATH, ROOT
+from .model import ID_PATTERN, Category, Content, Pattern, Recipe, dumps, dumps_record
+from .paths import CATALOG_DIR, CONTENT_CACHE_DIR, INDEX_PATH, ROOT
 
 
 class Store(Protocol):
@@ -24,16 +24,29 @@ class Store(Protocol):
 
 
 class FileStore:
-    """One JSON file per record under `root`. Reads are sorted by id so every consumer is deterministic."""
+    """One tracked record per file under `root`, with its site content cached under `cache`."""
 
-    def __init__(self, root: Path = CATALOG_DIR) -> None:
+    def __init__(self, root: Path = CATALOG_DIR, cache: Path = CONTENT_CACHE_DIR) -> None:
         self.root = root
+        self.cache = cache
+
+    def cache_path(self, category: str, id: str) -> Path:
+        """Where the site content for this record is cached. The cache is never tracked."""
+        return self.cache / category / f"{id}.json"
+
+    def _load(self, path: Path) -> Pattern:
+        pattern = Pattern.model_validate_json(path.read_text(encoding="utf-8"))
+        cached = self.cache_path(pattern.category, pattern.id)
+        if not cached.is_file():
+            return pattern
+        content = Content.model_validate_json(cached.read_text(encoding="utf-8"))
+        return pattern.model_copy(update={"content": content})
 
     def _pattern_paths(self) -> list[Path]:
         return sorted((self.root / "patterns").glob("*/*.json"), key=lambda p: p.stem)
 
     def all(self) -> list[Pattern]:
-        return [Pattern.model_validate_json(p.read_text(encoding="utf-8")) for p in self._pattern_paths()]
+        return [self._load(p) for p in self._pattern_paths()]
 
     def get(self, id: str) -> Pattern:
         """The record with this id, or KeyError. `id` is used as a file name, never as a glob."""
@@ -42,13 +55,19 @@ class FileStore:
         for category_dir in sorted((self.root / "patterns").iterdir()):
             path = category_dir / f"{id}.json"
             if path.is_file():
-                return Pattern.model_validate_json(path.read_text(encoding="utf-8"))
+                return self._load(path)
         raise KeyError(id)
 
     def put(self, pattern: Pattern) -> None:
+        """Write the record. Content, when the record carries it, goes to the cache instead."""
         path = self.root / "patterns" / pattern.category / f"{pattern.id}.json"
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(dumps(pattern), encoding="utf-8")
+        path.write_text(dumps_record(pattern), encoding="utf-8")
+        if pattern.content is None:
+            return
+        cached = self.cache_path(pattern.category, pattern.id)
+        cached.parent.mkdir(parents=True, exist_ok=True)
+        cached.write_text(dumps(pattern.content), encoding="utf-8")
 
     def categories(self) -> list[Category]:
         return [Category.model_validate_json(p.read_text(encoding="utf-8"))

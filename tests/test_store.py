@@ -64,6 +64,40 @@ def test_index_carries_content_version_and_git_ref(fs: store.FileStore) -> None:
     assert isinstance(idx["git_ref"], str) and 4 <= len(idx["git_ref"]) <= 20
 
 
+def test_put_writes_the_record_without_content_and_caches_the_content(tmp_path: Path) -> None:
+    s = store.FileStore(tmp_path / "catalog", tmp_path / "cache")
+    p = _p("a-pat")
+    s.put(p)
+    record = (tmp_path / "catalog" / "patterns" / "routing" / "a-pat.json").read_text()
+    assert '"content"' not in record
+    cached = json.loads((tmp_path / "cache" / "routing" / "a-pat.json").read_text())
+    assert cached["tldr"]["what"] == p.content.tldr.what
+
+
+def test_load_merges_the_cache_back_onto_the_record(tmp_path: Path) -> None:
+    s = store.FileStore(tmp_path / "catalog", tmp_path / "cache")
+    s.put(_p("a-pat"))
+    loaded = s.get("a-pat")
+    assert loaded.content is not None
+    assert loaded.content.tldr.what == "w"
+    assert [q.content.tldr.what for q in s.all()] == ["w"]
+
+
+def test_a_record_without_a_cache_file_loads_with_no_content(tmp_path: Path) -> None:
+    s = store.FileStore(tmp_path / "catalog", tmp_path / "cache")
+    s.put(_p("a-pat"))
+    (tmp_path / "cache" / "routing" / "a-pat.json").unlink()
+    assert s.get("a-pat").content is None
+    assert s.all()[0].content is None
+
+
+def test_put_without_content_leaves_an_existing_cache_file_alone(tmp_path: Path) -> None:
+    s = store.FileStore(tmp_path / "catalog", tmp_path / "cache")
+    s.put(_p("a-pat"))
+    s.put(s.get("a-pat").model_copy(update={"content": None}))
+    assert s.get("a-pat").content is not None
+
+
 def test_git_ref_ignores_commits_that_only_touch_the_index(tmp_path: Path) -> None:
     import subprocess
 
