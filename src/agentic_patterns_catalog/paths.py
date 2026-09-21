@@ -11,6 +11,8 @@ RECIPES_DIR = CATALOG_DIR / "recipes"
 VOCAB_PATH = CATALOG_DIR / "vocab" / "facets.json"
 INDEX_PATH = CATALOG_DIR / "index.json"
 EMBEDDINGS_DIR = CATALOG_DIR / "embeddings"
+# Site content is a rebuildable cache, never tracked (ADR-0003). `var/` is gitignored.
+CONTENT_CACHE_DIR = ROOT / "var" / "content"
 SCHEMA_DIR = ROOT / "schema"
 DATA_DIR = ROOT / "docs" / "data"
 GENERATED_DIR = ROOT / "skills" / "agentic-patterns" / "generated"

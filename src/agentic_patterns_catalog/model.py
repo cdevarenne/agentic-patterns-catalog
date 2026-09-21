@@ -107,7 +107,7 @@ class Pattern(Strict):
     category: str = Field(pattern=ID_PATTERN)
     kind: Kind = "pattern"
     complexity: str
-    content: Content
+    content: Content | None = None
     selection: Selection = Field(default_factory=Selection)
     provenance: Provenance
 
@@ -163,3 +163,9 @@ def content_hash(content: Content) -> str:
 def dumps(model: BaseModel) -> str:
     """Canonical file text for a record: sorted keys, two-space indent, trailing newline."""
     return json.dumps(model.model_dump(mode="json"), indent=2, ensure_ascii=False, sort_keys=True) + "\n"
+
+
+def dumps_record(pattern: Pattern) -> str:
+    """Canonical file text for a tracked record. The `content` key is left out: it is cache."""
+    data = pattern.model_dump(mode="json", exclude={"content"})
+    return json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True) + "\n"

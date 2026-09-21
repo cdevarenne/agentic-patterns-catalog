@@ -476,7 +476,15 @@
       "type": "string"
     },
     "content": {
-      "$ref": "#/$defs/Content"
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Content"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
     },
     "id": {
       "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
@@ -510,7 +518,6 @@
     "name",
     "category",
     "complexity",
-    "content",
     "provenance"
   ],
   "title": "Pattern",

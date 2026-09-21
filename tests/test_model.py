@@ -1,3 +1,5 @@
+import json
+
 import pytest
 from pydantic import ValidationError
 
@@ -14,6 +16,7 @@ from agentic_patterns_catalog.model import (
     Tldr,
     content_hash,
     dumps,
+    dumps_record,
 )
 
 
@@ -100,3 +103,20 @@ def test_recipe_id_must_be_a_slug() -> None:
     assert _recipe("route-then-answer").id == "route-then-answer"
     with pytest.raises(ValidationError):
         _recipe("Not A Slug")
+
+
+def test_a_record_without_content_is_valid() -> None:
+    p = Pattern(
+        id="x-pat", name="X", category="routing", complexity="low",
+        provenance=Provenance(source=Source(url="u", extraction="rsc-payload", content_sha256="0" * 64)),
+    )
+    assert p.content is None
+
+
+def test_dumps_record_omits_content_but_keeps_provenance() -> None:
+    p = make_pattern()
+    text = dumps_record(p)
+    assert '"content"' not in text
+    assert '"content_sha256"' in text
+    assert text.endswith("}\n")
+    assert json.loads(text)["selection"]["problem_signals"] == []
