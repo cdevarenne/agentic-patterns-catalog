@@ -33,10 +33,19 @@ def seed_from_pack(pack: dict[str, Any]) -> list[Pattern]:
 
 def write_seed(pack_path: Path = PACK_JSON, out_dir: Path = CATALOG_DIR, *,
                cache_dir: Path = CONTENT_CACHE_DIR) -> int:
-    """Write one record per pack entry and cache its content. Returns the count."""
+    """Write one record per pack entry and cache its content. Returns the count.
+
+    A record that already exists keeps its enrichment: the pack refreshes content and source
+    provenance only, the same way `extract_mirror` does.
+    """
     patterns = seed_from_pack(json.loads(pack_path.read_text(encoding="utf-8")))
     store = FileStore(out_dir, cache_dir)
     for p in patterns:
+        target = out_dir / "patterns" / p.category / f"{p.id}.json"
+        if target.is_file():
+            existing = Pattern.model_validate_json(target.read_text(encoding="utf-8"))
+            provenance = p.provenance.model_copy(update={"enrichment": existing.provenance.enrichment})
+            p = p.model_copy(update={"selection": existing.selection, "provenance": provenance})
         store.put(p)
     return len(patterns)
 

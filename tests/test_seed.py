@@ -2,8 +2,9 @@ import json
 from pathlib import Path
 
 from agentic_patterns_catalog import seed
-from agentic_patterns_catalog.model import Pattern
+from agentic_patterns_catalog.model import Enrichment, Pattern
 from agentic_patterns_catalog.paths import PACK_JSON, PATTERNS_DIR
+from agentic_patterns_catalog.store import FileStore
 
 
 def test_seed_maps_pack_fields_onto_the_model(fixtures: Path) -> None:
@@ -44,3 +45,23 @@ def test_seed_writes_records_and_fills_the_content_cache(fixtures: Path, tmp_pat
     cached = sorted((cache / "tool-use").glob("*.json"))
     assert len(cached) == 2
     assert "tldr" in json.loads(cached[0].read_text())
+
+
+def test_write_seed_keeps_enrichment_and_refreshes_content(fixtures: Path, tmp_path: Path) -> None:
+    out, cache = tmp_path / "catalog", tmp_path / "cache"
+    seed.write_seed(fixtures / "pack.json", out, cache_dir=cache)
+    fs = FileStore(out, cache)
+    id = seed.seed_from_pack(json.loads((fixtures / "pack.json").read_text(encoding="utf-8")))[0].id
+    p = fs.get(id)
+    p.selection.problem_signals = ["needs an external tool"]
+    p.selection.facets.scale = "multi-agent"
+    p.provenance.enrichment["problem_signals"] = Enrichment(method="human", date="2026-09-20", reviewed_by="cdevarenne")
+    p.content.description = "edited by hand; the pack must win"
+    fs.put(p)
+    seed.write_seed(fixtures / "pack.json", out, cache_dir=cache)
+    again = fs.get(id)
+    assert again.selection.problem_signals == ["needs an external tool"]
+    assert again.selection.facets.scale == "multi-agent"
+    assert again.provenance.enrichment["problem_signals"].reviewed_by == "cdevarenne"
+    assert again.provenance.source.extraction == "free-pack"
+    assert again.content.description != "edited by hand; the pack must win"
