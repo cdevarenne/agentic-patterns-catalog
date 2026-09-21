@@ -1,3 +1,4 @@
+import shutil
 from pathlib import Path
 
 import pytest
@@ -104,7 +105,8 @@ def test_compile_embeddings_writes_the_cache_under_the_catalog_root(
         fs: store.FileStore, tmp_path: Path, monkeypatch, capsys) -> None:
     from agentic_patterns_catalog import cli, retrieval
     monkeypatch.setattr(comp, "default_embedder", lambda: retrieval.HashEmbedder())
-    assert cli.main(["compile", "--root", str(tmp_path), "--out", str(tmp_path / "out"), "--embeddings"]) == 0
+    assert cli.main(["compile", "--root", str(tmp_path), "--cache", str(tmp_path / "cache"),
+                     "--out", str(tmp_path / "out"), "--embeddings"]) == 0
     cache = tmp_path / "embeddings" / "hash-bow-256.npy"
     assert cache.exists() and cache.with_suffix(".json").exists()
     assert f"embeddings: {cache} (3, 256)" in capsys.readouterr().out
@@ -113,5 +115,29 @@ def test_compile_embeddings_writes_the_cache_under_the_catalog_root(
 def test_compile_no_embeddings_writes_no_cache(fs: store.FileStore, tmp_path: Path, monkeypatch) -> None:
     from agentic_patterns_catalog import cli, retrieval
     monkeypatch.setattr(comp, "default_embedder", lambda: retrieval.HashEmbedder())
-    assert cli.main(["compile", "--root", str(tmp_path), "--out", str(tmp_path / "out"), "--no-embeddings"]) == 0
+    assert cli.main(["compile", "--root", str(tmp_path), "--cache", str(tmp_path / "cache"),
+                     "--out", str(tmp_path / "out"), "--no-embeddings"]) == 0
     assert not (tmp_path / "embeddings").exists()
+
+
+def _compile_without_cache(fs: store.FileStore, tmp_path: Path, *extra: str) -> int:
+    from agentic_patterns_catalog import cli
+    shutil.rmtree(tmp_path / "cache")
+    return cli.main(["compile", "--root", str(tmp_path), "--cache", str(tmp_path / "cache"),
+                     "--out", str(tmp_path / "out"), "--no-embeddings", *extra])
+
+
+def test_compile_refuses_when_a_pack_record_has_no_cached_content(fs: store.FileStore, tmp_path: Path, capsys) -> None:
+    # The committed sheets come from the pack records' cached prose. Without it, a compile would
+    # drop them and `write_all` would delete the committed files, so the command writes nothing.
+    assert _compile_without_cache(fs, tmp_path) == 1
+    assert not (tmp_path / "out").exists()
+    out = capsys.readouterr().out
+    assert "3 records have no cached content" in out and "catalog seed" in out and "catalog extract" in out
+    assert "committed sheets" in out
+
+
+def test_compile_local_proceeds_when_a_pack_record_has_no_cached_content(fs: store.FileStore, tmp_path: Path, capsys) -> None:
+    assert _compile_without_cache(fs, tmp_path, "--local") == 0
+    assert (tmp_path / "out" / "CATALOG.md").exists()
+    assert "3 records have no cached content" in capsys.readouterr().out

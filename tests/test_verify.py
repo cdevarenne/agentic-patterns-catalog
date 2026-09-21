@@ -13,6 +13,7 @@ from agentic_patterns_catalog.model import (
     Source,
     Tldr,
     content_hash,
+    dumps,
 )
 from agentic_patterns_catalog.paths import EVAL_THRESHOLDS, VOCAB_PATH
 
@@ -57,7 +58,8 @@ def test_missing_cached_content_is_a_warning_not_a_problem(tmp_path: Path) -> No
     for path in ctx.cache.glob("*/*.json"):
         path.unlink()
     assert verify.run_checks(ctx)["records"] == []
-    assert "content" in verify.run_warnings(ctx)
+    warning = verify.run_warnings(ctx)["content"][0]
+    assert "catalog extract" in warning and "catalog seed" in warning
 
 
 def test_without_a_cache_only_compiled_fails(tmp_path: Path) -> None:
@@ -81,6 +83,13 @@ def test_malformed_cached_content_is_reported_and_does_not_abort(tmp_path: Path)
     assert any("a: cached content does not parse" in p for p in problems["records"])
     # The loop continued: record "b" (valid cache) still had its hash checked and passed.
     assert not any(p.startswith("b:") for p in problems["records"])
+
+
+def test_tracked_record_with_a_content_key_is_reported(tmp_path: Path) -> None:
+    # Site prose in a tracked file would be committed and, for 277 records, redistributed.
+    ctx = _ctx(tmp_path)
+    (ctx.root / "patterns" / "routing" / "a.json").write_text(dumps(_p("a")), encoding="utf-8")
+    assert "a.json: tracked record carries a content key; write it with dumps_record" in verify.run_checks(ctx)["records"]
 
 
 def test_stale_index_and_bad_hash_are_reported(tmp_path: Path) -> None:

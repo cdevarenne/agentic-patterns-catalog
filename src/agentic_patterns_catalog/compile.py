@@ -8,7 +8,7 @@ from pathlib import Path
 
 from .cli import register
 from .model import Category, Pattern
-from .paths import CATALOG_DIR, GENERATED_DIR
+from .paths import CATALOG_DIR, CONTENT_CACHE_DIR, GENERATED_DIR
 from .retrieval import build_embedding_cache, default_embedder
 from .store import FileStore, Store
 
@@ -141,6 +141,16 @@ def write_all(store: Store, out_dir: Path = GENERATED_DIR, *, local: bool = Fals
     return written, removed
 
 
+def missing_content_report(patterns: list[Pattern]) -> str | None:
+    """One line that names the command that rebuilds each missing cache group, or None when nothing is missing."""
+    missing = [p for p in patterns if p.content is None]
+    if not missing:
+        return None
+    pack = sum(1 for p in missing if _is_pack(p))
+    return (f"{len(missing)} records have no cached content; run `catalog extract --mirror <dir>` "
+            f"({len(missing) - pack}) and `catalog seed` ({pack})")
+
+
 def embed_extra_available() -> bool:
     """True when the `embed` extra is installed. It sets the default for `compile --embeddings`."""
     return importlib.util.find_spec("fastembed") is not None
@@ -149,6 +159,8 @@ def embed_extra_available() -> bool:
 @register("compile", "write CATALOG.md, CATALOG-full.md, guides and sheets")
 def _cmd(parser: argparse.ArgumentParser):
     parser.add_argument("--root", type=Path, default=CATALOG_DIR)
+    parser.add_argument("--cache", type=Path, default=CONTENT_CACHE_DIR,
+                        help="where extracted site content is cached (never tracked)")
     parser.add_argument("--out", type=Path, default=None, help="default: skills/agentic-patterns/generated (or …/local with --local)")
     parser.add_argument("--local", action="store_true", help="quote tldr for every record; output is gitignored")
     parser.add_argument("--embeddings", action=argparse.BooleanOptionalAction, default=None,
@@ -156,7 +168,16 @@ def _cmd(parser: argparse.ArgumentParser):
 
     def run(ns: argparse.Namespace) -> int:
         out_dir = ns.out or (GENERATED_DIR / "local" if ns.local else GENERATED_DIR)
-        store = FileStore(ns.root)
+        store = FileStore(ns.root, ns.cache)
+        patterns = store.all()
+        report = missing_content_report(patterns)
+        if report:
+            print(report)
+        if not ns.local and any(p.content is None and _is_pack(p) for p in patterns):
+            # The committed sheets come from the pack records' prose. A compile without it would
+            # drop them, and write_all would delete the committed files.
+            print("the committed sheets depend on the pack records' cached content; nothing written")
+            return 1
         written, removed = write_all(store, out_dir, local=ns.local)
         outputs = {str(path.relative_to(out_dir)): path.read_text(encoding="utf-8") for path in written}
         bad = over_budget(outputs)

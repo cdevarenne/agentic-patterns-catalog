@@ -51,10 +51,19 @@ def _first_error(e: ValidationError) -> str:
     return f"{err['msg']} at {err['loc']}"
 
 
+def _has_content_key(text: str) -> bool:
+    try:
+        raw = json.loads(text)
+    except ValueError:
+        return False  # the model validation that follows reports the malformed file
+    return isinstance(raw, dict) and "content" in raw
+
+
 def check_records(ctx: VerifyContext) -> list[str]:
     """Every pattern, category and recipe file validates; pattern id, directory and content hash agree.
 
-    The tracked file never carries content (it is cache), so this attaches whatever is cached
+    The tracked file never carries content (it is cache, and for most records it is not ours to
+    publish): a `content` key in the raw file is a problem. The check attaches whatever is cached
     before the hash check, the same way `FileStore._load` does. A record with nothing cached
     skips the hash check; a cache file that fails to parse is a problem, not a crash.
     """
@@ -67,8 +76,11 @@ def check_records(ctx: VerifyContext) -> list[str]:
             except ValidationError as e:
                 problems.append(f"{path.name}: {_first_error(e)}")
     for path in sorted((ctx.root / "patterns").glob("*/*.json")):
+        text = path.read_text(encoding="utf-8")
+        if _has_content_key(text):
+            problems.append(f"{path.name}: tracked record carries a content key; write it with dumps_record")
         try:
-            p = Pattern.model_validate_json(path.read_text(encoding="utf-8"))
+            p = Pattern.model_validate_json(text)
         except ValidationError as e:
             problems.append(f"{path.name}: {_first_error(e)}")
             continue
@@ -232,7 +244,7 @@ def run_warnings(ctx: VerifyContext) -> dict[str, list[str]]:
     except Exception:  # noqa: BLE001 — a malformed record already surfaces via check_records; this warning is best-effort
         missing = []
     if missing:
-        warnings["content"] = [f"{len(missing)} records have no cached content; run `catalog extract`"]
+        warnings["content"] = [f"{len(missing)} records have no cached content; run `catalog extract` and `catalog seed`"]
     return warnings
 
 

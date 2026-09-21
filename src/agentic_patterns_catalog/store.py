@@ -18,7 +18,10 @@ from .paths import CATALOG_DIR, CONTENT_CACHE_DIR, INDEX_PATH, ROOT
 class Store(Protocol):
     def get(self, id: str) -> Pattern: ...
     def all(self) -> list[Pattern]: ...
-    def put(self, pattern: Pattern) -> None: ...
+
+    def put(self, pattern: Pattern) -> None:
+        """Write the record. `content` None keeps the cached content as it is; `content` present replaces it."""
+        ...
     def categories(self) -> list[Category]: ...
     def recipes(self) -> list[Recipe]: ...
 
@@ -59,7 +62,8 @@ class FileStore:
         raise KeyError(id)
 
     def put(self, pattern: Pattern) -> None:
-        """Write the record. Content, when the record carries it, goes to the cache instead."""
+        """Write the tracked record without `content`. `content` None keeps the cached content as it is;
+        `content` present replaces it in the cache."""
         path = self.root / "patterns" / pattern.category / f"{pattern.id}.json"
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(dumps_record(pattern), encoding="utf-8")
