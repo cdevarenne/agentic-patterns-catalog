@@ -20,6 +20,8 @@ dev = ["pytest>=8"]
 lint = ["ruff>=0.16"]
 # Semantic arm of `select`. Optional so a bare install stays free of ONNX runtimes.
 embed = ["fastembed>=0.7"]
+# MCP server (stdio and Streamable HTTP). Optional so the CLI stays free of an HTTP stack.
+mcp = ["fastmcp>=4,<5"]
 
 [project.scripts]
 catalog = "agentic_patterns_catalog.cli:main"

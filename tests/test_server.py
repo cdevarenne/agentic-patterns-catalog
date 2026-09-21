@@ -1,0 +1,108 @@
+"""In-memory MCP tests. No network, no auth: the subject is `stdio-local`."""
+from __future__ import annotations
+
+import asyncio
+from pathlib import Path
+from typing import Any
+
+import pytest
+
+pytest.importorskip("fastmcp")
+from fastmcp.client import Client
+from fastmcp.exceptions import ToolError
+
+from agentic_patterns_catalog import server, store
+from agentic_patterns_catalog.model import (
+    Content,
+    Pattern,
+    Provenance,
+    Source,
+    Tldr,
+    content_hash,
+)
+from agentic_patterns_catalog.policy import AllowlistPDP
+
+
+class ListLedger:
+    def __init__(self) -> None:
+        self.events: list[store.ActivityEvent] = []
+
+    def append(self, event: store.ActivityEvent) -> None:
+        self.events.append(event)
+
+
+def _p(id: str, category: str = "routing", description: str | None = None) -> Pattern:
+    # `tldr.what` (not `description`) feeds lexical search (see retrieval.pattern_text), so the
+    # distinguishing text goes there. An identical placeholder in every record would starve BM25's
+    # idf of any signal.
+    text = description or f"{id} routes requests to handlers"
+    c = Content(description=text, tldr=Tldr(what=text, when="n", watchOut="o"), code={"python": f"# {id}"})
+    return Pattern(id=id, name=id.replace("-", " ").title(), category=category, complexity="low", content=c,
+                   provenance=Provenance(source=Source(url="u", extraction="rsc-payload", content_sha256=content_hash(c))))
+
+
+@pytest.fixture
+def fs(tmp_path: Path) -> store.FileStore:
+    s = store.FileStore(tmp_path, tmp_path / "cache")
+    for p in (_p("content-router"), _p("semantic-router", description="semantic router picks a route by meaning"),
+              _p("episodic-memory", "memory-management", "store and recall past episodes")):
+        s.put(p)
+    return s
+
+
+@pytest.fixture
+def ledger() -> ListLedger:
+    return ListLedger()
+
+
+@pytest.fixture
+def mcp(fs: store.FileStore, ledger: ListLedger):
+    return server.build_server(fs, AllowlistPDP(""), ledger)
+
+
+def call(mcp, tool: str, **args: Any) -> Any:
+    async def go():
+        async with Client(mcp) as c:
+            return (await c.call_tool(tool, args)).structured_content
+    return asyncio.run(go())
+
+
+def test_list_categories_counts_records(mcp) -> None:
+    assert call(mcp, "list_categories")["result"] == [
+        {"id": "memory-management", "patterns": 1}, {"id": "routing", "patterns": 2}]
+
+
+def test_get_pattern_returns_the_record_with_content(mcp) -> None:
+    rec = call(mcp, "get_pattern", id="content-router")
+    assert rec["id"] == "content-router" and rec["content"]["code"] == {"python": "# content-router"}
+
+
+def test_get_pattern_unknown_id_is_a_tool_error(mcp) -> None:
+    with pytest.raises(ToolError, match="no pattern"):
+        call(mcp, "get_pattern", id="nope")
+
+
+def test_get_example_picks_language_or_says_none(mcp) -> None:
+    assert call(mcp, "get_example", id="content-router", language="python")["code"] == "# content-router"
+    assert call(mcp, "get_example", id="content-router", language="kotlin")["code"] is None
+
+
+def test_search_patterns_is_lexical_and_filters_by_category(mcp) -> None:
+    hits = call(mcp, "search_patterns", query="router")["result"]
+    assert [h["id"] for h in hits][:2] == ["content-router", "semantic-router"] or \
+        [h["id"] for h in hits][:2] == ["semantic-router", "content-router"]
+    assert all(h["score_bm25"] > 0 for h in hits)
+    assert call(mcp, "search_patterns", query="router", category="memory-management")["result"] == []
+
+
+def test_select_returns_the_envelope_with_local_subject(mcp) -> None:
+    env = call(mcp, "select", task="route a request by its meaning", k=2)
+    assert env["auth"] == {"subject": "stdio-local"}
+    assert env["retrieval_path"] == "bm25"  # no embedder in tests
+    assert env["hits"][0]["id"] == "semantic-router"
+    assert len(env["catalog_version"]) == 12
+
+
+def test_select_rejects_an_unknown_facet(mcp) -> None:
+    with pytest.raises(ToolError, match="unknown facet"):
+        call(mcp, "select", task="x", facets={"colour": "red"})

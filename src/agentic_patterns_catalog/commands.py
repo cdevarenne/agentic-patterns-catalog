@@ -1,4 +1,6 @@
 """Imports every module that registers a `catalog` subcommand."""
+import contextlib
+
 from . import (
     calibrate,  # noqa: F401
     compile,  # noqa: F401
@@ -10,4 +12,7 @@ from . import (
     store,  # noqa: F401
     verify,  # noqa: F401
 )
+
+with contextlib.suppress(ImportError):  # `mcp` extra absent: the `serve` subcommand is simply not registered
+    from . import server  # noqa: F401
 
