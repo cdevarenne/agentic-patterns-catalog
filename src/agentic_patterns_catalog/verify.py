@@ -13,7 +13,7 @@ from . import compile as comp
 from . import vocab as vocab_mod
 from .cli import register
 from .evaluate import check_thresholds
-from .model import Category, Pattern, Recipe, content_hash
+from .model import Category, Content, Pattern, Recipe, content_hash
 from .paths import (
     CATALOG_DIR,
     CONTENT_CACHE_DIR,
@@ -52,8 +52,14 @@ def _first_error(e: ValidationError) -> str:
 
 
 def check_records(ctx: VerifyContext) -> list[str]:
-    """Every pattern, category and recipe file validates; pattern id, directory and content hash agree."""
+    """Every pattern, category and recipe file validates; pattern id, directory and content hash agree.
+
+    The tracked file never carries content (it is cache), so this attaches whatever is cached
+    before the hash check, the same way `FileStore._load` does. A record with nothing cached
+    skips the hash check; a cache file that fails to parse is a problem, not a crash.
+    """
     problems = []
+    fs = FileStore(ctx.root, ctx.cache)
     for sub, model in (("categories", Category), ("recipes", Recipe)):
         for path in sorted((ctx.root / sub).glob("*.json")):
             try:
@@ -70,6 +76,13 @@ def check_records(ctx: VerifyContext) -> list[str]:
             problems.append(f"{path.name}: id {p.id!r} != file stem")
         if p.category != path.parent.name:
             problems.append(f"{path.name}: category {p.category!r} != directory {path.parent.name!r}")
+        cached = fs.cache_path(p.category, p.id)
+        if cached.is_file():
+            try:
+                p = p.model_copy(update={"content": Content.model_validate_json(cached.read_text(encoding="utf-8"))})
+            except ValidationError as e:
+                problems.append(f"{p.id}: cached content does not parse: {_first_error(e)}")
+                continue
         if p.content is not None and p.provenance.source.content_sha256 != content_hash(p.content):
             problems.append(f"{p.id}: content_sha256 does not match content")
     return problems

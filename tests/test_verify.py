@@ -50,8 +50,8 @@ def test_clean_tree_has_no_problems(tmp_path: Path) -> None:
 
 
 def test_missing_cached_content_is_a_warning_not_a_problem(tmp_path: Path) -> None:
-    # check_records reads the tracked file directly, so content is always None there; a record's
-    # content is only ever missing from the merged view FileStore.all() builds from the cache.
+    # With no cached content, check_records has nothing to compare a hash against, so this is a
+    # warning ("run `catalog extract`"), not a "records" problem.
     ctx = _ctx(tmp_path)
     for path in ctx.cache.glob("*/*.json"):
         path.unlink()
@@ -59,9 +59,19 @@ def test_missing_cached_content_is_a_warning_not_a_problem(tmp_path: Path) -> No
     assert "content" in verify.run_warnings(ctx)
 
 
+def test_stale_index_and_bad_hash_are_reported(tmp_path: Path) -> None:
+    ctx = _ctx(tmp_path)
+    (ctx.root / "index.json").write_text(json.dumps({"patterns": {}, "categories": [], "recipes": []}))
+    path = ctx.root / "patterns" / "routing" / "a.json"
+    data = json.loads(path.read_text())
+    data["provenance"]["source"]["content_sha256"] = "0" * 64
+    path.write_text(json.dumps(data))
+    problems = verify.run_checks(ctx)
+    assert problems["index"]
+    assert any("content_sha256 does not match content" in p for p in problems["records"])
+
+
 def test_stale_index_and_bad_id_are_reported(tmp_path: Path) -> None:
-    # check_records parses the tracked file directly (content lives only in the cache), so a bad
-    # content_sha256 there can no longer be its "records" problem; use an id/file-stem mismatch instead.
     ctx = _ctx(tmp_path)
     (ctx.root / "index.json").write_text(json.dumps({"patterns": {}, "categories": [], "recipes": []}))
     path = ctx.root / "patterns" / "routing" / "a.json"
