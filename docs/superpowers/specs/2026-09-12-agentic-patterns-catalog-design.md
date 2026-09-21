@@ -210,9 +210,10 @@ class Ledger(Protocol):
 5. Query gate, active only when both arms run: `relevance = top_bm25 / BM25_SCALE +
    max(0, top_cos - COS_BASE) / COS_SCALE` (constants in `retrieval.py`); when it is below
    `query_gate_threshold` (`eval/gate.json`, derived from `docs/data/floor-calibration.json`), the
-   result is the empty message. Per-signal floors were measured and rejected: neither the best
-   BM25 score nor the best cosine separates off-topic queries on its own (`separable` in the
-   record); the combined score does. Without the `embed` extra there is no semantic arm and
+   result is the empty message. Per-signal floors were measured and rejected: the best BM25
+   score alone separates the golden set by 0.03 (no usable margin) and the best cosine alone does
+   not separate it (per-signal margins under `separable` in the record); the combined score does.
+   Without the `embed` extra there is no semantic arm and
    `select` cannot detect off-topic queries; it returns its best lexical matches with their scores.
 6. Top-k hits, each with `score_bm25, score_semantic, rrf_rank, retrieval_path
    (bm25 | semantic | rrf)`, the record's `provenance`, `reviewed`, and 1-hop `relations`.

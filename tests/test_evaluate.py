@@ -89,12 +89,6 @@ def test_expect_empty_case_scores_hit_only_on_the_empty_message() -> None:
     assert rep["run"]["offtopic"] == 1
 
 
-def test_threshold_key_for_offtopic_rate() -> None:
-    rep = evaluate.run_eval(STORE, TASKS, None, k=2, gate=retrieval.GATE_OFF)
-    assert evaluate.check_thresholds(rep, {"rrf_offtopic_empty_rate": 1.0}) == [] or \
-        "rrf_offtopic_empty_rate" in evaluate.check_thresholds(rep, {"rrf_offtopic_empty_rate": 1.0})[0]
-
-
 def test_calibrate_reports_the_evidence_and_the_suggested_threshold() -> None:
     from agentic_patterns_catalog import calibrate
     tasks = TASKS + [{"id": "off", "task": "zzz qqq", "expected_ids": [], "expected_path": "rrf", "expect_empty": True}]
@@ -103,6 +97,7 @@ def test_calibrate_reports_the_evidence_and_the_suggested_threshold() -> None:
     assert set(rep["suggested"]) == {"query_gate_threshold"}
     assert rep["ontopic"]["top_bm25"]["n"] == 2 and rep["offtopic"]["top_bm25"]["n"] == 1
     assert rep["relevance"]["margin"] == pytest.approx(rep["relevance"]["ontopic_min"] - rep["relevance"]["offtopic_max"])
-    assert rep["separable"]["relevance"] is True
+    assert rep["separable"]["relevance"] == {"separable": True, "margin": pytest.approx(rep["relevance"]["margin"])}
+    assert set(rep["separable"]) == {"bm25", "semantic", "relevance"}
     assert rep["suggested"]["query_gate_threshold"] == pytest.approx(
         (rep["relevance"]["ontopic_min"] + rep["relevance"]["offtopic_max"]) / 2, abs=0.005)

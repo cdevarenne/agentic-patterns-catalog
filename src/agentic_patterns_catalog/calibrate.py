@@ -15,6 +15,12 @@ from .retrieval import GATE_OFF, Embedder, Selector, default_embedder, relevance
 from .store import FileStore, Store, content_version, git_ref
 
 
+def _separable(on: list[float], off: list[float]) -> dict[str, bool | float]:
+    """Whether every on-topic value exceeds every off-topic value, and by how much."""
+    margin = min(on, default=0.0) - max(off, default=0.0)
+    return {"separable": margin > 0, "margin": margin}
+
+
 def _summary(xs: list[float]) -> dict[str, float | int]:
     return {"n": len(xs), "min": min(xs, default=0.0), "median": statistics.median(xs) if xs else 0.0,
             "max": max(xs, default=0.0)}
@@ -53,9 +59,8 @@ def run(store: Store, tasks: list[dict[str, Any]], embedder: Embedder | None, k:
         "ontopic": {"top_bm25": _summary(on_bm), "top_semantic": _summary(on_sem)},
         "offtopic": {"top_bm25": _summary(off_bm), "top_semantic": _summary(off_sem)},
         "true_hits": {"bm25": _summary(hit_bm), "semantic": _summary(hit_sem)},
-        "separable": {"bm25": max(off_bm, default=0.0) < min(on_bm, default=0.0),
-                      "semantic": max(off_sem, default=0.0) < min(on_sem, default=0.0),
-                      "relevance": off_max < on_min},
+        "separable": {"bm25": _separable(on_bm, off_bm), "semantic": _separable(on_sem, off_sem),
+                      "relevance": _separable(on_rel, off_rel)},
         "relevance": {"ontopic_min": on_min, "offtopic_max": off_max, "margin": on_min - off_max},
         "suggested": {"query_gate_threshold": round((off_max + on_min) / 2, 2)},
     }

@@ -40,9 +40,18 @@
     "k": 10
   },
   "separable": {
-    "bm25": true,
-    "relevance": true,
-    "semantic": false
+    "bm25": {
+      "margin": 0.02621511875237914,
+      "separable": true
+    },
+    "relevance": {
+      "margin": 1.5238381930799978,
+      "separable": true
+    },
+    "semantic": {
+      "margin": -0.043127596378326416,
+      "separable": false
+    }
   },
   "suggested": {
     "query_gate_threshold": 3.07

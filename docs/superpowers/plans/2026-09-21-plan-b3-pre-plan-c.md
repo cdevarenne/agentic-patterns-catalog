@@ -384,6 +384,8 @@ gh issue close 2 -c "Implemented in $(git rev-parse --short HEAD). See docs/adr/
 
 ### Task 3: Relevance gate for `select` (#3)
 
+Superseded at build time: shipped as a single combined `relevance` gate (`eval/gate.json`); see spec §5 step 5 and commit 0a890f6. The two-floor design below did not survive measurement.
+
 **Files:**
 - Create: `src/agentic_patterns_catalog/calibrate.py`, `docs/data/floor-calibration.json` (generated)
 - Modify: `src/agentic_patterns_catalog/retrieval.py`, `src/agentic_patterns_catalog/evaluate.py`, `src/agentic_patterns_catalog/commands.py`, `eval/tasks.jsonl`, `eval/thresholds.json`, `docs/data/eval.json` (regenerated), `tests/test_retrieval.py`, `tests/test_evaluate.py`

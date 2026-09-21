@@ -240,7 +240,7 @@ def test_committed_gate_keeps_every_ontopic_golden_case_and_blocks_every_offtopi
     for t in evaluate.load_tasks():
         if t.get("gap"):
             continue
-        res = sel.select(t["task"], k=5)
+        res = sel.select(t["task"], t.get("facets"), k=5)
         if t.get("expect_empty"):
             assert res.empty_message == r.EMPTY_MESSAGE, t["id"]
         else:
