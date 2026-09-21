@@ -7,8 +7,9 @@ from pathlib import Path
 from typing import Any
 
 from .cli import register
-from .model import Content, Pattern, Provenance, Source, Tldr, content_hash, dumps
-from .paths import CATALOG_DIR, PACK_JSON, SITE
+from .model import Content, Pattern, Provenance, Source, Tldr, content_hash
+from .paths import CATALOG_DIR, CONTENT_CACHE_DIR, PACK_JSON, SITE
+from .store import FileStore
 
 
 def _pattern(raw: dict[str, Any]) -> Pattern:
@@ -30,13 +31,13 @@ def seed_from_pack(pack: dict[str, Any]) -> list[Pattern]:
     return [_pattern(raw) for raw in pack["patterns"]]
 
 
-def write_seed(pack_path: Path = PACK_JSON, out_dir: Path = CATALOG_DIR) -> int:
-    """Write one file per pack record. Returns the count."""
+def write_seed(pack_path: Path = PACK_JSON, out_dir: Path = CATALOG_DIR, *,
+               cache_dir: Path = CONTENT_CACHE_DIR) -> int:
+    """Write one record per pack entry and cache its content. Returns the count."""
     patterns = seed_from_pack(json.loads(pack_path.read_text(encoding="utf-8")))
+    store = FileStore(out_dir, cache_dir)
     for p in patterns:
-        path = out_dir / "patterns" / p.category / f"{p.id}.json"
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(dumps(p), encoding="utf-8")
+        store.put(p)
     return len(patterns)
 
 
@@ -44,8 +45,10 @@ def write_seed(pack_path: Path = PACK_JSON, out_dir: Path = CATALOG_DIR) -> int:
 def _cmd(parser: argparse.ArgumentParser):
     parser.add_argument("--pack", type=Path, default=PACK_JSON)
     parser.add_argument("--out", type=Path, default=CATALOG_DIR)
+    parser.add_argument("--cache", type=Path, default=CONTENT_CACHE_DIR,
+                        help="where extracted site content is cached (never tracked)")
 
     def run(ns: argparse.Namespace) -> int:
-        print(f"seeded {write_seed(ns.pack, ns.out)} records")
+        print(f"seeded {write_seed(ns.pack, ns.out, cache_dir=ns.cache)} records")
         return 0
     return run

@@ -32,3 +32,13 @@ def test_committed_tool_use_records_match_the_pack() -> None:
     assert committed == {p["id"] for p in pack["patterns"]}
     for path in (PATTERNS_DIR / "tool-use").glob("*.json"):
         assert Pattern.model_validate_json(path.read_text(encoding="utf-8")).provenance.source.extraction == "free-pack"
+
+
+def test_seed_writes_records_and_fills_the_content_cache(fixtures: Path, tmp_path: Path) -> None:
+    out, cache = tmp_path / "catalog", tmp_path / "cache"
+    assert seed.write_seed(fixtures / "pack.json", out, cache_dir=cache) == 2
+    record = next((out / "patterns" / "tool-use").glob("*.json")).read_text()
+    assert '"content"' not in record
+    cached = sorted((cache / "tool-use").glob("*.json"))
+    assert len(cached) == 2
+    assert "tldr" in json.loads(cached[0].read_text())
