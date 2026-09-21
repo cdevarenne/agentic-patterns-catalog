@@ -219,7 +219,12 @@ class Selector:
                  arms: Arms = ("bm25", "semantic"), version: str | None = None,
                  embedding_cache: bool = True, gate: Gate | None = None) -> None:
         self.patterns = sorted(patterns, key=lambda p: p.id)
-        self.gate = gate if gate is not None else load_gate()
+        # The gate is calibrated on full content; a store without cached content runs ungated.
+        missing = sum(p.content is None for p in self.patterns)
+        if missing:
+            print(f"relevance gate off: {missing} records have no cached content; "
+                  "run catalog extract and catalog seed", file=sys.stderr)
+        self.gate = GATE_OFF if missing else (gate if gate is not None else load_gate())
         self.arms = tuple(a for a in arms if a != "semantic" or embedder is not None)
         self.embedder = embedder if "semantic" in self.arms else None
         self.version = version or content_version(self.patterns)

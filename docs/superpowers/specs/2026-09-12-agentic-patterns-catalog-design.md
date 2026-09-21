@@ -213,6 +213,8 @@ class Ledger(Protocol):
    result is the empty message. Per-signal floors were measured and rejected: the best BM25
    score alone separates the golden set by 0.03 (no usable margin) and the best cosine alone does
    not separate it (per-signal margins under `separable` in the record); the combined score does.
+   The gate applies only when every record has cached content: it is calibrated on full content,
+   and a store without `var/content` runs ungated (one line on stderr says so).
    Without the `embed` extra there is no semantic arm and
    `select` cannot detect off-topic queries; it returns its best lexical matches with their scores.
 6. Top-k hits, each with `score_bm25, score_semantic, rrf_rank, retrieval_path

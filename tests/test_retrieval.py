@@ -215,6 +215,16 @@ def test_one_arm_selectors_are_never_gated() -> None:
     assert sem_only.hits and sem_only.empty_message is None
 
 
+def test_gate_is_off_when_any_record_lacks_cached_content(capsys) -> None:
+    bare = PATTERNS[0].model_copy(update={"content": None})
+    bare.selection.problem_signals = ["route requests by content"]
+    sel = r.Selector([bare, *PATTERNS[1:]], embedder=r.HashEmbedder(), gate=r.Gate(1000.0))
+    res = sel.select("route requests by content to a handler", k=3)
+    assert res.hits and res.hits[0].id == "content-routing" and res.empty_message is None
+    assert sel.gate == r.GATE_OFF
+    assert "relevance gate off: 1 records have no cached content" in capsys.readouterr().err
+
+
 def test_relevance_combines_both_signals() -> None:
     assert r.relevance(6.0, 0.5) == pytest.approx(1.0)
     assert r.relevance(0.0, 0.6) == pytest.approx(1.0)
@@ -232,8 +242,10 @@ def test_gate_off_when_the_gate_file_is_missing_or_lacks_the_key(tmp_path: Path)
 
 def test_committed_gate_keeps_every_ontopic_golden_case_and_blocks_every_offtopic_probe() -> None:
     from agentic_patterns_catalog import evaluate, store
-    ids = {p.id for p in store.FileStore().all()}
-    embedder = r.default_embedder() if len(ids) >= 288 else None
+    patterns = store.FileStore().all()
+    if any(p.content is None for p in patterns):
+        pytest.skip("gate is calibrated on cached content; run catalog extract + seed")
+    embedder = r.default_embedder() if len(patterns) >= 288 else None
     if embedder is None:
         pytest.skip("needs the full local catalog and the embed extra")
     sel = r.Selector.from_store(store.FileStore(), embedder)
