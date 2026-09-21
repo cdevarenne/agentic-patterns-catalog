@@ -22,7 +22,8 @@ records under `catalog/categories/` are also site prose, cached the same way and
 
 ```sh
 uv sync --extra dev
-uv run catalog extract --mirror DIR   # fills the var/content/ cache
+uv run catalog extract --mirror DIR   # fills the var/content/ cache for 277 records
+uv run catalog seed                   # caches the 11 pack records from data/pack/patterns.json, not the mirror
 uv run pytest
 uv run catalog --help
 ```

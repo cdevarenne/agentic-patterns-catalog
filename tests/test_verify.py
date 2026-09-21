@@ -1,4 +1,5 @@
 import json
+import shutil
 from pathlib import Path
 
 from agentic_patterns_catalog import compile as comp
@@ -16,10 +17,10 @@ from agentic_patterns_catalog.model import (
 from agentic_patterns_catalog.paths import EVAL_THRESHOLDS, VOCAB_PATH
 
 
-def _p(id: str, **sel) -> Pattern:
+def _p(id: str, extraction: str = "rsc-payload", **sel) -> Pattern:
     c = Content(description=id, tldr=Tldr(what="w", when="n", watchOut="o"))
     return Pattern(id=id, name=id, category="routing", complexity="low", content=c, selection=Selection(**sel),
-                   provenance=Provenance(source=Source(url="u", extraction="rsc-payload", content_sha256=content_hash(c))))
+                   provenance=Provenance(source=Source(url="u", extraction=extraction, content_sha256=content_hash(c))))
 
 
 def _ctx(tmp_path: Path, **over) -> verify.VerifyContext:
@@ -57,6 +58,20 @@ def test_missing_cached_content_is_a_warning_not_a_problem(tmp_path: Path) -> No
         path.unlink()
     assert verify.run_checks(ctx)["records"] == []
     assert "content" in verify.run_warnings(ctx)
+
+
+def test_without_a_cache_only_compiled_fails(tmp_path: Path) -> None:
+    # A fresh clone has records and no cache. Every identity-level check passes there; only the
+    # compiled views differ, because the committed pack sheets need the cached prose.
+    ctx = _ctx(tmp_path)
+    fs = store.FileStore(ctx.root, ctx.cache)
+    fs.put(_p("c", "free-pack"))
+    store.write_index(fs, ctx.root / "index.json")
+    comp.write_all(fs, ctx.generated_dir)
+    shutil.rmtree(ctx.cache)
+    problems = verify.run_checks(ctx)
+    assert problems["records"] == []
+    assert {name for name, items in problems.items() if items} == {"compiled"}
 
 
 def test_malformed_cached_content_is_reported_and_does_not_abort(tmp_path: Path) -> None:
@@ -181,11 +196,11 @@ def test_a_check_that_raises_is_reported_not_propagated(tmp_path: Path, monkeypa
 
 
 def test_repo_verifies_clean() -> None:
-    # Committed index.json and generated/ reflect all 288 records. A checkout without the local
-    # mirror (CI) holds 11, so `index` and `compiled` are expected to differ there and are skipped.
+    # All 288 records are tracked, so `index` passes with or without a content cache. The committed
+    # pack sheets need cached prose: on a checkout whose cache is missing or partial (a fresh clone,
+    # or `catalog extract` without `catalog seed`) `compiled` differs and is the one check skipped.
     ctx = verify.VerifyContext.default()
-    indexed = len(json.loads((ctx.root / "index.json").read_text())["patterns"])
-    partial = len(store.FileStore(ctx.root, ctx.cache).all()) < indexed
-    skipped = {"index", "compiled"} if partial else set()
+    partial = any(p.content is None for p in store.FileStore(ctx.root, ctx.cache).all())
+    skipped = {"compiled"} if partial else set()
     problems = {k: v for k, v in verify.run_checks(ctx).items() if v and k not in skipped}
     assert problems == {}, problems
