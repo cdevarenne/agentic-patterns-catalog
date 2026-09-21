@@ -19,10 +19,12 @@ def test_seed_maps_pack_fields_onto_the_model(fixtures: Path) -> None:
 
 
 def test_write_seed_creates_files(fixtures: Path, tmp_path: Path) -> None:
-    n = seed.write_seed(fixtures / "pack.json", tmp_path)
+    cache = tmp_path / "cache"
+    n = seed.write_seed(fixtures / "pack.json", tmp_path, cache_dir=cache)
     assert n == 2
     files = sorted((tmp_path / "patterns" / "tool-use").glob("*.json"))
     assert len(files) == 2
+    assert not any('"content"' in p.read_text() for p in files)
     Pattern.model_validate_json(files[0].read_text(encoding="utf-8"))
 
 
