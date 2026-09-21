@@ -1,0 +1,29 @@
+{
+  "category": "memory-management",
+  "complexity": "medium",
+  "id": "working-memory-patterns",
+  "kind": "pattern",
+  "name": "Working Memory Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "8f30ba4333b23e3d8febe3aca02e844e1403a10572c9eba0490ba4f9514ee81f",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/memory-management/working-memory-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

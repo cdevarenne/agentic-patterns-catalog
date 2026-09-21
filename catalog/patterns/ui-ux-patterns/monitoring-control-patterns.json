@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "monitoring-control-patterns",
+  "kind": "pattern",
+  "name": "Monitoring and Control Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "319ce0875074cf81f500e4c6c805174710b9ab2f670364c101a6f60f0de8936a",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/monitoring-control-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "advanced-privacy-technologies-ux",
+  "kind": "pattern",
+  "name": "Advanced Privacy Technologies UX",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "0fe79de6ab981cc7d35a5be1b6b70d2f808d2bc302e52c1ee67b558cc0a83af3",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/advanced-privacy-technologies-ux"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

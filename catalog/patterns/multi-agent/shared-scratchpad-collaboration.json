@@ -1,0 +1,29 @@
+{
+  "category": "multi-agent",
+  "complexity": "medium",
+  "id": "shared-scratchpad-collaboration",
+  "kind": "pattern",
+  "name": "Shared Scratchpad Collaboration",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "faf4322140e7fc34465e04e3d1139fd004add0ad769a2f8e1b38b5d698c21293",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/multi-agent/shared-scratchpad-collaboration"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

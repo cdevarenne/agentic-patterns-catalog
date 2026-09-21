@@ -1,0 +1,29 @@
+{
+  "category": "knowledge-retrieval",
+  "complexity": "high",
+  "id": "modular-rag",
+  "kind": "pattern",
+  "name": "Modular RAG",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "1228ce4ec885e818007a7b080f235d17cd0dd6858a1da7866f5cd9a40720d40a",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/knowledge-retrieval/modular-rag"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

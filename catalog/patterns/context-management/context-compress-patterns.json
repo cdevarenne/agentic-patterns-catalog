@@ -1,0 +1,29 @@
+{
+  "category": "context-management",
+  "complexity": "high",
+  "id": "context-compress-patterns",
+  "kind": "pattern",
+  "name": "Context Compress Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "807db2af7a65199e23895782985f5891f57ee63f3e917f5f26a0112ac7d3866b",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-management/context-compress-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

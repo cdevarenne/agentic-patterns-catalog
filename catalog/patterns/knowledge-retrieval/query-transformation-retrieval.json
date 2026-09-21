@@ -1,0 +1,29 @@
+{
+  "category": "knowledge-retrieval",
+  "complexity": "medium",
+  "id": "query-transformation-retrieval",
+  "kind": "pattern",
+  "name": "Query Transformation Retrieval",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "f59e5dbd7310a5c24bbe4f6395b2c69dfc0e67b36bc5bfbf5ab6bab7e67db5de",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/knowledge-retrieval/query-transformation-retrieval"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

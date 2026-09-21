@@ -1,0 +1,29 @@
+{
+  "category": "context-management",
+  "complexity": "high",
+  "id": "kv-cache-optimization",
+  "kind": "pattern",
+  "name": "KV Cache Optimization",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "30c89be463d031625187b46051673686e84af5176f4df3d1adad322741f5e5ed",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-management/kv-cache-optimization"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

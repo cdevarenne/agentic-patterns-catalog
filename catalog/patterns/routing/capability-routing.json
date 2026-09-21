@@ -1,0 +1,29 @@
+{
+  "category": "routing",
+  "complexity": "high",
+  "id": "capability-routing",
+  "kind": "pattern",
+  "name": "Capability Routing",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "c51d150c746b8848a5ba671b93de770ed924ca81959c95a6358e833e0c6422df",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/routing/capability-routing"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "exploration-discovery",
+  "complexity": "medium",
+  "id": "multi-armed-bandits",
+  "kind": "pattern",
+  "name": "Multi-Armed Bandit Optimization",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "fc15d8b247a00aaa12c3a017b366f4d351b26d20fdb1ae36e35c994b363521dc",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/exploration-discovery/multi-armed-bandits"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

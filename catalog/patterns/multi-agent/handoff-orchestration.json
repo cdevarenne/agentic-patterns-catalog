@@ -1,0 +1,29 @@
+{
+  "category": "multi-agent",
+  "complexity": "medium",
+  "id": "handoff-orchestration",
+  "kind": "pattern",
+  "name": "Handoff Orchestration",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "216fa5895192c2a8cf5e4a82de443ec10d4aaa6082cfb2463fce95d753cda134",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/multi-agent/handoff-orchestration"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

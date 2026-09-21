@@ -1,0 +1,29 @@
+{
+  "category": "agent-economy",
+  "complexity": "high",
+  "id": "agent-payment-mandates",
+  "kind": "pattern",
+  "name": "Agent Payment Mandates (AP2)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "19105b1bb17800ae8e6333d1c88c1c41ea4fe0270a74dc65bb72909ffc72992e",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/agent-economy/agent-payment-mandates"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

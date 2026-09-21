@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "medium",
+  "id": "progressive-consent-communication",
+  "kind": "pattern",
+  "name": "Progressive Consent & Communication",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "4c6dab7e919b292ff662bc7be6dd0b04b76d1025f0171ef15167878af918a9c8",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/progressive-consent-communication"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

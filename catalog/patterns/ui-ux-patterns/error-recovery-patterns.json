@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "medium",
+  "id": "error-recovery-patterns",
+  "kind": "pattern",
+  "name": "Error Handling and Recovery Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "3709d30d6a88a4ba876eb10794cf7395d46b27c1086f78223e66a26701bf7c3a",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/error-recovery-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "privacy-security-ux",
+  "kind": "pattern",
+  "name": "Privacy and Security UX",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "1310c7a71a067e4a0dd4f969f3575fe87db402ccd2dfd4ecbd1e38b46bbdeb07",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/privacy-security-ux"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

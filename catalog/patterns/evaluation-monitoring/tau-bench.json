@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "tau-bench",
+  "kind": "pattern",
+  "name": "tau-bench (Tool-Agent-User)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "6eafb2970d297947772f5ddc357980c84d569b0c61b83acfa42dd7f34c592c69",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/tau-bench"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -17,7 +17,7 @@ useful, secure, repeatable, composable, deterministic-where-it-matters.
 - Pydantic models in `model.py` are the source of truth; `schema/*.json` is generated from them.
 - Everything under `skills/agentic-patterns/generated/` and `catalog/index.json` is compiled. Never hand-edit.
 - Facet values come from `catalog/vocab/facets.json` only. Adding a value = data change + schema regeneration.
-- The 277 non-pack records and the 24 category records are gitignored. Never commit site prose for them.
+- Records are tracked; site content is a gitignored cache under `var/content/`. `catalog extract` refreshes content and never overwrites `selection`.
 - Write docs, docstrings, comments and commit messages in ASD-STE100 Simplified Technical English.
 - Before every commit: `uv run --extra lint ruff check .` and `uv run pytest`.
 - Commits: one author, no assistant attribution. Every commit ships tests or says why it cannot.

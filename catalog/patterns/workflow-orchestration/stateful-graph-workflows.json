@@ -1,0 +1,29 @@
+{
+  "category": "workflow-orchestration",
+  "complexity": "high",
+  "id": "stateful-graph-workflows",
+  "kind": "pattern",
+  "name": "Stateful Graph Workflows",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "c5554c37fae1acc407cbf2a43b9acfc7653e3b11d338c39e3ed3e1f27e8768a5",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/workflow-orchestration/stateful-graph-workflows"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

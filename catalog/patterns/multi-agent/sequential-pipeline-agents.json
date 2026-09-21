@@ -1,0 +1,29 @@
+{
+  "category": "multi-agent",
+  "complexity": "medium",
+  "id": "sequential-pipeline-agents",
+  "kind": "pattern",
+  "name": "Sequential Pipeline Agents",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "21a288119b0ce0b4f836743eeca549e0bc40fc871dd8c666ef4e085568b6aded",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/multi-agent/sequential-pipeline-agents"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

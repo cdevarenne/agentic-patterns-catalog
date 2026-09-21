@@ -1,0 +1,29 @@
+{
+  "category": "routing",
+  "complexity": "medium",
+  "id": "embedding-based-routing",
+  "kind": "pattern",
+  "name": "Embedding-based Routing",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "a0457b1cb08fd3024576710204b9f8b0b16d3c09751a0e1ad829f2dd27566c2a",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/routing/embedding-based-routing"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

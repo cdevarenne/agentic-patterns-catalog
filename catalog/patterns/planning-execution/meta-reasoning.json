@@ -1,0 +1,29 @@
+{
+  "category": "planning-execution",
+  "complexity": "high",
+  "id": "meta-reasoning",
+  "kind": "pattern",
+  "name": "Meta-Reasoning",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "f6ef54a20d47be2fadc5ce28793b0b3235c859e90597cf29c56d4f8bb52c4123",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/planning-execution/meta-reasoning"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

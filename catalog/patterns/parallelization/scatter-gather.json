@@ -1,0 +1,29 @@
+{
+  "category": "parallelization",
+  "complexity": "medium",
+  "id": "scatter-gather",
+  "kind": "pattern",
+  "name": "Scatter-Gather",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "91367567f25d368aae9bf8ae2f6de12e13c19b6e8802c64cd570868359744706",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/parallelization/scatter-gather"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

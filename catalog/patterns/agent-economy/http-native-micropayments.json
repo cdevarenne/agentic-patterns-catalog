@@ -1,0 +1,29 @@
+{
+  "category": "agent-economy",
+  "complexity": "high",
+  "id": "http-native-micropayments",
+  "kind": "pattern",
+  "name": "HTTP-Native Micropayments (x402)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "095e0d81723701e479aeb693a32ced57493885b0c5f875a4473d3791a680b51a",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/agent-economy/http-native-micropayments"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

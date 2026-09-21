@@ -1,0 +1,29 @@
+{
+  "category": "learning-adaptation",
+  "complexity": "high",
+  "id": "prompt-optimization",
+  "kind": "pattern",
+  "name": "Automatic Prompt Optimization",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "eec8500567ce577ad15e4807652e5d5052c2b3ea24101ba263d28a41dc03f254",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/learning-adaptation/prompt-optimization"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

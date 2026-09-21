@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "high",
+  "id": "local-distant-agent-data-protection",
+  "kind": "pattern",
+  "name": "Local-Distant Agent Data Protection Pattern",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "f16a85cb440f318a2eedaad1c7a67448438478e6a9447c28d3139046528116cb",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/local-distant-agent-data-protection"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

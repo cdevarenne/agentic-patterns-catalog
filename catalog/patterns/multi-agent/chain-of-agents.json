@@ -1,0 +1,29 @@
+{
+  "category": "multi-agent",
+  "complexity": "medium",
+  "id": "chain-of-agents",
+  "kind": "pattern",
+  "name": "Chain of Agents",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "25fdb4f728ba3f86861ec224c0743d0168d4bd741e1c6d9eff9fe05cdf057550",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/multi-agent/chain-of-agents"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

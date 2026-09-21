@@ -1,0 +1,29 @@
+{
+  "category": "fault-tolerance-infrastructure",
+  "complexity": "medium",
+  "id": "agent-context-preservation",
+  "kind": "pattern",
+  "name": "Agent Context Preservation and Recovery",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "19f5962393a29a25c927969bb48b0f065a45bc6029e26ba4056219698f0d9d0d",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/fault-tolerance-infrastructure/agent-context-preservation"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

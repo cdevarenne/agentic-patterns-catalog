@@ -1,0 +1,29 @@
+{
+  "category": "workflow-orchestration",
+  "complexity": "high",
+  "id": "event-driven-hierarchical",
+  "kind": "pattern",
+  "name": "Event-Driven Hierarchical Agents",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "a7e43896adee34248b847dc0a43ae2d1e9d6ae06a243624c1c8285e48a9c5486",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/workflow-orchestration/event-driven-hierarchical"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

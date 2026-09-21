@@ -1,0 +1,29 @@
+{
+  "category": "memory-management",
+  "complexity": "high",
+  "id": "memory-forgetting-policies",
+  "kind": "pattern",
+  "name": "Memory Decay & Forgetting Policies",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "9b33bd4d0fc0e4264b7f3c5b80be5fea7f41e3297222d985ea8f3681acd2c8d7",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/memory-management/memory-forgetting-policies"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

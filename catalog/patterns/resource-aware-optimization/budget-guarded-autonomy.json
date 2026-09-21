@@ -1,0 +1,29 @@
+{
+  "category": "resource-aware-optimization",
+  "complexity": "medium",
+  "id": "budget-guarded-autonomy",
+  "kind": "pattern",
+  "name": "Budget-Guarded Autonomy",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "921c54fdd670d2447f56ecce69e99c672af91c26ad8c78b5f5d110ecb190f080",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/resource-aware-optimization/budget-guarded-autonomy"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

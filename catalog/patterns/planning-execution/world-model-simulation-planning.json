@@ -1,0 +1,29 @@
+{
+  "category": "planning-execution",
+  "complexity": "high",
+  "id": "world-model-simulation-planning",
+  "kind": "pattern",
+  "name": "World-Model Simulation Planning",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "c6cb17a8abfdc36665782d1d9db5c2a4f3fcbd074be113ba91e4d6d7fcd2ee42",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/planning-execution/world-model-simulation-planning"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

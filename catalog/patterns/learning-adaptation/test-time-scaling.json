@@ -1,0 +1,29 @@
+{
+  "category": "learning-adaptation",
+  "complexity": "high",
+  "id": "test-time-scaling",
+  "kind": "pattern",
+  "name": "Test-Time Scaling",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "7101e060d5d1ae58d9eca56bccf165419d9e1604c9e16ccdc82cb0fc1b547839",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/learning-adaptation/test-time-scaling"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

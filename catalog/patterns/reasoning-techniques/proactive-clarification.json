@@ -1,0 +1,29 @@
+{
+  "category": "reasoning-techniques",
+  "complexity": "medium",
+  "id": "proactive-clarification",
+  "kind": "pattern",
+  "name": "Proactive Clarification & Active Disambiguation",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "d571b39fdb9fcefc4cdc84dea73af623f2469d1464f14798075df7828abf5269",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/reasoning-techniques/proactive-clarification"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

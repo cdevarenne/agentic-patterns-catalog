@@ -1,0 +1,29 @@
+{
+  "category": "learning-adaptation",
+  "complexity": "medium",
+  "id": "in-context-learning",
+  "kind": "pattern",
+  "name": "In-Context Learning",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "51f7cb9f92ed20cd60f40d5f37128c7f21fa7c28db1fdfaa5214f273e13c3bae",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/learning-adaptation/in-context-learning"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

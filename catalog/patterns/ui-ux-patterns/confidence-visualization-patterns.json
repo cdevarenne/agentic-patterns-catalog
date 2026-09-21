@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "confidence-visualization-patterns",
+  "kind": "pattern",
+  "name": "Confidence Visualization UI Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "789e1f06c856ed5902f5a7239cbab5082d1da36da175daffbad8c405bfd8c7b1",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/confidence-visualization-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

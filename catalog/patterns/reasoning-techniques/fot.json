@@ -1,0 +1,29 @@
+{
+  "category": "reasoning-techniques",
+  "complexity": "high",
+  "id": "fot",
+  "kind": "pattern",
+  "name": "Forest-of-Thoughts",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "2e84c64388a8a324dd83e13e7e40492ea55f2234a91fb27c2c9f7944dab3094a",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/reasoning-techniques/fot"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

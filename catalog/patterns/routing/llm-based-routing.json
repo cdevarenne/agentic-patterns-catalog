@@ -1,0 +1,29 @@
+{
+  "category": "routing",
+  "complexity": "medium",
+  "id": "llm-based-routing",
+  "kind": "pattern",
+  "name": "LLM-based Routing",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "d4cd01000a2eb96f738b0abbc23171146af0374238939a85130aebf4f687bb2b",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/routing/llm-based-routing"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

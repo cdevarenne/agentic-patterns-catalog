@@ -1,0 +1,29 @@
+{
+  "category": "workflow-orchestration",
+  "complexity": "high",
+  "id": "reversible-action-compensation",
+  "kind": "pattern",
+  "name": "Reversible Actions & Compensation (Agent Saga)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "2fef3b89901a141caa26c0125ac134219489d66b2ab99032f813c133d55878ab",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/workflow-orchestration/reversible-action-compensation"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

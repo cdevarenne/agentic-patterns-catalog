@@ -1,0 +1,29 @@
+{
+  "category": "prompt-chaining",
+  "complexity": "high",
+  "id": "conditional-chaining",
+  "kind": "pattern",
+  "name": "Conditional Chaining",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "8dd8d74a70c5bf81ac5f181384b6ef3deb855f01957c6b856f0303fbff097b04",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/prompt-chaining/conditional-chaining"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

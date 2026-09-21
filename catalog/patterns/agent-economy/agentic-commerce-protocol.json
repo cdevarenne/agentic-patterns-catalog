@@ -1,0 +1,29 @@
+{
+  "category": "agent-economy",
+  "complexity": "high",
+  "id": "agentic-commerce-protocol",
+  "kind": "pattern",
+  "name": "Agentic Commerce Protocol (ACP)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "678775283a0342d9fe09ade418596bef6f00407f6c147ef5a29363b08b9b48ad",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/agent-economy/agentic-commerce-protocol"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

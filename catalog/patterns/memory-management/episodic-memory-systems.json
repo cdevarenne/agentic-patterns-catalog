@@ -1,0 +1,29 @@
+{
+  "category": "memory-management",
+  "complexity": "high",
+  "id": "episodic-memory-systems",
+  "kind": "pattern",
+  "name": "Episodic Memory Systems",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "f9591e9ee7d8781c3b115fd576f77046b73a3297a576a664024604cdb450f700",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/memory-management/episodic-memory-systems"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

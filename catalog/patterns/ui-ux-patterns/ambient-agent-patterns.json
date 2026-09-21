@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "ambient-agent-patterns",
+  "kind": "pattern",
+  "name": "Ambient Agent Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "e33df281e5190fd655023e3a51a5d615fd0dbab9d58808329e1c168e61ecc5cc",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/ambient-agent-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

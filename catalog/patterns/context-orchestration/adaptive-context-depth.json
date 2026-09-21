@@ -1,0 +1,29 @@
+{
+  "category": "context-orchestration",
+  "complexity": "high",
+  "id": "adaptive-context-depth",
+  "kind": "pattern",
+  "name": "Adaptive Context Depth",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "6ed29793ee07e736ca56bb8ef6d7a846e2a106aa871224094c1df29ecf795a43",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-orchestration/adaptive-context-depth"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

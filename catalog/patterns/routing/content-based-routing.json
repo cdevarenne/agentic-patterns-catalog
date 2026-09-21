@@ -1,0 +1,29 @@
+{
+  "category": "routing",
+  "complexity": "medium",
+  "id": "content-based-routing",
+  "kind": "pattern",
+  "name": "Content-Based Routing",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "093ddd00cc9fe964e41aa91235c2f25d203f9ec2485561218a91f57feae7c9dd",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/routing/content-based-routing"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

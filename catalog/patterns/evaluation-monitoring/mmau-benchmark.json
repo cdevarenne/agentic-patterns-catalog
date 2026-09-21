@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "mmau-benchmark",
+  "kind": "pattern",
+  "name": "MMAU: Massive Multitask Agent Understanding",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "79557cbd952a6d86c5c5f976a6a6a2f2477a1cd011812cc452b60a224ca22b8f",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/mmau-benchmark"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

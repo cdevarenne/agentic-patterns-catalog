@@ -1,0 +1,29 @@
+{
+  "category": "knowledge-representation",
+  "complexity": "medium",
+  "id": "rdf-knowledge-modeling",
+  "kind": "pattern",
+  "name": "RDF Knowledge Modeling",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "013f94857fad8df41d9a698b6daff7eda6ab39cdd5df519c468891a842f97b78",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/knowledge-representation/rdf-knowledge-modeling"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

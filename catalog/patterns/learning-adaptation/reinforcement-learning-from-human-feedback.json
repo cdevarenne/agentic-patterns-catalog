@@ -1,0 +1,29 @@
+{
+  "category": "learning-adaptation",
+  "complexity": "high",
+  "id": "reinforcement-learning-from-human-feedback",
+  "kind": "pattern",
+  "name": "Reinforcement Learning from Human Feedback",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "7c988fdb834d19a03c761c2f9c0610c9cfbe78449cb1c7a2d86d0562f9be51a1",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/learning-adaptation/reinforcement-learning-from-human-feedback"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

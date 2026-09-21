@@ -1,0 +1,29 @@
+{
+  "category": "knowledge-retrieval",
+  "complexity": "high",
+  "id": "agentic-rag-systems",
+  "kind": "pattern",
+  "name": "Agentic RAG",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "e79f01b31b57e39d835c15678c9f0864c78c3549a3a9fce893bc9d361348a923",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/knowledge-retrieval/agentic-rag-systems"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

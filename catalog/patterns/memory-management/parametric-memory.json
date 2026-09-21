@@ -1,0 +1,29 @@
+{
+  "category": "memory-management",
+  "complexity": "medium",
+  "id": "parametric-memory",
+  "kind": "pattern",
+  "name": "Parametric Memory",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "da43b03ee85d6a7a907a3e8ff3d756df19c428282dc25f9be57ccd010b2f1fe7",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/memory-management/parametric-memory"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "context-management",
+  "complexity": "high",
+  "id": "hierarchical-context-architecture",
+  "kind": "pattern",
+  "name": "Hierarchical Context Architecture",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "2c25d5ee5a3024db7fc52d9b4b9f0cbaa83edbcf097af035221835500c394e01",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-management/hierarchical-context-architecture"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

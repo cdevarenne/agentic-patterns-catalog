@@ -1,0 +1,29 @@
+{
+  "category": "routing",
+  "complexity": "low",
+  "id": "rule-based-routing",
+  "kind": "pattern",
+  "name": "Rule-based Routing",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "f456bc067a14c53e33dab34c4468d0555be396149091fd75966784803889c8c8",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/routing/rule-based-routing"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

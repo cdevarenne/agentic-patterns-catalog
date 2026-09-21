@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "constitutional-ai-evaluation",
+  "kind": "pattern",
+  "name": "Constitutional AI Evaluation Framework",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "c0c00fa882808354336988301e22b6b49de284c6b57127e100c3ba797207dee3",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/constitutional-ai-evaluation"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "planning-execution",
+  "complexity": "medium",
+  "id": "task-management-orchestration",
+  "kind": "pattern",
+  "name": "Task Management & Orchestration",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "9a2ecab0c9522f2f1de870482e3bac8b19979cbb844d61cb0fd55998a580b1c0",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/planning-execution/task-management-orchestration"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

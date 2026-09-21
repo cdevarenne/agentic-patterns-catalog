@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "webarena-suite",
+  "kind": "pattern",
+  "name": "WebArena Evaluation Suite",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "126189c7fa628b7536afc627f865c827f19c2fa773811e82fe1eccf8d7afd307",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/webarena-suite"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

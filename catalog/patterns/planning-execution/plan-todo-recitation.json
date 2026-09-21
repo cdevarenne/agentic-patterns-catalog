@@ -1,0 +1,29 @@
+{
+  "category": "planning-execution",
+  "complexity": "medium",
+  "id": "plan-todo-recitation",
+  "kind": "pattern",
+  "name": "Plan & TODO Recitation",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "ca7c00c60c37651e4984d02fcd627544496ce291b8269700c349dd98ced53b17",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/planning-execution/plan-todo-recitation"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

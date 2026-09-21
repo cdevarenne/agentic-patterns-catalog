@@ -1,0 +1,29 @@
+{
+  "category": "memory-management",
+  "complexity": "high",
+  "id": "transactive-memory-systems",
+  "kind": "pattern",
+  "name": "Transactive Memory Systems",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "3c6f169880d6d7278725b8b54e2768929277ecc3d967281f081067cffaba150e",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/memory-management/transactive-memory-systems"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

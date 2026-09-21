@@ -1,0 +1,29 @@
+{
+  "category": "reasoning-techniques",
+  "complexity": "high",
+  "id": "abductive-reasoning",
+  "kind": "pattern",
+  "name": "Abductive Reasoning",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "34858ef5e45d2bc2a4a556468c0f7c62f5bdd0585615e9da07a602fc1703d7fe",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/reasoning-techniques/abductive-reasoning"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

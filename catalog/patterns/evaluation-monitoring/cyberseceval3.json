@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "cyberseceval3",
+  "kind": "pattern",
+  "name": "CybersecEval 3",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "6a8f6e081c57ab2ad73f3418e5e12e0af254be55fd8962b73eee0154718e36fa",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/cyberseceval3"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

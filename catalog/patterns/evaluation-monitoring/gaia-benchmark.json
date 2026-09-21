@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "gaia-benchmark",
+  "kind": "pattern",
+  "name": "GAIA: General AI Assistants Benchmark",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "b1480e50a10cdd6228dc2eec50815e089043ac01a285cff2e83b8316fe1f5103",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/gaia-benchmark"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

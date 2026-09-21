@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "aisi-evaluation-framework",
+  "kind": "pattern",
+  "name": "AISI Evaluation Framework",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "826e5b24a557b27b1ae6910c3d2ee56a5a9c2783a36bf4b1f3d84b76de63c6a5",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/aisi-evaluation-framework"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

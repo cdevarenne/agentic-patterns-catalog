@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "high",
+  "id": "agrail-adaptive-pattern",
+  "kind": "pattern",
+  "name": "AGrail Adaptive Pattern",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "6a9b2f36ee99ad5c19a8ded8df604ceaf9257e096bc2d8b881283bd46092e5a7",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/agrail-adaptive-pattern"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "memory-management",
+  "complexity": "high",
+  "id": "semantic-memory-networks",
+  "kind": "pattern",
+  "name": "Semantic Memory Networks",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "0b3da829f40c4dbd5c8514f69699c0a7b07dac955400313b512de8d7faefc747",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/memory-management/semantic-memory-networks"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

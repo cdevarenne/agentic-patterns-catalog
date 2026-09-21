@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "medium",
+  "id": "agent-status-activity-patterns",
+  "kind": "pattern",
+  "name": "Agent Status & Activity UI Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "95c7492b6a3505046701350f2fe440ef102df3523376c881076e41cff0c486ea",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/agent-status-activity-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "high",
+  "id": "layered-defense-pattern",
+  "kind": "pattern",
+  "name": "Layered Defense Pattern",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "5e61335d95a640f7a40330a8a46b5ad3470cda788d88b087ffbd132e545e3393",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/layered-defense-pattern"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

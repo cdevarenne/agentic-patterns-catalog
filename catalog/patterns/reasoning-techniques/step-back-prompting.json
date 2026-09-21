@@ -1,0 +1,29 @@
+{
+  "category": "reasoning-techniques",
+  "complexity": "medium",
+  "id": "step-back-prompting",
+  "kind": "pattern",
+  "name": "Step-Back Prompting",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "3aecc50273df7a990fe4655970540de2ef55851568320fa4fa7a9280900fb7d5",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/reasoning-techniques/step-back-prompting"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

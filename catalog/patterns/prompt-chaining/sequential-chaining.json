@@ -1,0 +1,29 @@
+{
+  "category": "prompt-chaining",
+  "complexity": "low",
+  "id": "sequential-chaining",
+  "kind": "pattern",
+  "name": "Sequential Chaining",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "2ee57f66b752d69ee43fe38ffa187135542228ff33f86761931a3fb9dd2e2ecd",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/prompt-chaining/sequential-chaining"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

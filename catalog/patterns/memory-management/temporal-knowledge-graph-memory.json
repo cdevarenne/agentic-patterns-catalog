@@ -1,0 +1,29 @@
+{
+  "category": "memory-management",
+  "complexity": "high",
+  "id": "temporal-knowledge-graph-memory",
+  "kind": "pattern",
+  "name": "Temporal Knowledge Graph Memory",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "946794edb50353154b26c3b5324bb872b796c92bafa0a6c60c4e7f63090a1912",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/memory-management/temporal-knowledge-graph-memory"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

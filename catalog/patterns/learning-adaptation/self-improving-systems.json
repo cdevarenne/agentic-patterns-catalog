@@ -1,0 +1,29 @@
+{
+  "category": "learning-adaptation",
+  "complexity": "high",
+  "id": "self-improving-systems",
+  "kind": "pattern",
+  "name": "Self-Improving Systems",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "27e2568f265f172c7666204eeb45d2140b2a26f7b13702ddaf2a3222a6b47644",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/learning-adaptation/self-improving-systems"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

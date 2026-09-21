@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "hula-framework",
+  "kind": "pattern",
+  "name": "Human-in-the-Loop Agent (HULA)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "f9916688fe699bf068570472f2cf1fa5d759cce5a53ad6fffeb480d8f2d23762",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/hula-framework"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

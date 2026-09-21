@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "high",
+  "id": "identity-access-management",
+  "kind": "pattern",
+  "name": "Identity & Access Management",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "ad0f94a6eafea0cf0673f6c34260bb5ab8f66242b854e44b7b162d19d5661efc",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/identity-access-management"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

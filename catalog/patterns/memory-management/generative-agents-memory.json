@@ -1,0 +1,29 @@
+{
+  "category": "memory-management",
+  "complexity": "high",
+  "id": "generative-agents-memory",
+  "kind": "pattern",
+  "name": "Generative Agents Memory",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "01c1fec901e97469058ac2f0b2341529f81c1a99ea7ded03ccc6669510086a5c",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/memory-management/generative-agents-memory"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

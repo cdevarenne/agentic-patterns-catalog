@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "high",
+  "id": "intrinsic-alignment-pattern",
+  "kind": "pattern",
+  "name": "Intrinsic Alignment Pattern",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "aacba41a2910c597e0791f015823bce3d0b4ce030de25794d150f866148d5605",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/intrinsic-alignment-pattern"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

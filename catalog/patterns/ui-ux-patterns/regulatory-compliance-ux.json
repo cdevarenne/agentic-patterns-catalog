@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "regulatory-compliance-ux",
+  "kind": "pattern",
+  "name": "Regulatory Compliance UX",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "5bacbe4cb0e3efa87d3dbd973b68554d48a980a9fe03d0f568b1253035053c14",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/regulatory-compliance-ux"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

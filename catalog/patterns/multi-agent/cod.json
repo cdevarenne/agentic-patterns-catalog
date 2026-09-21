@@ -1,0 +1,29 @@
+{
+  "category": "multi-agent",
+  "complexity": "high",
+  "id": "cod",
+  "kind": "pattern",
+  "name": "Chain of Debates",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "6c852198289af4af2a8c89d0312e8af2e631fa7a69802daa68396208dcfda2af",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/multi-agent/cod"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

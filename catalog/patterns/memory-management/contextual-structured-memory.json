@@ -1,0 +1,29 @@
+{
+  "category": "memory-management",
+  "complexity": "high",
+  "id": "contextual-structured-memory",
+  "kind": "pattern",
+  "name": "Contextual Structured Memory",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "93d047a246e9fbaeeebfdf5501c9e89f3bf5cd8d44361190eeabd5a558e908d9",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/memory-management/contextual-structured-memory"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

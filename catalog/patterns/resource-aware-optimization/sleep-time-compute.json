@@ -1,0 +1,29 @@
+{
+  "category": "resource-aware-optimization",
+  "complexity": "medium",
+  "id": "sleep-time-compute",
+  "kind": "pattern",
+  "name": "Sleep-Time Compute",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "be0694ca93e76535f4460de8ba11251e26d951cb19b3b9a2f828be9111693ff6",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/resource-aware-optimization/sleep-time-compute"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

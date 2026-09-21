@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "medium",
+  "id": "context-window-management-patterns",
+  "kind": "pattern",
+  "name": "Context Window Management UI",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "28982c99bd387cfeb72372752c23fb9c91d35de5353972cadb059a70d199c0bf",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/context-window-management-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

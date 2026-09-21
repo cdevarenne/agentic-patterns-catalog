@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "generative-ui",
+  "kind": "pattern",
+  "name": "Generative UI (Agent-Rendered Interfaces)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "e7f5ae2aaf8476228512d357addc45c7f270cf0df97879962e4970d51f1f31b5",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/generative-ui"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

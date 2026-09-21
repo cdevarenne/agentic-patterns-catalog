@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "privacy-by-design-principles",
+  "kind": "pattern",
+  "name": "Privacy-by-Design Principles",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "d0321c707d3fd82514caf37e930eb74551353d41b16bba9d386a5fab0a2935bc",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/privacy-by-design-principles"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

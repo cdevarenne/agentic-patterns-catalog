@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "high",
+  "id": "confidential-computing-patterns",
+  "kind": "pattern",
+  "name": "Confidential Computing Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "5d749d9f9813159a6ff7b16b82c611cb5815b77b88ad4b54620e1dfd000816a1",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/confidential-computing-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

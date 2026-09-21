@@ -1,0 +1,29 @@
+{
+  "category": "reasoning-techniques",
+  "complexity": "high",
+  "id": "metacognitive-monitoring",
+  "kind": "pattern",
+  "name": "Metacognitive Monitoring",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "2ae8532f1acb928b2553c110bec211977b9f7e7c17ceb56495fc480185fd0ef8",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/reasoning-techniques/metacognitive-monitoring"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

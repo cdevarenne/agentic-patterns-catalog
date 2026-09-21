@@ -1,0 +1,29 @@
+{
+  "category": "prioritization",
+  "complexity": "high",
+  "id": "dynamic-ranking",
+  "kind": "pattern",
+  "name": "Dynamic Content Ranking",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "0976562cb93b258add0f4a1559b9b6e5d4b61c61b698502bcd356e2b143b6b7c",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/prioritization/dynamic-ranking"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "context-management",
+  "complexity": "high",
+  "id": "context-processing-pipelines",
+  "kind": "pattern",
+  "name": "Context Processing Pipelines",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "11926325e465798b30ddf4f2879b3fe6d6b6e69098cdea1dfca17e5f11168189",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-management/context-processing-pipelines"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

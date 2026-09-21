@@ -1,0 +1,29 @@
+{
+  "category": "knowledge-retrieval",
+  "complexity": "high",
+  "id": "deep-research-agent",
+  "kind": "pattern",
+  "name": "Deep Research Agent",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "047c608f3d23d475de8a2e4a1ee2f9baa176ab984854e20bb6647d48bcbaff61",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/knowledge-retrieval/deep-research-agent"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

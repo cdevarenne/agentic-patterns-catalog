@@ -1,0 +1,29 @@
+{
+  "category": "multi-agent",
+  "complexity": "high",
+  "id": "peer-collaboration",
+  "kind": "pattern",
+  "name": "Peer Collaboration",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "8f9478e4d4249c3b014fb7f0132b62b72d55476af64eb3c499cb71d99c52e3d0",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/multi-agent/peer-collaboration"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

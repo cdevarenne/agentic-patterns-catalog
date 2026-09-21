@@ -1,0 +1,29 @@
+{
+  "category": "learning-adaptation",
+  "complexity": "medium",
+  "id": "supervised-learning-adaptation",
+  "kind": "pattern",
+  "name": "Supervised Learning for Agents",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "68309c056802b553f58f264cdac7ac3649dfa4e16dfe13ec43ccabd2433a09d8",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/learning-adaptation/supervised-learning-adaptation"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

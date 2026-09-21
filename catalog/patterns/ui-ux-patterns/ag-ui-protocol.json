@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "medium",
+  "id": "ag-ui-protocol",
+  "kind": "pattern",
+  "name": "AG-UI Protocol (Agent-User Interaction)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "31a848806b998e326a38ebf263dd3577c6bde112a717355175cf5eaf76637ad0",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/ag-ui-protocol"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

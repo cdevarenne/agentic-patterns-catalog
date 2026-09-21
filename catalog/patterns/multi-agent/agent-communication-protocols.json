@@ -1,0 +1,29 @@
+{
+  "category": "multi-agent",
+  "complexity": "medium",
+  "id": "agent-communication-protocols",
+  "kind": "pattern",
+  "name": "Agent Communication Protocols",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "be6e95a96ddc6a46ae9569cfae79bf68458ada15d814854837040e56ac2c4811",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/multi-agent/agent-communication-protocols"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

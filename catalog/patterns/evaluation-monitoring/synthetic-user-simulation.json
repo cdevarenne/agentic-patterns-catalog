@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "medium",
+  "id": "synthetic-user-simulation",
+  "kind": "pattern",
+  "name": "Synthetic User Simulation",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "b7664d41d8d84bd5edd9b90cae7768aaca16dc1360a36fabf8d59b592c511679",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/synthetic-user-simulation"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

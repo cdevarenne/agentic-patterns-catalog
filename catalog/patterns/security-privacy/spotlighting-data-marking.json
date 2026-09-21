@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "low",
+  "id": "spotlighting-data-marking",
+  "kind": "pattern",
+  "name": "Spotlighting & Data Marking",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "648f33fa970cdc78bc8d7faf90a3ca3ca2e71072cdde5cc2341e896cd70c0e27",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/spotlighting-data-marking"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "mixed-initiative-interface-patterns",
+  "kind": "pattern",
+  "name": "Mixed-Initiative Interface Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "a03688db9292442c8445697454ad085f7fadf1d38e5f4a780c765da92403eb5d",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/mixed-initiative-interface-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

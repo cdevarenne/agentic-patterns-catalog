@@ -36,14 +36,14 @@ Concretely:
 
 | Input | Location | Fields | License / use |
 |---|---|---|---|
-| Site mirror, raw pages | `../agentic-design-mirror/pages/raw/patterns/**` | Next.js RSC payload (`self.__next_f.push`) with the pattern object | © KORTEXYA; personal education only. Extracted `content.*` for these 277 records is **gitignored** and rebuilt locally. |
-| Free pack | `../agentic-design-mirror/patterns-pack-free/data/patterns.json` | 11 tool-use records: `id, name, category, categoryName, complexity, description, features, useCases, tldr, example, code, references` | "Free to use in your own projects … do not republish as your own." The 11 records are committed as sample data with the pack README quoted. |
+| Site mirror, raw pages | `../agentic-design-mirror/pages/raw/patterns/**` | Next.js RSC payload (`self.__next_f.push`) with the pattern object | © KORTEXYA; personal education only. Per ADR-0003, the tracked record for these 277 patterns is identity + `selection` + `provenance`; the extracted `content.*` is a **gitignored** cache under `var/content/` rebuilt locally by `catalog extract`. |
+| Free pack | `../agentic-design-mirror/patterns-pack-free/data/patterns.json` | 11 tool-use records: `id, name, category, categoryName, complexity, description, features, useCases, tldr, example, code, references` | "Free to use in your own projects … do not republish as your own." The 11 records, including `content`, are committed as sample data with the pack README quoted. |
 | Free pack MCP server | `…/patterns-pack-free/mcp-server/server.mjs` | tool names and shapes | Reused as naming precedent only (cited); no code copied. |
 | Free pack Markdown sheets | `…/patterns-pack-free/markdown/tool-use/*.md` | sheet layout | Layout reused for compiled reference sheets (cited). |
 
 Measured 2026-09-12 by parsing the raw pages (prototype in the plan): every page carries two
-sources of pattern content. Both are site prose; only the 11 pack records are committed, and
-category records (§4.2b) are gitignored like the other 277 patterns.
+sources of pattern content. Both are site prose; only the 11 pack records' `content` is committed,
+and category records (§4.2b) stay gitignored, since their prose is not licensed for redistribution.
 
 1. The RSC props (JSON): the pattern object (`id, name, abbr, category, complexity, description,
    example, features, useCases, references`) plus page-level `tldr{what, when, watchOut}`,
@@ -120,14 +120,13 @@ prose: the free pack licenses only the `tool-use` category line. Category record
 views quote a category's `id` and `name` only (the taxonomy); `compile --local` adds the
 description and the `implementationGuide` sections to the local guides.
 
-### 4.2c Tracked record vs content cache (ADR-0003, not yet implemented)
+### 4.2c Tracked record vs content cache (ADR-0003)
 
 [ADR-0003](../../adr/0003-enrichment-is-the-tracked-record.md) decides that the tracked record is
-identity + `selection` + `provenance` for all 288 patterns, and that site `content` becomes a
+identity + `selection` + `provenance` for all 288 patterns, and that site `content` is a
 gitignored cache rebuilt by `catalog extract` (and by `catalog seed` from `data/pack/patterns.json`
-for the 11 free-pack records). `Pattern.content` becomes optional and `FileStore` merges the cache at
-load. Until issue #4 implements it, §3 and §7 describe the current layout: whole records gitignored
-except the 11 pack records.
+for the 11 free-pack records). `Pattern.content` is optional and `FileStore` merges the cache at
+load.
 
 ### 4.3 Index
 
@@ -263,7 +262,7 @@ the client type in the console. Secrets live in `.env` (gitignored); `.env.examp
 | Output | Content | Budget / check |
 |---|---|---|
 | `skills/agentic-patterns/generated/CATALOG.md` | one line per **category** (24): `- **<id>** — <name> — <n> patterns` (the description is site prose and appears only under `--local`) | token estimate (`len(text) / 4`) asserted under 2k |
-| `skills/agentic-patterns/generated/CATALOG-full.md` | one line per record. Pack records: `id — tldr.what — use when: tldr.when`. The other 277: `id — name — first problem_signal` when enriched, `id — name` until then, so no site prose is committed. `compile --local` may use `tldr` for all 288 for local use and the smoke test; that output is gitignored. | token estimate asserted under 16k |
+| `skills/agentic-patterns/generated/CATALOG-full.md` | one line per record. Pack records: `id — tldr.what — use when: tldr.when`, from their tracked `content`. The other 277 are tracked as identity + `selection` + `provenance` only (ADR-0003): `id — name — first problem_signal` when enriched, `id — name` until then, so no mirror site prose is committed. `compile --local` may use `tldr` from the local content cache for all 288, for local use and the smoke test; that output is gitignored. | token estimate asserted under 16k |
 | `skills/agentic-patterns/generated/guides/<category>.md` | comparison table of the category's patterns by facets; `alternative_to` rows with `prefer_when`; the category's `implementationGuide` sections only under `--local` | every pattern of the category appears once; `compile` removes files it did not produce |
 | `skills/agentic-patterns/generated/sheets/<id>.md` | full reference sheet, pack layout | only for the 11 pack records in git; all 288 locally |
 | `catalog/embeddings/<model>.npy` + ids | semantic arm index | gitignored; rebuilt by compile |

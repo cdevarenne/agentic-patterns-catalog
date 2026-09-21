@@ -1,0 +1,29 @@
+{
+  "category": "planning-execution",
+  "complexity": "high",
+  "id": "plan-execute-decoupling",
+  "kind": "pattern",
+  "name": "Plan-Execute Decoupling (ReWOO/LLMCompiler)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "69a65d2e61e0b6e9ed604d2f60ca67806b8acd2013e04cc088e70383972899fa",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/planning-execution/plan-execute-decoupling"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "progressive-disclosure-patterns",
+  "kind": "pattern",
+  "name": "Progressive Disclosure UI Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "0dea6bf2f15c221fab36a79ab3e8f4c3cba3c873134b3ba4f32c4ae1d80cab64",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/progressive-disclosure-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

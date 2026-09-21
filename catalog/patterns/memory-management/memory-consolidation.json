@@ -1,0 +1,29 @@
+{
+  "category": "memory-management",
+  "complexity": "high",
+  "id": "memory-consolidation",
+  "kind": "pattern",
+  "name": "Memory Consolidation",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "837d3516a55c511b726ab90fc7e8dc0edcd7b598705f6ed3fcd60224a2e39c9e",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/memory-management/memory-consolidation"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

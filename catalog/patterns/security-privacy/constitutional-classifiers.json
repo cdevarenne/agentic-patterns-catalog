@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "medium",
+  "id": "constitutional-classifiers",
+  "kind": "pattern",
+  "name": "Constitutional Classifiers",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "f2ca1fd4324f02f506a5c60ba93ae8c79f4b33ed626f1ed4c0cfb6d95f048f80",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/constitutional-classifiers"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

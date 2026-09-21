@@ -1,0 +1,29 @@
+{
+  "category": "learning-adaptation",
+  "complexity": "high",
+  "id": "online-learning-adaptation",
+  "kind": "pattern",
+  "name": "Online Learning for Agents",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "bda4544292f0000abfaadd4cfb958c6032e923d9919a0f9a396a97fde4fc2ffe",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/learning-adaptation/online-learning-adaptation"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "accessibility-agent-design",
+  "kind": "pattern",
+  "name": "Accessibility in Agent Design",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "ef096620e0a93079d2587428bee36e2a79d5866134044b7754dc6dcee3767f30",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/accessibility-agent-design"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

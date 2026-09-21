@@ -1,0 +1,29 @@
+{
+  "category": "context-orchestration",
+  "complexity": "high",
+  "id": "multi-source-context-fusion",
+  "kind": "pattern",
+  "name": "Multi-Source Context Fusion",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "4c6d982b945e2d81933cfd38db3f7226889064cc67ef86cd1ac2175de64adfb2",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-orchestration/multi-source-context-fusion"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "interpretability",
+  "complexity": "medium",
+  "id": "contrastive-explanations",
+  "kind": "pattern",
+  "name": "Contrastive Explanations",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "68c01bc901442b8945625f302219305726d367935dfa9939ee0ca0d4e959ac7f",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/interpretability/contrastive-explanations"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

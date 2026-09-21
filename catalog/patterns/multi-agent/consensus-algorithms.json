@@ -1,0 +1,29 @@
+{
+  "category": "multi-agent",
+  "complexity": "high",
+  "id": "consensus-algorithms",
+  "kind": "pattern",
+  "name": "Consensus Algorithms",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "94843f039693e76d697842d0aeec977558a3bb29db77dcebceca21fa21c2e08a",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/multi-agent/consensus-algorithms"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

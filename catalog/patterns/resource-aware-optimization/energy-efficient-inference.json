@@ -1,0 +1,29 @@
+{
+  "category": "resource-aware-optimization",
+  "complexity": "high",
+  "id": "energy-efficient-inference",
+  "kind": "pattern",
+  "name": "Energy-Efficient Inference",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "30ea6b84aabb9e52ab5078b5199a1f02e8acb5914a8687f9c6f2b3b70ac7d44b",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/resource-aware-optimization/energy-efficient-inference"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "medium",
+  "id": "mlcommons-ai-safety",
+  "kind": "pattern",
+  "name": "MLCommons AI Safety Benchmark v1.0",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "4ddb96fcab7c7a5f9b00d93e12879f348156e06d95edd73c19c29ebad7f3beac",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/mlcommons-ai-safety"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

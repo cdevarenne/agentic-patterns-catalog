@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "medium",
+  "id": "granular-privacy-controls",
+  "kind": "pattern",
+  "name": "Granular Privacy Controls",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "0ee6db93ec1e7d9a724ccc3156923391aedef5af3d9166d8811acba3fbcf0768",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/granular-privacy-controls"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

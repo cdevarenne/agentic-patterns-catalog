@@ -1,0 +1,29 @@
+{
+  "category": "exploration-discovery",
+  "complexity": "high",
+  "id": "reinforcement-learning",
+  "kind": "pattern",
+  "name": "Reinforcement Learning Exploration",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "b17a014f2bf048431f31a4f75af07ea28271acb46a3a04bf7cb84c6645b1dfb9",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/exploration-discovery/reinforcement-learning"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

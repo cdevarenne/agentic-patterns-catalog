@@ -1,0 +1,29 @@
+{
+  "category": "resource-aware-optimization",
+  "complexity": "medium",
+  "id": "cost-aware-model-selection",
+  "kind": "pattern",
+  "name": "Cost-Aware Model Selection",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "b80791bde46e8cb29872a323b036688a4185985e27dd762613e336911493b63f",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/resource-aware-optimization/cost-aware-model-selection"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

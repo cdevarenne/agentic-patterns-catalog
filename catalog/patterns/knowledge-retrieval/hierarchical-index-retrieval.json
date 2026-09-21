@@ -1,0 +1,29 @@
+{
+  "category": "knowledge-retrieval",
+  "complexity": "high",
+  "id": "hierarchical-index-retrieval",
+  "kind": "pattern",
+  "name": "Hierarchical Index Retrieval (RAPTOR)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "7fcb2b06e24483ecb8cf837ce45903256bcc6cc9a0b8649a24440c28cd817117",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/knowledge-retrieval/hierarchical-index-retrieval"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

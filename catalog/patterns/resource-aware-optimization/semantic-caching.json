@@ -1,0 +1,29 @@
+{
+  "category": "resource-aware-optimization",
+  "complexity": "medium",
+  "id": "semantic-caching",
+  "kind": "pattern",
+  "name": "Semantic Caching",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "fef8ef2aa17f7d0e61e8d74ac03316abb8846206f8b0aacacca47096320ac501",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/resource-aware-optimization/semantic-caching"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "routing",
+  "complexity": "medium",
+  "id": "load-balancing",
+  "kind": "pattern",
+  "name": "Load Balancing",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "3bdefc5f4f4698083e64542916795fa7f516592d84dd353becdee9f3ab8a19a8",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/routing/load-balancing"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "planning-execution",
+  "complexity": "high",
+  "id": "hierarchical-task-network-planning",
+  "kind": "pattern",
+  "name": "Hierarchical Task Network (HTN) Planning",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "fb65cac13189833f90d00805713e5ebf041761642f4fab1f096561fa8456e5b9",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/planning-execution/hierarchical-task-network-planning"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

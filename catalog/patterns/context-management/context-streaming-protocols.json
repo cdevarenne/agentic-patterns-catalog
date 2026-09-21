@@ -1,0 +1,29 @@
+{
+  "category": "context-management",
+  "complexity": "high",
+  "id": "context-streaming-protocols",
+  "kind": "pattern",
+  "name": "Context Streaming Protocols",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "46b19fa88ee7298d4eb3de5a1c2d2b623d71d9fd475192603f004b2d5b348f6b",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-management/context-streaming-protocols"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

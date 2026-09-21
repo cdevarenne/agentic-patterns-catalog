@@ -1,0 +1,29 @@
+{
+  "category": "prioritization",
+  "complexity": "medium",
+  "id": "weighted-scoring",
+  "kind": "pattern",
+  "name": "Multi-Criteria Weighted Scoring",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "a15d24157e1e28f8077d4d92d796b56e8ebb03effece5a23cbbc5f7a8d01a244",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/prioritization/weighted-scoring"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

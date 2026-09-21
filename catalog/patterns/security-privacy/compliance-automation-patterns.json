@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "high",
+  "id": "compliance-automation-patterns",
+  "kind": "pattern",
+  "name": "Compliance Automation Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "e85ce1c19fb10b2dea6bd0cebeb67b139a5156bfd35b02f1a408198ccef3e61b",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/compliance-automation-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

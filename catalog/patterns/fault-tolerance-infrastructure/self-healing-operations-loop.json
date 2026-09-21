@@ -1,0 +1,29 @@
+{
+  "category": "fault-tolerance-infrastructure",
+  "complexity": "high",
+  "id": "self-healing-operations-loop",
+  "kind": "pattern",
+  "name": "Agentic SRE (Self-Healing Operations)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "f34739687ad8f1a6a226884603a0ef59b53b7a2dbf47a456e305cfc399c47a9d",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/fault-tolerance-infrastructure/self-healing-operations-loop"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "mlr-bench",
+  "kind": "pattern",
+  "name": "MLR-Bench",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "e8d0d2141f1612831ccf5aa3ee3b931dc9c0a19f9f8bc47062e7e02491f2b6b6",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/mlr-bench"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

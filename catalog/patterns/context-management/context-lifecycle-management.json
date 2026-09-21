@@ -1,0 +1,29 @@
+{
+  "category": "context-management",
+  "complexity": "high",
+  "id": "context-lifecycle-management",
+  "kind": "pattern",
+  "name": "Context Lifecycle Management",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "e5cfee7a174b6a7014bf7f3790f42f4301d45cc9140c7fabcd01a362e01b7e59",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-management/context-lifecycle-management"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

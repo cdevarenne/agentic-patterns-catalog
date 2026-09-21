@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "metr-re-bench",
+  "kind": "pattern",
+  "name": "METR RE-Bench",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "04587a4eee7fa7c05604b855a9b1719fd11166e3b9adc9e5572459c3b3f40150",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/metr-re-bench"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

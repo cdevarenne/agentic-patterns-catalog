@@ -1,0 +1,29 @@
+{
+  "category": "exploration-discovery",
+  "complexity": "high",
+  "id": "curiosity-driven-search",
+  "kind": "pattern",
+  "name": "Curiosity-Driven Exploration",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "d8ad52312067d3fc9f447273f1e4c73631b1f39231f01bf5cd57e5f3a81fbfba",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/exploration-discovery/curiosity-driven-search"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

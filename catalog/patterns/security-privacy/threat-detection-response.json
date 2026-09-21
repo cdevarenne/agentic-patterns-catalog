@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "high",
+  "id": "threat-detection-response",
+  "kind": "pattern",
+  "name": "Threat Detection & Response",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "df8c2515aff37c8a194e58c24794cc3c9900744c9272daa6e3df6641de368e50",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/threat-detection-response"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

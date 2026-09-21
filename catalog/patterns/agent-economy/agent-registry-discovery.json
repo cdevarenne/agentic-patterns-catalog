@@ -1,0 +1,29 @@
+{
+  "category": "agent-economy",
+  "complexity": "medium",
+  "id": "agent-registry-discovery",
+  "kind": "pattern",
+  "name": "Agent Registry & Discovery",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "40a3a6996fb660fe8c33abcdc59a9c32dbe6c412d8bdc79e8490da7f8e391910",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/agent-economy/agent-registry-discovery"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

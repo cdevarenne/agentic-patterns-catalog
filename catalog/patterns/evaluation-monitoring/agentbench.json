@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "agentbench",
+  "kind": "pattern",
+  "name": "AgentBench",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "ad8adb8cb9055873e0d197d7a22735122c3000210baa7768175a13b70b9462d7",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/agentbench"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

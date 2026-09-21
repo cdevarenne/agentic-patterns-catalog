@@ -1,0 +1,29 @@
+{
+  "category": "context-management",
+  "complexity": "high",
+  "id": "context-failure-prevention",
+  "kind": "pattern",
+  "name": "Context Failure Prevention",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "a50310fecd1dc7eed78eae602c5530cbf4ae73c2da993799c509d665fa0cf52b",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-management/context-failure-prevention"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

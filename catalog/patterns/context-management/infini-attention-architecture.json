@@ -1,0 +1,29 @@
+{
+  "category": "context-management",
+  "complexity": "high",
+  "id": "infini-attention-architecture",
+  "kind": "pattern",
+  "name": "Infini-Attention Architecture",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "96f0e71007dddd0a711f60d6b749289eb62b8f0870affbbf371f13356b7f74a6",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-management/infini-attention-architecture"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

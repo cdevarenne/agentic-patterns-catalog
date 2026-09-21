@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "medium",
+  "id": "onboarding-education-patterns",
+  "kind": "pattern",
+  "name": "Onboarding and Education Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "b49644c15c9b275f81e3a031bb267f8c2b67e6de2f49473824f4cefe524d2e67",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/onboarding-education-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

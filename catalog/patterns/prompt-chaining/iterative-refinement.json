@@ -1,0 +1,29 @@
+{
+  "category": "prompt-chaining",
+  "complexity": "medium",
+  "id": "iterative-refinement",
+  "kind": "pattern",
+  "name": "Iterative Refinement",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "3df0520e97a6fe5aa19faa8f8b20bf44c1a5d37c3b334474cb775a9f53aa157e",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/prompt-chaining/iterative-refinement"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "workflow-orchestration",
+  "complexity": "high",
+  "id": "resource-aware-scheduling",
+  "kind": "pattern",
+  "name": "Resource-Aware Scheduling",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "a4b92ce252c7d1f18659af80a13f70e83e238d946e31840734b9745b28ee1aa4",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/workflow-orchestration/resource-aware-scheduling"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

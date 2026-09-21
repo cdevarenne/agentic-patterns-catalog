@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "multimodal-interaction-patterns",
+  "kind": "pattern",
+  "name": "Multimodal Interaction Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "23b801e1f0689bdf6f94362766e727dd4625bc87d590d27416952d032943c540",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/multimodal-interaction-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

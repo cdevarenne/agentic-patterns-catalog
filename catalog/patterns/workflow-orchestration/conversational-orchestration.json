@@ -1,0 +1,29 @@
+{
+  "category": "workflow-orchestration",
+  "complexity": "high",
+  "id": "conversational-orchestration",
+  "kind": "pattern",
+  "name": "Conversational Orchestration",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "4b7455f8e3c5d87b2d06d8e378b516c336bf89f23f94731cfb9b01396f3b8ee9",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/workflow-orchestration/conversational-orchestration"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

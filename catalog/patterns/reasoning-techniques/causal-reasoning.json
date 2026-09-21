@@ -1,0 +1,29 @@
+{
+  "category": "reasoning-techniques",
+  "complexity": "high",
+  "id": "causal-reasoning",
+  "kind": "pattern",
+  "name": "Causal Reasoning",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "7cc77554defd17c9de6b2548d6682ecc8b9182065085e4544567f1cabef28f2f",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/reasoning-techniques/causal-reasoning"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

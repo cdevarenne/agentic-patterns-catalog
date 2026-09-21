@@ -1,0 +1,29 @@
+{
+  "category": "workflow-orchestration",
+  "complexity": "medium",
+  "id": "progressive-enhancement",
+  "kind": "pattern",
+  "name": "Progressive Enhancement",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "3d4135f859b0fc6d3be7a59d2a61e561f1712f41787d30372fac4d6680b1b781",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/workflow-orchestration/progressive-enhancement"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

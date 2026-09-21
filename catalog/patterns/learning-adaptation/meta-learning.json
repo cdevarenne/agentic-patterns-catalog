@@ -1,0 +1,29 @@
+{
+  "category": "learning-adaptation",
+  "complexity": "high",
+  "id": "meta-learning",
+  "kind": "pattern",
+  "name": "Meta-Learning Systems",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "458aaaf5e38f29e0682facb52eadce1f7f96cd49fab78b1f083b6f9bb9fb63a0",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/learning-adaptation/meta-learning"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

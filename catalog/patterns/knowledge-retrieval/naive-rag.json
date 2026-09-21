@@ -1,0 +1,29 @@
+{
+  "category": "knowledge-retrieval",
+  "complexity": "low",
+  "id": "naive-rag",
+  "kind": "pattern",
+  "name": "Naive RAG",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "edbc14fcafbb3f0fd7df01068bd4e39e22d34114274e69324daca6ac76ae8b75",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/knowledge-retrieval/naive-rag"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

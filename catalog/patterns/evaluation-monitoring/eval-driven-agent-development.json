@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "eval-driven-agent-development",
+  "kind": "pattern",
+  "name": "Eval-Driven Development (Agent CI)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "31e670d6b88fd8780bc259431dac44b60023ee709335d192c69bac8e7a679503",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/eval-driven-agent-development"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

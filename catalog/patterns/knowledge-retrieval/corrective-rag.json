@@ -1,0 +1,29 @@
+{
+  "category": "knowledge-retrieval",
+  "complexity": "high",
+  "id": "corrective-rag",
+  "kind": "pattern",
+  "name": "Corrective RAG (CRAG)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "227156a2bb8235bc4cce0a71e8c3d694c7cda3ae491f9f96a9f2ba53f15b0b5a",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/knowledge-retrieval/corrective-rag"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

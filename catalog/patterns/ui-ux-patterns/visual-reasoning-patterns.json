@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "visual-reasoning-patterns",
+  "kind": "pattern",
+  "name": "Visual Reasoning Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "19938989815bb7b57f60a40522c6359d88a7502c1ec62896a626afbbd49634ae",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/visual-reasoning-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

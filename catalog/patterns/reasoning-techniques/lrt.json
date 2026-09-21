@@ -1,0 +1,29 @@
+{
+  "category": "reasoning-techniques",
+  "complexity": "high",
+  "id": "lrt",
+  "kind": "pattern",
+  "name": "Latent Recurrent Thinking",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "1d9ed6117aced23ef3f62934dc021257e4f1c9a04f37ddc54b231c4e63e3d250",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/reasoning-techniques/lrt"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

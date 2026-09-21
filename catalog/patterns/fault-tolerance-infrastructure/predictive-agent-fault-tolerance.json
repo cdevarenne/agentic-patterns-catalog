@@ -1,0 +1,29 @@
+{
+  "category": "fault-tolerance-infrastructure",
+  "complexity": "high",
+  "id": "predictive-agent-fault-tolerance",
+  "kind": "pattern",
+  "name": "Predictive Agent Fault Tolerance",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "daa723fbbdc262dbf4adfbc7fdfc4163195107345c80a33914d6a4f0e3db9c09",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/fault-tolerance-infrastructure/predictive-agent-fault-tolerance"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

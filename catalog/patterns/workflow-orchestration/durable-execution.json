@@ -1,0 +1,29 @@
+{
+  "category": "workflow-orchestration",
+  "complexity": "high",
+  "id": "durable-execution",
+  "kind": "pattern",
+  "name": "Durable Execution & Checkpointing",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "ec363a54e47a9e27f4f6e9f642568786a34a23c6e605b0dafc11bcb539893714",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/workflow-orchestration/durable-execution"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

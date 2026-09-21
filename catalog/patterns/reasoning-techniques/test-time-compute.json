@@ -1,0 +1,29 @@
+{
+  "category": "reasoning-techniques",
+  "complexity": "high",
+  "id": "test-time-compute",
+  "kind": "pattern",
+  "name": "Test-Time Compute Scaling",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "f82230b6da308ed081c05dede23f5ee1c7eee2477e178c33414e18aaabfde715",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/reasoning-techniques/test-time-compute"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

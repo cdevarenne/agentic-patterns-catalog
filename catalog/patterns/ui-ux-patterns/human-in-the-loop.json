@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "medium",
+  "id": "human-in-the-loop",
+  "kind": "pattern",
+  "name": "Human-in-the-Loop",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "4420449c57f4ee1290eeed5e79e96514635096e57d850690950af79f4a2dfba3",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/human-in-the-loop"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

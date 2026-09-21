@@ -1,0 +1,29 @@
+{
+  "category": "learning-adaptation",
+  "complexity": "high",
+  "id": "skill-library",
+  "kind": "pattern",
+  "name": "Skill Library (Voyager)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "69c0ed21f1549b8ee50fdc09d7b17799b55b9583f41add2d2a913fa8ba3a9b1c",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/learning-adaptation/skill-library"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

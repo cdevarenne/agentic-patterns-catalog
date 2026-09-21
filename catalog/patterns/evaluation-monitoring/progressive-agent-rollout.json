@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "progressive-agent-rollout",
+  "kind": "pattern",
+  "name": "Progressive Rollout & Shadow Mode",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "6b05c8c1c479992dd798b5a62aee12be48771cb60828f48ce12c5838f18376e6",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/progressive-agent-rollout"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

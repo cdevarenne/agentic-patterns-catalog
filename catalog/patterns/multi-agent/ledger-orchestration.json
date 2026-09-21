@@ -1,0 +1,29 @@
+{
+  "category": "multi-agent",
+  "complexity": "high",
+  "id": "ledger-orchestration",
+  "kind": "pattern",
+  "name": "Ledger Orchestration (Magentic-One)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "23ebec8cba54a443c52a59d4267196f5ffab9ffde36d7938cff227982b9bf801",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/multi-agent/ledger-orchestration"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "risk-tiered-approval-escalation",
+  "kind": "pattern",
+  "name": "Approval Queues & Escalation Chains",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "cd6ac22e4f4a231bd76b67dbbdc7dbdc63517a6a966154f2c0bef86bdeb4d3d9",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/risk-tiered-approval-escalation"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

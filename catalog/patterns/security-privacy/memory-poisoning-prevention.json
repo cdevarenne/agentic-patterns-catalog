@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "high",
+  "id": "memory-poisoning-prevention",
+  "kind": "pattern",
+  "name": "Memory Poisoning Prevention Pattern",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "24e1432e8fac66caa6af89d49f0230da3d3bb84933f55945654f76b6e20882bb",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/memory-poisoning-prevention"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

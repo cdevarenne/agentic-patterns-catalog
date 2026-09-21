@@ -1,0 +1,29 @@
+{
+  "category": "context-management",
+  "complexity": "high",
+  "id": "semantic-context-compression",
+  "kind": "pattern",
+  "name": "Semantic Context Compression",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "103fe63934a68893e6d8e04fbf847940e30fef5eb2282873235b3da81a7026e3",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-management/semantic-context-compression"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

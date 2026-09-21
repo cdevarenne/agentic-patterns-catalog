@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "terminal-bench",
+  "kind": "pattern",
+  "name": "Terminal-Bench",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "2fc10980899c2aa0d939c8d4f25ab7e801d2e279d549555cbd7c8deae6436f63",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/terminal-bench"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

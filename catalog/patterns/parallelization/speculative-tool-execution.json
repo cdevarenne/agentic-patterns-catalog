@@ -1,0 +1,29 @@
+{
+  "category": "parallelization",
+  "complexity": "high",
+  "id": "speculative-tool-execution",
+  "kind": "pattern",
+  "name": "Speculative & Parallel Tool Execution",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "e761e9328771c9f5e68c846746d580305907f640c9506b0e11bd0125e8b4287a",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/parallelization/speculative-tool-execution"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

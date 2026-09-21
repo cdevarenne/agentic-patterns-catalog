@@ -1,0 +1,29 @@
+{
+  "category": "reasoning-techniques",
+  "complexity": "high",
+  "id": "tot",
+  "kind": "pattern",
+  "name": "Tree-of-Thought",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "45ad16aa0de1c2f731a67abd08454229d837d647270ca80b832d006367e4d350",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/reasoning-techniques/tot"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

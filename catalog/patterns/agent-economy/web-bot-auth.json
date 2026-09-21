@@ -1,0 +1,29 @@
+{
+  "category": "agent-economy",
+  "complexity": "medium",
+  "id": "web-bot-auth",
+  "kind": "pattern",
+  "name": "Web Bot Auth (Signed Agents)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "761ce42497e47138fbdb17aa8217151d99947d4a5d6f758a6d7ad74d9b940f8e",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/agent-economy/web-bot-auth"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

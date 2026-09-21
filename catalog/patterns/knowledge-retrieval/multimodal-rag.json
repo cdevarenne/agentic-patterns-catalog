@@ -1,0 +1,29 @@
+{
+  "category": "knowledge-retrieval",
+  "complexity": "high",
+  "id": "multimodal-rag",
+  "kind": "pattern",
+  "name": "Multimodal RAG",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "b1f2fa0cf47adb06f1f59469d856cc247276bc3634e6dfc2d3390f3f64ff63a1",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/knowledge-retrieval/multimodal-rag"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

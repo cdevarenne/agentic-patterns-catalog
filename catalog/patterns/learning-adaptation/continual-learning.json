@@ -1,0 +1,29 @@
+{
+  "category": "learning-adaptation",
+  "complexity": "high",
+  "id": "continual-learning",
+  "kind": "pattern",
+  "name": "Continual Learning",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "b782cfebe63c6e6cbf2d480bf4ab0ea16fd109cf1d657f2b89bd37cd0c6e5e0d",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/learning-adaptation/continual-learning"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

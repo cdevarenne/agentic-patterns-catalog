@@ -1,0 +1,29 @@
+{
+  "category": "learning-adaptation",
+  "complexity": "high",
+  "id": "rl-verifiable-rewards",
+  "kind": "pattern",
+  "name": "RL from Verifiable Rewards (RLVR)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "c519d5378d1889648e70f458d72b8a8bb30a66730d0e43094b2904f985b40aff",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/learning-adaptation/rl-verifiable-rewards"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

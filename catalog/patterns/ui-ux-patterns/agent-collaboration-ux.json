@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "agent-collaboration-ux",
+  "kind": "pattern",
+  "name": "Agent Collaboration UX",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "c9ff67c347187be1fd7fced2fb6db8ae1b1c8b216f01270a1332989547dc36f1",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/agent-collaboration-ux"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

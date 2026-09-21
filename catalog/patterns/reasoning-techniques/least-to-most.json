@@ -1,0 +1,29 @@
+{
+  "category": "reasoning-techniques",
+  "complexity": "medium",
+  "id": "least-to-most",
+  "kind": "pattern",
+  "name": "Least-to-Most Prompting",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "06639c53dabbbb9fde3654b67260b1aef0f7f3bd99cc1af3eee579813961b34f",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/reasoning-techniques/least-to-most"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

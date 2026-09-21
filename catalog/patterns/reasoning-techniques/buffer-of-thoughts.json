@@ -1,0 +1,29 @@
+{
+  "category": "reasoning-techniques",
+  "complexity": "high",
+  "id": "buffer-of-thoughts",
+  "kind": "pattern",
+  "name": "Buffer of Thoughts",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "d73ededccea1ddc9ba5048a9bede9d8531f6fc662fe84ddba537f54a2bf333ff",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/reasoning-techniques/buffer-of-thoughts"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

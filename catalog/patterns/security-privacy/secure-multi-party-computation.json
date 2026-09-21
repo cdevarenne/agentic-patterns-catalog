@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "high",
+  "id": "secure-multi-party-computation",
+  "kind": "pattern",
+  "name": "Secure Multi-Party Computation",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "74ad5e62bfe80c1e6e7fc88fbc14fe5869b385cd077c4aa2b75f4e9b246c2d8e",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/secure-multi-party-computation"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

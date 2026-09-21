@@ -1,0 +1,29 @@
+{
+  "category": "knowledge-representation",
+  "complexity": "high",
+  "id": "shacl-validation",
+  "kind": "pattern",
+  "name": "SHACL Constraint Validation",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "b7989b74f2d7214b64ffa0d3069a7a198c18fad8f469771709c29637cd4108a7",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/knowledge-representation/shacl-validation"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "resource-aware-optimization",
+  "complexity": "high",
+  "id": "memory-optimization",
+  "kind": "pattern",
+  "name": "Memory Optimization",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "e24e02c59c08a04104ee3b272c3b25c8345744f2d62a21fc0ca8c37d56424077",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/resource-aware-optimization/memory-optimization"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "theagentcompany",
+  "kind": "pattern",
+  "name": "TheAgentCompany Benchmark",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "d846976fde784356bfa5a8ed1e63d1bc34baa61c299865cf1da60a9d6f18bd44",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/theagentcompany"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

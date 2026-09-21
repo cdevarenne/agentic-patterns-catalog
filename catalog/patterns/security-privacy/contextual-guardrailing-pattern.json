@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "high",
+  "id": "contextual-guardrailing-pattern",
+  "kind": "pattern",
+  "name": "Contextual Guardrailing Pattern",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "77fc385d748162d05357857a7790d7681d52f01026a0025627cfc5b3e661853a",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/contextual-guardrailing-pattern"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

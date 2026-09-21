@@ -1,0 +1,29 @@
+{
+  "category": "routing",
+  "complexity": "medium",
+  "id": "geographic-routing",
+  "kind": "pattern",
+  "name": "Geographic Routing",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "9b5fed10753c726673ecaf946ec3843a61a6a91b586d417f7909175c07cdd155",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/routing/geographic-routing"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

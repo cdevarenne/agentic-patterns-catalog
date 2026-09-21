@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "conversational-interface-patterns",
+  "kind": "pattern",
+  "name": "Conversational Interface Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "d1fcb8865dfced4176a309657a145a5c00fc738b0fda811c08e0118b9ce7f10d",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/conversational-interface-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

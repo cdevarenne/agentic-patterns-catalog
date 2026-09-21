@@ -1,0 +1,29 @@
+{
+  "category": "prompt-chaining",
+  "complexity": "medium",
+  "id": "parallel-chaining",
+  "kind": "pattern",
+  "name": "Parallel Chaining",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "5da30a5d93841f52fc66b71cf7f02b70e9b3f249df25bf7d3ebb01725b08f2a9",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/prompt-chaining/parallel-chaining"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

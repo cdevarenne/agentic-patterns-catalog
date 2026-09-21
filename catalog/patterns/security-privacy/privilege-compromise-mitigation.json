@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "high",
+  "id": "privilege-compromise-mitigation",
+  "kind": "pattern",
+  "name": "Privilege Compromise Mitigation Pattern",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "899ff7bdcd3cdf464e805ecd68cd9541bf6e041a02b1c3b98cd2aeee42d0c7fc",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/privilege-compromise-mitigation"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

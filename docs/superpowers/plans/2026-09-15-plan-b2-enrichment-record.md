@@ -564,13 +564,24 @@ import json, glob, subprocess
 from pathlib import Path
 tracked = set(subprocess.run(['git','ls-files'],capture_output=True,text=True).stdout.split())
 blob = ''.join(Path(p).read_text() for p in tracked if p.endswith(('.md','.json')))
-leak = [json.load(open(f))['tldr']['what'][:40] for f in glob.glob('var/content/*/*.json')]
-hits = [t for t in leak if t and t in blob]
+mirror_ids = {Path(f).stem for f in glob.glob('catalog/patterns/*/*.json')
+              if json.load(open(f))['provenance']['source']['extraction'] == 'rsc-payload'}
+hits = []
+for f in glob.glob('var/content/*/*.json'):
+    if Path(f).stem not in mirror_ids: continue
+    frag = json.load(open(f))['tldr']['what'][:40]
+    if frag and frag in blob: hits.append(Path(f).stem)
 print('tracked records:', len([p for p in tracked if p.startswith('catalog/patterns/')]))
-print('prose fragments leaked into tracked files:', len(hits), hits[:3])
+print('mirror-sourced records checked:', len(mirror_ids))
+print('mirror prose leaked into tracked files:', len(hits), hits[:3])
 "
 ```
-Expected: `tracked records: 288`, `prose fragments leaked into tracked files: 0 []`.
+Expected: `tracked records: 288`, `mirror-sourced records checked: 277`, `mirror prose leaked into tracked files: 0 []`.
+The check is scoped to records whose tracked `provenance.source.extraction` is `rsc-payload`
+(the 277 mirror-sourced records) — the 11 free-pack records' prose is licensed and
+deliberately tracked (spec §7: pack records get `tldr` quoted in `CATALOG-full.md` and
+their own sheets; `data/pack/patterns.json` is the licensed source), so they are excluded
+from the leak check.
 If it is not 0, stop and report — do not commit.
 
 - [ ] **Step 4: Update the three documents**

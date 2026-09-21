@@ -1,0 +1,29 @@
+{
+  "category": "interpretability",
+  "complexity": "high",
+  "id": "uncertainty-quantification",
+  "kind": "pattern",
+  "name": "Uncertainty Quantification",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "dc229e3748ccafbedf0fca1587b220517fea0427aae4e03acb4e31dbb2355064",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/interpretability/uncertainty-quantification"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

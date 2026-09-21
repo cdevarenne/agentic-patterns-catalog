@@ -1,0 +1,29 @@
+{
+  "category": "reflection",
+  "complexity": "medium",
+  "id": "producer-critic",
+  "kind": "pattern",
+  "name": "Producer-Critic Pattern",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "de9f12aa14e3a88b27585693d8b1a031149dd8d217f93e94bfd0ec044451d112",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/reflection/producer-critic"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

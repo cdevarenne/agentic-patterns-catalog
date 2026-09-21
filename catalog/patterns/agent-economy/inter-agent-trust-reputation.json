@@ -1,0 +1,29 @@
+{
+  "category": "agent-economy",
+  "complexity": "high",
+  "id": "inter-agent-trust-reputation",
+  "kind": "pattern",
+  "name": "Inter-Agent Trust & Reputation",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "b5e692d9206bac449e9b215f080df04a4c21a4c0dfaa2f35367ea09c032fce01",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/agent-economy/inter-agent-trust-reputation"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

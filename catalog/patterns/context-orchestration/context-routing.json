@@ -1,0 +1,29 @@
+{
+  "category": "context-orchestration",
+  "complexity": "medium",
+  "id": "context-routing",
+  "kind": "pattern",
+  "name": "Intelligent Context Routing",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "d8da9a75fea2d19ce245149e4ea112f18cfd309a46aa065f0ce178f717c548d9",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-orchestration/context-routing"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

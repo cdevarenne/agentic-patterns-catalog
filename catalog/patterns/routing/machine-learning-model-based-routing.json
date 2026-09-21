@@ -1,0 +1,29 @@
+{
+  "category": "routing",
+  "complexity": "high",
+  "id": "machine-learning-model-based-routing",
+  "kind": "pattern",
+  "name": "Machine Learning Model-Based Routing",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "27953c8b106c81cfeb0659b7955d4cf25aa7471d59c5702898701517b694f4f2",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/routing/machine-learning-model-based-routing"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

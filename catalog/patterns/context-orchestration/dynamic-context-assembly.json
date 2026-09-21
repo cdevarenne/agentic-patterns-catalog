@@ -1,0 +1,29 @@
+{
+  "category": "context-orchestration",
+  "complexity": "high",
+  "id": "dynamic-context-assembly",
+  "kind": "pattern",
+  "name": "Dynamic Context Assembly",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "8176a1d94dd68e4ac876635ca5c7bef75317e3f32e4f7c562d38c19471f6b594",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-orchestration/dynamic-context-assembly"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

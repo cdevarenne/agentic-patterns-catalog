@@ -1,0 +1,29 @@
+{
+  "category": "multi-agent",
+  "complexity": "high",
+  "id": "supervisor-worker-pattern",
+  "kind": "pattern",
+  "name": "Supervisor-Worker Pattern",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "d075de21010ef6ea7f917fac1bf22004a6325dc69266d4c6eb27506560c15450",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/multi-agent/supervisor-worker-pattern"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

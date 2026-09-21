@@ -1,0 +1,29 @@
+{
+  "category": "context-management",
+  "complexity": "medium",
+  "id": "context-editing-tool-clearing",
+  "kind": "pattern",
+  "name": "Context Editing & Tool-Result Clearing",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "7f440aba690e3489ff747f7d4d2855566f11ae8abb5d8cf232561b936aea3df6",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-management/context-editing-tool-clearing"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

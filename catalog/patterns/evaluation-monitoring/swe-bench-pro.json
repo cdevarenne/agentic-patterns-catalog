@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "swe-bench-pro",
+  "kind": "pattern",
+  "name": "SWE-bench Pro",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "97c4ea50359160575b656a83925b6430059d1133acf02e18fddeb4c1406b5d46",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/swe-bench-pro"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

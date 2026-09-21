@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "helm-agent-eval",
+  "kind": "pattern",
+  "name": "HELM Agent Evaluation Framework",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "e000400f736bbacfbfbc83b21d11438618b9c0ae7aa1644bd0398c9a7af3074e",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/helm-agent-eval"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

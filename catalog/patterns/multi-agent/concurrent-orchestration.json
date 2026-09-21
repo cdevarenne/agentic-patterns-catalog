@@ -1,0 +1,29 @@
+{
+  "category": "multi-agent",
+  "complexity": "medium",
+  "id": "concurrent-orchestration",
+  "kind": "pattern",
+  "name": "Concurrent Orchestration",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "c11320f4719978d02e348ba6c30964ad6adf119883dc1e93524394c986a41b00",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/multi-agent/concurrent-orchestration"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

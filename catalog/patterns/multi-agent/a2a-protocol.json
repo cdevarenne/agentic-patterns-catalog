@@ -1,0 +1,29 @@
+{
+  "category": "multi-agent",
+  "complexity": "high",
+  "id": "a2a-protocol",
+  "kind": "pattern",
+  "name": "A2A Protocol (Agent2Agent)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "4369021e899ec987e3a81d96101f41bc1dd517a9ee82dadaa8f8decdd59f801a",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/multi-agent/a2a-protocol"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

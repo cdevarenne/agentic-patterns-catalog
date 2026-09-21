@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "high",
+  "id": "guard-agent-pattern",
+  "kind": "pattern",
+  "name": "GuardAgent Pattern",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "dacb5fb1da68dee2e8355f6e96dda2189cf4936bfa5ecc2d7d7f73c3801b9b6b",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/guard-agent-pattern"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "chat-interface-patterns",
+  "kind": "pattern",
+  "name": "Chat Interface Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "52073ad13ec1065cde34d53e81e361771c446d2cb3d6122096d114b2d3750504",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/chat-interface-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "knowledge-representation",
+  "complexity": "high",
+  "id": "knowledge-graph-construction",
+  "kind": "pattern",
+  "name": "Knowledge Graph Construction",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "b0e8317db1bdd22c0f039d71288f68d397dd10f52aaf42d1f624bdb47aacc28f",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/knowledge-representation/knowledge-graph-construction"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

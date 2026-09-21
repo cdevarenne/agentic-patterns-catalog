@@ -1,0 +1,29 @@
+{
+  "category": "agent-economy",
+  "complexity": "medium",
+  "id": "agent-readable-web",
+  "kind": "pattern",
+  "name": "Agent-Readable Web (llms.txt / NLWeb)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "67a431bb2c897960827c61fd6ac193160dac46a8d31ca2240f00d0615511d0a7",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/agent-economy/agent-readable-web"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

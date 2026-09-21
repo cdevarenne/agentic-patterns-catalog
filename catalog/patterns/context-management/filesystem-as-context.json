@@ -1,0 +1,29 @@
+{
+  "category": "context-management",
+  "complexity": "medium",
+  "id": "filesystem-as-context",
+  "kind": "pattern",
+  "name": "Filesystem as Context (Context Offloading)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "7ac829ab92ea693447cfee10960acd9284a318014bed78496f075ccb25c1b5f0",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-management/filesystem-as-context"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

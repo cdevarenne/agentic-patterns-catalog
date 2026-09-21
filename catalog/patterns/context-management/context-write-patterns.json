@@ -1,0 +1,29 @@
+{
+  "category": "context-management",
+  "complexity": "medium",
+  "id": "context-write-patterns",
+  "kind": "pattern",
+  "name": "Context Write Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "90b68026fdeda32d335e9057c07d3cd298066941b2919318189f79a225f93d9e",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-management/context-write-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

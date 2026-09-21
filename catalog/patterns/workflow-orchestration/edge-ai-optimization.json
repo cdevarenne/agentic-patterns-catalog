@@ -1,0 +1,29 @@
+{
+  "category": "workflow-orchestration",
+  "complexity": "high",
+  "id": "edge-ai-optimization",
+  "kind": "pattern",
+  "name": "Edge AI Optimization",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "8b3e25d18ecbb01eaae4bd8049821f20f063c1501fa9e4c6799e3472083e6334",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/workflow-orchestration/edge-ai-optimization"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

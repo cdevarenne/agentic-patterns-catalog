@@ -1,0 +1,29 @@
+{
+  "category": "knowledge-retrieval",
+  "complexity": "high",
+  "id": "graph-rag",
+  "kind": "pattern",
+  "name": "Graph RAG",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "254fe43a344d36c896abb3c3631b3a71f4f760d836fbf85f7db3f8161b410e2f",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/knowledge-retrieval/graph-rag"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

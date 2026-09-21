@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "medium",
+  "id": "agent-sandboxing",
+  "kind": "pattern",
+  "name": "Agent Sandboxing",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "e52d2546bee333944e816b431ece514aeb6071f24330e6213d3fea1184240a75",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/agent-sandboxing"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

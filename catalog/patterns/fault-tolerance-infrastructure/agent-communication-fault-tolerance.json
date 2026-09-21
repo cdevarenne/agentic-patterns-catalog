@@ -1,0 +1,29 @@
+{
+  "category": "fault-tolerance-infrastructure",
+  "complexity": "high",
+  "id": "agent-communication-fault-tolerance",
+  "kind": "pattern",
+  "name": "Agent Communication Fault Tolerance",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "e5174df018fb4a974ed8ca621835b14dfa81087482d26507fac40529bc0db2b6",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/fault-tolerance-infrastructure/agent-communication-fault-tolerance"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

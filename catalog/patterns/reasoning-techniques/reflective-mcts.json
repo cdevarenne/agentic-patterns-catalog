@@ -1,0 +1,29 @@
+{
+  "category": "reasoning-techniques",
+  "complexity": "high",
+  "id": "reflective-mcts",
+  "kind": "pattern",
+  "name": "Reflective Monte Carlo Tree Search",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "98ccc7230d3932eb7a158f2765db679592e7dd631203486996594b4e427e78e4",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/reasoning-techniques/reflective-mcts"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

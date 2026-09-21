@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "high",
+  "id": "maestro-multi-agent-security",
+  "kind": "pattern",
+  "name": "MAESTRO Multi-Agent Security Pattern",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "d341a002badbccb492e5fc0b952e2d52b9caa9815c857c2d9e29dcb2f7c963e5",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/maestro-multi-agent-security"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

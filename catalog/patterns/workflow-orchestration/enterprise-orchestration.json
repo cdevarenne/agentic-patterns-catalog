@@ -1,0 +1,29 @@
+{
+  "category": "workflow-orchestration",
+  "complexity": "high",
+  "id": "enterprise-orchestration",
+  "kind": "pattern",
+  "name": "Enterprise Orchestration",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "94a0bdd64a647526f4220e5a304d712450e1a7146a0ba0cdadd2c451d11f233a",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/workflow-orchestration/enterprise-orchestration"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

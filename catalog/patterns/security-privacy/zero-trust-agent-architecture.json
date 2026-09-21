@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "high",
+  "id": "zero-trust-agent-architecture",
+  "kind": "pattern",
+  "name": "Zero-Trust Agent Architecture",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "70bc5b65d38246b71895017bc4388df74134d62e3d7862baf5cebe22c9d354c2",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/zero-trust-agent-architecture"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "context-management",
+  "complexity": "high",
+  "id": "context-state-machines",
+  "kind": "pattern",
+  "name": "Context State Machines",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "2c1dfea9b97d57de3c2f4c3e0ea9010ef3e7a7491f91152c12b9567e9b269b04",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-management/context-state-machines"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

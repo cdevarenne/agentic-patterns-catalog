@@ -1,0 +1,29 @@
+{
+  "category": "reasoning-techniques",
+  "complexity": "high",
+  "id": "got",
+  "kind": "pattern",
+  "name": "Graph-of-Thought",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "0c3e4871880e5b0ad7d793fd39bd6d528e3492ee3e74aa5f9d6c90b4e4453c83",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/reasoning-techniques/got"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

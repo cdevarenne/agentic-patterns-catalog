@@ -1,0 +1,29 @@
+{
+  "category": "prompt-chaining",
+  "complexity": "medium",
+  "id": "feedback-chaining",
+  "kind": "pattern",
+  "name": "Feedback Chaining",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "b0004ef3db4cd88b7784589f9d0f985de885b5dfbf97cffb4f08dfb8cae707fa",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/prompt-chaining/feedback-chaining"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

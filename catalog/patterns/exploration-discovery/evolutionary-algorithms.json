@@ -1,0 +1,29 @@
+{
+  "category": "exploration-discovery",
+  "complexity": "high",
+  "id": "evolutionary-algorithms",
+  "kind": "pattern",
+  "name": "Evolutionary Discovery Algorithms",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "90bf7e1ed1d7099a64400029c4127985083b8b9780122e9824b1a00381a6e35d",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/exploration-discovery/evolutionary-algorithms"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

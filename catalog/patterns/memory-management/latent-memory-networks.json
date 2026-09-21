@@ -1,0 +1,29 @@
+{
+  "category": "memory-management",
+  "complexity": "high",
+  "id": "latent-memory-networks",
+  "kind": "pattern",
+  "name": "Latent Memory Networks",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "2a0e6207b13729f3197b22632c71db1c95dc1c88cdba7f70980a74b514ae2d15",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/memory-management/latent-memory-networks"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

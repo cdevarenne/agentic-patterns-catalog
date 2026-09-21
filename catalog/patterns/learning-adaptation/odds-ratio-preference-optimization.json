@@ -1,0 +1,29 @@
+{
+  "category": "learning-adaptation",
+  "complexity": "high",
+  "id": "odds-ratio-preference-optimization",
+  "kind": "pattern",
+  "name": "Odds Ratio Preference Optimization",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "1fe60c5326f21ad502df99f98f01798228ef030be506b54dd9482aea74ebde27",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/learning-adaptation/odds-ratio-preference-optimization"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

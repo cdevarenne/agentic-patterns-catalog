@@ -1,0 +1,29 @@
+{
+  "category": "reasoning-techniques",
+  "complexity": "medium",
+  "id": "chain-of-verification",
+  "kind": "pattern",
+  "name": "Chain of Verification (CoVe)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "e4043561e185b777b3e517bbc7f2105669c3f1bfc8403ba64e2a608123adf9b4",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/reasoning-techniques/chain-of-verification"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

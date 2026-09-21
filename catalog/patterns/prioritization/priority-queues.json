@@ -1,0 +1,29 @@
+{
+  "category": "prioritization",
+  "complexity": "medium",
+  "id": "priority-queues",
+  "kind": "pattern",
+  "name": "Dynamic Priority Queue Systems",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "91edd20b850568857f1eb8670475da5b32f378c9aeb514f4d8754e4cd6c85368",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/prioritization/priority-queues"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

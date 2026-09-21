@@ -1,0 +1,29 @@
+{
+  "category": "learning-adaptation",
+  "complexity": "high",
+  "id": "direct-preference-optimization",
+  "kind": "pattern",
+  "name": "Direct Preference Optimization",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "a98b2d3d3aff0266702a942643a11bf23cdf60b3a13f247f67357c8c13d41c13",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/learning-adaptation/direct-preference-optimization"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

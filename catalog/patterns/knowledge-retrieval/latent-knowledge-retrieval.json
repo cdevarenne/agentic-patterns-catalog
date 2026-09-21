@@ -1,0 +1,29 @@
+{
+  "category": "knowledge-retrieval",
+  "complexity": "high",
+  "id": "latent-knowledge-retrieval",
+  "kind": "pattern",
+  "name": "Latent Knowledge Retrieval",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "d49d9b32aeff192f323a073e9ac55e0cf20c5865c7ed3284737de495b05e42a2",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/knowledge-retrieval/latent-knowledge-retrieval"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "workflow-orchestration",
+  "complexity": "medium",
+  "id": "graph-state-machines",
+  "kind": "pattern",
+  "name": "Graph State Machines",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "d3bfaed26ad191c1ee1046a352cd7fd1ac0b096db32d628452e592e9a9507fd6",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/workflow-orchestration/graph-state-machines"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

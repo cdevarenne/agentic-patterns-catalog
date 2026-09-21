@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "transparent-data-handling",
+  "kind": "pattern",
+  "name": "Transparent Data Handling",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "972ea3113a145b0b98f6f07bbd242c9dd74ff35b664b9eff1e16913b9af74400",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/transparent-data-handling"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

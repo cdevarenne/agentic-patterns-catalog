@@ -1,0 +1,29 @@
+{
+  "category": "ui-ux-patterns",
+  "complexity": "high",
+  "id": "adaptive-interface-patterns",
+  "kind": "pattern",
+  "name": "Adaptive Interface Patterns",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "8f39ace2dc4f5af3b47d466bdbb83a906301014fe4e0ba992e8a4ca38d997cba",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/ui-ux-patterns/adaptive-interface-patterns"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

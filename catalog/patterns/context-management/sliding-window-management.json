@@ -1,0 +1,29 @@
+{
+  "category": "context-management",
+  "complexity": "medium",
+  "id": "sliding-window-management",
+  "kind": "pattern",
+  "name": "Sliding Window Management",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "73de868641e910f1da600971788f135f458836e328f4961f9826699f9af4bea8",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-management/sliding-window-management"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

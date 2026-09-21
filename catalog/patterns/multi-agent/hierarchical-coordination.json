@@ -1,0 +1,29 @@
+{
+  "category": "multi-agent",
+  "complexity": "high",
+  "id": "hierarchical-coordination",
+  "kind": "pattern",
+  "name": "Hierarchical Coordination",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "0a292274911e67edd016c0c6dffd955d0b595d3dfb6255c00e37df32cdd39ce2",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/multi-agent/hierarchical-coordination"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

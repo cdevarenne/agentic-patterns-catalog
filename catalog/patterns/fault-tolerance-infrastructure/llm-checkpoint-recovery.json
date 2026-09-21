@@ -1,0 +1,29 @@
+{
+  "category": "fault-tolerance-infrastructure",
+  "complexity": "high",
+  "id": "llm-checkpoint-recovery",
+  "kind": "pattern",
+  "name": "LLM Checkpoint Recovery (Mnemosyne)",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "5c29d92b2ad3062c6298580241d582e55f7977f128534a69a57d6e78a1677e9d",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/fault-tolerance-infrastructure/llm-checkpoint-recovery"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "category": "security-privacy",
+  "complexity": "high",
+  "id": "tool-misuse-prevention",
+  "kind": "pattern",
+  "name": "Tool Misuse Prevention Pattern",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "8f07a8548c971d3b4b2cb9b3ebcfe7325d9f57ab2a96e00db557ad7aceef5e01",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/security-privacy/tool-misuse-prevention"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

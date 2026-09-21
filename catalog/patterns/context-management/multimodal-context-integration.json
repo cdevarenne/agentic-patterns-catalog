@@ -1,0 +1,29 @@
+{
+  "category": "context-management",
+  "complexity": "high",
+  "id": "multimodal-context-integration",
+  "kind": "pattern",
+  "name": "Multimodal Context Integration",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "fd0716d5a3505a8dcab549079dbf98f68ae63024554fa2f858235a213c864bd0",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-management/multimodal-context-integration"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

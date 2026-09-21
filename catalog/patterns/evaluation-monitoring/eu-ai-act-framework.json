@@ -1,0 +1,29 @@
+{
+  "category": "evaluation-monitoring",
+  "complexity": "high",
+  "id": "eu-ai-act-framework",
+  "kind": "pattern",
+  "name": "EU AI Act Compliance Framework",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "e45392c9db5ccc4b7738b46080fd41af4e5a60d830bc8cbd741e8baa0a7c17af",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/evaluation-monitoring/eu-ai-act-framework"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

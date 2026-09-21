@@ -1,0 +1,29 @@
+{
+  "category": "context-management",
+  "complexity": "high",
+  "id": "context-engineering-frameworks",
+  "kind": "pattern",
+  "name": "Context Engineering Frameworks",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "fb602c6cb39def70d1ba39c0ed5da8bec5b548674a3078667c2dced441825d99",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/context-management/context-engineering-frameworks"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

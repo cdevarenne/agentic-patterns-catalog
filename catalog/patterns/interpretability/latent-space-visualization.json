@@ -1,0 +1,29 @@
+{
+  "category": "interpretability",
+  "complexity": "high",
+  "id": "latent-space-visualization",
+  "kind": "pattern",
+  "name": "Latent Space Visualization",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "8ddae6178119d63f5d3ceb6f77ff2950a0b3e336b3399ae6fd23a5ce9adb5427",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/interpretability/latent-space-visualization"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

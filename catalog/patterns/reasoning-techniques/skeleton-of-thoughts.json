@@ -1,0 +1,29 @@
+{
+  "category": "reasoning-techniques",
+  "complexity": "medium",
+  "id": "skeleton-of-thoughts",
+  "kind": "pattern",
+  "name": "Skeleton of Thoughts",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "044e52bc51de4aac294c0ef5627e4e4d93e0bc9e8b94f49f39de36013e1c0723",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/reasoning-techniques/skeleton-of-thoughts"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}

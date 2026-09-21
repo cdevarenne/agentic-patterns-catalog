@@ -1,0 +1,29 @@
+{
+  "category": "memory-management",
+  "complexity": "high",
+  "id": "hierarchical-memory",
+  "kind": "pattern",
+  "name": "Hierarchical Memory",
+  "provenance": {
+    "enrichment": {},
+    "source": {
+      "content_sha256": "64855862e893c8677031960617ccb45b3235536a36a417ffe534bc50cce08e50",
+      "extraction": "rsc-payload",
+      "mirrored_at": "2026-09-12",
+      "url": "https://agentic-design.ai/patterns/memory-management/hierarchical-memory"
+    }
+  },
+  "selection": {
+    "contraindications": [],
+    "facets": {
+      "latency_cost": null,
+      "maturity": null,
+      "risk_class": null,
+      "scale": null,
+      "token_cost": null
+    },
+    "preconditions": [],
+    "problem_signals": [],
+    "relations": []
+  }
+}
