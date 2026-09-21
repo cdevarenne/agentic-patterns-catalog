@@ -28,7 +28,8 @@ def _ctx(tmp_path: Path, **over) -> verify.VerifyContext:
     (root / "recipes").mkdir(exist_ok=True)
     (root / "vocab").mkdir(exist_ok=True)
     (root / "vocab" / "facets.json").write_text(VOCAB_PATH.read_text())
-    fs = store.FileStore(root)
+    cache = tmp_path / "cache"
+    fs = store.FileStore(root, cache)
     fs.put(_p("a"))
     fs.put(_p("b", relations=[Relation(type="precedes", target="a")]))
     store.write_index(fs, root / "index.json")
@@ -37,7 +38,7 @@ def _ctx(tmp_path: Path, **over) -> verify.VerifyContext:
     sch = tmp_path / "schema"
     schema.write_schemas(sch)
     base = {"root": root, "lenient_vocab": False, "generated_dir": gen, "schema_dir": sch,
-            "eval_path": tmp_path / "eval.json", "thresholds_path": EVAL_THRESHOLDS}
+            "eval_path": tmp_path / "eval.json", "thresholds_path": EVAL_THRESHOLDS, "cache": cache}
     base.update(over)
     return verify.VerifyContext(**base)
 
@@ -48,12 +49,24 @@ def test_clean_tree_has_no_problems(tmp_path: Path) -> None:
     assert "eval" in verify.run_warnings(ctx)  # eval.json absent → warning, not error
 
 
-def test_stale_index_and_bad_hash_are_reported(tmp_path: Path) -> None:
+def test_missing_cached_content_is_a_warning_not_a_problem(tmp_path: Path) -> None:
+    # check_records reads the tracked file directly, so content is always None there; a record's
+    # content is only ever missing from the merged view FileStore.all() builds from the cache.
+    ctx = _ctx(tmp_path)
+    for path in ctx.cache.glob("*/*.json"):
+        path.unlink()
+    assert verify.run_checks(ctx)["records"] == []
+    assert "content" in verify.run_warnings(ctx)
+
+
+def test_stale_index_and_bad_id_are_reported(tmp_path: Path) -> None:
+    # check_records parses the tracked file directly (content lives only in the cache), so a bad
+    # content_sha256 there can no longer be its "records" problem; use an id/file-stem mismatch instead.
     ctx = _ctx(tmp_path)
     (ctx.root / "index.json").write_text(json.dumps({"patterns": {}, "categories": [], "recipes": []}))
     path = ctx.root / "patterns" / "routing" / "a.json"
     data = json.loads(path.read_text())
-    data["provenance"]["source"]["content_sha256"] = "0" * 64
+    data["id"] = "not-a"
     path.write_text(json.dumps(data))
     problems = verify.run_checks(ctx)
     assert problems["index"] and problems["records"]
@@ -61,7 +74,7 @@ def test_stale_index_and_bad_hash_are_reported(tmp_path: Path) -> None:
 
 def test_precedes_cycle_and_unknown_target_are_reported(tmp_path: Path) -> None:
     ctx = _ctx(tmp_path)
-    fs = store.FileStore(ctx.root)
+    fs = store.FileStore(ctx.root, ctx.cache)
     fs.put(_p("a", relations=[Relation(type="precedes", target="b"), Relation(type="requires", target="zzz")]))
     problems = verify.run_checks(ctx)["relations"]
     assert any("cycle" in p for p in problems) and any("zzz" in p for p in problems)
@@ -122,7 +135,7 @@ def test_file_not_produced_by_compile_is_reported_and_removed(tmp_path: Path) ->
     (ctx.generated_dir / "local" / "keep.md").parent.mkdir()
     (ctx.generated_dir / "local" / "keep.md").write_text("local output is never touched\n")
     assert verify.run_checks(ctx)["compiled"] == ["sheets/zzz.md is not produced by compile; remove it"]
-    _, removed = comp.write_all(store.FileStore(ctx.root), ctx.generated_dir)
+    _, removed = comp.write_all(store.FileStore(ctx.root, ctx.cache), ctx.generated_dir)
     assert removed == [extra] and not extra.exists() and (ctx.generated_dir / "local" / "keep.md").exists()
     assert verify.run_checks(ctx)["compiled"] == []
 
@@ -153,7 +166,7 @@ def test_repo_verifies_clean() -> None:
     # mirror (CI) holds 11, so `index` and `compiled` are expected to differ there and are skipped.
     ctx = verify.VerifyContext.default()
     indexed = len(json.loads((ctx.root / "index.json").read_text())["patterns"])
-    partial = len(store.FileStore(ctx.root).all()) < indexed
+    partial = len(store.FileStore(ctx.root, ctx.cache).all()) < indexed
     skipped = {"index", "compiled"} if partial else set()
     problems = {k: v for k, v in verify.run_checks(ctx).items() if v and k not in skipped}
     assert problems == {}, problems

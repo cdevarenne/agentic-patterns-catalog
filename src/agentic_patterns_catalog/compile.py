@@ -26,7 +26,7 @@ def _is_pack(p: Pattern) -> bool:
 
 
 def _full_line(p: Pattern, local: bool) -> str:
-    if local or _is_pack(p):
+    if p.content is not None and (local or _is_pack(p)):
         return f"- {p.id} — {p.content.tldr.what} — use when: {p.content.tldr.when}"
     if p.selection.problem_signals:
         return f"- {p.id} — {p.name} — {p.selection.problem_signals[0]}"
@@ -106,7 +106,7 @@ def compile_all(store: Store, *, local: bool = False) -> dict[str, str]:
     for cat in categories:
         out[f"guides/{cat.id}.md"] = _guide(cat, [p for p in patterns if p.category == cat.id], local)
     for p in patterns:
-        if local or _is_pack(p):
+        if p.content is not None and (local or _is_pack(p)):
             out[f"sheets/{p.id}.md"] = _sheet(p)
     return out
 

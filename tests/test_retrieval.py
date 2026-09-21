@@ -38,6 +38,15 @@ def test_tokenize_and_pattern_text() -> None:
     assert "requests span several domains" in r.pattern_text(PATTERNS[0])
 
 
+def test_pattern_text_works_without_content() -> None:
+    p = _p("x", "unused").model_copy(update={"content": None})
+    p.selection.problem_signals = ["requests span several domains"]
+    text = r.pattern_text(p)
+    assert "requests span several domains" in text and "x" in text
+    res = r.Selector([*PATTERNS, p], embedder=None).select("requests span several domains", k=1)
+    assert res.hits[0].id == "x"
+
+
 def test_rrf_prefers_ids_present_in_both_lists() -> None:
     fused = r.rrf([["a", "b", "c"], ["b", "a"]], k=60)
     assert [i for i, _ in fused][:2] == ["a", "b"] or [i for i, _ in fused][:2] == ["b", "a"]
@@ -131,7 +140,7 @@ def test_cli_json_envelope_on_a_tiny_catalog(tmp_path, capsys) -> None:
 
     from agentic_patterns_catalog import cli
     from agentic_patterns_catalog.store import FileStore
-    fs = FileStore(tmp_path)
+    fs = FileStore(tmp_path, tmp_path / "cache")
     fs.put(PATTERNS[0])
     fs.put(PATTERNS[1])
     assert cli.main(["select", "route", "--no-embed", "--json", "--root", str(tmp_path)]) == 0

@@ -14,7 +14,14 @@ from . import vocab as vocab_mod
 from .cli import register
 from .evaluate import check_thresholds
 from .model import Category, Pattern, Recipe, content_hash
-from .paths import CATALOG_DIR, DATA_DIR, EVAL_THRESHOLDS, GENERATED_DIR, SCHEMA_DIR
+from .paths import (
+    CATALOG_DIR,
+    CONTENT_CACHE_DIR,
+    DATA_DIR,
+    EVAL_THRESHOLDS,
+    GENERATED_DIR,
+    SCHEMA_DIR,
+)
 from .schema import schemas_match
 from .store import FileStore, build_index
 
@@ -28,10 +35,12 @@ class VerifyContext:
     schema_dir: Path
     eval_path: Path
     thresholds_path: Path
+    cache: Path = CONTENT_CACHE_DIR
 
     @classmethod
     def default(cls, lenient_vocab: bool = False) -> VerifyContext:
-        return cls(CATALOG_DIR, lenient_vocab, GENERATED_DIR, SCHEMA_DIR, DATA_DIR / "eval.json", EVAL_THRESHOLDS)
+        return cls(CATALOG_DIR, lenient_vocab, GENERATED_DIR, SCHEMA_DIR, DATA_DIR / "eval.json", EVAL_THRESHOLDS,
+                    CONTENT_CACHE_DIR)
 
 
 Check = Callable[[VerifyContext], list[str]]
@@ -61,7 +70,7 @@ def check_records(ctx: VerifyContext) -> list[str]:
             problems.append(f"{path.name}: id {p.id!r} != file stem")
         if p.category != path.parent.name:
             problems.append(f"{path.name}: category {p.category!r} != directory {path.parent.name!r}")
-        if p.provenance.source.content_sha256 != content_hash(p.content):
+        if p.content is not None and p.provenance.source.content_sha256 != content_hash(p.content):
             problems.append(f"{p.id}: content_sha256 does not match content")
     return problems
 
@@ -72,7 +81,7 @@ def check_index(ctx: VerifyContext) -> list[str]:
     if not path.exists():
         return ["index.json missing; run `catalog index`"]
     committed = json.loads(path.read_text(encoding="utf-8"))
-    fresh = build_index(FileStore(ctx.root))
+    fresh = build_index(FileStore(ctx.root, ctx.cache))
     problems = []
     if set(committed.get("patterns", {})) != set(fresh["patterns"]):
         problems.append("index.json pattern ids differ from files on disk")
@@ -87,7 +96,7 @@ def check_index(ctx: VerifyContext) -> list[str]:
 
 
 def _relations(ctx: VerifyContext) -> tuple[dict[str, Pattern], list[str]]:
-    by_id = {p.id: p for p in FileStore(ctx.root).all()}
+    by_id = {p.id: p for p in FileStore(ctx.root, ctx.cache).all()}
     problems = []
     for p in by_id.values():
         for r in p.selection.relations:
@@ -122,7 +131,7 @@ def check_relations(ctx: VerifyContext) -> list[str]:
 
 def check_recipes(ctx: VerifyContext) -> list[str]:
     """Every recipe step names an existing pattern."""
-    fs = FileStore(ctx.root)
+    fs = FileStore(ctx.root, ctx.cache)
     ids = {p.id for p in fs.all()}
     return [f"recipe {r.id}: step {s.order} names unknown pattern {s.pattern_id!r}"
             for r in fs.recipes() for s in r.steps if s.pattern_id not in ids]
@@ -157,7 +166,7 @@ def check_facets(ctx: VerifyContext) -> list[str]:
 
 def check_compiled(ctx: VerifyContext) -> list[str]:
     """Compiled views are under budget, equal a fresh compile, and nothing else sits in `generated/`."""
-    outputs = comp.compile_all(FileStore(ctx.root))
+    outputs = comp.compile_all(FileStore(ctx.root, ctx.cache))
     problems = [f"{n} over budget ({comp.token_estimate(outputs[n])} > {comp.BUDGETS[n]} tokens)"
                 for n in comp.over_budget(outputs)]
     for rel, text in outputs.items():
@@ -196,7 +205,8 @@ def run_checks(ctx: VerifyContext, skip: Collection[str] = ()) -> dict[str, list
 
 
 def run_warnings(ctx: VerifyContext) -> dict[str, list[str]]:
-    """Non-failing findings: unknown facet values under `--lenient-vocab`, and a missing eval record."""
+    """Non-failing findings: unknown facet values under `--lenient-vocab`, a missing eval record, and
+    records with no cached content."""
     warnings: dict[str, list[str]] = {}
     if ctx.lenient_vocab:
         bad = facet_problems(ctx)
@@ -204,6 +214,12 @@ def run_warnings(ctx: VerifyContext) -> dict[str, list[str]]:
             warnings["facets"] = bad
     if not ctx.eval_path.exists():
         warnings["eval"] = [f"{ctx.eval_path} absent; run `catalog eval`"]
+    try:
+        missing = [p.id for p in FileStore(ctx.root, ctx.cache).all() if p.content is None]
+    except Exception:  # noqa: BLE001 — a malformed record already surfaces via check_records; this warning is best-effort
+        missing = []
+    if missing:
+        warnings["content"] = [f"{len(missing)} records have no cached content; run `catalog extract`"]
     return warnings
 
 

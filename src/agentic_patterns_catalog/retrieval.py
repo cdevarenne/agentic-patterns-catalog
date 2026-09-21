@@ -42,12 +42,15 @@ def facet_arg(raw: str) -> tuple[str, str]:
 def pattern_text(p: Pattern) -> str:
     """The text both arms index: name, tldr what/when, problem signals, use cases, and 'when to use' details.
 
-    `tldr.watchOut` is excluded on purpose: it names failure modes, not the problem the pattern solves.
-    Category-level `whenToUse` is excluded because it describes the category, not one pattern.
+    `tldr.watchOut` and the category's `whenToUse` are left out on purpose: they describe risk and
+    context, not what the pattern is for. Content may be absent.
     """
-    d = p.content.details
-    parts = [p.name, p.content.tldr.what, p.content.tldr.when, *p.selection.problem_signals, *p.content.useCases,
-             *d.get("when_to_use.use_when", []), *d.get("best_use_cases", []), *d.get("top_use_cases", [])]
+    parts = [p.name, *p.selection.problem_signals]
+    if p.content is not None:
+        d = p.content.details
+        parts += [p.content.tldr.what, p.content.tldr.when, *p.content.useCases,
+                  *d.get("when_to_use.use_when", []), *d.get("best_use_cases", []),
+                  *d.get("top_use_cases", [])]
     return " ".join(parts)
 
 

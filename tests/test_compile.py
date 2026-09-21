@@ -27,7 +27,7 @@ def _p(id: str, extraction: str = "rsc-payload", **sel) -> Pattern:
 
 @pytest.fixture
 def fs(tmp_path: Path) -> store.FileStore:
-    s = store.FileStore(tmp_path)
+    s = store.FileStore(tmp_path, tmp_path / "cache")
     s.put(_p("pack-one", "free-pack"))
     s.put(_p("plain-two"))
     s.put(_p("rich-three", problem_signals=["requests span domains"],
@@ -70,6 +70,14 @@ def test_guide_has_table_and_alternatives_and_no_category_prose(fs: store.FileSt
     assert "many handlers" not in guide and "Dispatch." not in guide
     assert "| rich-three | Rich-Three | low |" in guide
     assert "rich-three → plain-two: rules are known" in guide
+
+
+def test_a_record_without_content_falls_back_to_id_and_name(fs: store.FileStore, tmp_path: Path) -> None:
+    bare = _p("bare-one").model_copy(update={"content": None})
+    fs.put(bare)
+    out = comp.compile_all(fs)
+    assert "- bare-one — Bare-One" in out["CATALOG-full.md"]
+    assert "sheets/bare-one.md" not in out
 
 
 def test_sheets_only_for_pack_records_unless_local(fs: store.FileStore) -> None:
