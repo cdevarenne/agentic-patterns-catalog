@@ -17,13 +17,36 @@ from rank_bm25 import BM25Okapi
 from . import vocab as vocab_mod
 from .cli import register
 from .model import Pattern
-from .paths import CATALOG_DIR, EMBEDDINGS_DIR
+from .paths import CATALOG_DIR, EMBEDDINGS_DIR, EVAL_GATE
 from .store import FileStore, Store, content_version
 
 EMPTY_MESSAGE = "No pattern matches in the catalog."
 K_RRF = 60
 _TOKEN = re.compile(r"[a-z0-9]+")
 Arms = Sequence[str]
+
+
+BM25_SCALE, COS_BASE, COS_SCALE = 6.0, 0.5, 0.1  # structural; docs/data/floor-calibration.json records the gap they yield
+
+
+@dataclass(frozen=True)
+class Gate:
+    """Query-level relevance gate on the rrf path. `threshold` is calibrated; 0.0 switches the gate off."""
+    threshold: float
+
+
+GATE_OFF = Gate(0.0)
+
+
+def relevance(top_bm25: float, top_cos: float) -> float:
+    """Combined evidence that a query is about something in the catalog. Needs both arms to mean anything."""
+    return top_bm25 / BM25_SCALE + max(0.0, top_cos - COS_BASE) / COS_SCALE
+
+
+def load_gate(path: Path = EVAL_GATE) -> Gate:
+    """The committed gate from `eval/gate.json`; a missing file or key switches the gate off."""
+    data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    return Gate(float(data.get("query_gate_threshold", 0.0)))
 
 
 def tokenize(text: str) -> list[str]:
@@ -194,8 +217,9 @@ def _matches(p: Pattern, facets: dict[str, str] | None) -> bool:
 class Selector:
     def __init__(self, patterns: list[Pattern], embedder: Embedder | None = None,
                  arms: Arms = ("bm25", "semantic"), version: str | None = None,
-                 embedding_cache: bool = True) -> None:
+                 embedding_cache: bool = True, gate: Gate | None = None) -> None:
         self.patterns = sorted(patterns, key=lambda p: p.id)
+        self.gate = gate if gate is not None else load_gate()
         self.arms = tuple(a for a in arms if a != "semantic" or embedder is not None)
         self.embedder = embedder if "semantic" in self.arms else None
         self.version = version or content_version(self.patterns)
@@ -210,8 +234,9 @@ class Selector:
             self._vectors = cached if cached is not None else self.embedder.embed(texts)
 
     @classmethod
-    def from_store(cls, store: Store, embedder: Embedder | None = None, arms: Arms = ("bm25", "semantic")) -> Selector:
-        return cls(store.all(), embedder, arms)
+    def from_store(cls, store: Store, embedder: Embedder | None = None, arms: Arms = ("bm25", "semantic"),
+                   gate: Gate | None = None) -> Selector:
+        return cls(store.all(), embedder, arms, gate=gate)
 
     def _validate(self, facets: dict[str, str] | None, k: int) -> None:
         if k < 1:
@@ -222,26 +247,39 @@ class Selector:
             if value not in self.vocab[name]:
                 raise ValueError(f"unknown value {value!r} for facet {name!r}")
 
-    def select(self, task: str, facets: dict[str, str] | None = None, k: int = 5,
-               subject: str = "stdio-local") -> SelectResult:
-        self._validate(facets, k)
+    def arm_scores(self, task: str, facets: dict[str, str] | None = None
+                   ) -> tuple[dict[str, float], dict[str, float]]:
+        """BM25 and cosine scores of the facet-matching candidates, by id: the inputs to the gate and to RRF.
+
+        BM25 leaves out zero scores. An arm that is off gives an empty dict.
+        """
         idx = [i for i, p in enumerate(self.patterns) if _matches(p, facets)]
-        path = "rrf" if len(self.arms) == 2 else (self.arms[0] if self.arms else "none")
-        auth = {"subject": subject}
-        if not idx:
-            return SelectResult([], path, self.version, auth, EMPTY_MESSAGE)
         bm_scores: dict[str, float] = {}
         sem_scores: dict[str, float] = {}
-        rankings: list[list[str]] = []
         if self._bm25 is not None:
             raw = self._bm25.get_scores(tokenize(task))
             bm_scores = {self.patterns[i].id: float(raw[i]) for i in idx if raw[i] > 0}
-            rankings.append(sorted(bm_scores, key=lambda id: (-bm_scores[id], id)))
         if self._vectors is not None and self.embedder is not None:
             q = self.embedder.embed([task])[0]
             sims = self._vectors @ q
             sem_scores = {self.patterns[i].id: float(sims[i]) for i in idx}
-            rankings.append(sorted(sem_scores, key=lambda id: (-sem_scores[id], id)))
+        return bm_scores, sem_scores
+
+    def select(self, task: str, facets: dict[str, str] | None = None, k: int = 5,
+               subject: str = "stdio-local") -> SelectResult:
+        self._validate(facets, k)
+        path = "rrf" if len(self.arms) == 2 else (self.arms[0] if self.arms else "none")
+        auth = {"subject": subject}
+        if not any(_matches(p, facets) for p in self.patterns):
+            return SelectResult([], path, self.version, auth, EMPTY_MESSAGE)
+        bm_scores, sem_scores = self.arm_scores(task, facets)
+        # The gate needs both arms: alone, neither BM25 nor cosine separates off-topic queries
+        # (docs/data/floor-calibration.json, `separable`). A one-arm selector is never gated.
+        if self._bm25 is not None and self._vectors is not None:
+            top_bm, top_sem = max(bm_scores.values(), default=0.0), max(sem_scores.values(), default=0.0)
+            if relevance(top_bm, top_sem) < self.gate.threshold:
+                return SelectResult([], path, self.version, auth, EMPTY_MESSAGE)
+        rankings = [sorted(scores, key=lambda id: (-scores[id], id)) for scores in (bm_scores, sem_scores)]
         fused = rrf([r for r in rankings if r])
         if not fused:
             return SelectResult([], path, self.version, auth, EMPTY_MESSAGE)

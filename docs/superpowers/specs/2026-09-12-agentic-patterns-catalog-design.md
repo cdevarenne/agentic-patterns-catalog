@@ -207,7 +207,14 @@ class Ledger(Protocol):
 3. Semantic arm over the same text with `fastembed` (Apache-2.0, local ONNX); skipped when the
    `embed` extra is absent and the result says so in `retrieval_path`.
 4. Reciprocal Rank Fusion, `k_rrf = 60`; ties broken by id for determinism.
-5. Top-k hits, each with `score_bm25, score_semantic, rrf_rank, retrieval_path
+5. Query gate, active only when both arms run: `relevance = top_bm25 / BM25_SCALE +
+   max(0, top_cos - COS_BASE) / COS_SCALE` (constants in `retrieval.py`); when it is below
+   `query_gate_threshold` (`eval/gate.json`, derived from `docs/data/floor-calibration.json`), the
+   result is the empty message. Per-signal floors were measured and rejected: neither the best
+   BM25 score nor the best cosine separates off-topic queries on its own (`separable` in the
+   record); the combined score does. Without the `embed` extra there is no semantic arm and
+   `select` cannot detect off-topic queries; it returns its best lexical matches with their scores.
+6. Top-k hits, each with `score_bm25, score_semantic, rrf_rank, retrieval_path
    (bm25 | semantic | rrf)`, the record's `provenance`, `reviewed`, and 1-hop `relations`.
 
 Envelope fields (always present; `null` when not applicable, never absent):

@@ -28,3 +28,13 @@
 {"id": "t28", "task": "Before merging any pull request, run the agent against a version-controlled regression suite of golden tasks and block the merge if scores drop.", "expected_ids": ["eval-driven-agent-development"], "expected_path": "rrf", "notes": "evaluation"}
 {"id": "t29", "task": "Record every model call and tool call a production agent makes, with token counts, latency and cost, organized per run for later inspection.", "expected_ids": ["agent-observability-tracing"], "expected_path": "rrf", "notes": "evaluation"}
 {"id": "t30", "task": "A multi-step workflow must survive a process crash mid-way through and resume from the last completed step instead of starting over.", "expected_ids": ["durable-execution"], "expected_path": "rrf", "notes": "workflow orchestration"}
+{"id": "t31", "task": "photosynthesis in green plants", "expected_ids": [], "expected_path": "rrf", "expect_empty": true, "notes": "off-topic probe: must return the empty message"}
+{"id": "t32", "task": "how to file a tax return in france", "expected_ids": [], "expected_path": "rrf", "expect_empty": true, "notes": "off-topic probe: must return the empty message"}
+{"id": "t33", "task": "sourdough starter feeding schedule", "expected_ids": [], "expected_path": "rrf", "expect_empty": true, "notes": "off-topic probe: must return the empty message"}
+{"id": "t34", "task": "best hiking trails near lyon", "expected_ids": [], "expected_path": "rrf", "expect_empty": true, "notes": "off-topic probe: must return the empty message"}
+{"id": "t35", "task": "symptoms of vitamin d deficiency", "expected_ids": [], "expected_path": "rrf", "expect_empty": true, "notes": "off-topic probe: must return the empty message"}
+{"id": "t36", "task": "tuning a guitar by ear", "expected_ids": [], "expected_path": "rrf", "expect_empty": true, "notes": "off-topic probe: must return the empty message"}
+{"id": "t37", "task": "history of the roman republic", "expected_ids": [], "expected_path": "rrf", "expect_empty": true, "notes": "off-topic probe: must return the empty message"}
+{"id": "t38", "task": "how do I change a bicycle tyre", "expected_ids": [], "expected_path": "rrf", "expect_empty": true, "notes": "off-topic probe: must return the empty message"}
+{"id": "t39", "task": "knitting a scarf for beginners", "expected_ids": [], "expected_path": "rrf", "expect_empty": true, "notes": "off-topic probe: must return the empty message"}
+{"id": "t40", "task": "what is the boiling point of ethanol", "expected_ids": [], "expected_path": "rrf", "expect_empty": true, "notes": "off-topic probe: must return the empty message"}

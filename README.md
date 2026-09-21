@@ -43,6 +43,7 @@ Without uv: `python3.14 -m venv .venv && . .venv/bin/activate && pip install -e 
 | `catalog compile [--local]` | write `CATALOG.md`, `CATALOG-full.md`, guides, sheets |
 | `catalog select "task" [--facet k=v] [-k N]` | pick patterns for a task; `--json` for the full envelope |
 | `catalog eval` | golden set → `docs/data/eval.json` |
+| `catalog calibrate` | evidence for the off-topic gate → `docs/data/floor-calibration.json` |
 | `catalog verify` | every check; exit 1 on any problem |
 
 ## Provenance
@@ -50,3 +51,5 @@ Without uv: `python3.14 -m venv .venv && . .venv/bin/activate && pip install -e 
 Every record carries `provenance.source` (url, mirror date, extraction method, content hash) and, once
 enriched, `provenance.enrichment` per selection field (method, model, date, reviewer). Every `select`
 answer returns the record's provenance, the retrieval path per hit, and the catalog version.
+Without the `embed` extra there is no semantic arm and `select` cannot detect off-topic queries; it
+returns its best lexical matches with their scores.

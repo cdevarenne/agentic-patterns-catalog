@@ -3,6 +3,7 @@
     "bm25": {
       "cases": [
         {
+          "expect_empty": false,
           "expected_ids": [
             "content-based-routing",
             "llm-based-routing",
@@ -47,6 +48,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "load-balancing"
           ],
@@ -89,6 +91,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "self-critique"
           ],
@@ -131,6 +134,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "tool-retrieval"
           ],
@@ -173,6 +177,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "function-calling",
             "structured-outputs"
@@ -216,6 +221,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "fork-join",
             "scatter-gather"
@@ -259,6 +265,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "cod",
             "evolutionary-algorithms"
@@ -302,6 +309,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "sliding-window-management",
             "context-compress-patterns"
@@ -345,6 +353,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "constraint-satisfaction",
             "human-in-the-loop"
@@ -388,6 +397,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "dual-llm-capability-security",
             "spotlighting-data-marking"
@@ -431,6 +441,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "abductive-reasoning"
           ],
@@ -473,6 +484,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "reflexion-pattern"
           ],
@@ -515,6 +527,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "parallel-synthesis"
           ],
@@ -557,6 +570,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "supervisor-worker-pattern"
           ],
@@ -599,6 +613,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "message-queuing"
           ],
@@ -641,6 +656,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "episodic-memory-systems"
           ],
@@ -683,6 +699,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "advanced-rag",
             "agentic-rag-systems"
@@ -726,6 +743,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "plan-execute-decoupling"
           ],
@@ -768,6 +786,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "weighted-scoring"
           ],
@@ -810,6 +829,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "human-on-the-loop",
             "monitoring-control-patterns"
@@ -853,6 +873,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "constraint-satisfaction"
           ],
@@ -895,6 +916,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "geographic-routing"
           ],
@@ -937,6 +959,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "code-as-action"
           ],
@@ -979,6 +1002,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "memory-forgetting-policies"
           ],
@@ -1021,6 +1045,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "system-prompt-protection"
           ],
@@ -1063,6 +1088,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "eval-driven-agent-development"
           ],
@@ -1105,6 +1131,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "agent-observability-tracing"
           ],
@@ -1147,6 +1174,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "durable-execution"
           ],
@@ -1187,14 +1215,403 @@
             "graph-state-machines",
             "sequential-chaining"
           ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t31",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "energy-efficient-inference",
+              "score_bm25": 5.758891459504743,
+              "score_semantic": null
+            },
+            {
+              "id": "hierarchical-memory",
+              "score_bm25": 1.4922428192383401,
+              "score_semantic": null
+            },
+            {
+              "id": "self-healing-operations-loop",
+              "score_bm25": 1.1778634985580891,
+              "score_semantic": null
+            },
+            {
+              "id": "code-as-action",
+              "score_bm25": 1.1735871558364854,
+              "score_semantic": null
+            },
+            {
+              "id": "terminal-bench",
+              "score_bm25": 1.1658248748624185,
+              "score_semantic": null
+            }
+          ],
+          "top": [
+            "energy-efficient-inference",
+            "hierarchical-memory",
+            "self-healing-operations-loop",
+            "code-as-action",
+            "terminal-bench"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t32",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "async-await",
+              "score_bm25": 10.777359835132131,
+              "score_semantic": null
+            },
+            {
+              "id": "tool-misuse-prevention",
+              "score_bm25": 8.375579761347838,
+              "score_semantic": null
+            },
+            {
+              "id": "code-execution",
+              "score_bm25": 7.641323852378208,
+              "score_semantic": null
+            },
+            {
+              "id": "event-driven-blackboard",
+              "score_bm25": 7.637362993151523,
+              "score_semantic": null
+            },
+            {
+              "id": "hierarchical-index-retrieval",
+              "score_bm25": 7.493000809780929,
+              "score_semantic": null
+            }
+          ],
+          "top": [
+            "async-await",
+            "tool-misuse-prevention",
+            "code-execution",
+            "event-driven-blackboard",
+            "hierarchical-index-retrieval"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t33",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "advanced-rag",
+              "score_bm25": 4.575938614388078,
+              "score_semantic": null
+            }
+          ],
+          "top": [
+            "advanced-rag"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t34",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "tot",
+              "score_bm25": 4.079404509601183,
+              "score_semantic": null
+            },
+            {
+              "id": "rule-based-routing",
+              "score_bm25": 3.894027002269528,
+              "score_semantic": null
+            },
+            {
+              "id": "transparent-data-handling",
+              "score_bm25": 3.735372220218355,
+              "score_semantic": null
+            },
+            {
+              "id": "regulatory-compliance-ux",
+              "score_bm25": 3.6523107177997014,
+              "score_semantic": null
+            },
+            {
+              "id": "llm-as-judge",
+              "score_bm25": 3.500088791875033,
+              "score_semantic": null
+            }
+          ],
+          "top": [
+            "tot",
+            "rule-based-routing",
+            "transparent-data-handling",
+            "regulatory-compliance-ux",
+            "llm-as-judge"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t35",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "metr-re-bench",
+              "score_bm25": 7.7363244213417035,
+              "score_semantic": null
+            },
+            {
+              "id": "causal-reasoning",
+              "score_bm25": 5.716461430964735,
+              "score_semantic": null
+            },
+            {
+              "id": "mlr-bench",
+              "score_bm25": 5.074654463361446,
+              "score_semantic": null
+            },
+            {
+              "id": "abductive-reasoning",
+              "score_bm25": 4.858497825662704,
+              "score_semantic": null
+            },
+            {
+              "id": "a2a-protocol",
+              "score_bm25": 4.238661716533876,
+              "score_semantic": null
+            }
+          ],
+          "top": [
+            "metr-re-bench",
+            "causal-reasoning",
+            "mlr-bench",
+            "abductive-reasoning",
+            "a2a-protocol"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t36",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "prompt-optimization",
+              "score_bm25": 7.461221899466147,
+              "score_semantic": null
+            },
+            {
+              "id": "memory-optimization",
+              "score_bm25": 5.481055302645581,
+              "score_semantic": null
+            },
+            {
+              "id": "load-balancing",
+              "score_bm25": 5.189393180498205,
+              "score_semantic": null
+            },
+            {
+              "id": "llm-checkpoint-recovery",
+              "score_bm25": 3.5824168283681885,
+              "score_semantic": null
+            },
+            {
+              "id": "memory-reading-writing-operations",
+              "score_bm25": 3.3434869592906846,
+              "score_semantic": null
+            }
+          ],
+          "top": [
+            "prompt-optimization",
+            "memory-optimization",
+            "load-balancing",
+            "llm-checkpoint-recovery",
+            "memory-reading-writing-operations"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t37",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "episodic-memory-systems",
+              "score_bm25": 6.2882148072707444,
+              "score_semantic": null
+            },
+            {
+              "id": "agent-context-preservation",
+              "score_bm25": 5.587698622069323,
+              "score_semantic": null
+            },
+            {
+              "id": "handoff-orchestration",
+              "score_bm25": 5.483165704434632,
+              "score_semantic": null
+            },
+            {
+              "id": "memory-reading-writing-operations",
+              "score_bm25": 5.030850312350465,
+              "score_semantic": null
+            },
+            {
+              "id": "memory-poisoning-prevention",
+              "score_bm25": 4.987091056506974,
+              "score_semantic": null
+            }
+          ],
+          "top": [
+            "episodic-memory-systems",
+            "agent-context-preservation",
+            "handoff-orchestration",
+            "memory-reading-writing-operations",
+            "memory-poisoning-prevention"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t38",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "async-await",
+              "score_bm25": 6.924694525595547,
+              "score_semantic": null
+            },
+            {
+              "id": "terminal-bench",
+              "score_bm25": 6.146846055151894,
+              "score_semantic": null
+            },
+            {
+              "id": "event-driven-blackboard",
+              "score_bm25": 5.764523702312937,
+              "score_semantic": null
+            },
+            {
+              "id": "authenticated-delegation",
+              "score_bm25": 5.572073337589266,
+              "score_semantic": null
+            },
+            {
+              "id": "parallel-chaining",
+              "score_bm25": 5.567795546520833,
+              "score_semantic": null
+            }
+          ],
+          "top": [
+            "async-await",
+            "terminal-bench",
+            "event-driven-blackboard",
+            "authenticated-delegation",
+            "parallel-chaining"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t39",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "swe-bench-pro",
+              "score_bm25": 2.6220016225542735,
+              "score_semantic": null
+            },
+            {
+              "id": "direct-preference-optimization",
+              "score_bm25": 2.4633915404199764,
+              "score_semantic": null
+            },
+            {
+              "id": "llm-as-judge",
+              "score_bm25": 2.352881083214406,
+              "score_semantic": null
+            },
+            {
+              "id": "codebase-structure-retrieval",
+              "score_bm25": 2.2617836704200434,
+              "score_semantic": null
+            },
+            {
+              "id": "terminal-bench",
+              "score_bm25": 2.1145043001582717,
+              "score_semantic": null
+            }
+          ],
+          "top": [
+            "swe-bench-pro",
+            "direct-preference-optimization",
+            "llm-as-judge",
+            "codebase-structure-retrieval",
+            "terminal-bench"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t40",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "temporal-knowledge-graph-memory",
+              "score_bm25": 8.056548192513807,
+              "score_semantic": null
+            },
+            {
+              "id": "step-back-prompting",
+              "score_bm25": 7.722586644292381,
+              "score_semantic": null
+            },
+            {
+              "id": "osworld",
+              "score_bm25": 7.196635523382313,
+              "score_semantic": null
+            },
+            {
+              "id": "authenticated-delegation",
+              "score_bm25": 6.887887091611082,
+              "score_semantic": null
+            },
+            {
+              "id": "agent-status-activity-patterns",
+              "score_bm25": 5.878865151853359,
+              "score_semantic": null
+            }
+          ],
+          "top": [
+            "temporal-knowledge-graph-memory",
+            "step-back-prompting",
+            "osworld",
+            "authenticated-delegation",
+            "agent-status-activity-patterns"
+          ]
         }
       ],
       "hit_at_k": 0.6071428571428571,
-      "mrr": 0.5297619047619048
+      "mrr": 0.5297619047619048,
+      "offtopic_empty_rate": 0.0,
+      "ontopic_kept_rate": 1.0
     },
     "rrf": {
       "cases": [
         {
+          "expect_empty": false,
           "expected_ids": [
             "content-based-routing",
             "llm-based-routing",
@@ -1239,6 +1656,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "load-balancing"
           ],
@@ -1281,6 +1699,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "self-critique"
           ],
@@ -1323,6 +1742,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "tool-retrieval"
           ],
@@ -1365,6 +1785,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "function-calling",
             "structured-outputs"
@@ -1408,6 +1829,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "fork-join",
             "scatter-gather"
@@ -1451,6 +1873,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "cod",
             "evolutionary-algorithms"
@@ -1494,6 +1917,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "sliding-window-management",
             "context-compress-patterns"
@@ -1537,6 +1961,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "constraint-satisfaction",
             "human-in-the-loop"
@@ -1580,6 +2005,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "dual-llm-capability-security",
             "spotlighting-data-marking"
@@ -1623,6 +2049,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "abductive-reasoning"
           ],
@@ -1665,6 +2092,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "reflexion-pattern"
           ],
@@ -1707,6 +2135,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "parallel-synthesis"
           ],
@@ -1749,6 +2178,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "supervisor-worker-pattern"
           ],
@@ -1791,6 +2221,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "message-queuing"
           ],
@@ -1833,6 +2264,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "episodic-memory-systems"
           ],
@@ -1875,6 +2307,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "advanced-rag",
             "agentic-rag-systems"
@@ -1918,6 +2351,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "plan-execute-decoupling"
           ],
@@ -1960,6 +2394,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "weighted-scoring"
           ],
@@ -2002,6 +2437,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "human-on-the-loop",
             "monitoring-control-patterns"
@@ -2045,6 +2481,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "constraint-satisfaction"
           ],
@@ -2087,6 +2524,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "geographic-routing"
           ],
@@ -2129,6 +2567,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "code-as-action"
           ],
@@ -2171,6 +2610,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "memory-forgetting-policies"
           ],
@@ -2213,6 +2653,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "system-prompt-protection"
           ],
@@ -2255,6 +2696,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "eval-driven-agent-development"
           ],
@@ -2297,6 +2739,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "agent-observability-tracing"
           ],
@@ -2339,6 +2782,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "durable-execution"
           ],
@@ -2379,14 +2823,107 @@
             "context-state-machines",
             "agent-observability-tracing"
           ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": true,
+          "id": "t31",
+          "reciprocal_rank": 0.0,
+          "scores": [],
+          "top": []
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": true,
+          "id": "t32",
+          "reciprocal_rank": 0.0,
+          "scores": [],
+          "top": []
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": true,
+          "id": "t33",
+          "reciprocal_rank": 0.0,
+          "scores": [],
+          "top": []
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": true,
+          "id": "t34",
+          "reciprocal_rank": 0.0,
+          "scores": [],
+          "top": []
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": true,
+          "id": "t35",
+          "reciprocal_rank": 0.0,
+          "scores": [],
+          "top": []
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": true,
+          "id": "t36",
+          "reciprocal_rank": 0.0,
+          "scores": [],
+          "top": []
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": true,
+          "id": "t37",
+          "reciprocal_rank": 0.0,
+          "scores": [],
+          "top": []
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": true,
+          "id": "t38",
+          "reciprocal_rank": 0.0,
+          "scores": [],
+          "top": []
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": true,
+          "id": "t39",
+          "reciprocal_rank": 0.0,
+          "scores": [],
+          "top": []
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": true,
+          "id": "t40",
+          "reciprocal_rank": 0.0,
+          "scores": [],
+          "top": []
         }
       ],
       "hit_at_k": 0.75,
-      "mrr": 0.5648809523809524
+      "mrr": 0.5648809523809524,
+      "offtopic_empty_rate": 1.0,
+      "ontopic_kept_rate": 1.0
     },
     "semantic": {
       "cases": [
         {
+          "expect_empty": false,
           "expected_ids": [
             "content-based-routing",
             "llm-based-routing",
@@ -2431,6 +2968,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "load-balancing"
           ],
@@ -2473,6 +3011,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "self-critique"
           ],
@@ -2515,6 +3054,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "tool-retrieval"
           ],
@@ -2557,6 +3097,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "function-calling",
             "structured-outputs"
@@ -2600,6 +3141,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "fork-join",
             "scatter-gather"
@@ -2643,6 +3185,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "cod",
             "evolutionary-algorithms"
@@ -2686,6 +3229,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "sliding-window-management",
             "context-compress-patterns"
@@ -2729,6 +3273,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "constraint-satisfaction",
             "human-in-the-loop"
@@ -2772,6 +3317,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "dual-llm-capability-security",
             "spotlighting-data-marking"
@@ -2815,6 +3361,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "abductive-reasoning"
           ],
@@ -2857,6 +3404,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "reflexion-pattern"
           ],
@@ -2899,6 +3447,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "parallel-synthesis"
           ],
@@ -2941,6 +3490,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "supervisor-worker-pattern"
           ],
@@ -2983,6 +3533,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "message-queuing"
           ],
@@ -3025,6 +3576,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "episodic-memory-systems"
           ],
@@ -3067,6 +3619,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "advanced-rag",
             "agentic-rag-systems"
@@ -3110,6 +3663,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "plan-execute-decoupling"
           ],
@@ -3152,6 +3706,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "weighted-scoring"
           ],
@@ -3194,6 +3749,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "human-on-the-loop",
             "monitoring-control-patterns"
@@ -3237,6 +3793,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "constraint-satisfaction"
           ],
@@ -3279,6 +3836,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "geographic-routing"
           ],
@@ -3321,6 +3879,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "code-as-action"
           ],
@@ -3363,6 +3922,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "memory-forgetting-policies"
           ],
@@ -3405,6 +3965,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "system-prompt-protection"
           ],
@@ -3447,6 +4008,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "eval-driven-agent-development"
           ],
@@ -3489,6 +4051,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "agent-observability-tracing"
           ],
@@ -3531,6 +4094,7 @@
           ]
         },
         {
+          "expect_empty": false,
           "expected_ids": [
             "durable-execution"
           ],
@@ -3571,19 +4135,432 @@
             "stateful-graph-workflows",
             "graph-state-machines"
           ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t31",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "energy-efficient-inference",
+              "score_bm25": null,
+              "score_semantic": 0.6343435049057007
+            },
+            {
+              "id": "fot",
+              "score_bm25": null,
+              "score_semantic": 0.5810285806655884
+            },
+            {
+              "id": "test-time-scaling",
+              "score_bm25": null,
+              "score_semantic": 0.5687459707260132
+            },
+            {
+              "id": "hierarchical-index-retrieval",
+              "score_bm25": null,
+              "score_semantic": 0.5662880539894104
+            },
+            {
+              "id": "fork-join",
+              "score_bm25": null,
+              "score_semantic": 0.5653751492500305
+            }
+          ],
+          "top": [
+            "energy-efficient-inference",
+            "fot",
+            "test-time-scaling",
+            "hierarchical-index-retrieval",
+            "fork-join"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t32",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "eu-ai-act-framework",
+              "score_bm25": null,
+              "score_semantic": 0.5143017768859863
+            },
+            {
+              "id": "agent-readable-web",
+              "score_bm25": null,
+              "score_semantic": 0.5086312890052795
+            },
+            {
+              "id": "llm-as-judge",
+              "score_bm25": null,
+              "score_semantic": 0.508275032043457
+            },
+            {
+              "id": "http-native-micropayments",
+              "score_bm25": null,
+              "score_semantic": 0.497301310300827
+            },
+            {
+              "id": "iterative-refinement",
+              "score_bm25": null,
+              "score_semantic": 0.488794207572937
+            }
+          ],
+          "top": [
+            "eu-ai-act-framework",
+            "agent-readable-web",
+            "llm-as-judge",
+            "http-native-micropayments",
+            "iterative-refinement"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t33",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "plan-execute-decoupling",
+              "score_bm25": null,
+              "score_semantic": 0.5531539916992188
+            },
+            {
+              "id": "llm-as-judge",
+              "score_bm25": null,
+              "score_semantic": 0.5489808917045593
+            },
+            {
+              "id": "resource-aware-scheduling",
+              "score_bm25": null,
+              "score_semantic": 0.535248875617981
+            },
+            {
+              "id": "priority-queues",
+              "score_bm25": null,
+              "score_semantic": 0.5251944065093994
+            },
+            {
+              "id": "sequential-chaining",
+              "score_bm25": null,
+              "score_semantic": 0.5247096419334412
+            }
+          ],
+          "top": [
+            "plan-execute-decoupling",
+            "llm-as-judge",
+            "resource-aware-scheduling",
+            "priority-queues",
+            "sequential-chaining"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t34",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "geographic-routing",
+              "score_bm25": null,
+              "score_semantic": 0.4582778215408325
+            },
+            {
+              "id": "dynamic-routing",
+              "score_bm25": null,
+              "score_semantic": 0.4409620761871338
+            },
+            {
+              "id": "plan-execute-decoupling",
+              "score_bm25": null,
+              "score_semantic": 0.4371900260448456
+            },
+            {
+              "id": "reinforcement-learning",
+              "score_bm25": null,
+              "score_semantic": 0.43237191438674927
+            },
+            {
+              "id": "multi-armed-bandits",
+              "score_bm25": null,
+              "score_semantic": 0.43070292472839355
+            }
+          ],
+          "top": [
+            "geographic-routing",
+            "dynamic-routing",
+            "plan-execute-decoupling",
+            "reinforcement-learning",
+            "multi-armed-bandits"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t35",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "causal-reasoning",
+              "score_bm25": null,
+              "score_semantic": 0.5149986743927002
+            },
+            {
+              "id": "multimodal-rag",
+              "score_bm25": null,
+              "score_semantic": 0.5048445463180542
+            },
+            {
+              "id": "abductive-reasoning",
+              "score_bm25": null,
+              "score_semantic": 0.4962772727012634
+            },
+            {
+              "id": "confidence-visualization-patterns",
+              "score_bm25": null,
+              "score_semantic": 0.47578874230384827
+            },
+            {
+              "id": "multimodal-context-integration",
+              "score_bm25": null,
+              "score_semantic": 0.47188955545425415
+            }
+          ],
+          "top": [
+            "causal-reasoning",
+            "multimodal-rag",
+            "abductive-reasoning",
+            "confidence-visualization-patterns",
+            "multimodal-context-integration"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t36",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "multimodal-interaction-patterns",
+              "score_bm25": null,
+              "score_semantic": 0.5407174825668335
+            },
+            {
+              "id": "llm-as-judge",
+              "score_bm25": null,
+              "score_semantic": 0.5247605443000793
+            },
+            {
+              "id": "prompt-optimization",
+              "score_bm25": null,
+              "score_semantic": 0.5150976181030273
+            },
+            {
+              "id": "plan-execute-decoupling",
+              "score_bm25": null,
+              "score_semantic": 0.5032516121864319
+            },
+            {
+              "id": "accessibility-agent-design",
+              "score_bm25": null,
+              "score_semantic": 0.5002057552337646
+            }
+          ],
+          "top": [
+            "multimodal-interaction-patterns",
+            "llm-as-judge",
+            "prompt-optimization",
+            "plan-execute-decoupling",
+            "accessibility-agent-design"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t37",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "episodic-memory-systems",
+              "score_bm25": null,
+              "score_semantic": 0.5476300716400146
+            },
+            {
+              "id": "tau-bench",
+              "score_bm25": null,
+              "score_semantic": 0.5473189353942871
+            },
+            {
+              "id": "temporal-knowledge-graph-memory",
+              "score_bm25": null,
+              "score_semantic": 0.5332549810409546
+            },
+            {
+              "id": "agent-context-preservation",
+              "score_bm25": null,
+              "score_semantic": 0.514671802520752
+            },
+            {
+              "id": "memory-block-architecture",
+              "score_bm25": null,
+              "score_semantic": 0.5058847665786743
+            }
+          ],
+          "top": [
+            "episodic-memory-systems",
+            "tau-bench",
+            "temporal-knowledge-graph-memory",
+            "agent-context-preservation",
+            "memory-block-architecture"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t38",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "context-editing-tool-clearing",
+              "score_bm25": null,
+              "score_semantic": 0.5214614868164062
+            },
+            {
+              "id": "feedback-chaining",
+              "score_bm25": null,
+              "score_semantic": 0.5035173892974854
+            },
+            {
+              "id": "progressive-agent-rollout",
+              "score_bm25": null,
+              "score_semantic": 0.49241340160369873
+            },
+            {
+              "id": "plan-execute-decoupling",
+              "score_bm25": null,
+              "score_semantic": 0.48341748118400574
+            },
+            {
+              "id": "llm-checkpoint-recovery",
+              "score_bm25": null,
+              "score_semantic": 0.4831560254096985
+            }
+          ],
+          "top": [
+            "context-editing-tool-clearing",
+            "feedback-chaining",
+            "progressive-agent-rollout",
+            "plan-execute-decoupling",
+            "llm-checkpoint-recovery"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t39",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "in-context-learning",
+              "score_bm25": null,
+              "score_semantic": 0.5286313891410828
+            },
+            {
+              "id": "buffer-of-thoughts",
+              "score_bm25": null,
+              "score_semantic": 0.509354829788208
+            },
+            {
+              "id": "simple-preference-optimization",
+              "score_bm25": null,
+              "score_semantic": 0.5002591609954834
+            },
+            {
+              "id": "reflexion-pattern",
+              "score_bm25": null,
+              "score_semantic": 0.500063419342041
+            },
+            {
+              "id": "hierarchical-index-retrieval",
+              "score_bm25": null,
+              "score_semantic": 0.49957942962646484
+            }
+          ],
+          "top": [
+            "in-context-learning",
+            "buffer-of-thoughts",
+            "simple-preference-optimization",
+            "reflexion-pattern",
+            "hierarchical-index-retrieval"
+          ]
+        },
+        {
+          "expect_empty": true,
+          "expected_ids": [],
+          "hit": false,
+          "id": "t40",
+          "reciprocal_rank": 0.0,
+          "scores": [
+            {
+              "id": "llm-as-judge",
+              "score_bm25": null,
+              "score_semantic": 0.5280652046203613
+            },
+            {
+              "id": "swe-bench-pro",
+              "score_bm25": null,
+              "score_semantic": 0.5267443060874939
+            },
+            {
+              "id": "structured-outputs",
+              "score_bm25": null,
+              "score_semantic": 0.5248899459838867
+            },
+            {
+              "id": "http-native-micropayments",
+              "score_bm25": null,
+              "score_semantic": 0.5133650302886963
+            },
+            {
+              "id": "infini-attention-architecture",
+              "score_bm25": null,
+              "score_semantic": 0.5124013423919678
+            }
+          ],
+          "top": [
+            "llm-as-judge",
+            "swe-bench-pro",
+            "structured-outputs",
+            "http-native-micropayments",
+            "infini-attention-architecture"
+          ]
         }
       ],
       "hit_at_k": 0.6428571428571429,
-      "mrr": 0.6142857142857142
+      "mrr": 0.6142857142857142,
+      "offtopic_empty_rate": 0.0,
+      "ontopic_kept_rate": 1.0
     }
   },
   "run": {
-    "cases": 28,
+    "cases": 38,
     "catalog_version": "0491b2237eb7",
-    "date": "2026-09-16",
+    "date": "2026-09-21",
     "embed_model": "BAAI/bge-small-en-v1.5",
     "gaps": 2,
-    "git_ref": "5b2429c",
-    "k": 5
+    "git_ref": "1be0384",
+    "k": 5,
+    "offtopic": 10
   }
 }

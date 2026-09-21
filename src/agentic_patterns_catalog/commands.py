@@ -1,5 +1,6 @@
 """Imports every module that registers a `catalog` subcommand."""
 from . import (
+    calibrate,  # noqa: F401
     compile,  # noqa: F401
     evaluate,  # noqa: F401
     extract,  # noqa: F401

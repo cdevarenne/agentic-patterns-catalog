@@ -35,7 +35,7 @@ STORE = _Mem([_p("content-routing", "routes requests by content"), _p("load-bala
 
 
 def test_run_eval_scores_each_arm_and_skips_gaps() -> None:
-    rep = evaluate.run_eval(STORE, TASKS, retrieval.HashEmbedder(), k=2)
+    rep = evaluate.run_eval(STORE, TASKS, retrieval.HashEmbedder(), k=2, gate=retrieval.GATE_OFF)
     assert set(rep["arms"]) == {"bm25", "semantic", "rrf"}
     assert rep["arms"]["rrf"]["hit_at_k"] == 1.0 and rep["arms"]["rrf"]["mrr"] == 1.0
     assert rep["run"]["cases"] == 2 and rep["run"]["gaps"] == 1
@@ -47,12 +47,12 @@ def test_run_eval_scores_each_arm_and_skips_gaps() -> None:
 
 
 def test_semantic_arm_is_null_without_an_embedder() -> None:
-    rep = evaluate.run_eval(STORE, TASKS, None, k=2)
+    rep = evaluate.run_eval(STORE, TASKS, None, k=2, gate=retrieval.GATE_OFF)
     assert rep["arms"]["semantic"] is None and rep["arms"]["rrf"]["hit_at_k"] == 1.0
 
 
 def test_thresholds_report_shortfalls() -> None:
-    rep = evaluate.run_eval(STORE, TASKS, None, k=2)
+    rep = evaluate.run_eval(STORE, TASKS, None, k=2, gate=retrieval.GATE_OFF)
     assert evaluate.check_thresholds(rep, {"rrf_hit_at_k": 0.5}) == []
     assert evaluate.check_thresholds(rep, {"rrf_hit_at_k": 1.5}) == ["rrf_hit_at_k 1.000 < 1.500"]
 
@@ -61,7 +61,7 @@ def test_write_eval_and_load_tasks_roundtrip(tmp_path: Path) -> None:
     tasks = tmp_path / "tasks.jsonl"
     tasks.write_text("\n".join(json.dumps(t) for t in TASKS) + "\n")
     assert [t["id"] for t in evaluate.load_tasks(tasks)] == ["a", "b", "c"]
-    out = evaluate.write_eval(evaluate.run_eval(STORE, TASKS, None), tmp_path / "eval.json")
+    out = evaluate.write_eval(evaluate.run_eval(STORE, TASKS, None, gate=retrieval.GATE_OFF), tmp_path / "eval.json")
     assert json.loads(out.read_text())["run"]["k"] == 5
 
 
@@ -72,3 +72,37 @@ def test_committed_tasks_reference_existing_ids() -> None:
     for t in evaluate.load_tasks():
         for e in t["expected_ids"]:
             assert e in ids, f"{t['id']}: unknown pattern id {e}"
+
+
+def test_expect_empty_case_scores_hit_only_on_the_empty_message() -> None:
+    tasks = [
+        {"id": "on", "task": "route by content", "expected_ids": ["content-routing"], "expected_path": "rrf"},
+        {"id": "off", "task": "zzz qqq", "expected_ids": [], "expected_path": "rrf", "expect_empty": True},
+    ]
+    rep = evaluate.run_eval(STORE, tasks, None, k=2, gate=retrieval.GATE_OFF)
+    arm = rep["arms"]["bm25"]
+    by_id = {c["id"]: c for c in arm["cases"]}
+    assert by_id["on"]["hit"] is True
+    assert by_id["off"]["hit"] is True          # no lexical overlap → empty message → correct
+    assert arm["offtopic_empty_rate"] == 1.0
+    assert arm["ontopic_kept_rate"] == 1.0
+    assert rep["run"]["offtopic"] == 1
+
+
+def test_threshold_key_for_offtopic_rate() -> None:
+    rep = evaluate.run_eval(STORE, TASKS, None, k=2, gate=retrieval.GATE_OFF)
+    assert evaluate.check_thresholds(rep, {"rrf_offtopic_empty_rate": 1.0}) == [] or \
+        "rrf_offtopic_empty_rate" in evaluate.check_thresholds(rep, {"rrf_offtopic_empty_rate": 1.0})[0]
+
+
+def test_calibrate_reports_the_evidence_and_the_suggested_threshold() -> None:
+    from agentic_patterns_catalog import calibrate
+    tasks = TASKS + [{"id": "off", "task": "zzz qqq", "expected_ids": [], "expected_path": "rrf", "expect_empty": True}]
+    rep = calibrate.run(STORE, tasks, retrieval.HashEmbedder(), k=2)
+    assert {"run", "ontopic", "offtopic", "true_hits", "separable", "relevance", "suggested"} <= set(rep)
+    assert set(rep["suggested"]) == {"query_gate_threshold"}
+    assert rep["ontopic"]["top_bm25"]["n"] == 2 and rep["offtopic"]["top_bm25"]["n"] == 1
+    assert rep["relevance"]["margin"] == pytest.approx(rep["relevance"]["ontopic_min"] - rep["relevance"]["offtopic_max"])
+    assert rep["separable"]["relevance"] is True
+    assert rep["suggested"]["query_gate_threshold"] == pytest.approx(
+        (rep["relevance"]["ontopic_min"] + rep["relevance"]["offtopic_max"]) / 2, abs=0.005)
