@@ -115,3 +115,33 @@ def test_git_ref_ignores_commits_that_only_touch_the_index(tmp_path: Path) -> No
     git("add", "."); git("commit", "-q", "-m", "index only")
     assert store.git_ref(tmp_path) == first
     assert store.git_ref(tmp_path / "nowhere") == "uncommitted"
+
+
+def test_jsonl_ledger_appends_one_line_per_event(tmp_path: Path) -> None:
+    ledger = store.JsonlLedger(tmp_path / "activity.jsonl")
+    e = store.ActivityEvent(ts="2026-09-21T10:00:00Z", tool="select", subject="stdio-local", decision="allow",
+                            args={"task": "route"}, hits=["a-pat"], provenance={"catalog_version": "abc"})
+    ledger.append(e)
+    ledger.append(e)
+    lines = (tmp_path / "activity.jsonl").read_text().splitlines()
+    assert len(lines) == 2
+    assert json.loads(lines[0])["tool"] == "select"
+    assert json.loads(lines[0])["hits"] == ["a-pat"]
+
+
+def test_filestore_embeddings_is_none_without_a_cache(tmp_path: Path) -> None:
+    s = store.FileStore(tmp_path / "catalog", tmp_path / "cache", embeddings_dir=tmp_path / "emb")
+    s.put(_p("a-pat"))
+    assert s.embeddings("hash-bow-256") is None
+
+
+def test_filestore_embeddings_returns_ids_and_matrix_from_the_cache(tmp_path: Path) -> None:
+    from agentic_patterns_catalog import retrieval
+    s = store.FileStore(tmp_path / "catalog", tmp_path / "cache", embeddings_dir=tmp_path / "emb")
+    s.put(_p("a-pat"))
+    s.put(_p("b-pat"))
+    retrieval.build_embedding_cache(s.all(), retrieval.HashEmbedder(), tmp_path / "emb")
+    got = s.embeddings("hash-bow-256")
+    assert got is not None
+    ids, matrix = got
+    assert ids == ["a-pat", "b-pat"] and matrix.shape == (2, 256)

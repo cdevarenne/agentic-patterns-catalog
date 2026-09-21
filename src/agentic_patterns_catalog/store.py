@@ -7,12 +7,46 @@ import json
 import re
 import subprocess
 from collections.abc import Iterable
+from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Protocol
 
+import numpy as np
+
 from .cli import register
 from .model import ID_PATTERN, Category, Content, Pattern, Recipe, dumps, dumps_record
-from .paths import CATALOG_DIR, CONTENT_CACHE_DIR, INDEX_PATH, ROOT
+from .paths import CATALOG_DIR, CONTENT_CACHE_DIR, EMBEDDINGS_DIR, INDEX_PATH, ROOT
+
+LEDGER_PATH = ROOT / "var" / "activity.jsonl"
+Embeddings = tuple[list[str], np.ndarray]
+
+
+@dataclass(frozen=True)
+class ActivityEvent:
+    """One tool call as the ledger records it. `decision` is allow or deny; a denied call has no hits."""
+    ts: str
+    tool: str
+    subject: str
+    decision: str
+    args: dict[str, Any]
+    hits: list[str]
+    provenance: dict[str, Any]
+
+
+class Ledger(Protocol):
+    def append(self, event: ActivityEvent) -> None: ...
+
+
+class JsonlLedger:
+    """Append-only JSON lines. The default ledger; Postgres arrives with the persistence layer."""
+
+    def __init__(self, path: Path = LEDGER_PATH) -> None:
+        self.path = path
+
+    def append(self, event: ActivityEvent) -> None:
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        with self.path.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(asdict(event), ensure_ascii=False, sort_keys=True) + "\n")
 
 
 class Store(Protocol):
@@ -25,13 +59,19 @@ class Store(Protocol):
     def categories(self) -> list[Category]: ...
     def recipes(self) -> list[Recipe]: ...
 
+    def embeddings(self, model_name: str) -> Embeddings | None:
+        """Cached vectors for every record in id order, or None when no valid cache exists."""
+        ...
+
 
 class FileStore:
     """One tracked record per file under `root`, with its site content cached under `cache`."""
 
-    def __init__(self, root: Path = CATALOG_DIR, cache: Path = CONTENT_CACHE_DIR) -> None:
+    def __init__(self, root: Path = CATALOG_DIR, cache: Path = CONTENT_CACHE_DIR,
+                 embeddings_dir: Path = EMBEDDINGS_DIR) -> None:
         self.root = root
         self.cache = cache
+        self.embeddings_dir = embeddings_dir
 
     def cache_path(self, category: str, id: str) -> Path:
         """Where the site content for this record is cached. The cache is never tracked."""
@@ -80,6 +120,13 @@ class FileStore:
     def recipes(self) -> list[Recipe]:
         return [Recipe.model_validate_json(p.read_text(encoding="utf-8"))
                 for p in sorted((self.root / "recipes").glob("*.json"))]
+
+    def embeddings(self, model_name: str) -> Embeddings | None:
+        from .retrieval import load_embedding_cache  # local import: retrieval imports this module
+
+        patterns = self.all()
+        matrix = load_embedding_cache(patterns, model_name, self.embeddings_dir)
+        return None if matrix is None else ([p.id for p in patterns], matrix)
 
 
 def content_version(patterns: Iterable[Pattern]) -> str:
