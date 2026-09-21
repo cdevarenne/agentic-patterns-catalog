@@ -1,9 +1,22 @@
-"""Repository-relative paths. The package is installed editable, so the repo root is two levels up."""
+"""Repository-relative paths. `CATALOG_ROOT` overrides the in-tree default (ADR-0004)."""
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+
+def repo_root() -> Path:
+    """`$CATALOG_ROOT` when set, else the checkout this package lives in. The override must hold `catalog/`."""
+    override = os.environ.get("CATALOG_ROOT")
+    if not override:
+        return Path(__file__).resolve().parents[2]
+    root = Path(override).expanduser().resolve()
+    if not (root / "catalog").is_dir():
+        raise FileNotFoundError(f"CATALOG_ROOT={override!r} has no catalog/ directory")
+    return root
+
+
+ROOT = repo_root()
 CATALOG_DIR = ROOT / "catalog"
 PATTERNS_DIR = CATALOG_DIR / "patterns"
 CATEGORIES_DIR = CATALOG_DIR / "categories"

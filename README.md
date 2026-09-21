@@ -29,6 +29,8 @@ uv run pytest
 uv run catalog --help
 ```
 
+Running from another directory: `CATALOG_ROOT=/path/to/checkout uv run catalog verify` (ADR-0004).
+
 Without uv: `python3.14 -m venv .venv && . .venv/bin/activate && pip install -e ".[dev]"`.
 
 ## Commands
