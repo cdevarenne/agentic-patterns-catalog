@@ -23,8 +23,9 @@ from .model import (
     content_hash,
     dumps,
 )
-from .paths import CATALOG_DIR, SITE
+from .paths import CATALOG_DIR, CONTENT_CACHE_DIR, SITE
 from .rsc import page_props
+from .store import FileStore
 
 
 @dataclass
@@ -91,10 +92,13 @@ def _is_pack_record(path: Path) -> bool:
         return False
 
 
-def extract_mirror(mirror_dir: Path, out_dir: Path = CATALOG_DIR, *, force: bool = False) -> ExtractReport:
-    """Every `<category>/<slug>.html` under `mirror_dir` → `out_dir/patterns/…` and `out_dir/categories/…`."""
+def extract_mirror(mirror_dir: Path, out_dir: Path = CATALOG_DIR, *,
+                   cache_dir: Path = CONTENT_CACHE_DIR, force: bool = False) -> ExtractReport:
+    """Every `<category>/<slug>.html` under `mirror_dir` becomes a record, a cached content file
+    and a category record. Enrichment already in a record is read back and kept."""
     report = ExtractReport()
     categories: dict[str, Category] = {}
+    store = FileStore(out_dir, cache_dir)
     for page in sorted(mirror_dir.glob("*/*.html")):
         mirrored_at = dt.datetime.fromtimestamp(page.stat().st_mtime, dt.UTC).date().isoformat()
         url = f"{SITE}/patterns/{page.parent.name}/{page.stem}"
@@ -110,8 +114,11 @@ def extract_mirror(mirror_dir: Path, out_dir: Path = CATALOG_DIR, *, force: bool
             continue
         if not pattern.content.details:
             report.empty_details.append(pattern.id)
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(dumps(pattern), encoding="utf-8")
+        if target.is_file():
+            # The record on disk owns the enrichment. Extraction refreshes content, never selection.
+            existing = Pattern.model_validate_json(target.read_text(encoding="utf-8"))
+            pattern = pattern.model_copy(update={"selection": existing.selection})
+        store.put(pattern)
         report.written += 1
     for c in categories.values():
         path = out_dir / "categories" / f"{c.id}.json"
@@ -125,10 +132,12 @@ def extract_mirror(mirror_dir: Path, out_dir: Path = CATALOG_DIR, *, force: bool
 def _cmd(parser: argparse.ArgumentParser):
     parser.add_argument("--mirror", type=Path, required=True, help="…/agentic-design-mirror/pages/raw/patterns")
     parser.add_argument("--out", type=Path, default=CATALOG_DIR)
+    parser.add_argument("--cache", type=Path, default=CONTENT_CACHE_DIR,
+                        help="where extracted site content is cached (never tracked)")
     parser.add_argument("--force", action="store_true", help="overwrite records seeded from the free pack")
 
     def run(ns: argparse.Namespace) -> int:
-        r = extract_mirror(ns.mirror, ns.out, force=ns.force)
+        r = extract_mirror(ns.mirror, ns.out, cache_dir=ns.cache, force=ns.force)
         print(f"written {r.written}, skipped pack records {r.skipped_pack}, categories {r.categories}, "
               f"empty details {len(r.empty_details)}")
         return 0
