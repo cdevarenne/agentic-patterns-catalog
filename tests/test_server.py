@@ -106,3 +106,57 @@ def test_select_returns_the_envelope_with_local_subject(mcp) -> None:
 def test_select_rejects_an_unknown_facet(mcp) -> None:
     with pytest.raises(ToolError, match="unknown facet"):
         call(mcp, "select", task="x", facets={"colour": "red"})
+
+
+def test_every_call_is_decided_and_written_before_the_body(mcp, ledger: ListLedger) -> None:
+    call(mcp, "get_pattern", id="content-router")
+    (e,) = ledger.events
+    assert (e.tool, e.subject, e.decision, e.args, e.hits) == (
+        "get_pattern", "stdio-local", "allow", {"id": "content-router"}, [])
+    assert e.ts.endswith("Z") and e.provenance == {"role": "curator", "reason": "role 'curator' may call 'get_pattern'"}
+
+
+def test_select_writes_a_result_row_with_hit_ids(mcp, ledger: ListLedger) -> None:
+    env = call(mcp, "select", task="route by meaning", k=1)
+    assert [e.decision for e in ledger.events] == ["allow", "result"]
+    result = ledger.events[1]
+    assert result.hits == [env["hits"][0]["id"]]
+    assert result.provenance == {"catalog_version": env["catalog_version"], "retrieval_path": "bm25"}
+
+
+def test_denied_call_is_written_and_the_body_does_not_run(fs, ledger: ListLedger, monkeypatch) -> None:
+    # The in-memory transport has no token, so the subject is stdio-local (a curator). Force a reader
+    # to prove the deny path: patch current_subject.
+    monkeypatch.setattr(server, "current_subject", lambda: "b@y.com")
+    mcp = server.build_server(fs, AllowlistPDP("b@y.com:reader"), ledger)
+    with pytest.raises(ToolError, match="may not call 'put_pattern'"):
+        call(mcp, "put_pattern", record=fs.get("content-router").model_dump(mode="json"))
+    (e,) = ledger.events
+    assert (e.subject, e.decision, e.hits) == ("b@y.com", "deny", [])
+    assert e.args["record"]["id"] == "content-router"
+
+
+def test_unverified_subject_is_denied(fs, ledger: ListLedger, monkeypatch) -> None:
+    monkeypatch.setattr(server, "current_subject", lambda: None)
+    mcp = server.build_server(fs, AllowlistPDP("a@x.com:curator"), ledger)
+    with pytest.raises(ToolError, match="no verified e-mail"):
+        call(mcp, "list_categories")
+    assert ledger.events[0].subject == "unknown" and ledger.events[0].decision == "deny"
+
+
+def test_put_pattern_writes_through_the_store(mcp, fs, ledger: ListLedger) -> None:
+    rec = fs.get("content-router").model_dump(mode="json")
+    rec["content"]["description"] = "changed"
+    assert call(mcp, "put_pattern", record=rec) == {"id": "content-router", "status": "written"}
+    assert fs.get("content-router").content.description == "changed"
+
+
+@pytest.mark.parametrize(("claims", "expected"), [
+    ({"email": "a@x.com", "email_verified": True}, "a@x.com"),
+    ({"email": "a@x.com", "email_verified": "true"}, "a@x.com"),
+    ({"email": "a@x.com", "email_verified": False}, None),
+    ({"email": "a@x.com"}, None),
+    ({}, None),
+])
+def test_subject_from_claims(claims: dict[str, Any], expected: str | None) -> None:
+    assert server.subject_from_claims(claims) == expected

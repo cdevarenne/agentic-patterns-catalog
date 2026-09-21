@@ -23,7 +23,8 @@ Embeddings = tuple[list[str], np.ndarray]
 
 @dataclass(frozen=True)
 class ActivityEvent:
-    """One tool call as the ledger records it. `decision` is allow or deny; a denied call has no hits."""
+    """One tool call as the ledger records it. `decision` is allow, deny or result; a denied call has no
+    hits; a result row carries the hit ids."""
     ts: str
     tool: str
     subject: str
