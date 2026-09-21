@@ -59,6 +59,15 @@ def test_missing_cached_content_is_a_warning_not_a_problem(tmp_path: Path) -> No
     assert "content" in verify.run_warnings(ctx)
 
 
+def test_malformed_cached_content_is_reported_and_does_not_abort(tmp_path: Path) -> None:
+    ctx = _ctx(tmp_path)
+    (ctx.cache / "routing" / "a.json").write_text("{not json")
+    problems = verify.run_checks(ctx)
+    assert any("a: cached content does not parse" in p for p in problems["records"])
+    # The loop continued: record "b" (valid cache) still had its hash checked and passed.
+    assert not any(p.startswith("b:") for p in problems["records"])
+
+
 def test_stale_index_and_bad_hash_are_reported(tmp_path: Path) -> None:
     ctx = _ctx(tmp_path)
     (ctx.root / "index.json").write_text(json.dumps({"patterns": {}, "categories": [], "recipes": []}))
