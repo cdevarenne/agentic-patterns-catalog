@@ -95,7 +95,7 @@ def _is_pack_record(path: Path) -> bool:
 def extract_mirror(mirror_dir: Path, out_dir: Path = CATALOG_DIR, *,
                    cache_dir: Path = CONTENT_CACHE_DIR, force: bool = False) -> ExtractReport:
     """Every `<category>/<slug>.html` under `mirror_dir` becomes a record, a cached content file
-    and a category record. Enrichment already in a record is read back and kept."""
+    and a category record. A record's selection and its provenance are read back and kept."""
     report = ExtractReport()
     categories: dict[str, Category] = {}
     store = FileStore(out_dir, cache_dir)
@@ -115,9 +115,11 @@ def extract_mirror(mirror_dir: Path, out_dir: Path = CATALOG_DIR, *,
         if not pattern.content.details:
             report.empty_details.append(pattern.id)
         if target.is_file():
-            # The record on disk owns the enrichment. Extraction refreshes content, never selection.
+            # The record on disk owns the enrichment: its selection and that selection's provenance.
+            # Extraction refreshes content and source provenance only.
             existing = Pattern.model_validate_json(target.read_text(encoding="utf-8"))
-            pattern = pattern.model_copy(update={"selection": existing.selection})
+            provenance = pattern.provenance.model_copy(update={"enrichment": existing.provenance.enrichment})
+            pattern = pattern.model_copy(update={"selection": existing.selection, "provenance": provenance})
         store.put(pattern)
         report.written += 1
     for c in categories.values():

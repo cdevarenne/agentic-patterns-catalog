@@ -1,10 +1,12 @@
+import datetime as dt
 import json
+import os
 from pathlib import Path
 
 import pytest
 
 from agentic_patterns_catalog import extract, store
-from agentic_patterns_catalog.model import Pattern
+from agentic_patterns_catalog.model import Enrichment, Pattern, content_hash
 
 
 def test_extract_page_builds_pattern_and_categories(fixtures: Path) -> None:
@@ -71,7 +73,8 @@ def test_page_with_incomplete_tldr_error_names_the_file(fixtures: Path, tmp_path
 def test_re_extracting_preserves_enrichment(fixtures: Path, tmp_path: Path) -> None:
     mirror = tmp_path / "mirror" / "routing"
     mirror.mkdir(parents=True)
-    (mirror / "fixture-routing.html").write_text((fixtures / "page.html").read_text(encoding="utf-8"))
+    page = mirror / "fixture-routing.html"
+    page.write_text((fixtures / "page.html").read_text(encoding="utf-8"))
     out, cache = tmp_path / "catalog", tmp_path / "cache"
     extract.extract_mirror(tmp_path / "mirror", out, cache_dir=cache)
 
@@ -79,13 +82,25 @@ def test_re_extracting_preserves_enrichment(fixtures: Path, tmp_path: Path) -> N
     enriched = fs.get("fixture-routing")
     enriched.selection.problem_signals = ["requests span several domains"]
     enriched.selection.facets.scale = "multi-agent"
+    enriched.provenance.enrichment = {
+        "problem_signals": Enrichment(method="human", date="2026-09-20", reviewed_by="cdevarenne"),
+    }
     fs.put(enriched)
+
+    # Move the mirrored page's mtime forward a day so a re-extract's source provenance is
+    # distinguishable from what was on the enriched record — proving it gets refreshed, not kept.
+    fresh_mtime = page.stat().st_mtime + 86400
+    os.utime(page, (fresh_mtime, fresh_mtime))
+    fresh_mirrored_at = dt.datetime.fromtimestamp(fresh_mtime, dt.UTC).date().isoformat()
 
     extract.extract_mirror(tmp_path / "mirror", out, cache_dir=cache)
     after = fs.get("fixture-routing")
     assert after.selection.problem_signals == ["requests span several domains"]
     assert after.selection.facets.scale == "multi-agent"
     assert after.content is not None and after.content.tldr.what.startswith("Matches")
+    assert after.provenance.enrichment["problem_signals"].reviewed_by == "cdevarenne"
+    assert after.provenance.source.mirrored_at == fresh_mirrored_at
+    assert after.provenance.source.content_sha256 == content_hash(after.content)
 
 
 def test_extract_writes_no_prose_into_the_tracked_record(fixtures: Path, tmp_path: Path) -> None:
