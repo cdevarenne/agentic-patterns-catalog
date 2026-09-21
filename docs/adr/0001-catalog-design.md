@@ -2,8 +2,10 @@
 
 Status: Accepted 2026-09-12. **Partly superseded by
 [ADR-0002](0002-withdraw-co-scientist-use-case.md) (2026-09-15), which withdraws the Co-Scientist
-use case named in the §2 response, §9.1, §9.3 (SP5) and §9.4 option B.** The text below is left as
-written; it records the decision as it was taken. Reviewed section by section; every `Response:` line below is the
+use case named in the §2 response, §9.1, §9.3 (SP5) and §9.4 option B, and by
+[ADR-0003](0003-enrichment-is-the-tracked-record.md) (2026-09-15), which replaces the §7 decision
+that the 277 non-pack records stay untracked: all 288 records are tracked, and site content is a
+gitignored cache.** The text below is left as written; it records the decision as it was taken. Reviewed section by section; every `Response:` line below is the
 reviewer's recorded decision. The consolidated, decision-applied specification is
 `docs/superpowers/specs/2026-09-12-agentic-patterns-catalog-design.md`. Later sub-projects (SP2–SP9,
 see §9.3) each get their own ADR in this directory.

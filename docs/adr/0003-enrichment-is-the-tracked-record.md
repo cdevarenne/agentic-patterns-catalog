@@ -2,7 +2,8 @@
 
 Date: 2026-09-15
 Status: Accepted. Implemented in 1be0384 (issue #4); follow-ups in the commit that closes the final review.
-Amends spec §3, §4.1, §4.6 and §7. Supersedes nothing.
+Amends spec §3, §4.1, §4.6 and §7. Supersedes ADR-0001 §7 (commit scope: the 277 non-pack records
+were to stay untracked).
 
 ## Context
 
