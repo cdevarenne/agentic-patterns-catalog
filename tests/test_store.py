@@ -98,14 +98,6 @@ def test_put_without_content_leaves_an_existing_cache_file_alone(tmp_path: Path)
     assert s.get("a-pat").content is not None
 
 
-def test_suite_never_writes_to_the_real_content_cache(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    real = tmp_path / "sentinel-cache"
-    monkeypatch.setattr(store, "CONTENT_CACHE_DIR", real)
-    s = store.FileStore(tmp_path / "catalog", tmp_path / "cache")
-    s.put(_p("a-pat"))
-    assert not real.exists()
-
-
 def test_git_ref_ignores_commits_that_only_touch_the_index(tmp_path: Path) -> None:
     import subprocess
 

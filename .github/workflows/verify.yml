@@ -13,4 +13,4 @@ jobs:
       - run: uv sync --extra dev --extra lint
       - run: uv run --extra lint ruff check .
       - run: uv run pytest -q
-      - run: uv run catalog verify --skip index,compiled
+      - run: uv run catalog verify --skip compiled

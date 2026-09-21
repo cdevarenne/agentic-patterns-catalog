@@ -1,7 +1,7 @@
 # ADR-0003 — The tracked record is our enrichment; site content is a rebuildable cache
 
 Date: 2026-09-15
-Status: Accepted (decision only — not yet implemented; see issue #4).
+Status: Accepted. Implemented in 1be0384 (issue #4); follow-ups in the commit that closes the final review.
 Amends spec §3, §4.1, §4.6 and §7. Supersedes nothing.
 
 ## Context

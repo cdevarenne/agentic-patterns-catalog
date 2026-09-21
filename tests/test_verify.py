@@ -192,7 +192,7 @@ def test_cli_skip_does_not_run_the_skipped_check(monkeypatch) -> None:
         ran.append("records")
         return ["must not be reported"]
     monkeypatch.setattr(verify, "CHECKS", [("records", spy), *verify.CHECKS[1:]])
-    # index and compiled are skipped as well so the test passes on a checkout without the 277 local records
+    # index and compiled are skipped as well so the test passes on a checkout with no content cache
     assert cli.main(["verify", "--skip", "records,index,compiled"]) == 0
     assert ran == []
 

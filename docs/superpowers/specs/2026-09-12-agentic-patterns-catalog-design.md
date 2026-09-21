@@ -37,13 +37,14 @@ Concretely:
 | Input | Location | Fields | License / use |
 |---|---|---|---|
 | Site mirror, raw pages | `../agentic-design-mirror/pages/raw/patterns/**` | Next.js RSC payload (`self.__next_f.push`) with the pattern object | © KORTEXYA; personal education only. Per ADR-0003, the tracked record for these 277 patterns is identity + `selection` + `provenance`; the extracted `content.*` is a **gitignored** cache under `var/content/` rebuilt locally by `catalog extract`. |
-| Free pack | `../agentic-design-mirror/patterns-pack-free/data/patterns.json` | 11 tool-use records: `id, name, category, categoryName, complexity, description, features, useCases, tldr, example, code, references` | "Free to use in your own projects … do not republish as your own." The 11 records, including `content`, are committed as sample data with the pack README quoted. |
+| Free pack | `../agentic-design-mirror/patterns-pack-free/data/patterns.json` | 11 tool-use records: `id, name, category, categoryName, complexity, description, features, useCases, tldr, example, code, references` | "Free to use in your own projects … do not republish as your own." The 11 tracked records carry no `content`, like the other 277 (ADR-0003); their licensed prose is tracked in `data/pack/patterns.json` (pack README quoted) and `catalog seed` caches it under `var/content/`. |
 | Free pack MCP server | `…/patterns-pack-free/mcp-server/server.mjs` | tool names and shapes | Reused as naming precedent only (cited); no code copied. |
 | Free pack Markdown sheets | `…/patterns-pack-free/markdown/tool-use/*.md` | sheet layout | Layout reused for compiled reference sheets (cited). |
 
 Measured 2026-09-12 by parsing the raw pages (prototype in the plan): every page carries two
-sources of pattern content. Both are site prose; only the 11 pack records' `content` is committed,
-and category records (§4.2b) stay gitignored, since their prose is not licensed for redistribution.
+sources of pattern content. Both are site prose. No tracked record carries `content`; only the 11
+pack records' prose is tracked, in `data/pack/patterns.json`. Category records (§4.2b) stay
+gitignored, since their prose is not licensed for redistribution.
 
 1. The RSC props (JSON): the pattern object (`id, name, abbr, category, complexity, description,
    example, features, useCases, references`) plus page-level `tldr{what, when, watchOut}`,
@@ -116,7 +117,7 @@ whyImportant, implementationGuide{whenToUse[], bestPractices[], commonPitfalls[]
 (ids of the patterns listed under `techniques`), `provenance{source}` (same shape as `Pattern`).
 Category `description`, `detailedDescription`, `whyImportant` and `implementationGuide` are site
 prose: the free pack licenses only the `tool-use` category line. Category records are therefore
-**gitignored like the 277 pattern records** and rebuilt by `catalog extract`. Committed compiled
+**gitignored like the content cache** and rebuilt by `catalog extract`. Committed compiled
 views quote a category's `id` and `name` only (the taxonomy); `compile --local` adds the
 description and the `implementationGuide` sections to the local guides.
 
@@ -262,7 +263,7 @@ the client type in the console. Secrets live in `.env` (gitignored); `.env.examp
 | Output | Content | Budget / check |
 |---|---|---|
 | `skills/agentic-patterns/generated/CATALOG.md` | one line per **category** (24): `- **<id>** — <name> — <n> patterns` (the description is site prose and appears only under `--local`) | token estimate (`len(text) / 4`) asserted under 2k |
-| `skills/agentic-patterns/generated/CATALOG-full.md` | one line per record. Pack records: `id — tldr.what — use when: tldr.when`, from their tracked `content`. The other 277 are tracked as identity + `selection` + `provenance` only (ADR-0003): `id — name — first problem_signal` when enriched, `id — name` until then, so no mirror site prose is committed. `compile --local` may use `tldr` from the local content cache for all 288, for local use and the smoke test; that output is gitignored. | token estimate asserted under 16k |
+| `skills/agentic-patterns/generated/CATALOG-full.md` | one line per record. Pack records: `id — tldr.what — use when: tldr.when`, from their cached `content` (`catalog seed` fills it from the tracked `data/pack/patterns.json`). The other 277 are tracked as identity + `selection` + `provenance` only (ADR-0003): `id — name — first problem_signal` when enriched, `id — name` until then, so no mirror site prose is committed. `compile --local` may use `tldr` from the local content cache for all 288, for local use and the smoke test; that output is gitignored. | token estimate asserted under 16k |
 | `skills/agentic-patterns/generated/guides/<category>.md` | comparison table of the category's patterns by facets; `alternative_to` rows with `prefer_when`; the category's `implementationGuide` sections only under `--local` | every pattern of the category appears once; `compile` removes files it did not produce |
 | `skills/agentic-patterns/generated/sheets/<id>.md` | full reference sheet, pack layout | only for the 11 pack records in git; all 288 locally |
 | `catalog/embeddings/<model>.npy` + ids | semantic arm index | gitignored; rebuilt by compile |
@@ -317,8 +318,8 @@ a pattern.
   resolve; committed schema equals generated; no file under `generated/` that a fresh compile does
   not produce;
   `CATALOG.md` and `CATALOG-full.md` under budget; facet values in the vocabulary; compiled outputs equal a fresh compile; `eval.json` within declared
-  tolerance; every configured store passes the same checks. CI runs it on the 11 committed records;
-  locally it runs on all 288.
+  tolerance; every configured store passes the same checks. CI and a fresh clone see all 288 records and
+  no content cache; only `compiled` needs one (the pack sheets), so CI runs `verify --skip compiled`.
 - `uv run --extra lint ruff check .` passes before every commit.
 - Toolchain: Python 3.14, uv, `uv.lock` committed; `[project] dependencies = pydantic, rank_bm25`;
   extras `embed` (fastembed), `mcp` (fastmcp), `pg` (psycopg, pgvector, langgraph-checkpoint-postgres),

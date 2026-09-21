@@ -254,7 +254,7 @@ def _cmd(parser: argparse.ArgumentParser):
                         help="unknown facet values warn instead of fail (vocabulary-discovery sessions only)")
     parser.add_argument("--root", type=Path, default=CATALOG_DIR)
     parser.add_argument("--skip", default="", metavar="NAME[,NAME]",
-                        help="checks to skip, e.g. index,compiled on a checkout without the 277 local records")
+                        help="checks to skip, e.g. compiled on a checkout with no content cache")
 
     def run(ns: argparse.Namespace) -> int:
         ctx = VerifyContext.default(ns.lenient_vocab)
