@@ -42,6 +42,7 @@ Without uv: `python3.14 -m venv .venv && . .venv/bin/activate && pip install -e 
 | `catalog index` | write `catalog/index.json` |
 | `catalog compile [--local]` | write `CATALOG.md`, `CATALOG-full.md`, guides, sheets |
 | `catalog select "task" [--facet k=v] [-k N]` | pick patterns for a task; `--json` for the full envelope |
+| `catalog sync-pg [--embeddings MODEL]` | load the Postgres mirror from the files (extra pg) |
 | `catalog serve [--http]` | run the MCP server (stdio by default; `--http` for Streamable HTTP with Google login) |
 | `catalog eval` | golden set → `docs/data/eval.json` |
 | `catalog calibrate` | evidence for the off-topic gate → `docs/data/floor-calibration.json` |
@@ -52,6 +53,31 @@ Without uv: `python3.14 -m venv .venv && . .venv/bin/activate && pip install -e 
 Run the catalog as a Model Context Protocol server over stdio or Streamable HTTP.
 Local clients like Claude Code can run the stdio server directly using `.mcp.json`.
 For remote HTTP access with Google OAuth authentication and access control, see `docs/auth.md`.
+
+## Postgres mirror (optional)
+
+You can mirror the catalog files into a local PostgreSQL database with `pgvector`.
+Install the `pg` extra:
+
+```sh
+uv sync --extra pg
+```
+
+Set the database connection string:
+
+```sh
+export CATALOG_PG_DSN=postgresql:///agentic_patterns_catalog
+```
+
+Load the database from the files:
+
+```sh
+catalog sync-pg --embeddings BAAI/bge-small-en-v1.5
+```
+
+The files on disk remain the source of truth.
+When `CATALOG_PG_DSN` is set, `catalog verify` compares the database against the files and reports any drift.
+To configure the MCP server to read from Postgres, set `CATALOG_STORE=pg`. To write activity events to Postgres, set `CATALOG_LEDGER=pg`.
 
 ## Provenance
 

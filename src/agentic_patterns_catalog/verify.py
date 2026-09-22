@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from collections.abc import Callable, Collection
 from dataclasses import dataclass
 from pathlib import Path
@@ -211,9 +212,29 @@ def check_eval(ctx: VerifyContext) -> list[str]:
     return check_thresholds(report, json.loads(ctx.thresholds_path.read_text(encoding="utf-8")))
 
 
+def check_pg(ctx: VerifyContext) -> list[str]:
+    """When `CATALOG_PG_DSN` is set and the pg extra is installed: the mirror holds the same records as the files."""
+    dsn = os.environ.get("CATALOG_PG_DSN")
+    if not dsn:
+        return []
+    try:
+        from .pgstore import PostgresStore
+        from .store import content_version
+        pg = PostgresStore(dsn, os.environ.get("CATALOG_PG_SCHEMA", "public")).all()
+    except ImportError:
+        return ["CATALOG_PG_DSN is set but the pg extra is not installed"]
+    files = FileStore(ctx.root, ctx.cache).all()
+    if len(pg) != len(files):
+        return [f"postgres holds {len(pg)} patterns, files hold {len(files)}; run `catalog sync-pg`"]
+    if content_version(pg) != content_version(files):
+        return ["postgres content differs from the files; run `catalog sync-pg`"]
+    return []
+
+
 CHECKS: list[tuple[str, Check]] = [
     ("records", check_records), ("index", check_index), ("relations", check_relations), ("recipes", check_recipes),
     ("schema", check_schema), ("facets", check_facets), ("compiled", check_compiled), ("eval", check_eval),
+    ("pg", check_pg),
 ]
 
 
@@ -261,6 +282,9 @@ def _cmd(parser: argparse.ArgumentParser):
         ctx.root = ns.root
         problems = run_checks(ctx, skip={n for n in ns.skip.split(",") if n})
         for name, items in problems.items():
+            if name == "pg" and not os.environ.get("CATALOG_PG_DSN"):
+                print("skip pg (CATALOG_PG_DSN unset)")
+                continue
             print(f"{'FAIL' if items else 'ok  '} {name}" + (f" ({len(items)})" if items else ""))
             for item in items[:20]:
                 print(f"       {item}")

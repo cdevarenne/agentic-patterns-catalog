@@ -213,3 +213,21 @@ def test_repo_verifies_clean() -> None:
     skipped = {"compiled"} if partial else set()
     problems = {k: v for k, v in verify.run_checks(ctx).items() if v and k not in skipped}
     assert problems == {}, problems
+
+
+def test_pg_check_skips_without_dsn_and_reports_drift_with_one(monkeypatch, tmp_path, pg_dsn, pg_schema) -> None:
+    from tests.test_server import _p
+
+    from agentic_patterns_catalog import pgstore
+    fs = store.FileStore(tmp_path, tmp_path / "cache")
+    fs.put(_p("content-router"))
+    ctx = verify.VerifyContext(tmp_path, False, tmp_path, tmp_path, tmp_path / "eval.json", tmp_path / "t.json", tmp_path / "cache")
+    monkeypatch.delenv("CATALOG_PG_DSN", raising=False)
+    assert verify.check_pg(ctx) == []
+    monkeypatch.setenv("CATALOG_PG_DSN", pg_dsn)
+    monkeypatch.setenv("CATALOG_PG_SCHEMA", pg_schema)
+    pg = pgstore.PostgresStore(pg_dsn, schema=pg_schema)
+    pg.ensure_schema()
+    assert verify.check_pg(ctx) == ["postgres holds 0 patterns, files hold 1; run `catalog sync-pg`"]
+    pg.sync_from(fs)
+    assert verify.check_pg(ctx) == []

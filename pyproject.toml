@@ -22,6 +22,8 @@ lint = ["ruff>=0.16"]
 embed = ["fastembed>=0.7"]
 # MCP server (stdio and Streamable HTTP). Optional so the CLI stays free of an HTTP stack.
 mcp = ["fastmcp>=4,<5"]
+# Postgres mirror. Optional so a bare install stays free of a database driver.
+pg = ["psycopg[binary]>=3.2", "pgvector>=0.4"]
 
 [project.scripts]
 catalog = "agentic_patterns_catalog.cli:main"

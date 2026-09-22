@@ -96,3 +96,9 @@ To use OPA:
 
 The Rego file (`policy/catalog/authz.rego`) carries the role table. OPA data carries the subjects.
 
+## 8. Postgres Mirror
+
+When you use `CATALOG_STORE=pg` or `CATALOG_LEDGER=pg`, the database holds cached pattern content and activity records.
+The pattern content is licensed prose (© KORTEXYA SAS).
+The database must remain local to the host. Do not expose the PostgreSQL port or DSN to the public network.
+

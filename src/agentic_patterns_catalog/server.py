@@ -19,9 +19,10 @@ from fastmcp.server.middleware import CallNext, Middleware, MiddlewareContext
 from .cli import register
 from .model import Pattern
 from .paths import CATALOG_DIR
+from .pgstore import ledger_from_env, store_from_env
 from .policy import DEFAULT_OPA_URL, LOCAL_SUBJECT, Decision, PolicyDecisionPoint, pdp_from_env
 from .retrieval import Embedder, Selector, default_embedder
-from .store import ActivityEvent, FileStore, JsonlLedger, Ledger, Store
+from .store import ActivityEvent, Ledger, Store
 
 DEFAULT_BASE_URL = "http://localhost:8000"
 GOOGLE_SCOPES = ["openid", "https://www.googleapis.com/auth/userinfo.email"]
@@ -211,11 +212,13 @@ def _cmd(parser: argparse.ArgumentParser):
         try:
             settings = settings_from_env(os.environ, ns.http)
             pdp = pdp_from_env(os.environ)
+            store = store_from_env(os.environ, ns.root)
+            ledger = ledger_from_env(os.environ)
         except ValueError as e:
             print(f"serve: {e}", file=sys.stderr)
             return 2
         embedder = None if ns.no_embed else default_embedder()
-        mcp = build_server(FileStore(ns.root), pdp, JsonlLedger(), embedder,
+        mcp = build_server(store, pdp, ledger, embedder,
                            auth=google_auth(settings) if ns.http else None)
         if ns.http:
             mcp.run(transport="http", host=ns.host, port=ns.port, path="/mcp")
