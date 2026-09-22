@@ -1,7 +1,11 @@
-"""Authorization decision point. `AllowlistPDP` is the default; `OpaPDP` arrives with the policy layer."""
+"""Authorization decision point. `AllowlistPDP` is the default; `OpaPDP` queries an external OPA server."""
 from __future__ import annotations
 
+import json
 import os
+import urllib.error
+import urllib.request
+from collections.abc import Mapping
 from dataclasses import dataclass
 from typing import Any, Protocol
 
@@ -50,3 +54,42 @@ class AllowlistPDP:
         if tool not in TOOLS_BY_ROLE[role]:
             return Decision(False, f"role {role!r} may not call {tool!r}", role)
         return Decision(True, f"role {role!r} may call {tool!r}", role)
+
+
+OPA_DECISION_PATH = "/v1/data/catalog/authz/decision"
+DEFAULT_OPA_URL = "http://localhost:8181"
+
+
+class OpaPDP:
+    """Asks a local OPA. Fails closed: no answer, a malformed answer or an unreachable server is a deny."""
+
+    def __init__(self, url: str = DEFAULT_OPA_URL, access: str | None = None, timeout: float = 2.0) -> None:
+        if isinstance(access, (int, float)):
+            timeout = access
+            access = None
+        self.url = url.rstrip("/") + OPA_DECISION_PATH
+        self.access = access
+        self.timeout = timeout
+
+    def decide(self, subject: str, tool: str, args: dict[str, Any]) -> Decision:
+        body = json.dumps({"input": {"subject": subject, "tool": tool, "args": args}}).encode("utf-8")
+        req = urllib.request.Request(self.url, data=body, headers={"Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+                result = json.loads(resp.read()).get("result")
+        except (urllib.error.URLError, TimeoutError, ValueError) as e:
+            return Decision(False, f"OPA unreachable: {e}", None)
+        if not isinstance(result, dict) or "allow" not in result:
+            return Decision(False, "OPA returned no decision", None)
+        return Decision(bool(result["allow"]), str(result.get("reason", "")), result.get("role"))
+
+
+def pdp_from_env(env: Mapping[str, str]) -> PolicyDecisionPoint:
+    """`CATALOG_PDP=allowlist` (default) or `opa`. Any other value is a ValueError."""
+    kind = env.get("CATALOG_PDP", "allowlist")
+    if kind == "allowlist":
+        return AllowlistPDP(env.get("CATALOG_ACCESS", ""))
+    if kind == "opa":
+        return OpaPDP(env.get("OPA_URL", DEFAULT_OPA_URL))
+    raise ValueError(f"CATALOG_PDP={kind!r}; known: allowlist, opa")
+

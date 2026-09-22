@@ -19,7 +19,7 @@ from fastmcp.server.middleware import CallNext, Middleware, MiddlewareContext
 from .cli import register
 from .model import Pattern
 from .paths import CATALOG_DIR
-from .policy import LOCAL_SUBJECT, AllowlistPDP, Decision, PolicyDecisionPoint
+from .policy import DEFAULT_OPA_URL, LOCAL_SUBJECT, Decision, PolicyDecisionPoint, pdp_from_env
 from .retrieval import Embedder, Selector, default_embedder
 from .store import ActivityEvent, FileStore, JsonlLedger, Ledger, Store
 
@@ -170,6 +170,8 @@ class ServeSettings:
     base_url: str
     google_client_id: str | None
     google_client_secret: str | None
+    catalog_pdp: str = "allowlist"
+    opa_url: str = DEFAULT_OPA_URL
 
 
 def settings_from_env(env: Mapping[str, str], http: bool) -> ServeSettings:
@@ -179,8 +181,15 @@ def settings_from_env(env: Mapping[str, str], http: bool) -> ServeSettings:
         for name, value in (("GOOGLE_CLIENT_ID", client_id), ("GOOGLE_CLIENT_SECRET", secret)):
             if not value:
                 raise ValueError(f"--http needs {name} in the environment (see docs/auth.md)")
-    return ServeSettings(http, env.get("CATALOG_ACCESS", ""), env.get("CATALOG_BASE_URL", DEFAULT_BASE_URL),
-                         client_id, secret)
+    return ServeSettings(
+        http,
+        env.get("CATALOG_ACCESS", ""),
+        env.get("CATALOG_BASE_URL", DEFAULT_BASE_URL),
+        client_id,
+        secret,
+        env.get("CATALOG_PDP", "allowlist"),
+        env.get("OPA_URL", DEFAULT_OPA_URL),
+    )
 
 
 def google_auth(settings: ServeSettings) -> Any:
@@ -201,7 +210,7 @@ def _cmd(parser: argparse.ArgumentParser):
     def run(ns: argparse.Namespace) -> int:
         try:
             settings = settings_from_env(os.environ, ns.http)
-            pdp = AllowlistPDP(settings.access)
+            pdp = pdp_from_env(os.environ)
         except ValueError as e:
             print(f"serve: {e}", file=sys.stderr)
             return 2

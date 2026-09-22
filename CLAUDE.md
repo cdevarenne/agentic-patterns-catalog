@@ -19,7 +19,7 @@ useful, secure, repeatable, composable, deterministic-where-it-matters.
 - Facet values come from `catalog/vocab/facets.json` only. Adding a value = data change + schema regeneration.
 - Records are tracked; site content is a gitignored cache under `var/content/`. `catalog extract` and `catalog seed` refresh content and never overwrite `selection`.
 - Write docs, docstrings, comments and commit messages in ASD-STE100 Simplified Technical English.
-- Before every commit: `uv run --extra lint ruff check .` and `uv run pytest`.
+- Before every commit: ruff, pytest, and opa test policy/ (opa on PATH or $OPA_BIN).
 - Commits: one author, no assistant attribution. Every commit ships tests or says why it cannot.
 - Committed `index.json` and `generated/` reflect all 288 records. Run `catalog index && catalog compile && catalog verify` locally before committing; CI runs `verify --skip compiled`.
 

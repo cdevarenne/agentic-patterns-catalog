@@ -13,4 +13,7 @@ jobs:
       - run: uv sync --extra dev --extra lint
       - run: uv run --extra lint ruff check .
       - run: uv run pytest -q
+      - uses: open-policy-agent/setup-opa@v2
+      - run: opa test policy/
       - run: uv run catalog verify --skip compiled
+

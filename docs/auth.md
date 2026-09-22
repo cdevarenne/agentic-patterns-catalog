@@ -72,3 +72,27 @@ Once you create the Google Web application client, execute this checklist to ver
 - [ ] Complete the Google OAuth login prompt in your browser.
 - [ ] Confirm that `auth.subject` printed in the output matches your verified Google e-mail address.
 - [ ] Confirm that an `allow` decision row was appended to `var/activity.jsonl`.
+
+## 7. Open Policy Agent (OPA)
+
+You can use Open Policy Agent (OPA) as the Policy Decision Point (PDP).
+
+To use OPA:
+
+1. Set `CATALOG_PDP=opa` in your environment.
+2. Optional: Set `OPA_URL` if your OPA server runs at a different address than `http://localhost:8181`.
+3. Start the OPA server with the catalog policy bundle:
+   ```sh
+   opa run --server -b policy/ --set decision_logs.console=true
+   ```
+4. Load the subject access map into OPA data:
+   ```sh
+   curl -X PUT localhost:8181/v1/data/catalog/access -d '{"you@example.com":"curator"}'
+   ```
+5. Start the MCP server:
+   ```sh
+   uv run --env-file .env catalog serve --http
+   ```
+
+The Rego file (`policy/catalog/authz.rego`) carries the role table. OPA data carries the subjects.
+
