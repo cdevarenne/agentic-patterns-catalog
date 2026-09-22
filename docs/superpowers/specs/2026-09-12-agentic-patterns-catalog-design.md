@@ -189,12 +189,16 @@ class Ledger(Protocol):
 
 - `FileStore` + `JsonlLedger` (`var/activity.jsonl`) — default; no extra.
 - `PostgresStore` + `PostgresLedger` — extra `pg`; PostgreSQL 18 with pgvector 0.8.6 (verified
-  installed locally). Tables: `pattern(id pk, doc jsonb, content_sha256, updated_at)`,
-  `pattern_embedding(id fk, model, vec vector(n))`, `activity(id, ts, tool, subject, args jsonb,
-  hits text[], provenance jsonb)`. Records are loaded from files with `catalog sync-pg`; Postgres
-  is a mirror, never the source of truth in SP1.
+  installed locally). Five tables: `pattern(id pk, doc jsonb, content_sha256, updated_at)`,
+  `category(id pk, doc jsonb)`, `recipe(id pk, doc jsonb)`,
+  `pattern_embedding(id text, model text, vec vector, primary key (id, model))`, and
+  `activity(id bigserial pk, ts timestamptz, tool text, subject text, decision text, args jsonb, hits text[], provenance jsonb)` (amended 2026-09-21, Plan C).
+  `pattern.doc` holds the merged record (content included when cached); Postgres is a local mirror, never published (amended 2026-09-21, Plan C).
+  `pattern_embedding.vec` is an untyped vector (no fixed dimension) keyed by `(id, model)` (amended 2026-09-21, Plan C).
+  Records are loaded from files with `catalog sync-pg [--dsn DSN] [--schema SCHEMA] [--embeddings MODEL] [--root DIR]` (amended 2026-09-21, Plan C);
+  Postgres is a mirror, never the source of truth in SP1.
 - The Python agent uses `langgraph-checkpoint-postgres` when `pg` is present; in-memory otherwise.
-- `verify` runs its store checks against every configured store.
+- `verify` runs its store checks against every configured store: gains a `pg` check that runs only when `CATALOG_PG_DSN` is set and `psycopg` imports, comparing row counts and `content_version` between files and Postgres (skipped otherwise) (amended 2026-09-21, Plan C).
 
 ## 5. Retrieval — `select`
 
@@ -235,16 +239,26 @@ envelope's `retrieval_path` reads `bm25`. It never fails because a model file is
 
 ## 6. MCP server
 
-FastMCP v3 (`prefecthq/fastmcp`, Apache-2.0). One server object, two transports:
+FastMCP 4 (`fastmcp>=4,<5`, Apache-2.0) (amended 2026-09-21, Plan C). One server object, two transports:
 
 | Transport | AuthN | When |
 |---|---|---|
 | stdio | none; `auth.subject = "stdio-local"` | dev default; `.mcp.json` entry |
-| Streamable HTTP `http://localhost:8000/mcp` | `GoogleProvider(client_id, client_secret, base_url, required_scopes=["openid", "https://www.googleapis.com/auth/userinfo.email"])`, values from env (v3 has no automatic env loading) | when `CATALOG_HTTP=1` |
+| Streamable HTTP `http://localhost:8000/mcp` | `GoogleProvider(client_id, client_secret, base_url, required_scopes=["openid", "https://www.googleapis.com/auth/userinfo.email"])`, values from env; server refuses to start without Google client credentials (exit 2) (amended 2026-09-21, Plan C) | when `CATALOG_HTTP=1` or `catalog serve --http` |
 
-Tools: `list_categories`, `search_patterns(query, category?)`, `get_pattern(id)`,
-`get_example(id, language?)`, `select(task, facets?, k?)`, and for curators `put_pattern(record)`.
+In HTTP mode, the subject is `claims["email"]` only when `claims["email_verified"]` is `True` or `"true"`; otherwise the call is denied with reason `token has no verified e-mail` (amended 2026-09-21, Plan C).
+
+Tools:
+- `list_categories`: derived from records (`{id, patterns: n}`), not from `catalog/categories/` site prose (amended 2026-09-21, Plan C).
+- `search_patterns(query, category?)`: BM25 arm of the shared `Selector` (`arm_scores`), filtered by category, top `k` (default 10); no gate, no semantic arm (amended 2026-09-21, Plan C).
+- `get_pattern(id)`
+- `get_example(id, language?)`
+- `select(task, facets?, k?)`
+- `put_pattern(record)`: for curators.
+
 Names match the free pack's server so an agent prompt written for one works against the other.
+
+Ledger writes: every decision is decided and ledgered before the tool body runs. For an allowed `select` or `search_patterns` call, the ledger writes two rows: the decision row before the body (`decision: allow`, `hits: []`) and an `ActivityEvent` `result` row (`decision: result`) after it with hit ids and `{catalog_version, retrieval_path}`; denied calls and other tools write one row (amended 2026-09-21, Plan C).
 
 ### 6.1 AuthZ — `PolicyDecisionPoint` (the SP3 seam)
 
@@ -255,9 +269,7 @@ class PolicyDecisionPoint(Protocol):
 
 - `AllowlistPDP` (default): `CATALOG_ACCESS="a@x.com:curator,b@y.com:reader"`; roles `reader`
   (all read tools) and `curator` (also `put_pattern`). stdio subject is `curator`.
-- `OpaPDP` (extra `opa`): POST to `http://localhost:8181/v1/data/catalog/authz/decision` with
-  `{input: {subject, tool, args}}`; policies in `policy/catalog/authz.rego`; `opa test policy/` in
-  CI; the rego encodes the same role table so the two PDPs agree, and a test asserts that.
+- `OpaPDP`: uses Python stdlib HTTP client with no Python `opa` extra (amended 2026-09-21, Plan C); POST to `http://localhost:8181/v1/data/catalog/authz/decision` (configured via `OPA_URL`, default `http://localhost:8181`) with `{input: {subject, tool, args}}` (amended 2026-09-21, Plan C); policies in `policy/catalog/authz.rego`; `opa test policy/` in CI; the role map lives in OPA data `catalog.access` (`{subject: role}`) and the role table lives in Rego, matching `TOOLS_BY_ROLE` so both PDPs agree (amended 2026-09-21, Plan C).
 - Every decision, allow or deny, is appended to the `Ledger` before the tool body runs.
 
 ### 6.2 Google Cloud prerequisites (manual, documented in `docs/auth.md`)
@@ -372,7 +384,9 @@ is tested and would gain nothing from `requests`/`protego`. Documented runs:
 5. `select` (BM25 → +semantic → RRF); golden set; `catalog eval`. Check: `eval.json`.
 6. MCP server stdio → HTTP + GoogleProvider → `AllowlistPDP` → `OpaPDP`; `Ledger`. Check: PDP
    parity test; denied/allowed cases with a fake token verifier; one manual login documented.
+   Done in Plan C (commits `039ae62`, `0320580`, `a17bfd0`, `c103c2e`, `64c2327`, `b3a2946`).
 7. `PostgresStore`/`PostgresLedger` + `sync-pg`; `verify` against both stores.
+   Done in Plan C (commit `a8b4176`).
 8. Skill; Python agent; Kotlin agent. Check: same hits + provenance on the golden tasks.
 9. One recipe (`drone-flight-plan`); recipe checks in `verify`; recipe-derived eval cases.
 10. Enrichment across priority categories; CI.

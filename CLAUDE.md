@@ -22,7 +22,8 @@ useful, secure, repeatable, composable, deterministic-where-it-matters.
 - Before every commit: ruff, pytest, and opa test policy/ (opa on PATH or $OPA_BIN).
 - Commits: one author, no assistant attribution. Every commit ships tests or says why it cannot.
 - Committed `index.json` and `generated/` reflect all 288 records. Run `catalog index && catalog compile && catalog verify` locally before committing; CI runs `verify --skip compiled`.
+- `catalog serve` reads its settings from the environment; never load `.env` in code.
 
 ## Toolchain
-Python 3.14 + uv. `uv sync --extra dev`; `uv run pytest`; `uv run catalog …`.
+Python 3.14 + uv. `uv sync --extra dev` (extras: `mcp`, `pg`, `embed`, `dev`, `lint`); `uv run pytest`; `uv run catalog …`.
 New dependencies that the deterministic path does not need go in an extra.

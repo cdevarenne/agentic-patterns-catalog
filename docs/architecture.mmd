@@ -11,9 +11,15 @@ flowchart TB
     seed["catalog seed<br/>pack JSON → same schema"]
   end
 
-  subgraph store["Store (interface)"]
-    files[("files<br/>catalog/patterns/**.json<br/>default, bare install")]
-    pg[("PostgreSQL 18 + pgvector<br/>JSONB records · embeddings<br/>activity ledger · LangGraph checkpoints<br/>optional, extra 'pg'")]
+  subgraph store["Store &amp; Ledger (interfaces)"]
+    subgraph stores["Store {file, pg}"]
+      files[("FileStore<br/>catalog/patterns/**.json<br/>default, bare install")]
+      pg_store[("PostgresStore<br/>5 tables · merged docs<br/>optional, extra 'pg'")]
+    end
+    subgraph ledgers["Ledger {jsonl, pg}"]
+      jsonl_ledger[("JsonlLedger<br/>var/activity.jsonl<br/>default")]
+      pg_ledger[("PostgresLedger<br/>activity table<br/>optional, extra 'pg'")]
+    end
   end
 
   subgraph l1["L1 — Enrich"]
@@ -32,11 +38,16 @@ flowchart TB
 
   subgraph l3["L3 — Serve"]
     select["select()<br/>facets → BM25 ∥ semantic → RRF"]
-    mcp["FastMCP server<br/>list_categories · search_patterns<br/>get_pattern · get_example · select"]
+    server["server.py (catalog serve)<br/>stdio / HTTP + Google OAuth"]
+    mcp["FastMCP 4 server<br/>list_categories · search_patterns<br/>get_pattern · get_example · select · put_pattern"]
     cli["CLI  catalog …"]
-    authn["AuthN: none (stdio) |<br/>GoogleProvider OAuth proxy (HTTP)"]
-    pdp["PolicyDecisionPoint (interface)<br/>static allowlist (default) | OPA over HTTP"]
-    opa["opa run --server<br/>policy/*.rego"]
+    middleware["PolicyMiddleware<br/>runs before tool body"]
+    subgraph pdp_group["PDP {Allowlist, OPA}"]
+      pdp["PolicyDecisionPoint (interface)"]
+      allowlist["AllowlistPDP (default)"]
+      opa_pdp["OpaPDP (HTTP)"]
+    end
+    opa["opa run --server<br/>policy/catalog/authz.rego"]
   end
 
   subgraph consumers["Consumers"]
@@ -52,23 +63,27 @@ flowchart TB
 
   mirror --> extract --> files
   pack --> seed --> files
-  files <--> pg
+  files -- "sync-pg" --> pg_store
   files --> enrich --> review --> files
   files --> compile
   compile --> catmd & guides & sheets & recipes & emb
   files --> select
+  pg_store -. "CATALOG_STORE=pg" .-> select
   emb --> select
   select --> mcp
   select --> cli
-  mcp --- authn
-  mcp --- pdp
-  pdp -. optional .-> opa
-  mcp -- activity --> pg
+  server --> mcp
+  mcp --> middleware
+  middleware --> pdp
+  pdp --> allowlist & opa_pdp
+  opa_pdp -. "HTTP" .-> opa
+  middleware -- "append (allow/deny/result)" --> jsonl_ledger & pg_ledger
   mcp --> skill & py & kt
   catmd --> skill
-  py -. checkpoints .-> pg
+  py -. checkpoints .-> pg_store
   files --> eval --> ver
   compile --> ver
+  pg_store -. "verify pg" .-> ver
 
   subgraph roadmap["Roadmap (each: own ADR + spec)"]
     direction LR
