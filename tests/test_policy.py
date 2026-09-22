@@ -13,7 +13,6 @@ from agentic_patterns_catalog import policy
 POLICY_DIR = Path(__file__).resolve().parents[1] / "policy"
 
 
-
 def test_parse_access_string() -> None:
     pdp = policy.AllowlistPDP("a@x.com:curator, b@y.com:reader")
     assert pdp.roles == {"a@x.com": "curator", "b@y.com": "reader"}
@@ -124,8 +123,11 @@ def test_opa_unit_tests_pass() -> None:
 @needs_opa
 @pytest.mark.parametrize(
     ("subject", "tool"),
-    [(s, t) for s in ("stdio-local", "a@x.com", "b@y.com", "nobody@x.com")
-     for t in ("select", "get_pattern", "put_pattern", "drop_everything")],
+    [
+        (s, t)
+        for s in ("stdio-local", "a@x.com", "b@y.com", "nobody@x.com")
+        for t in ("select", "get_pattern", "put_pattern", "drop_everything")
+    ],
 )
 def test_rego_agrees_with_the_allowlist(subject: str, tool: str, tmp_path: Path) -> None:
     access = "a@x.com:curator,b@y.com:reader"
@@ -134,8 +136,23 @@ def test_rego_agrees_with_the_allowlist(subject: str, tool: str, tmp_path: Path)
     data.write_text(json.dumps({"catalog": {"access": policy.parse_access(access)}}))
     inp = tmp_path / "input.json"
     inp.write_text(json.dumps({"subject": subject, "tool": tool, "args": {}}))
-    out = subprocess.run([opa_bin(), "eval", "-f", "json", "-d", str(POLICY_DIR), "-d", str(data), "-i", str(inp),
-                          "data.catalog.authz.decision"], check=True, capture_output=True, text=True).stdout
+    out = subprocess.run(
+        [
+            opa_bin(),
+            "eval",
+            "-f",
+            "json",
+            "-d",
+            str(POLICY_DIR),
+            "-d",
+            str(data),
+            "-i",
+            str(inp),
+            "data.catalog.authz.decision",
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout
     got = json.loads(out)["result"][0]["expressions"][0]["value"]
     assert (got["allow"], got["role"]) == (expected.allow, expected.role)
-

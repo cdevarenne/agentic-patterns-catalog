@@ -1,4 +1,5 @@
 """Authorization decision point. `AllowlistPDP` is the default; `OpaPDP` queries an external OPA server."""
+
 from __future__ import annotations
 
 import json
@@ -9,7 +10,9 @@ from collections.abc import Mapping
 from dataclasses import dataclass
 from typing import Any, Protocol
 
-READ_TOOLS = frozenset({"list_categories", "search_patterns", "get_pattern", "get_example", "select"})
+READ_TOOLS = frozenset(
+    {"list_categories", "search_patterns", "get_pattern", "get_example", "select"}
+)
 TOOLS_BY_ROLE: dict[str, frozenset[str]] = {
     "reader": READ_TOOLS,
     "curator": READ_TOOLS | {"put_pattern"},
@@ -36,7 +39,9 @@ def parse_access(access: str) -> dict[str, str]:
         if not sep or not subject or not role:
             raise ValueError(f"CATALOG_ACCESS entry {entry!r} is not SUBJECT:ROLE")
         if role not in TOOLS_BY_ROLE:
-            raise ValueError(f"unknown role {role!r} for {subject!r}; known: {', '.join(sorted(TOOLS_BY_ROLE))}")
+            raise ValueError(
+                f"unknown role {role!r} for {subject!r}; known: {', '.join(sorted(TOOLS_BY_ROLE))}"
+            )
         roles[subject] = role
     return roles
 
@@ -45,7 +50,9 @@ class AllowlistPDP:
     """Subject → role from an access string (argument, else `CATALOG_ACCESS`). Local stdio is a curator."""
 
     def __init__(self, access: str | None = None) -> None:
-        self.roles = parse_access(access if access is not None else os.environ.get("CATALOG_ACCESS", ""))
+        self.roles = parse_access(
+            access if access is not None else os.environ.get("CATALOG_ACCESS", "")
+        )
 
     def decide(self, subject: str, tool: str, args: dict[str, Any]) -> Decision:
         role = "curator" if subject == LOCAL_SUBJECT else self.roles.get(subject)
@@ -63,7 +70,9 @@ DEFAULT_OPA_URL = "http://localhost:8181"
 class OpaPDP:
     """Asks a local OPA. Fails closed: no answer, a malformed answer or an unreachable server is a deny."""
 
-    def __init__(self, url: str = DEFAULT_OPA_URL, access: str | None = None, timeout: float = 2.0) -> None:
+    def __init__(
+        self, url: str = DEFAULT_OPA_URL, access: str | None = None, timeout: float = 2.0
+    ) -> None:
         if isinstance(access, (int, float)):
             timeout = access
             access = None
@@ -72,8 +81,12 @@ class OpaPDP:
         self.timeout = timeout
 
     def decide(self, subject: str, tool: str, args: dict[str, Any]) -> Decision:
-        body = json.dumps({"input": {"subject": subject, "tool": tool, "args": args}}).encode("utf-8")
-        req = urllib.request.Request(self.url, data=body, headers={"Content-Type": "application/json"})
+        body = json.dumps({"input": {"subject": subject, "tool": tool, "args": args}}).encode(
+            "utf-8"
+        )
+        req = urllib.request.Request(
+            self.url, data=body, headers={"Content-Type": "application/json"}
+        )
         try:
             with urllib.request.urlopen(req, timeout=self.timeout) as resp:
                 result = json.loads(resp.read()).get("result")
@@ -92,4 +105,3 @@ def pdp_from_env(env: Mapping[str, str]) -> PolicyDecisionPoint:
     if kind == "opa":
         return OpaPDP(env.get("OPA_URL", DEFAULT_OPA_URL))
     raise ValueError(f"CATALOG_PDP={kind!r}; known: allowlist, opa")
-
