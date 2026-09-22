@@ -42,9 +42,16 @@ Without uv: `python3.14 -m venv .venv && . .venv/bin/activate && pip install -e 
 | `catalog index` | write `catalog/index.json` |
 | `catalog compile [--local]` | write `CATALOG.md`, `CATALOG-full.md`, guides, sheets |
 | `catalog select "task" [--facet k=v] [-k N]` | pick patterns for a task; `--json` for the full envelope |
+| `catalog serve [--http]` | run the MCP server (stdio by default; `--http` for Streamable HTTP with Google login) |
 | `catalog eval` | golden set → `docs/data/eval.json` |
 | `catalog calibrate` | evidence for the off-topic gate → `docs/data/floor-calibration.json` |
 | `catalog verify` | every check; exit 1 on any problem |
+
+## MCP server
+
+Run the catalog as a Model Context Protocol server over stdio or Streamable HTTP.
+Local clients like Claude Code can run the stdio server directly using `.mcp.json`.
+For remote HTTP access with Google OAuth authentication and access control, see `docs/auth.md`.
 
 ## Provenance
 

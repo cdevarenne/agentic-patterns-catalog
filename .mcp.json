@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "agentic-patterns-catalog": {
+      "command": "uv",
+      "args": ["run", "--extra", "mcp", "catalog", "serve"]
+    }
+  }
+}

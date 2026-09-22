@@ -182,3 +182,24 @@ def test_put_pattern_writes_through_the_store(mcp, fs, ledger: ListLedger) -> No
 ])
 def test_subject_from_claims(claims: dict[str, Any], expected: str | None) -> None:
     assert server.subject_from_claims(claims) == expected
+
+
+def test_http_settings_require_google_client(monkeypatch) -> None:
+    with pytest.raises(ValueError, match="GOOGLE_CLIENT_ID"):
+        server.settings_from_env({}, http=True)
+    s = server.settings_from_env({"GOOGLE_CLIENT_ID": "id", "GOOGLE_CLIENT_SECRET": "s"}, http=True)
+    assert s.base_url == "http://localhost:8000" and s.http is True
+
+
+def test_stdio_settings_need_nothing() -> None:
+    s = server.settings_from_env({}, http=False)
+    assert (s.http, s.google_client_id, s.access) == (False, None, "")
+
+
+def test_serve_http_without_secrets_exits_2(capsys, monkeypatch) -> None:
+    monkeypatch.delenv("GOOGLE_CLIENT_ID", raising=False)
+    monkeypatch.delenv("GOOGLE_CLIENT_SECRET", raising=False)
+    from agentic_patterns_catalog.cli import main
+    assert main(["serve", "--http"]) == 2
+    assert "GOOGLE_CLIENT_ID" in capsys.readouterr().err
+

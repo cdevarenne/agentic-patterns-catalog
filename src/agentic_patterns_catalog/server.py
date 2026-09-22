@@ -1,8 +1,14 @@
 """MCP server. One server object; stdio for local use, Streamable HTTP with Google login for remote use."""
 from __future__ import annotations
 
+import argparse
+import os
+import sys
 from collections import Counter
+from collections.abc import Mapping
+from dataclasses import dataclass
 from datetime import UTC, datetime
+from pathlib import Path
 from typing import Any
 
 from fastmcp import FastMCP
@@ -10,14 +16,19 @@ from fastmcp.exceptions import ToolError
 from fastmcp.server.dependencies import get_access_token, get_http_request
 from fastmcp.server.middleware import CallNext, Middleware, MiddlewareContext
 
+from .cli import register
 from .model import Pattern
-from .policy import LOCAL_SUBJECT, Decision, PolicyDecisionPoint
-from .retrieval import Embedder, Selector
-from .store import ActivityEvent, Ledger, Store
+from .paths import CATALOG_DIR
+from .policy import LOCAL_SUBJECT, AllowlistPDP, Decision, PolicyDecisionPoint
+from .retrieval import Embedder, Selector, default_embedder
+from .store import ActivityEvent, FileStore, JsonlLedger, Ledger, Store
 
+DEFAULT_BASE_URL = "http://localhost:8000"
+GOOGLE_SCOPES = ["openid", "https://www.googleapis.com/auth/userinfo.email"]
 SERVER_NAME = "agentic-patterns-catalog"
 RESULT_TOOLS = frozenset({"select", "search_patterns"})
 UNKNOWN_SUBJECT = "unknown"
+
 
 
 def utc_now() -> str:
@@ -150,3 +161,57 @@ def build_server(store: Store, pdp: PolicyDecisionPoint, ledger: Ledger,
         return {"id": pattern.id, "status": "written"}
 
     return mcp
+
+
+@dataclass(frozen=True)
+class ServeSettings:
+    http: bool
+    access: str
+    base_url: str
+    google_client_id: str | None
+    google_client_secret: str | None
+
+
+def settings_from_env(env: Mapping[str, str], http: bool) -> ServeSettings:
+    """Read the server's settings. HTTP needs the Google client; a missing variable is a ValueError that names it."""
+    client_id, secret = env.get("GOOGLE_CLIENT_ID"), env.get("GOOGLE_CLIENT_SECRET")
+    if http:
+        for name, value in (("GOOGLE_CLIENT_ID", client_id), ("GOOGLE_CLIENT_SECRET", secret)):
+            if not value:
+                raise ValueError(f"--http needs {name} in the environment (see docs/auth.md)")
+    return ServeSettings(http, env.get("CATALOG_ACCESS", ""), env.get("CATALOG_BASE_URL", DEFAULT_BASE_URL),
+                         client_id, secret)
+
+
+def google_auth(settings: ServeSettings) -> Any:
+    from fastmcp.server.auth.providers.google import GoogleProvider
+
+    return GoogleProvider(client_id=settings.google_client_id, client_secret=settings.google_client_secret,
+                          base_url=settings.base_url, required_scopes=GOOGLE_SCOPES)
+
+
+@register("serve", "run the MCP server (stdio by default; --http for Streamable HTTP with Google login)")
+def _cmd(parser: argparse.ArgumentParser):
+    parser.add_argument("--http", action="store_true", help="Streamable HTTP on --host/--port; needs GOOGLE_CLIENT_*")
+    parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument("--port", type=int, default=8000)
+    parser.add_argument("--no-embed", action="store_true", help="BM25 only")
+    parser.add_argument("--root", type=Path, default=CATALOG_DIR)
+
+    def run(ns: argparse.Namespace) -> int:
+        try:
+            settings = settings_from_env(os.environ, ns.http)
+            pdp = AllowlistPDP(settings.access)
+        except ValueError as e:
+            print(f"serve: {e}", file=sys.stderr)
+            return 2
+        embedder = None if ns.no_embed else default_embedder()
+        mcp = build_server(FileStore(ns.root), pdp, JsonlLedger(), embedder,
+                           auth=google_auth(settings) if ns.http else None)
+        if ns.http:
+            mcp.run(transport="http", host=ns.host, port=ns.port, path="/mcp")
+        else:
+            mcp.run(transport="stdio")
+        return 0
+    return run
+
