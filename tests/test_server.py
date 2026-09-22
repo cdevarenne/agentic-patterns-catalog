@@ -124,6 +124,28 @@ def test_select_writes_a_result_row_with_hit_ids(mcp, ledger: ListLedger) -> Non
     assert result.provenance == {"catalog_version": env["catalog_version"], "retrieval_path": "bm25"}
 
 
+def test_search_patterns_writes_a_result_row_with_hit_ids(mcp, ledger: ListLedger) -> None:
+    hits = call(mcp, "search_patterns", query="router")["result"]
+    assert [e.decision for e in ledger.events] == ["allow", "result"]
+    result = ledger.events[1]
+    assert result.hits == [h["id"] for h in hits]
+    assert result.provenance == {}
+
+
+def test_current_subject_is_none_over_http_with_no_token(monkeypatch) -> None:
+    monkeypatch.setattr(server, "get_http_request", lambda: object())
+    monkeypatch.setattr(server, "get_access_token", lambda: None)
+    assert server.current_subject() is None
+
+
+def test_current_subject_is_local_over_stdio(monkeypatch) -> None:
+    def _raise() -> None:
+        raise RuntimeError("no active HTTP request")
+    monkeypatch.setattr(server, "get_http_request", _raise)
+    monkeypatch.setattr(server, "get_access_token", lambda: None)
+    assert server.current_subject() == "stdio-local"
+
+
 def test_denied_call_is_written_and_the_body_does_not_run(fs, ledger: ListLedger, monkeypatch) -> None:
     # The in-memory transport has no token, so the subject is stdio-local (a curator). Force a reader
     # to prove the deny path: patch current_subject.

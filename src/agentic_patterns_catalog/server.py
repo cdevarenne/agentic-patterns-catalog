@@ -7,7 +7,7 @@ from typing import Any
 
 from fastmcp import FastMCP
 from fastmcp.exceptions import ToolError
-from fastmcp.server.dependencies import get_access_token
+from fastmcp.server.dependencies import get_access_token, get_http_request
 from fastmcp.server.middleware import CallNext, Middleware, MiddlewareContext
 
 from .model import Pattern
@@ -32,10 +32,15 @@ def subject_from_claims(claims: dict[str, Any]) -> str | None:
 
 
 def current_subject() -> str | None:
-    """`stdio-local` when no token is present (stdio), else the token's verified e-mail, else None."""
+    """The token's verified e-mail, or None with a token but no verified e-mail. With no token: `stdio-local`
+    over stdio (no HTTP request is active), else None — an anonymous network caller never becomes local."""
     token = get_access_token()
     if token is None:
-        return LOCAL_SUBJECT
+        try:
+            get_http_request()
+        except RuntimeError:
+            return LOCAL_SUBJECT
+        return None
     return subject_from_claims(token.claims or {})
 
 
